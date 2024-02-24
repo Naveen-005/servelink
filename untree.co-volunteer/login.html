@@ -26,12 +26,40 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<style>
+	.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  padding: 10px;
+}
+
+.home-btn {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+  background-color: rgb(33, 33, 32);
+}
+
+.home-btn:hover {
+  background-color: #343434;
+  border-color: #3c3c3c;
+}
+
+  </style>
 </head>
 <body>
 	
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/v1.jpg');">
 			<div class="wrap-login100">
+				<nav class="navbar">
+					<a href="index.html" class="home-btn">Home</a>
+				  </nav>
 				<form class="login100-form validate-form">
 					
 

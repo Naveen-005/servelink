@@ -24,12 +24,43 @@
 
     <!-- Main CSS-->
     <link href="css/main2.css" rel="stylesheet" media="all">
+    <style>
+        .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      
+      padding: 10px;
+    }
+    
+    .home-btn {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      border: 1px solid transparent;
+      transition: background-color 0.3s, border-color 0.3s;
+      background-color: rgb(33, 33, 32);
+    }
+    
+    .home-btn:hover {
+      background-color: #343434;
+      border-color: #3c3c3c;
+    }
+    
+     
+  
+  </style>
 </head>
 
 <body>
+  
    
     <div class="page-wrapper container-login100 font-poppins"style="background-image: url('images/v3.webp'); ">
         <div class="wrapper wrapper--w680">
+            <nav class="navbar">
+                <a href="index.html" class="home-btn">Home</a>
+              </nav>
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
@@ -51,7 +82,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Birthday</label>
+                                    <label class="label">DOB</label>
                                     <div class="input-group-icon">
                                         <input class="input--style-4 js-datepicker" type="text" name="birthday">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>

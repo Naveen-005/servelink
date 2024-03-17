@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-//const mongoose = require('mongoose');
 var passwordHash = require('password-hash');
 const {VolunteerModel} = require('../../database/db')
 

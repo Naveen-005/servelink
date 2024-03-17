@@ -13,7 +13,7 @@ var organizationRegistration_Router=require('./routes/register/organization');
 
 var app = express();
 
-var test = require('./database')
+var test = require('./database/db')
 
 app.use(cors());
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//app.use('/login/volunteer',loginRouter_Volunteer);
+app.use('/login/volunteer',loginRouter_Volunteer);
 //app.use('/login/organization',loginRouter_Organization);
 app.use('/register/volunteer',volunteerRegistration_Router);
 //app.use('/register/organization',organizationRegistration_Router);

@@ -1,7 +1,7 @@
 import React from 'react';
 import Index from './pages/index';
 import About from './pages/about';
-import News from './pages/news';
+import Events from './pages/events';
 import Contact from './pages/contact';
 import Login from './pages/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -18,12 +18,13 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/news" element={<News />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/Orglog" element={<Orglog />} />
+        <Route path="/login-organization" element={<Orglog />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/orgreg" element={<Orgreg />} />
+        <Route path="/register-organization" element={<Orgreg />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/*" element={<Index />} />
       </Routes>
     </BrowserRouter>
   );

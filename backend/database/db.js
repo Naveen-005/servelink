@@ -33,5 +33,15 @@ const eventSchema = new Schema({
 const eventModel = mongoose.model('Events',eventSchema);
 
 
+const addeventSchema = new Schema({
+  eventName: String,
+  name: String,
+  location: String,
+  phone:String,
+  date: Date
+});
+const addevent = mongoose.model('AddEvent',addeventSchema);
 
-module.exports = {VolunteerModel,organizationModel,eventModel}
+
+
+module.exports = {VolunteerModel,organizationModel,eventModel,addevent};

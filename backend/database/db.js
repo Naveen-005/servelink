@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 mongoose.connect(config.mongodb_url)
-  .then(() => console.log('Connected!'))
+  .then(() => console.log('MongoDb Connected!'))
   .catch((err)=>{
     console.log("mongodb eroor: ",err)
 });
@@ -34,12 +34,18 @@ const eventModel = mongoose.model('Events',eventSchema);
 
 
 const addeventSchema = new Schema({
-  eventName: String,
-  name: String,
-  location: String,
-  phone:String,
-  date: Date
+  name:{
+      type:String,
+      required:true
+  },
+  location:{
+      type:String,
+  },
+  date:{
+      type:Date,      
+  }
 });
+
 const addevent = mongoose.model('AddEvent',addeventSchema);
 
 

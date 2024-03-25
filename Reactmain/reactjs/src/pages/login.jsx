@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Link } from 'react-router-dom';
 
 
 function Login() {
@@ -17,7 +18,7 @@ function Login() {
 		<div className="container-login100" style={{backgroundImage: "url('assets/images/v1.jpg')"}}>
 			<div className="wrap-login100">
 				<nav className="navbar1">
-					<a href="index.html" className="home-btn">Home</a>
+				<Link className="txt1 " to="/index" style={{textDecoration:"none",color:"darkgrey"}} >Home <span className="sr-only"></span></Link>
 				  </nav>
 				<form className="login100-form validate-form">
 					
@@ -50,13 +51,10 @@ function Login() {
 					</div>
 					
 					<div className="text-center p-t-90">
-						<a className="txt1" href="register.html">
-							Register?
-						</a>
+					<Link className="txt1 " to="/register" style={{textDecoration:"none"}} >Register? <span className="sr-only"></span></Link>
 						<br/>
-						<a className="txt1" href="#">
-							Forgot Password?
-						</a>
+						<Link className="txt1 " to="" style={{textDecoration:"none"}} >Forgot password? <span className="sr-only"></span></Link>
+						<br/>
 					</div>
 				</form>
 			</div>

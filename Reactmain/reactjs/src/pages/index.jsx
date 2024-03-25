@@ -181,20 +181,20 @@ function Index() {
 					<div className="row justify-content-between">
 						<div className="col-lg-5 pe-lg-5" data-aos="fade-up" data-aos-delay="200">
 
-							<ul className="nav nav-pills mb-5 custom-nav-pills" id="pills-tab" role="tablist">
-								<li className="nav-item" role="presentation">
-									<button className="nav-link active" id="pills-mission-tab" data-bs-toggle="pill" data-bs-target="#pills-mission" type="button" role="tab" aria-controls="pills-mission" aria-selected="true" >Our Mission</button>
+							<ul className="nav1 nav1-pills mb-5 custom-nav-pills" id="pills-tab" role="tablist">
+								<li className="nav1-item" role="presentation">
+									<button className="nav1-link active" id="pills-mission-tab" data-bs-toggle="pill" data-bs-target="#pills-mission" type="button" role="tab" aria-controls="pills-mission" aria-selected="true" >Our Mission</button>
 								</li>
-								<li className="nav-item" role="presentation">
-									<button className="nav-link" id="pills-values-tab" data-bs-toggle="pill" data-bs-target="#pills-values" type="button" role="tab" aria-controls="pills-values" aria-selected="false">Our Values</button>
+								<li className="nav1-item" role="presentation">
+									<button className="nav1-link" id="pills-values-tab" data-bs-toggle="pill" data-bs-target="#pills-values" type="button" role="tab" aria-controls="pills-values" aria-selected="false">Our Values</button>
 								</li>
-								<li className="nav-item" role="presentation">
-									<button className="nav-link" id="pills-history-tab" data-bs-toggle="pill" data-bs-target="#pills-history" type="button" role="tab" aria-controls="pills-history" aria-selected="false">Our History</button>
+								<li className="nav1-item" role="presentation">
+									<button className="nav1-link" id="pills-history-tab" data-bs-toggle="pill" data-bs-target="#pills-history" type="button" role="tab" aria-controls="pills-history" aria-selected="false">Our History</button>
 								</li>
 							</ul>
-							<div className="tab-content" id="pills-tabContent">
+							<div className="tab-content" id="pills-tabContent" >
 								<div className="tab-pane fade show active" id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" >
-									<h2 className="mb-3 text-primary fw-bold" >Our Mission</h2>
+									<h2 className="mb-3  fw-bold" style={{color:"#59886b"}} >Our Mission</h2>
 									<p align="justify"> Our mission is to revolutionize the landscape of volunteer engagement by providing a centralized platform that
 										seamlessly connects volunteers with organizations in need. By addressing the current challenges of recruitment,
 										management, and retention faced by organizations, we aim to create a dynamic and efficient ecosystem where volunteers
@@ -207,7 +207,7 @@ function Index() {
 
 								</div>
 								<div className="tab-pane fade" id="pills-values" role="tabpanel" aria-labelledby="pills-values-tab">
-									<h2 className="mb-3 text-primary fw-bold">Our Values</h2>
+									<h2 className="mb-3 fw-bold" style={{color:"#59886b"}}>Our Values</h2>
 									<p align="justify">At ServeLink, our values are at the core of everything we do. We are committed to empowering individuals to make
 										a meaningful impact in their communities by providing a comprehensive volunteer connecting system that streamlines
 										processes, enhances transparency, and matches volunteers with opportunities tailored to their location, skills, and
@@ -219,13 +219,13 @@ function Index() {
 										it's a vibrant community united by the shared goal of creating positive change and making a difference in the world.</p>
 
 									<p className="mt-5">
-										<a href="login.html" className="btn btn-primary me-4">Be A Volunteer</a>
+										<Link className="btn btn-primary me-4" to="/login">Be A Volunteer</Link>
 
 									</p>
 								</div>
 								<div className="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
 
-									<h2 className="mb-3 text-primary fw-bold">Our History</h2>
+									<h2 className="mb-3 fw-bold"style={{color:"#59886b"}}>Our History</h2>
 									<p align="justify">ServeLink traces its humble beginnings back to the year 2024 when a group
 										of passionate computer science students embarked on a journey to create
 										a platform that would revolutionize the way communities connect through
@@ -245,8 +245,10 @@ function Index() {
 						</div>
 						<div className="col-lg-6">
 							<div className="overlap-imgs">
-								<img src={"assets/images/img_v_2-min.jpg"} alt="Image" className="img-fluid rounded" data-aos="fade-up" />
-								<img src={"assets/images/img_v_3-min.jpg"} alt="Image" className="img-fluid rounded" data-aos="fade-up" />
+								<img src={"assets/images/vol3.jpg"} alt="Image" className="img-fluid rounded" data-aos="fade-up" />
+								<img src={"assets/images/img_pp_2.jpg"} alt="Image" className="img-fluid rounded" data-aos="fade-up" />
+								<img src={"assets/images/img_pp_1.jpg"} alt="Image" className="img-fluid rounded" data-aos="fade-up" />
+								
 							</div>
 						</div>
 					</div>
@@ -277,144 +279,12 @@ function Index() {
 
 
 
-				{/*
-
-		<div className="container mb-5">
-			<div className="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
-				 <div className="features-slider" id="features-slider"> 
-                  <Slider {...settings} className="features-slider">
-					<div className="item">
-						<div className="causes-item bg-white">
-							<a href="#"><img src={"assets/images/img_v_1-min.jpg"} alt="Image" className="img-fluid mb-4 rounded"/></a>
-							<div className="px-4 pb-5 pt-3" >
-
-								<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Food for the Hungry</a></h3>
-								<p align="justify">  "Food for the Hungry" involves organizing community food drives and meal distribution events.
-									 Volunteers can collaborate with local businesses, schools, and religious organizations to collect
-									  non-perishable food items and prepare nutritious meals for those in need. Additionally, volunteers can
-									   support urban farming initiatives to cultivate fresh produce in underserved areas, providing communities
-									   	 with access to healthy food options. Through these efforts, 
-									volunteers can play a crucial role in alleviating hunger and promoting food security among vulnerable populations.
-								
-                                    Volunteers dedication ensures no one goes hungry.</p>
-                               
-							</div>
-						</div>
-					</div>
-
-
-					<div className="item">
-						<div className="causes-item bg-white">
-							<a href="#"><img src={"assets/images/img_v_2-min.jpg"} alt="Image" className="img-fluid mb-4 rounded"/></a>
-							<div className="px-4 pb-5 pt-3">
-								<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Education for Children</a></h3>
-								<p align="justify"> Volunteers can offer one-on-one or group tutoring sessions to support children in their academic
-									 studies, focusing on subjects where they may need additional help or guidance. Additionally, 
-									 volunteers can serve as mentors, providing encouragement, guidance, and positive role modeling 
-									 to help children develop essential life skills and pursue their educational goals. By volunteering 
-									 their time and expertise, individuals can make a meaningful difference in the lives of children,
-									 empowering them to succeed academically and unlock their full potential.
-									 
-                                       Volunteers help children to achieve success.
-									 
-									 
-									 </p>
-                            
-							</div>
-						</div>
-					</div>
-
-					<div className="item">
-						<div className="causes-item bg-white">
-							<a href="#"><img src={"assets/images/img_v_3-min.jpg"} alt="Image" className="img-fluid mb-4 rounded"/></a>
-							<div className="px-4 pb-5 pt-3">
-								<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Support Livelihood</a></h3>
-								<p align="justify">Supporting livelihoods through volunteering is a cornerstone of our mission. We believe
-								in empowering individuals and communities to achieve economic self-sufficiency and financial
-								stability. Through our volunteering website, volunteers have the opportunity to contribute to various
-								initiatives aimed at supporting livelihoods, such as skills training programs, microenterprise development
-								projects, and job placement assistance services. By volunteering their time and expertise, individuals can
-								help marginalized populations gain access to education and training, and resources.
-								 </p>
-
-								
-							</div>
-						</div>
-					</div>
-
-
-					<div className="item">
-						<div className="causes-item bg-white">
-							<a href="#"><img src={"assets/images/p2.jpg"} alt="Image" className="img-fluid mb-4 rounded"/></a>
-							<div className="px-4 pb-5 pt-3">
-
-								<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Environmental Conservation</a></h3>
-								<p align="justify">Volunteering activities in environmental conservation encompass a wide range of
-									 impactful initiatives aimed at protecting and preserving the natural world. Volunteers 
-									 participate in tree planting events to restore ecosystems, engage in beach clean-ups to 
-									 remove litter and debris from coastal areas, and assist with habitat restoration projects 
-									 to support biodiversity. Additionally, volunteers may contribute to wildlife monitoring efforts,
-									  conduct environmental education and outreach programs, and advocate for sustainable practices 
-									  within their communities.Volunteers also advocate for policy changes. </p>
-                              
-							</div>
-						</div>
-					</div>
-
-
-					<div className="item">
-						<div className="causes-item bg-white">
-							<a href="#"><img src={"assets/images/m1.jpg"} alt="Image" className="img-fluid mb-4 rounded"/></a>
-							<div className="px-4 pb-5 pt-3">
-								<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Healthcare Access & Support</a></h3>
-								<p align="justify">Volunteering activities in healthcare access and support are essential 
-									for ensuring that individuals receive the care and assistance they need.
-									 Volunteers play a crucial role in providing support services such as assisting 
-									 with patient transport, delivering meals to hospital wards, and offering companionship 
-									 to patients. Additionally, volunteers may assist healthcare professionals
-									    with administrative tasks, contribute to fundraising efforts for medical equipment and supplies, and provide emotional
-									 support to patients and their families during challenging times. Volunteers enhance healthcare services .</p>
-                              
-								
-							</div>
-						</div>
-					</div>
-
-					<div className="item">
-						<div className="causes-item bg-white">
-							<a href="#"><img src={"assets/images/d1.webp"} alt="Image" className="img-fluid mb-4 rounded"/></a>
-							<div className="px-4 pb-5 pt-3">
-								<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Disaster Response & Relief</a></h3>
-								<p align="justify">In disaster response and relief, volunteers are at
-									 the forefront of providing essential aid and support to communities
-									  affected by natural disasters and humanitarian crises. They play a critical
-									   role in emergency response efforts, assisting with search and rescue operations,
-									    distributing food, water, and shelter materials, and providing medical care to 
-										those injured or displaced. Volunteers helps to
-										 coordinate relief efforts, manage evacuation centers, and organize donations of supplies
-										  and resources. Additionally, volunteers offer emotional support and counseling to survivors.
-										  Volunteers offer hope amidst devastation's aftermath.
-										  </p>
-                            
-							</div>
-						</div>
-					</div>
-					</Slider>
-
-
-				</div>
-			</div>
-		</div>
-		
-				*/}
-
-
 				<div className="container mb-5">
 					<div className="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
 						<Slider {...settings} className="features-slider">
 							<div className="item px-2" >
-								<div className="causes-item bg-white">
-									<a href="#"><img src={"assets/images/img_v_1-min.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
+								<div className="causes-item bg-white ">
+									<img src={"assets/images/v13.jpg"} alt="Image" className="img-fluid mb-4 rounded" />
 									<div className="px-4 pb-5 pt-3">
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Food for the Hungry</a></h3>
 										<p align="justify">"Food for the Hungry" involves organizing community food drives and meal distribution events.
@@ -430,7 +300,7 @@ function Index() {
 
 							<div className="item px-2" >
 								<div className="causes-item bg-white">
-									<a href="#"><img src={"assets/images/img_v_2-min.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
+									<a href="#"><img src={"assets/images/v11.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
 									<div className="px-4 pb-5 pt-3">
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Education for Children</a></h3>
 										<p align="justify">Volunteers can offer one-on-one or group tutoring sessions to support children in their academic
@@ -446,7 +316,7 @@ function Index() {
 
 							<div className="item px-2" >
 								<div className="causes-item bg-white">
-									<a href="#"><img src={"assets/images/img_v_3-min.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
+									<a href="#"><img src={"assets/images/img_pp_3.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
 									<div className="px-4 pb-5 pt-3">
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Support Livelihood</a></h3>
 										<p align="justify">Supporting livelihoods through volunteering is a cornerstone of our mission. We believe
@@ -524,7 +394,7 @@ function Index() {
 
 			</div>
 
-			<div className="section flip-section secondary-bg" style={{ backgroundImage: "url('assets/images/img_v_4-min.jpg')" }}>
+			<div className="section flip-section secondary-bg" style={{ backgroundImage: "url('assets/images/v12.jpg')" }}>
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-7 mx-auto text-center">
@@ -592,19 +462,19 @@ function Index() {
 			</div>
 
 
-			<div className="site-footer">
-				<div className="container">
+			<div className="site-footer" >
+				<div className="container" >
 
 					<div className="row">
 						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
 							<div className="widget">
 								<h3>Navigation</h3>
-								<ul className="list-unstyled float-left links">
-									<li><a href="about.html">About us</a></li>
-									<li><a href="news.html">News</a></li>
-									<li><a href="login.html">Volunteer</a></li>
-									<li><a href="terms.html">Terms</a></li>
-									<li><a href="privacy.html">Privacy</a></li>
+								<ul className="list-unstyled float-left links " style={{textDecoration:"none"}}>
+								 <li><Link className="dropdown-item" to="/about">About us</Link></li>
+								 <li><Link className="dropdown-item" to="/events">News</Link></li>
+								 <li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
+								 <li><Link className="dropdown-item" to="/terms">Terms</Link></li>
+								 <li><Link className="dropdown-item" to="/privacy">Privacy</Link></li>
 								</ul>
 							</div>
 						</div>
@@ -613,11 +483,11 @@ function Index() {
 							<div className="widget">
 								<h3>Popular Causes</h3>
 								<ul className="list-unstyled float-left links">
-									<li><a href="#">Food for the Hungry</a></li>
-									<li><a href="#">Education for Children</a></li>
-									<li><a href="#">Support for Livelihood</a></li>
-									<li><a href="#">Medical Mission</a></li>
-									<li><a href="#">Education</a></li>
+								<li><Link className="dropdown-item" to="">Food for hungry</Link></li>
+								<li><Link className="dropdown-item" to="">Education for Children</Link></li>
+								<li><Link className="dropdown-item" to="">Support for Livelihood</Link></li>
+								<li><Link className="dropdown-item" to="">Medical Mission</Link></li>
+								<li><Link className="dropdown-item" to="">Education</Link></li>
 								</ul>
 							</div>
 						</div>
@@ -626,9 +496,9 @@ function Index() {
 							<div className="widget">
 								<h3>Services</h3>
 								<ul className="list-unstyled float-left links">
-									<li><a href="login.html">Volunteer</a></li>
-									<li><a href="orglog.html">Organization</a></li>
-									<li><a href="terms.html">Terms</a></li>
+								<li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
+								 <li><Link className="dropdown-item" to="/orglog">Organizations</Link></li>
+								 
 								</ul>
 							</div>
 						</div>
@@ -642,9 +512,9 @@ function Index() {
 									Palai, Kottayam 686 579,
 									Kerala,India.</address>
 								<ul className="list-unstyled links mb-4">
-									<li><a href="tel://11234567890">+91 111111111</a></li>
-									<li><a href="tel://11234567890">+91 000000000</a></li>
-									<li><a href="mailto:info@mydomain.com">info@mydomain.com</a></li>
+								<li><Link className="dropdown-item" to="">+91 0000000</Link></li>
+								<li><Link className="dropdown-item" to="">+91 0000000</Link></li>
+								<li><Link className="dropdown-item" to="">abc@gmail.com</Link></li>
 								</ul>
 
 								<h3>Connect</h3>
@@ -653,6 +523,7 @@ function Index() {
 									<li><a href="#"><span className="icon-twitter"></span></a></li>
 									<li><a href="#"><span className="icon-facebook"></span></a></li>
 									<li><a href="#"><span className="icon-linkedin"></span></a></li>
+									<li></li>
 
 								</ul>
 

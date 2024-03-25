@@ -8,3 +8,8 @@ git commit -m "message"
 git pull origin main
 git merge main
 git push origin branchname
+
+
+
+git stash .
+git commit .

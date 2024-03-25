@@ -107,7 +107,7 @@ function Events() {
 
 
 									<div class="progress">
-										<div class="progress-bar" role="progressbar" style={{ width: ' 10%', backgroundColor: '#2a5834' }} aria-valuenow="36" aria-valuemin="0" aria-valuemax="100">36/100</div>
+										<div class="progress-bar" role="progressbar" style={{ width: ' 29%', backgroundColor: '#2a5834' }} aria-valuenow="36" aria-valuemin="0" aria-valuemax="100">29/100</div>
 									</div>
 									<br />
 									<button type="button" class="btn btn-success float-end" >Enroll</button>
@@ -151,7 +151,7 @@ function Events() {
 
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
-								<a href="#"><img src={"assets/images/img_v_4-min - Copy.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
+								<a href="#"><img src={"assets/images/vol8.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
 								<div class="px-4 pb-3 pt-3">
 									<span class="date">May 11, 2020</span>
 
@@ -160,7 +160,7 @@ function Events() {
 									<p>"Providing food for the hungry. Join our mission to end hunger!"</p>
 
 									<div class="progress">
-										<div class="progress-bar" role="progressbar" style={{ width: ' 55%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">65/100</div>
+										<div class="progress-bar" role="progressbar" style={{ width: ' 65%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">65/100</div>
 									</div>
 									<br />
 									<button type="button" class="btn btn-success float-end" >Enroll</button>
@@ -171,14 +171,14 @@ function Events() {
 
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
-								<a href="#"><img src={"assets/images/img_v_5-min - Copy.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
+								<a href="#"><img src={"assets/images/vol9.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
 								<div class="px-4 pb-3 pt-3">
 									<span class="date">May 11, 2020</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Education for Children</a></h3>
 									<p>"Empowering children through education. Join us to shape brighter futures!"</p>
 
 									<div class="progress">
-										<div class="progress-bar" role="progressbar" style={{ width: ' 15%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50/100</div>
+										<div class="progress-bar" role="progressbar" style={{ width: ' 50%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50/100</div>
 									</div>
 									<br />
 									<button type="button" class="btn btn-success float-end" >Enroll</button>
@@ -186,10 +186,49 @@ function Events() {
 								</div>
 							</div>
 						</div>
+						<div class="col-lg-3 col-md-4">
+							<div class="causes-item bg-white">
+								<a href="#"><img src={"assets/images/vol6.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
+								<div class="px-4 pb-3 pt-3">
+									<span class="date">Jan 27, 2024</span>
+									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Animal Shelter Volunteering</a></h3>
+									<p>Assisting animals, cleaning, feeding, walking, nurturing, aiding adoption efforts</p>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style={{ width: ' 95%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">95/100</div>
+									</div>
+									<br />
+									<button type="button" class="btn btn-success float-end" >Enroll</button>
+								</div>
+							</div>
+						</div>
+
+                        <div class="col-lg-3 col-md-4">
+							<div class="causes-item bg-white">
+								<a href="#"><img src={"assets/images/vol1.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
+								<div class="px-4 pb-3 pt-3">
+									<span class="date">Nov 17, 2024</span>
+									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Blood Donation Volunteers</a></h3>
+									<p>"Selfless individuals aiding blood donation through compassionate service."</p>
+
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style={{ width: ' 41%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">41/100</div>
+									</div>
+									<br />
+									<button type="button" class="btn btn-success float-end" >Enroll</button>
+								</div>
+							</div>
+						</div>
+                      
+
+
+
+
+
+
 
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
-								<a href="#"><img src={"assets/images/img_v_6-min.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
+								<a href="#"><img src={"assets/images/vol7.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
 								<div class="px-4 pb-3 pt-3">
 									<span class="date">May 11, 2020</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Support Livelihood</a></h3>
@@ -212,66 +251,68 @@ function Events() {
 
 
 
+			<div className="site-footer" >
+				<div className="container" >
 
-			<div class="site-footer">
-				<div class="container">
-
-					<div class="row">
-						<div class="col-6 col-sm-6 col-md-6 col-lg-3">
-							<div class="widget">
+					<div className="row">
+						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
+							<div className="widget">
 								<h3>Navigation</h3>
-								<ul class="list-unstyled float-left links">
-									<li><a href="about.html">About us</a></li>
-
-									<li><a href="#">Causes</a></li>
-									<li><a href="login.html">Volunteer</a></li>
-									<li><a href="#">Terms</a></li>
-									<li><a href="#">Privacy</a></li>
+								<ul className="list-unstyled float-left links " style={{textDecoration:"none"}}>
+								 <li><Link className="dropdown-item" to="/about">About us</Link></li>
+								 <li><Link className="dropdown-item" to="/events">News</Link></li>
+								 <li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
+								 <li><Link className="dropdown-item" to="/terms">Terms</Link></li>
+								 <li><Link className="dropdown-item" to="/privacy">Privacy</Link></li>
 								</ul>
 							</div>
 						</div>
 
-						<div class="col-6 col-sm-6 col-md-6 col-lg-3">
-							<div class="widget">
+						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
+							<div className="widget">
 								<h3>Popular Causes</h3>
-								<ul class="list-unstyled float-left links">
-									<li><a href="#">Food for the Hungry</a></li>
-									<li><a href="#">Education for Children</a></li>
-									<li><a href="#">Support for Livelihood</a></li>
-									<li><a href="#">Medical Mission</a></li>
-									<li><a href="#">Education</a></li>
+								<ul className="list-unstyled float-left links">
+								<li><Link className="dropdown-item" to="">Food for hungry</Link></li>
+								<li><Link className="dropdown-item" to="">Education for Children</Link></li>
+								<li><Link className="dropdown-item" to="">Support for Livelihood</Link></li>
+								<li><Link className="dropdown-item" to="">Medical Mission</Link></li>
+								<li><Link className="dropdown-item" to="">Education</Link></li>
 								</ul>
 							</div>
 						</div>
 
-						<div class="col-6 col-sm-6 col-md-6 col-lg-3">
-							<div class="widget">
+						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
+							<div className="widget">
 								<h3>Services</h3>
-								<ul class="list-unstyled float-left links">
-									<li><a href="#">Causes</a></li>
-									<li><a href="#">Volunteer</a></li>
-									<li><a href="#">Terms</a></li>
+								<ul className="list-unstyled float-left links">
+								<li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
+								 <li><Link className="dropdown-item" to="/orglog">Organizations</Link></li>
+								 
 								</ul>
 							</div>
 						</div>
 
 
-						<div class="col-6 col-sm-6 col-md-6 col-lg-3">
-							<div class="widget">
+						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
+							<div className="widget">
 								<h3>Contact</h3>
-								<address>Sjcet palai</address>
-								<ul class="list-unstyled links mb-4">
-									<li><a href="tel://11234567890">+91 11111111</a></li>
-									<li><a href="tel://11234567890">+91 00000000</a></li>
-									<li><a href="mailto:info@mydomain.com">info@mydomain.com</a></li>
+								<address>St.Joseph’s College of Engineering and Technology,Palai,
+									Choondacherry P.O,
+									Palai, Kottayam 686 579,
+									Kerala,India.</address>
+								<ul className="list-unstyled links mb-4">
+								<li><Link className="dropdown-item" to="">+91 0000000</Link></li>
+								<li><Link className="dropdown-item" to="">+91 0000000</Link></li>
+								<li><Link className="dropdown-item" to="">abc@gmail.com</Link></li>
 								</ul>
 
 								<h3>Connect</h3>
-								<ul class="list-unstyled social">
-									<li><a href="#"><span class="icon-instagram"></span></a></li>
-									<li><a href="#"><span class="icon-twitter"></span></a></li>
-									<li><a href="#"><span class="icon-facebook"></span></a></li>
-									<li><a href="#"><span class="icon-linkedin"></span></a></li>
+								<ul className="list-unstyled social">
+									<li><a href="#"><span className="icon-instagram"></span></a></li>
+									<li><a href="#"><span className="icon-twitter"></span></a></li>
+									<li><a href="#"><span className="icon-facebook"></span></a></li>
+									<li><a href="#"><span className="icon-linkedin"></span></a></li>
+									<li></li>
 
 								</ul>
 
@@ -282,8 +323,12 @@ function Events() {
 
 
 
+
 				</div>
 			</div>
+
+
+
 
 
 

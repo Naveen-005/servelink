@@ -67,7 +67,7 @@ function Contact() {
                             <p data-aos="fade-up" className=" mb-5 text-white lead text-white-50">For any inquiries or assistance,
                                 don't hesitate to get in touch with us!</p>
                             <p data-aos="fade-up" data-aos-delay="100">
-                                <a href="#" className="btn btn-primary me-4">Connect</a>
+                                <Link className="btn btn-primary me-4" to="/login">Connect</Link>
                             </p>
 
                         </div>
@@ -156,78 +156,83 @@ function Contact() {
 
 
 
-            <div className="site-footer">
-                <div className="container">
+            <div className="site-footer" >
+				<div className="container" >
 
-                    <div className="row">
-                        <div className="col-6 col-sm-6 col-md-6 col-lg-3">
-                            <div className="widget">
-                                <h3>Navigation</h3>
-                                <ul className="list-unstyled float-left links">
-                                    <li><a href="#">About us</a></li>
+					<div className="row">
+						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
+							<div className="widget">
+								<h3>Navigation</h3>
+								<ul className="list-unstyled float-left links " style={{textDecoration:"none"}}>
+								 <li><Link className="dropdown-item" to="/about">About us</Link></li>
+								 <li><Link className="dropdown-item" to="/events">News</Link></li>
+								 <li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
+								 <li><Link className="dropdown-item" to="/terms">Terms</Link></li>
+								 <li><Link className="dropdown-item" to="/privacy">Privacy</Link></li>
+								</ul>
+							</div>
+						</div>
 
-                                    <li><a href="#">Causes</a></li>
-                                    <li><a href="#">Volunteer</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                </ul>
-                            </div>
-                        </div>
+						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
+							<div className="widget">
+								<h3>Popular Causes</h3>
+								<ul className="list-unstyled float-left links">
+								<li><Link className="dropdown-item" to="">Food for hungry</Link></li>
+								<li><Link className="dropdown-item" to="">Education for Children</Link></li>
+								<li><Link className="dropdown-item" to="">Support for Livelihood</Link></li>
+								<li><Link className="dropdown-item" to="">Medical Mission</Link></li>
+								<li><Link className="dropdown-item" to="">Education</Link></li>
+								</ul>
+							</div>
+						</div>
 
-                        <div className="col-6 col-sm-6 col-md-6 col-lg-3">
-                            <div className="widget">
-                                <h3>Popular Causes</h3>
-                                <ul className="list-unstyled float-left links">
-                                    <li><a href="#">Food for the Hungry</a></li>
-                                    <li><a href="#">Education for Children</a></li>
-                                    <li><a href="#">Support for Livelihood</a></li>
-                                    <li><a href="#">Medical Mission</a></li>
-                                    <li><a href="#">Education</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="col-6 col-sm-6 col-md-6 col-lg-3">
-                            <div className="widget">
-                                <h3>Services</h3>
-                                <ul className="list-unstyled float-left links">
-                                    <li><a href="#">Causes</a></li>
-                                    <li><a href="#">Volunteer</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-
-                        <div className="col-6 col-sm-6 col-md-6 col-lg-3">
-                            <div className="widget">
-                                <h3>Contact</h3>
-                                <address>palai</address>
-                                <ul className="list-unstyled links mb-4">
-                                    <li><a href="tel://11234567890">+91 1111111</a></li>
-                                    <li><a href="tel://11234567890">+91 0000000</a></li>
-                                    <li><a href="mailto:info@mydomain.com">info@mydomain.com</a></li>
-                                </ul>
-
-                                <h3>Connect</h3>
-                                <ul className="list-unstyled social">
-                                    <li><a href="#"><span className="icon-instagram"></span></a></li>
-                                    <li><a href="#"><span className="icon-twitter"></span></a></li>
-                                    <li><a href="#"><span className="icon-facebook"></span></a></li>
-                                    <li><a href="#"><span className="icon-linkedin"></span></a></li>
+						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
+							<div className="widget">
+								<h3>Services</h3>
+								<ul className="list-unstyled float-left links">
+								<li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
+								 <li><Link className="dropdown-item" to="/orglog">Organizations</Link></li>
+								 
+								</ul>
+							</div>
+						</div>
 
 
-                                </ul>
+						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
+							<div className="widget">
+								<h3>Contact</h3>
+								<address>St.Joseph’s College of Engineering and Technology,Palai,
+									Choondacherry P.O,
+									Palai, Kottayam 686 579,
+									Kerala,India.</address>
+								<ul className="list-unstyled links mb-4">
+								<li><Link className="dropdown-item" to="">+91 0000000</Link></li>
+								<li><Link className="dropdown-item" to="">+91 0000000</Link></li>
+								<li><Link className="dropdown-item" to="">abc@gmail.com</Link></li>
+								</ul>
 
-                            </div>
-                        </div>
+								<h3>Connect</h3>
+								<ul className="list-unstyled social">
+									<li><a href="#"><span className="icon-instagram"></span></a></li>
+									<li><a href="#"><span className="icon-twitter"></span></a></li>
+									<li><a href="#"><span className="icon-facebook"></span></a></li>
+									<li><a href="#"><span className="icon-linkedin"></span></a></li>
+									<li></li>
 
-                    </div>
+								</ul>
+
+							</div>
+						</div>
+
+					</div>
 
 
 
-                </div>
-            </div>
+
+				</div>
+			</div>
+
+
 
 
 

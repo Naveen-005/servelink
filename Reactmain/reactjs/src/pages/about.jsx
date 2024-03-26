@@ -104,8 +104,8 @@ function About() {
 				<div className="container">
 					<div className="row align-items-center justify-content-center">
 						<div className="col-lg-6 text-center">
-							<h1 className="heading text-white mb-2" data-aos="fade-up">About Us</h1>
-							<p data-aos="fade-up" className=" mb-5 text-white lead text-white-50">Welcome to ServeLink! We're your go-to
+							<h1 className="heading text-white mb-2" data-aos="fade-up" data-aos-delay="100">About Us</h1>
+							<p data-aos="fade-up" data-aos-delay="100" className=" mb-5 text-white lead text-white-50">Welcome to ServeLink! We're your go-to
 								platform for connecting passionate volunteers with impactful opportunities in communities worldwide.
 
 							</p>
@@ -124,9 +124,9 @@ function About() {
 				<div className="container">
 					<div className="row g-5 justify-content-between">
 						<div className="col-lg-6 has-bg" data-aos="fade-right">
-							<img src={"assets/images/hero_2.jpg"} alt="Image" className="img-fluid img-box-shadow rounded" />
+							<img src={"assets/images/vol14.jpg"} alt="Image" className="img-fluid img-box-shadow rounded" />
 						</div>
-						<div className="col-lg-4 align-self-center" data-aos="fade-left" data-aos-delay="100">
+						<div className="col-lg align-self-center" data-aos="fade-left" data-aos-delay="100">
 							<span className="subheading mb-3">About</span>
 							<h2 className="heading mb-4">History</h2>
 							<p align="justify" > Established in 2024 by a group of computer science students,
@@ -312,20 +312,19 @@ function About() {
 
 
 
-			<div className="site-footer">
-				<div className="container">
+			<div className="site-footer" >
+				<div className="container" >
 
 					<div className="row">
 						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
 							<div className="widget">
 								<h3>Navigation</h3>
-								<ul className="list-unstyled float-left links">
-									<li><a href="about.html">About us</a></li>
-
-									<li><a href="#">Causes</a></li>
-									<li><a href="login.html">Volunteer</a></li>
-									<li><a href="#">Terms</a></li>
-									<li><a href="#">Privacy</a></li>
+								<ul className="list-unstyled float-left links " style={{textDecoration:"none"}}>
+								 <li><Link className="dropdown-item" to="/about">About us</Link></li>
+								 <li><Link className="dropdown-item" to="/events">News</Link></li>
+								 <li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
+								 <li><Link className="dropdown-item" to="/terms">Terms</Link></li>
+								 <li><Link className="dropdown-item" to="/privacy">Privacy</Link></li>
 								</ul>
 							</div>
 						</div>
@@ -334,11 +333,11 @@ function About() {
 							<div className="widget">
 								<h3>Popular Causes</h3>
 								<ul className="list-unstyled float-left links">
-									<li><a href="#">Food for the Hungry</a></li>
-									<li><a href="#">Education for Children</a></li>
-									<li><a href="#">Support for Livelihood</a></li>
-									<li><a href="#">Medical Mission</a></li>
-									<li><a href="#">Education</a></li>
+								<li><Link className="dropdown-item" to="">Food for hungry</Link></li>
+								<li><Link className="dropdown-item" to="">Education for Children</Link></li>
+								<li><Link className="dropdown-item" to="">Support for Livelihood</Link></li>
+								<li><Link className="dropdown-item" to="">Medical Mission</Link></li>
+								<li><Link className="dropdown-item" to="">Education</Link></li>
 								</ul>
 							</div>
 						</div>
@@ -347,9 +346,9 @@ function About() {
 							<div className="widget">
 								<h3>Services</h3>
 								<ul className="list-unstyled float-left links">
-									<li><a href="#">Causes</a></li>
-									<li><a href="#">Volunteer</a></li>
-									<li><a href="#">Terms</a></li>
+								<li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
+								 <li><Link className="dropdown-item" to="/orglog">Organizations</Link></li>
+								 
 								</ul>
 							</div>
 						</div>
@@ -358,11 +357,14 @@ function About() {
 						<div className="col-6 col-sm-6 col-md-6 col-lg-3">
 							<div className="widget">
 								<h3>Contact</h3>
-								<address>Sjcet palai</address>
+								<address>St.Joseph’s College of Engineering and Technology,Palai,
+									Choondacherry P.O,
+									Palai, Kottayam 686 579,
+									Kerala,India.</address>
 								<ul className="list-unstyled links mb-4">
-									<li><a href="tel://11234567890">+91 11111111</a></li>
-									<li><a href="tel://11234567890">+91 00000000</a></li>
-									<li><a href="mailto:info@mydomain.com">info@mydomain.com</a></li>
+								<li><Link className="dropdown-item" to="">+91 0000000</Link></li>
+								<li><Link className="dropdown-item" to="">+91 0000000</Link></li>
+								<li><Link className="dropdown-item" to="">abc@gmail.com</Link></li>
 								</ul>
 
 								<h3>Connect</h3>
@@ -371,6 +373,7 @@ function About() {
 									<li><a href="#"><span className="icon-twitter"></span></a></li>
 									<li><a href="#"><span className="icon-facebook"></span></a></li>
 									<li><a href="#"><span className="icon-linkedin"></span></a></li>
+									<li></li>
 
 								</ul>
 
@@ -381,8 +384,13 @@ function About() {
 
 
 
+
 				</div>
 			</div>
+
+
+
+
 
 			{/*
 	<div id="overlayer"></div>

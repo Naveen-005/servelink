@@ -600,11 +600,15 @@ function Index() {
 							<div className="widget">
 								<h3>Navigation</h3>
 								<ul className="list-unstyled float-left links">
-									<li><a href="about.html">About us</a></li>
-									<li><a href="news.html">News</a></li>
-									<li><a href="login.html">Volunteer</a></li>
-									<li><a href="terms.html">Terms</a></li>
-									<li><a href="privacy.html">Privacy</a></li>
+								<li><Link className="dropdown-item" to="/about">About us</Link></li>
+								<li><Link className="dropdown-item" to="/events">News</Link></li>
+									
+								<li><Link className="dropdown-item" to="/login">volunteer</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Terms</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Privacy</Link></li>
+									
 								</ul>
 							</div>
 						</div>
@@ -613,11 +617,16 @@ function Index() {
 							<div className="widget">
 								<h3>Popular Causes</h3>
 								<ul className="list-unstyled float-left links">
-									<li><a href="#">Food for the Hungry</a></li>
-									<li><a href="#">Education for Children</a></li>
-									<li><a href="#">Support for Livelihood</a></li>
-									<li><a href="#">Medical Mission</a></li>
-									<li><a href="#">Education</a></li>
+								<li><Link className="dropdown-item" to="/">Food for hungry</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Support livelihood</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Disaster response relief</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Medical mission</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Education</Link></li>
+									
 								</ul>
 							</div>
 						</div>
@@ -626,9 +635,12 @@ function Index() {
 							<div className="widget">
 								<h3>Services</h3>
 								<ul className="list-unstyled float-left links">
-									<li><a href="login.html">Volunteer</a></li>
-									<li><a href="orglog.html">Organization</a></li>
-									<li><a href="terms.html">Terms</a></li>
+								<li><Link className="dropdown-item" to="/login">Volunteer</Link></li>
+									
+								<li><Link className="dropdown-item" to="/orglog">Organization</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Terms</Link></li>
+									
 								</ul>
 							</div>
 						</div>

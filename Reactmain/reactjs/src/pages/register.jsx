@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Link } from 'react-router-dom';
 
 function Register(){
     useEffect(() => {
@@ -13,21 +14,22 @@ function Register(){
 
 <div class="page-wrapper container-login100 font-poppins"style={{backgroundImage: "url('assets/images/v3.webp')"}} >
         <div class="wrapper wrapper--w680">
-            <nav class="navbar1">
-                <a href="index.html" class="home-btn">Home</a>
-              </nav>
+           
             <div class="card card-4">
+            <nav class="navbar1">
+                <Link to="/index" class="home-btn">Home</Link>
+              </nav>
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
                     <form method="POST">
                         <div class="row row-space">
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">first name</label>
                                     <input class="input--style-4" type="text" name="first_name"/>
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">last name</label>
                                     <input class="input--style-4" type="text" name="last_name"/>
@@ -35,7 +37,7 @@ function Register(){
                             </div>
                         </div>
                         <div class="row row-space">
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">DOB</label>
                                     <div class="input-group-icon">
@@ -44,7 +46,7 @@ function Register(){
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Gender</label>
                                     
@@ -63,13 +65,13 @@ function Register(){
                             </div>
                         </div>
                         <div class="row row-space">
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Email</label>
                                     <input class="input--style-4" type="email" name="email"/>
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Phone Number</label>
                                     <input class="input--style-4" type="text" name="phone"/>
@@ -77,20 +79,20 @@ function Register(){
                             </div>
                         </div>
                         <div class="row row-space">
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">City</label>
                                     <input class="input--style-4" type="email" name="City"/>
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">District</label>
                                     <input class="input--style-4" type="text" name="District"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-66">
                             <div class="input-group">
                                 <label class="label">Pincode</label>
                                 <input class="input--style-4" type="text" name="Pincode"/>

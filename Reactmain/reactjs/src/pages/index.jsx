@@ -475,6 +475,20 @@ function Index() {
 								 <li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
 								 <li><Link className="dropdown-item" to="/terms">Terms</Link></li>
 								 <li><Link className="dropdown-item" to="/privacy">Privacy</Link></li>
+{/*
+								<ul className="list-unstyled float-left links">
+								<li><Link className="dropdown-item" to="/about">About us</Link></li>
+								<li><Link className="dropdown-item" to="/events">News</Link></li>
+									
+								<li><Link className="dropdown-item" to="/login">volunteer</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Terms</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Privacy</Link></li>
+
+				*/}							
+									
+
 								</ul>
 							</div>
 						</div>
@@ -488,6 +502,20 @@ function Index() {
 								<li><Link className="dropdown-item" to="">Support for Livelihood</Link></li>
 								<li><Link className="dropdown-item" to="">Medical Mission</Link></li>
 								<li><Link className="dropdown-item" to="">Education</Link></li>
+
+								
+
+	{/*
+								<li><Link className="dropdown-item" to="/">Food for hungry</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Support livelihood</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Disaster response relief</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Medical mission</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Education</Link></li>
+			*/}								
 								</ul>
 							</div>
 						</div>
@@ -499,6 +527,14 @@ function Index() {
 								<li><Link className="dropdown-item" to="/login">Volunteers</Link></li>
 								 <li><Link className="dropdown-item" to="/orglog">Organizations</Link></li>
 								 
+
+	{/*
+								<li><Link className="dropdown-item" to="/login">Volunteer</Link></li>
+									
+								<li><Link className="dropdown-item" to="/orglog">Organization</Link></li>
+									
+								<li><Link className="dropdown-item" to="/">Terms</Link></li>
+		*/}								
 								</ul>
 							</div>
 						</div>

@@ -19,6 +19,13 @@ function Register(){
             <nav class="navbar1">
             <Link className="txt1 " to="/index" style={{textDecoration:"none",color:"darkgrey",position:"relative",left:"3%"}} >Home <span className="sr-only"></span></Link>
 			</nav>
+   {/*       
+            <div class="card card-4">
+            <nav class="navbar1">
+                <Link to="/index" class="home-btn">Home</Link>
+              </nav>
+
+    */}
                 <div class="card-body">
                     
                     <h2 class="title">Registration Form</h2>

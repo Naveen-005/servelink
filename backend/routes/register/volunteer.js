@@ -6,6 +6,8 @@ const {VolunteerModel} = require('../../database/db');
   
 router.get('/', function(req, res, next) {
 
+    console.log(req.body)
+
     const volunteer_instance = new VolunteerModel(req.body);
  
     VolunteerModel.findOne( {$or:[{ 'email': req.body.email },{'phone':req.body.phone}]})

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passwordHash = require('password-hash');
-const {VolunteerModel} = require('../../database/db')
+const {VolunteerModel} = require('../../database/db');
 
   
 router.get('/', function(req, res, next) {

@@ -12,13 +12,14 @@ mongoose.connect(config.mongodb_url)
 //schemas
 
 const volunteerSchema = new Schema({
-  author: ObjectId,
-  name: String,
-  age: String,
+  //author: ObjectId,
+  first_name: String,
+  last_name: String,
   email:String,
-  phone:String,
-  password:String,
-  date: Date
+  phone_no:String,
+  city:String,
+  district:String,
+  dob: Date
 });
 const VolunteerModel = mongoose.model('Volunteers', volunteerSchema);
 

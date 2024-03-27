@@ -3,23 +3,53 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import config from '../config.json'
+import DatePicker from 'react-date-picker';
 
 function Register() {
 
-    const [formData, setFormData] = useState({ first_name: "", last_name: "", dob: "", email: "", phone_no: "", city: "", district: "", pincode: "" });
+    const [formData, setFormData] = useState({
+        first_name: "",
+        last_name: "",
+        dob: new Date(),
+        email: "",
+        phone_no: "",
+        city: "",
+        district: "",
+        pincode: "",
+        gender: ""
+    });
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     };
 
+    const handle_radio_change=(event)=>{
+        //formData.gender=event.currentTarget.value
+        setFormData({...formData,gender:event.currentTarget.value});
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Name: ${formData.first_name}, Email: ${formData.email}`);
 
-        //axios here
+        axios({
+            method: 'post',
+            url: config.server_api_url + '/register/volunteer',
+            data: formData
+        })
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+
 
     };
+
 
     useEffect(() => {
         AOS.init();
@@ -64,10 +94,20 @@ function Register() {
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label">DOB</label>
+                                    
                                             <div class="input-group-icon">
-                                                <input class="input--style-4 js-datepicker" type="text" name="birthday" value={formData.dob} onChange={handleChange} />
+
+                                            {/*
+                                                <input class="input--style-4 js-datepicker" type="text" name="dob" value={formData.dob} onChange={handleChange} />
                                                 <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+
+                                                */}
+
+                                                <DatePicker name="dob" value={formData.dob} onChange={(newValue) => setFormData({...formData,dob:newValue})} />
                                             </div>
+                                            
+
+                                            
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -76,12 +116,12 @@ function Register() {
 
                                             <div class="p-t-9">
                                                 <br />
-                                                <label class="radio-container m-r-18    ">Male
-                                                    <input type="radio" name="gender" />
+                                                <label class="radio-container m-r-18 ">Male
+                                                    <input type="radio" name="gender" value="male" checked={formData.gender === "male"} onChange={handle_radio_change}/>
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <label class="radio-container">Female
-                                                    <input type="radio" name="gender" />
+                                                    <input type="radio" name="gender" value="female" checked={formData.gender === "female"} onChange={handle_radio_change}/>
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
@@ -98,7 +138,7 @@ function Register() {
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label">Phone Number</label>
-                                            <input class="input--style-4" type="text" name="phone" value={formData.phone_no} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="phone_no" value={formData.phone_no} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
@@ -106,20 +146,20 @@ function Register() {
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label">City</label>
-                                            <input class="input--style-4" type="text" name="City" value={formData.city} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="city" value={formData.city} onChange={handleChange} />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label">District</label>
-                                            <input class="input--style-4" type="text" name="District" value={formData.pincode} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="district" value={formData.district} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group">
                                         <label class="label">Pincode</label>
-                                        <input class="input--style-4" type="text" name="Pincode" />
+                                        <input class="input--style-4" type="text" name="pincode" value={formData.pincode} onChange={handleChange}/>
                                     </div>
                                 </div>
 

@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';	
 import { NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -285,7 +285,7 @@ function Index() {
 							<div className="item px-2" >
 								<div className="causes-item bg-white ">
 									<img src={"assets/images/v13.jpg"} alt="Image" className="img-fluid mb-4 rounded" />
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Food for the Hungry</a></h3>
 										<p align="justify">"Food for the Hungry" involves organizing community food drives and meal distribution events.
 											Volunteers can collaborate with local businesses, schools, and religious organizations to collect
@@ -301,9 +301,9 @@ function Index() {
 							<div className="item px-2" >
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/v11.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Education for Children</a></h3>
-										<p align="justify">Volunteers can offer one-on-one or group tutoring sessions to support children in their academic
+										<p align="justify" >Volunteers can offer one-on-one or group tutoring sessions to support children in their academic
 											studies, focusing on subjects where they may need additional help or guidance. Additionally,
 											volunteers can serve as mentors, providing encouragement, guidance, and positive role modeling
 											to help children develop essential life skills and pursue their educational goals. By volunteering
@@ -317,7 +317,7 @@ function Index() {
 							<div className="item px-2" >
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/img_pp_3.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Support Livelihood</a></h3>
 										<p align="justify">Supporting livelihoods through volunteering is a cornerstone of our mission. We believe
 											in empowering individuals and communities to achieve economic self-sufficiency and financial
@@ -332,7 +332,7 @@ function Index() {
 							<div className="item px-2">
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/p2.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Environmental Conservation</a></h3>
 										<p align="justify">Volunteering activities in environmental conservation encompass a wide range of
 											impactful initiatives aimed at protecting and preserving the natural world. Volunteers
@@ -348,7 +348,7 @@ function Index() {
 							<div className="item px-2">
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/m1.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Healthcare Access & Support</a></h3>
 										<p align="justify">Volunteering activities in healthcare access and support are essential
 											for ensuring that individuals receive the care and assistance they need.
@@ -364,7 +364,7 @@ function Index() {
 							<div className="item px-2">
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/d1.webp"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Disaster Response & Relief</a></h3>
 										<p align="justify">In disaster response and relief, volunteers are at
 											the forefront of providing essential aid and support to communities

@@ -20,8 +20,11 @@ function Register() {
         pincode: "",
         gender: "",
         password:"",
+
     });
 
+    
+        
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -32,6 +35,21 @@ function Register() {
 
         setFormData({...formData,gender:event.currentTarget.value});
     };
+   
+    {/*
+      const handleChange_date = (date) => {
+        setFormData({ ...formData, dob: date });
+      };
+    
+      const toggleCalendar = () => {
+        const datePickerInput = document.querySelector('.js-datepicker');
+        datePickerInput.click(); // Programmatically click on the date input to open the calendar
+      };
+   
+    */}
+
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -57,6 +75,11 @@ function Register() {
     useEffect(() => {
         AOS.init();
     }, []);
+
+
+   
+      
+    
 
     return (
         <>
@@ -97,18 +120,18 @@ function Register() {
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label">DOB</label>
-                                    
-                                            <div class="input-group-icon">
-
-                                            {/*
-                                                <input class="input--style-4 js-datepicker" type="text" name="dob" value={formData.dob} onChange={handleChange} />
-                                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-
-                                                */}
-
-                                                <DatePicker name="dob" value={formData.dob} onChange={(newValue) => setFormData({...formData,dob:newValue})} />
-                                            </div>
+                                               <br/>
+            
+                                                <input class="input--style-9 js-datepicker" type="date" name="dob" value={formData.dob} onChange={handleChange} />
                                             
+                                               {/* <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar" onClick={(toggleCalendar)}></i>*/}
+                                               {/* <DatePicker selected={formData.dob} onChange={handleChang} inline /> */}
+                                                
+                                            {/*
+                                                <DatePicker name="dob"  dateFormat="MM/dd/yyyy"  value={formData.dob} onChange={(newValue) => setFormData({...formData,dob:newValue})} />
+                                            </div>
+                                            */}
+                                           
 
                                             
                                         </div>
@@ -159,12 +182,21 @@ function Register() {
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row row-space">
+
                                 <div class="col-6">
                                     <div class="input-group">
                                         <label class="label">Pincode</label>
                                         <input class="input--style-4" type="text" name="pincode" value={formData.pincode} onChange={handleChange}/>
                                     </div>
                                 </div>
+                                  <div class="col-6">
+                                        <div class="input-group">
+                                            <label class="label">Password</label>
+                                            <input class="input--style-4" type="text" name="password" value={formData.password} onChange={handleChange} />
+                                        </div>
+                                    </div>
+                                 </div>
 
                                 <div class="container-login100-form-btn">
                                     <button class="login100-form-btn" type="submit">

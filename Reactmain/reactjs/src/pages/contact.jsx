@@ -4,13 +4,17 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+
 function Contact() {
     useEffect(() => {
         AOS.init();
     }, []);
 
     return (
-        <>
+        <> 
+
+
+           
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container">
                     <Link className="navbar-brand logo m-0 float-start text-black-50 " to="/">Servelink</Link>
@@ -233,7 +237,7 @@ function Contact() {
 			</div>
 
 
-
+           
 
 
             {/* <div id="overlayer"></div>

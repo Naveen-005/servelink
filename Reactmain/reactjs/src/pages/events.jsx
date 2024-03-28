@@ -11,6 +11,23 @@ function Events() {
 	useEffect(() => {
 		AOS.init();
 	}, []);
+
+	{/*
+	const truncateText = (text, maxLength) => {
+		const words = text.split(' ');
+		if (words.length > maxLength) {
+		  return words.slice(0, maxLength).join(' ') + '...';
+		} else {
+		  return text;
+		}
+	  };
+	
+	  const truncatedDescription = truncateText(description, 35);
+
+	*/}
+
+
+
 	return (
 		<div>
 
@@ -99,7 +116,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/img_v_1-min.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">Dec 31, 2023</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Medical Camp</a></h3>
 									<p>"Empowering communities through free medical camps. Join us for impact!"</p>
@@ -118,7 +135,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/img_v_2-min.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">Jan 17, 2024</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Clean Up</a></h3>
 									<p>"Join our clean-up efforts. Together, let's make a difference!"</p>
@@ -135,7 +152,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/img_v_3-min.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">June 20, 2023</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Aid Distribution</a></h3>
 									<p>"Supporting communities through aid distribution. Join us in lending hands!"</p>
@@ -152,7 +169,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol8.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">May 11, 2020</span>
 
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}	>
@@ -172,7 +189,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol9.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">May 11, 2020</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Education for Children</a></h3>
 									<p>"Empowering children through education. Join us to shape brighter futures!"</p>
@@ -189,7 +206,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol6.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">Jan 27, 2024</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Animal Shelter Volunteering</a></h3>
 									<p>Assisting animals, cleaning, feeding, walking, nurturing, aiding adoption efforts</p>
@@ -205,7 +222,7 @@ function Events() {
                         <div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol1.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">Nov 17, 2024</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Blood Donation Volunteers</a></h3>
 									<p>"Selfless individuals aiding blood donation through compassionate service."</p>
@@ -229,7 +246,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol7.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">May 11, 2020</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Support Livelihood</a></h3>
 									<p>"Empowering livelihoods. Join us to create sustainable futures together!"</p>

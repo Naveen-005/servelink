@@ -19,7 +19,8 @@ function Register() {
         district: "",
         pincode: "",
         gender: "",
-        password:""
+        password:"",
+
     });
 
     

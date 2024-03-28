@@ -18,7 +18,8 @@ function Register() {
         city: "",
         district: "",
         pincode: "",
-        gender: ""
+        gender: "",
+        password:"",
     });
 
 
@@ -28,7 +29,7 @@ function Register() {
     };
 
     const handle_radio_change=(event)=>{
-        //formData.gender=event.currentTarget.value
+
         setFormData({...formData,gender:event.currentTarget.value});
     };
 
@@ -39,13 +40,15 @@ function Register() {
             method: 'post',
             url: config.server_api_url + '/register/volunteer',
             data: formData
-        })
+            })
             .then((res) => {
-                console.log(res)
+                localStorage.setItem('name', res.data.name);
+                localStorage.setItem('uid', res.data.uid);
+                localStorage.setItem('token', res.data.token);
             })
             .catch((err) => {
                 console.log(err)
-            });
+        });
 
 
     };

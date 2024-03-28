@@ -19,7 +19,10 @@ const volunteerSchema = new Schema({
   phone_no:String,
   city:String,
   district:String,
-  dob: Date
+  dob: Date,
+  password: String,
+  token: String,
+  uid: String,
 });
 const VolunteerModel = mongoose.model('Volunteers', volunteerSchema);
 

@@ -9,7 +9,8 @@ import Orglog from './pages/orglog';
 import Register from './pages/register';
 import Orgreg from './pages/orgreg';
 import Admin from './pages/admin'
-
+import MapTest from './components/map'
+import Profile from './pages/profile'
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/register-organization" element={<Orgreg />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/test" element={<MapTest />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/*" element={<Index />} />
       </Routes>
     </BrowserRouter>

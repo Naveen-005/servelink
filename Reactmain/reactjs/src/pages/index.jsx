@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+
 function Index() {
 	useEffect(() => {
 		AOS.init();

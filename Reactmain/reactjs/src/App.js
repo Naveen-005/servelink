@@ -11,6 +11,8 @@ import Orgreg from './pages/orgreg';
 import Admin from './pages/admin'
 import MapTest from './components/map'
 import Profile from './pages/profile'
+import Navbar from './components/navbar';
+import OrgPost from './pages/OrgPost';
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
         <Route path="/test" element={<MapTest />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/*" element={<Index />} />
+        <Route path='/g' element={<OrgPost/>}/>
       </Routes>
     </BrowserRouter>
   );

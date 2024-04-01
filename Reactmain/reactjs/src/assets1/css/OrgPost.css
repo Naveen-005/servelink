@@ -1,0 +1,98 @@
+.system {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ff7e5f, #feb47b); 
+  margin: 0;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3% ;
+}
+.container{
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 800px;
+  
+}
+
+#crossButton {
+
+    position: absolute;
+    top:3%;
+    right:18.5%;
+    font-size: 11px;
+    background: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    color: #060606; 
+    width: 5%;
+    
+  
+}
+#crossButton:hover{
+  background-color: #727473;
+}
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+label {
+  font-weight: bold;
+  color: #555;
+}
+input[type="text"],
+input[type="date"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #297a48;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #279b69;
+}
+
+.preview-container {
+  max-width: 200px; /* Adjust the maximum width as needed */
+  max-height: 200px; /* Adjust the maximum height as needed */
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.preview-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+.preview-video,
+.preview-audio {
+  width: 100%;
+}

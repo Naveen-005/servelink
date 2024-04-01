@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet.locatecontrol';
 
 const MapPicker = () => {
   useEffect(() => {
@@ -9,22 +10,22 @@ const MapPicker = () => {
 
     // Add a tile layer
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        maxZoom: 19,minZoom:2
-      }).addTo(map);
+      maxZoom: 19, minZoom: 2
+    }).addTo(map);
 
     // Create a custom icon for the red dot pointer
     const redDotIcon = L.divIcon({
       className: 'custom-marker',
       iconSize: [10, 10],
       iconAnchor: [5, 5],
-      html: '<div style="width: 10px; height: 10px; background-color: red; border-radius: 50%;"></div>'
+      html: '<div style="width: 5px; height: 5px; background-color: red; border-radius: 50%;"></div>'
     });
 
     // Declare marker variable
     let marker;
 
     // Event listener for when the map is clicked
-    map.on('click', function(event) {
+    map.on('click', function (event) {
       const latlng = event.latlng; // Get the coordinates where the map was clicked
       console.log("Clicked coordinates:", latlng.lat, latlng.lng);
 
@@ -39,6 +40,25 @@ const MapPicker = () => {
       // You can use these coordinates as needed
     });
 
+    var locateIcon = L.icon({
+      iconUrl: 'path/to/your/icon.png', // URL of the custom icon image
+      iconSize: [32, 32], // Size of the icon
+      iconAnchor: [16, 16] // Anchor point of the icon (center)
+    });
+    
+    // Add the locate control to the map
+    L.control.locate({
+      position: 'topright',
+      strings: {
+        title: "Show me where I am!"
+      },
+      locateOptions: {
+        enableHighAccuracy: true, // Enable high accuracy for geolocation
+        maxZoom: 16 // Maximum zoom level when locating user
+      },
+      flyTo: true // Fly to the user's location when found
+    }).addTo(map);
+
     // Cleanup function
     return () => {
       map.remove(); // Remove the map when the component unmounts
@@ -47,7 +67,6 @@ const MapPicker = () => {
 
   return (
     <div>
-     
       <div id="map" style={{ height: '550px' }}></div>
     </div>
   );

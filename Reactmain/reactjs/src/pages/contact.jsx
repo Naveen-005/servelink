@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar from '../components/navbar';
 
 
 function Contact() {
@@ -13,7 +14,7 @@ function Contact() {
     return (
         <> 
 
-
+           {/* <Navbar activePage="/contact" />   */}
            
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container">
@@ -62,7 +63,7 @@ function Contact() {
                     </div>
                 </div>
             </nav>
-
+          
             <div className="hero overlay" style={{ backgroundImage: "url('assets/images/img_v_5-min.jpg')" }}>
                 <div className="container">
                     <div className="row align-items-center justify-content-center">

@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet.locatecontrol';
+import 'leaflet.locatecontrol/dist/L.Control.Locate.min.css'; // Import CSS for locate control
+import 'leaflet.locatecontrol'; // Import locate control
+
 
 const MapPicker = () => {
   useEffect(() => {
@@ -10,7 +12,8 @@ const MapPicker = () => {
 
     // Add a tile layer
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19, minZoom: 2
+      maxZoom: 19,
+      minZoom: 2
     }).addTo(map);
 
     // Create a custom icon for the red dot pointer
@@ -40,12 +43,6 @@ const MapPicker = () => {
       // You can use these coordinates as needed
     });
 
-    var locateIcon = L.icon({
-      iconUrl: 'path/to/your/icon.png', // URL of the custom icon image
-      iconSize: [32, 32], // Size of the icon
-      iconAnchor: [16, 16] // Anchor point of the icon (center)
-    });
-    
     // Add the locate control to the map
     L.control.locate({
       position: 'topright',
@@ -56,7 +53,9 @@ const MapPicker = () => {
         enableHighAccuracy: true, // Enable high accuracy for geolocation
         maxZoom: 16 // Maximum zoom level when locating user
       },
-      flyTo: true // Fly to the user's location when found
+      flyTo: true, // Fly to the user's location when found
+      icon: 'fas fa-location-arrow', // Use a Font Awesome icon for the control
+      iconElementTag: 'span' // Specify the element type for the icon
     }).addTo(map);
 
     // Cleanup function

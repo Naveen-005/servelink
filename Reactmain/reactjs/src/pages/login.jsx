@@ -1,11 +1,51 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import config from '../config.json'
 
 
 function Login() {
+
+	const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+    });
+
+    const navigate = useNavigate();
+
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    };
+
+	const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        axios({
+            method: 'post',
+            url: config.server_api_url + '/login/volunteer',
+            data: formData
+            })
+            .then((res) => {
+                localStorage.setItem('name', res.data.name);
+                localStorage.setItem('uid', res.data.uid);
+                localStorage.setItem('token', res.data.token);
+                navigate("/")
+
+
+            })
+            .catch((err) => {
+                console.log(err)
+                alert("login failed")
+        });
+
+
+    };
+
     useEffect(() => {
         AOS.init(); 
     }, []);
@@ -20,20 +60,20 @@ function Login() {
 				<nav className="navbar1">
 				<Link className="txt1 " to="/index" style={{textDecoration:"none",color:"darkgrey"}} >Home <span className="sr-only"></span></Link>
 				  </nav>
-				<form className="login100-form validate-form">
+				<form className="login100-form validate-form" onSubmit={handleSubmit}>
 					
 
 					<span className="login100-form-title p-b-34 p-t-27">
 						Log in
 					</span>
 
-					<div className="wrap-input100 validate-input" data-validate = "Enter username">
-						<input className="input100" type="text" name="username" placeholder="Username"/>
+					<div className="wrap-input100 validate-input" data-validate = "Enter email">
+						<input className="input100" type="text" name="email" placeholder="email" value={formData.email} onChange={handleChange}/>
 						<span className="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div className="wrap-input100 validate-input" data-validate="Enter password">
-						<input className="input100" type="password" name="pass" placeholder="Password"/>
+						<input className="input100" type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange}/>
 						<span className="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
@@ -45,7 +85,7 @@ function Login() {
 					</div>
 
 					<div className="container-login100-form-btn">
-						<button className="login100-form-btn">
+						<button className="login100-form-btn" type="submit">
 							Login
 						</button>
 					</div>

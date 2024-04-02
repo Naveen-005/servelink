@@ -28,6 +28,7 @@ router.post('/', function(req, res, next) {
         if(!q_res){
 
             volunteer_instance.token = crypto.randomBytes(64).toString('hex');
+            volunteer_instance.password=passwordHash.generate(req.body.password);
 
             uid_generator(req.body.first_name)
                 .then((uid)=>{

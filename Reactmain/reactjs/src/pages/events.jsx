@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar from '../components/navbar';
 
 
 function Events() {
@@ -40,58 +41,7 @@ function Events() {
 				<div class="site-mobile-menu-body"></div>
 			</div>
 
-
-
-			<nav class="navbar navbar-expand-lg navbar-light">
-				<div class="container">
-					<Link class="navbar-brand logo m-0 float-start text-black-50 " href="index.html">Servelink</Link>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarNav">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item ">
-								<Link class="nav-link " to="/">Home <span class="sr-only"></span></Link>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
-									Volunteer
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link class="dropdown-item" to="/login">Login</Link>
-									<div class="dropdown-divider"></div>
-									<Link class="dropdown-item" to="/register">Register</Link>
-
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
-									Organization
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link class="dropdown-item" to="/login-organization">Login</Link>
-									<div class="dropdown-divider"></div>
-									<Link class="dropdown-item" to="/register-organization">Register</Link>
-
-								</div>
-							</li>
-							<li class="nav-item">
-								<Link className="nav-link" to="/about">About</Link>
-							</li>
-							<li class="nav-item">
-								<Link className="nav-link active" to="/events">Events</Link>
-							</li>
-
-							<li class="nav-item">
-								<Link className="nav-link" to="/contact">Contact</Link>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-
-
-
+			<Navbar/>
 
 			<div class="hero overlay" style={{ backgroundImage: "url('assets/images/img_v_6-min.jpg')" }}>
 				<div class="container">

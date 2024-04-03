@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.min.js'
-
-
 
 function Navbar() {
   const [volunteerDropdownOpen, setVolunteerDropdownOpen] = useState(false);
@@ -56,8 +51,9 @@ function Navbar() {
               <Link className="nav-link" to="/about">About</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link " to="/events">Events</Link>
+              <Link className="nav-link active" to="/events">Events</Link>
             </li>
+           
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contact</Link>
             </li>

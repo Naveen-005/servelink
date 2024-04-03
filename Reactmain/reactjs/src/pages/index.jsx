@@ -52,8 +52,8 @@ function Index() {
 				<div className="site-mobile-menu-body"></div>
 			</div>
 
+			<Navbar/>
 
-			<Navbar />
 
 			<div className="hero overlay" style={{ backgroundImage: "url('assets/images/hero_2.jpg')" }}>
 				<div className="container">

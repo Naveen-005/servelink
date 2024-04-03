@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js'
+import { useEffect } from 'react';
 
 
 
 function Navbar() {
   const [volunteerDropdownOpen, setVolunteerDropdownOpen] = useState(false);
   const [organizationDropdownOpen, setOrganizationDropdownOpen] = useState(false);
+  const [user_name, setUserName] = useState('Guest');
+ 
 
   const toggleVolunteerDropdown = () => {
     setVolunteerDropdownOpen(!volunteerDropdownOpen);
@@ -20,6 +23,15 @@ function Navbar() {
     setVolunteerDropdownOpen(false); // Close volunteer dropdown when opening organization dropdown
   };
 
+  useEffect(() => {
+    if(localStorage.getItem("name")){
+
+      const storedName = localStorage.getItem("name");
+      setUserName(storedName);
+    
+    }
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
@@ -28,7 +40,7 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
+          <ul className="navbar-nav ml-auto ">
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
             </li>
@@ -63,7 +75,12 @@ function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contact</Link>
             </li>
-          </ul>
+
+            <li className="nav-item ">
+              <Link className="nav-link" >{user_name}</Link>
+            </li>
+            </ul>
+          
         </div>
       </div>
     </nav>

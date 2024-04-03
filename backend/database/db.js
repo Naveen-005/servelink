@@ -28,6 +28,15 @@ const VolunteerModel = mongoose.model('Volunteers', volunteerSchema);
 
 const organizationSchema = new Schema({
 
+  name: String,
+  address: String,
+  district: String,
+  country: String,
+  email: String,
+  password: String,
+  token: String,
+  uid: String,
+  
 });
 const organizationModel = mongoose.model('Organizations',organizationSchema);
 

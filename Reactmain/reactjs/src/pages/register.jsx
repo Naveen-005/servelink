@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import config from '../config.json'
 import DatePicker from 'react-date-picker';
@@ -23,8 +23,8 @@ function Register() {
 
     });
 
-    
-        
+    const navigate = useNavigate();
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -53,7 +53,7 @@ function Register() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
+        
         axios({
             method: 'post',
             url: config.server_api_url + '/register/volunteer',
@@ -63,9 +63,13 @@ function Register() {
                 localStorage.setItem('name', res.data.name);
                 localStorage.setItem('uid', res.data.uid);
                 localStorage.setItem('token', res.data.token);
+                navigate("/")
+
+
             })
             .catch((err) => {
                 console.log(err)
+                alert("Registraation failed")
         });
 
 

@@ -34,8 +34,8 @@ function Login() {
                 localStorage.setItem('name', res.data.name);
                 localStorage.setItem('uid', res.data.uid);
                 localStorage.setItem('token', res.data.token);
+				alert("Successfully logged in")
                 navigate("/")
-
 
             })
             .catch((err) => {

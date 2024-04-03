@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navbar from '../components/navbar';
+import Event from '../components/event_card';
 
 
 function Events() {
@@ -185,8 +186,18 @@ function Events() {
 								</div>
 							</div>
 						</div>
-                      
 
+{/*
+						<Event evnt={{
+							enrolled: 45,
+							required: 70,
+							title: "test title",
+							img_url:"assets/images/vol1.jpg",
+							date: "Nov 17, 2024",
+							description:"test description 123"
+						}}/>
+                      
+					*/}
 
 
 

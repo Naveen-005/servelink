@@ -5,7 +5,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import config from '../config.json'
-import DatePicker from 'react-date-picker';
 
 function Register() {
 

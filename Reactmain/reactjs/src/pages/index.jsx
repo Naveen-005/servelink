@@ -358,7 +358,7 @@ function Index() {
 						<div className="col-lg-7 mx-auto text-center">
 
 							<h3 className="mb-4 heading text-white" data-aos="fade-up">Let's Help The Unfortunate People </h3>
-							<a href="login.html" className="btn btn-outline-white me-3" data-aos="fade-up" data-aos-delay="100">Become a Volunteer</a>
+							<Link to="/register" className="btn btn-outline-white me-3" data-aos="fade-up" data-aos-delay="100">Become a Volunteer</Link>
 						</div>
 					</div>
 				</div>

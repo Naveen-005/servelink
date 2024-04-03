@@ -53,7 +53,9 @@ function Index() {
 			</div>
 
 
+
 			<Navbar />
+
 
 			<div className="hero overlay" style={{ backgroundImage: "url('assets/images/hero_2.jpg')" }}>
 				<div className="container">

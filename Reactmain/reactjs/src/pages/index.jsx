@@ -4,9 +4,11 @@ import 'aos/dist/aos.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';	
 import { NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar from '../components/navbar';
+
 
 function Index() {
 	useEffect(() => {
@@ -51,53 +53,9 @@ function Index() {
 			</div>
 
 
-			<nav className="navbar navbar-expand-lg   navbar-light ">
-				<div className="container">
-					<Link className="navbar-brand logo m-0 float-start text-black-50 ">Servelink</Link>
-					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-						<span className="navbar-toggler-icon"></span>
-					</button>
-					<div className="collapse navbar-collapse" id="navbarNav">
-						<ul className="navbar-nav ml-auto">
-							<li className="nav-item active">
-								<Link className="nav-link active" >Home <span className="sr-only"></span></Link>
-							</li>
-							<li className="nav-item dropdown">
-								<a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
-									Volunteer
-								</a>
-								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link className="dropdown-item" to="/login">Login</Link>
-									<div className="dropdown-divider"></div>
-									<Link className="dropdown-item" to="/register">Register</Link>
 
-								</div>
-							</li>
-							<li className="nav-item dropdown">
-								<a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
-									Organization
-								</a>
-								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link className="dropdown-item" to="/login-organization">Login</Link>
-									<div className="dropdown-divider"></div>
-									<Link className="dropdown-item" to="register-organization">Register</Link>
+			<Navbar />
 
-								</div>
-							</li>
-							<li className="nav-item">
-								<Link className="nav-link" to="/about">About</Link>
-							</li>
-							<li className="nav-item">
-								<Link className="nav-link" to="/events">Events</Link>
-							</li>
-
-							<li className="nav-item">
-								<Link className="nav-link" to="/contact">Contact</Link>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
 
 			<div className="hero overlay" style={{ backgroundImage: "url('assets/images/hero_2.jpg')" }}>
 				<div className="container">
@@ -285,7 +243,7 @@ function Index() {
 							<div className="item px-2" >
 								<div className="causes-item bg-white ">
 									<img src={"assets/images/v13.jpg"} alt="Image" className="img-fluid mb-4 rounded" />
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Food for the Hungry</a></h3>
 										<p align="justify">"Food for the Hungry" involves organizing community food drives and meal distribution events.
 											Volunteers can collaborate with local businesses, schools, and religious organizations to collect
@@ -301,9 +259,9 @@ function Index() {
 							<div className="item px-2" >
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/v11.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Education for Children</a></h3>
-										<p align="justify">Volunteers can offer one-on-one or group tutoring sessions to support children in their academic
+										<p align="justify" >Volunteers can offer one-on-one or group tutoring sessions to support children in their academic
 											studies, focusing on subjects where they may need additional help or guidance. Additionally,
 											volunteers can serve as mentors, providing encouragement, guidance, and positive role modeling
 											to help children develop essential life skills and pursue their educational goals. By volunteering
@@ -317,7 +275,7 @@ function Index() {
 							<div className="item px-2" >
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/img_pp_3.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Support Livelihood</a></h3>
 										<p align="justify">Supporting livelihoods through volunteering is a cornerstone of our mission. We believe
 											in empowering individuals and communities to achieve economic self-sufficiency and financial
@@ -332,7 +290,7 @@ function Index() {
 							<div className="item px-2">
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/p2.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Environmental Conservation</a></h3>
 										<p align="justify">Volunteering activities in environmental conservation encompass a wide range of
 											impactful initiatives aimed at protecting and preserving the natural world. Volunteers
@@ -348,7 +306,7 @@ function Index() {
 							<div className="item px-2">
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/m1.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Healthcare Access & Support</a></h3>
 										<p align="justify">Volunteering activities in healthcare access and support are essential
 											for ensuring that individuals receive the care and assistance they need.
@@ -364,7 +322,7 @@ function Index() {
 							<div className="item px-2">
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/d1.webp"} alt="Image" className="img-fluid mb-4 rounded" /></a>
-									<div className="px-4 pb-5 pt-3">
+									<div className="px-4 pb-5 pt-3" style={{ height: '500px' }}>
 										<h3><a href="#" style={{ textDecoration: 'none', color: '#2a5834' }}>Disaster Response & Relief</a></h3>
 										<p align="justify">In disaster response and relief, volunteers are at
 											the forefront of providing essential aid and support to communities
@@ -400,7 +358,7 @@ function Index() {
 						<div className="col-lg-7 mx-auto text-center">
 
 							<h3 className="mb-4 heading text-white" data-aos="fade-up">Let's Help The Unfortunate People </h3>
-							<a href="login.html" className="btn btn-outline-white me-3" data-aos="fade-up" data-aos-delay="100">Become a Volunteer</a>
+							<Link to="/register" className="btn btn-outline-white me-3" data-aos="fade-up" data-aos-delay="100">Become a Volunteer</Link>
 						</div>
 					</div>
 				</div>

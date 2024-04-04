@@ -5,12 +5,31 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar from '../components/navbar';
+import Event from '../components/event_card';
 
 
 function Events() {
 	useEffect(() => {
 		AOS.init();
 	}, []);
+
+	{/*
+	const truncateText = (text, maxLength) => {
+		const words = text.split(' ');
+		if (words.length > maxLength) {
+		  return words.slice(0, maxLength).join(' ') + '...';
+		} else {
+		  return text;
+		}
+	  };
+	
+	  const truncatedDescription = truncateText(description, 35);
+
+	*/}
+
+
+
 	return (
 		<div>
 
@@ -23,58 +42,7 @@ function Events() {
 				<div class="site-mobile-menu-body"></div>
 			</div>
 
-
-
-			<nav class="navbar navbar-expand-lg navbar-light">
-				<div class="container">
-					<Link class="navbar-brand logo m-0 float-start text-black-50 " href="index.html">Servelink</Link>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarNav">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item ">
-								<Link class="nav-link " to="/">Home <span class="sr-only"></span></Link>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
-									Volunteer
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link class="dropdown-item" to="/login">Login</Link>
-									<div class="dropdown-divider"></div>
-									<Link class="dropdown-item" to="/register">Register</Link>
-
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
-									Organization
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link class="dropdown-item" to="/login-organization">Login</Link>
-									<div class="dropdown-divider"></div>
-									<Link class="dropdown-item" to="/register-organization">Register</Link>
-
-								</div>
-							</li>
-							<li class="nav-item">
-								<Link className="nav-link" to="/about">About</Link>
-							</li>
-							<li class="nav-item">
-								<Link className="nav-link active" to="/events">Events</Link>
-							</li>
-
-							<li class="nav-item">
-								<Link className="nav-link" to="/contact">Contact</Link>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-
-
-
+			<Navbar/>
 
 			<div class="hero overlay" style={{ backgroundImage: "url('assets/images/img_v_6-min.jpg')" }}>
 				<div class="container">
@@ -99,7 +67,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/img_v_1-min.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">Dec 31, 2023</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Medical Camp</a></h3>
 									<p>"Empowering communities through free medical camps. Join us for impact!"</p>
@@ -118,7 +86,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/img_v_2-min.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">Jan 17, 2024</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Clean Up</a></h3>
 									<p>"Join our clean-up efforts. Together, let's make a difference!"</p>
@@ -135,7 +103,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/img_v_3-min.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">June 20, 2023</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Aid Distribution</a></h3>
 									<p>"Supporting communities through aid distribution. Join us in lending hands!"</p>
@@ -152,7 +120,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol8.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">May 11, 2020</span>
 
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}	>
@@ -172,7 +140,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol9.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">May 11, 2020</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Education for Children</a></h3>
 									<p>"Empowering children through education. Join us to shape brighter futures!"</p>
@@ -189,7 +157,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol6.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">Jan 27, 2024</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Animal Shelter Volunteering</a></h3>
 									<p>Assisting animals, cleaning, feeding, walking, nurturing, aiding adoption efforts</p>
@@ -205,7 +173,7 @@ function Events() {
                         <div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol1.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">Nov 17, 2024</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Blood Donation Volunteers</a></h3>
 									<p>"Selfless individuals aiding blood donation through compassionate service."</p>
@@ -218,8 +186,18 @@ function Events() {
 								</div>
 							</div>
 						</div>
-                      
 
+{/*
+						<Event evnt={{
+							enrolled: 45,
+							required: 70,
+							title: "test title",
+							img_url:"assets/images/vol1.jpg",
+							date: "Nov 17, 2024",
+							description:"test description 123"
+						}}/>
+                      
+					*/}
 
 
 
@@ -229,7 +207,7 @@ function Events() {
 						<div class="col-lg-3 col-md-4">
 							<div class="causes-item bg-white">
 								<a href="#"><img src={"assets/images/vol7.jpg"} alt="Image" class="img-fluid mb-4 rounded" /></a>
-								<div class="px-4 pb-3 pt-3">
+								<div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
 									<span class="date">May 11, 2020</span>
 									<h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>Support Livelihood</a></h3>
 									<p>"Empowering livelihoods. Join us to create sustainable futures together!"</p>

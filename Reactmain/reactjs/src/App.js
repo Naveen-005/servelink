@@ -1,18 +1,19 @@
 import React from 'react';
-import Index from './pages/index';
-import About from './pages/about';
-import Events from './pages/events';
-import Contact from './pages/contact';
-import Login from './pages/login';
+import Index from './pages/index/index';
+import About from './pages/index/about';
+import Events from './pages/index/events';
+import Contact from './pages/index/contact';
+import Login from './pages/vol_log/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Orglog from './pages/orglog';
-import Register from './pages/register';
-import Orgreg from './pages/orgreg';
-import Admin from './pages/admin'
+import Orglog from './pages/org_log/orglog';
+import Register from './pages/vol_reg/register';
+import Orgreg from './pages/org_reg/orgreg';
+import Admin from './pages/admin/admin'
 import MapTest from './components/map'
-import Profile from './pages/profile'
+import Profile from './pages/profile/profile'
 import Navbar from './components/navbar';
-import OrgPost from './pages/OrgPost';
+import OrgPost from './pages/org_post/OrgPost';
+import Footer from './components/footer';
 
 
 function App() {

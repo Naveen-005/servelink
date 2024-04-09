@@ -10,6 +10,7 @@
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "google-map-react": "^2.2.1",
+    "js-cookie": "^3.0.5",
     "json-loader": "^0.5.7",
     "leaflet": "^1.9.4",
     "leaflet.locatecontrol": "^0.79.0",

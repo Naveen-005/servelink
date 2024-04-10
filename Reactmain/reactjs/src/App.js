@@ -14,6 +14,7 @@ import Profile from './pages/profile/profile'
 import Navbar from './components/navbar';
 import OrgPost from './pages/org_dash/org_post/OrgPost';
 import Footer from './components/footer';
+import Dashboard from './pages/dashboard/dashboard';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/*" element={<Index />} />
         <Route path='/g' element={<OrgPost/>}/>
+        <Route path='/d' element={<Dashboard/>}/>
       </Routes>
     </BrowserRouter>
   );

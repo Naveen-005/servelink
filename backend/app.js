@@ -12,11 +12,12 @@ var loginRouter_Volunteer = require('./routes/login/volunteer');
 var loginRouter_Organization = require('./routes/login/organization');
 var volunteerRegistration_Router=require('./routes/register/volunteer');
 var organizationRegistration_Router=require('./routes/register/organization');
-var user_event_add_Router=require('./routes/addevent/oraganization');
+var eventRegistration_Router=require('./routes/register/event')
 
 var app = express();
 
-var test = require('./database/db')
+var db = require('./database/db')
+//var bucket=require('./database/bucket_storage')
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -32,6 +33,7 @@ app.use('/login/volunteer',loginRouter_Volunteer);
 app.use('/login/organization',loginRouter_Organization);
 app.use('/register/volunteer',volunteerRegistration_Router);
 app.use('/register/organization',organizationRegistration_Router);
+app.use('/register/event',eventRegistration_Router);
 
 
 module.exports = app;

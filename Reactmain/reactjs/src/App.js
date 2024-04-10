@@ -12,7 +12,7 @@ import Admin from './pages/admin/admin'
 import MapTest from './components/map'
 import Profile from './pages/profile/profile'
 import Navbar from './components/navbar';
-import OrgPost from './pages/org_post/OrgPost';
+import OrgPost from './pages/org_dash/org_post/OrgPost';
 import Footer from './components/footer';
 
 

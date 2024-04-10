@@ -1,3 +1,8 @@
 {
-    "mongodb_url":"mongodb://127.0.0.1:27017/servelink"
+    "mongodb_url":"mongodb://127.0.0.1:27017/servelink",
+    "minio_endpoint":"127.0.0.1",
+    "minio_port":9000,
+    "minio_access_key":"minioadmin",
+    "minio_secret_key":"minioadmin"
+
 }

@@ -35,12 +35,13 @@ const organizationSchema = new Schema({
   email: String,
   password: String,
   token: String,
-  uid: String,
+  org_id: String,
 
 });
 const organizationModel = mongoose.model('Organizations', organizationSchema);
 
 const eventSchema = new Schema({
+  event_id: String,
   title: String,
   location: String,
   date: Date,
@@ -48,6 +49,7 @@ const eventSchema = new Schema({
   long_description: String,
   required: Number,
   thumbnail: String,
+  org_id:String,
 
 });
 const eventModel = mongoose.model('Events', eventSchema);

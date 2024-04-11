@@ -16,6 +16,7 @@ import './assets/vendor/css-hamburgers/hamburgers.min.css'
 import './assets/vendor/animsition/css/animsition.min.css'
 import './assets/vendor/select2/select2.min.css'
 import { Helmet } from 'react-helmet';
+import Cookies from 'js-cookie';
 
 function Login() {
 
@@ -41,9 +42,10 @@ function Login() {
             data: formData
             })
             .then((res) => {
-                localStorage.setItem('name', res.data.name);
-                localStorage.setItem('uid', res.data.uid);
-                localStorage.setItem('token', res.data.token);
+				Cookies.set('name', res.data.name, { expires: 7 })
+        		Cookies.set('uid', res.data.uid, { expires: 7 })
+        		Cookies.set('token', res.data.token, { expires: 7 })
+                alert("Registered Successfully");
 				alert("Successfully logged in")
                 navigate("/")
 

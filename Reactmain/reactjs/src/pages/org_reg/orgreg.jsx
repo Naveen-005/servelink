@@ -14,6 +14,7 @@ import './assets/vendor/animate/animate.css'
 import './assets/vendor/css-hamburgers/hamburgers.min.css'
 import './assets/vendor/animsition/css/animsition.min.css'
 import './assets/vendor/select2/select2.min.css'
+import Cookies from 'js-cookie';
 
 
 
@@ -46,16 +47,16 @@ function Orgreg() {
             data: formData
             })
             .then((res) => {
-                document.cookie = `name=${res.data.name};`;
-        		document.cookie = `uid=${res.data.uid};`;
-        		document.cookie = `token=${res.data.token};`;
+				Cookies.set('name', res.data.name, { expires: 7 })
+        		Cookies.set('org_id', res.data.org_id, { expires: 7 })
+        		Cookies.set('token', res.data.token, { expires: 7 })
 				alert("Succesfully registered")
                 navigate("/")
 
             })
             .catch((err) => {
                 console.log(err)
-                alert("Registraation failed")
+                alert(err)
         });
 
 

@@ -11,7 +11,7 @@ import './assets/vendor/datepicker/daterangepicker.css'
 import './assets/vendor/mdi-font/css/material-design-iconic-font.min.css'
 import './assets/vendor/font-awesome-4.7/css/font-awesome.min.css'
 import { Helmet } from 'react-helmet';
-    
+import Cookies from 'js-cookie';   
 
 
 function Register() {
@@ -55,9 +55,6 @@ function Register() {
    
     */}
 
-
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
         
@@ -67,18 +64,16 @@ function Register() {
             data: formData
             })
             .then((res) => {
-                localStorage.setItem('name', res.data.name);
-                localStorage.setItem('uid', res.data.uid);
-                localStorage.setItem('token', res.data.token);
+                Cookies.set('name', res.data.name, { expires: 7 })
+        		Cookies.set('uid', res.data.uid, { expires: 7 })
+        		Cookies.set('token', res.data.token, { expires: 7 })
+                alert("Registered Successfully");
                 navigate("/")
-
-
             })
             .catch((err) => {
                 console.log(err)
-                alert("Registraation failed")
+                alert(err)
         });
-
 
     };
 
@@ -87,10 +82,6 @@ function Register() {
         AOS.init();
     }, []);
 
-
-   
-      
-    
 
     return (
         <>

@@ -8,6 +8,8 @@ import config from '../../config.json'
 import './styl3.css'
 import './bootstrap.min.css'
 import { Helmet } from 'react-helmet';
+import Cookies from 'js-cookie';
+
 
 
 function Orglog() {
@@ -34,9 +36,9 @@ function Orglog() {
       data: formData
     })
       .then((res) => {
-        localStorage.setItem('name', res.data.name);
-        localStorage.setItem('uid', res.data.uid);
-        localStorage.setItem('token', res.data.token);
+        Cookies.set('name', res.data.name, { expires: 7 })
+        Cookies.set('org_id', res.data.org_id, { expires: 7 })
+        Cookies.set('token', res.data.token, { expires: 7 })
         alert("Successfully logged in");
         navigate("/")
 
@@ -46,11 +48,7 @@ function Orglog() {
         alert("login failed")
       });
 
-
   };
-
-
-
 
   useEffect(() => {
     AOS.init();

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import config from '../../../config.json'
-
+import Cookies from 'js-cookie';
 
 function OrgPost() {
 
@@ -15,7 +15,7 @@ function OrgPost() {
     short_description: "",
     long_description: "",
     required: "",
-    org_id:"",
+    //org_id:"",
   });
 
   const [image, setImage] = useState(null)
@@ -39,6 +39,11 @@ function OrgPost() {
         'Content-Type': 'multipart/form-data' // Set content type to multipart/form-data
       },
       data: {
+        auth:{
+          name: Cookies.get('name'),
+          org_id: Cookies.get('org_id'),
+          token: Cookies.get('token')
+        },
         formData: formData,
         file: image
       }

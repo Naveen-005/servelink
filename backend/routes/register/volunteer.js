@@ -4,7 +4,7 @@ var passwordHash = require('password-hash');
 const { VolunteerModel } = require('../../database/db');
 //const {generateUsername} = require("unique-username-generator");
 var crypto = require('crypto');
-var uniqid = require('uniqid');
+//var uniqid = require('uniqid');
 
 /*
 function uid_generator(name){
@@ -24,7 +24,6 @@ router.post('/', function (req, res, next) {
 
     const volunteer_instance = new VolunteerModel(req.body);
 
-
     VolunteerModel.findOne({ $or: [{ 'email': req.body.email }, { 'phone_no': req.body.phone_no }] })
         .then((q_res) => {
 
@@ -32,12 +31,11 @@ router.post('/', function (req, res, next) {
 
                 volunteer_instance.token = crypto.randomBytes(64).toString('hex');
                 volunteer_instance.password = passwordHash.generate(req.body.password);
-                volunteer_instance.uid = uniqid(req.body.first_name)
                 volunteer_instance.save()
                     .then((mongo_res) => {
                         res.send({
                             name: mongo_res.first_name,
-                            uid: mongo_res.uid,
+                            uid: mongo_res._id,
                             token: mongo_res.token
                         })
                     }

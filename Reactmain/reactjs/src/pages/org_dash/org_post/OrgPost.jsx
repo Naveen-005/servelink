@@ -41,7 +41,7 @@ function OrgPost() {
       data: {
         auth:{
           name: Cookies.get('name'),
-          org_id: Cookies.get('org_id'),
+          _id: Cookies.get('org_id'),
           token: Cookies.get('token')
         },
         formData: formData,

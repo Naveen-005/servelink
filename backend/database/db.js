@@ -22,7 +22,6 @@ const volunteerSchema = new Schema({
   dob: Date,
   password: String,
   token: String,
-  uid: String,
 });
 const VolunteerModel = mongoose.model('Volunteers', volunteerSchema);
 
@@ -35,21 +34,19 @@ const organizationSchema = new Schema({
   email: String,
   password: String,
   token: String,
-  org_id: String,
 
 });
 const organizationModel = mongoose.model('Organizations', organizationSchema);
 
 const eventSchema = new Schema({
-  event_id: String,
   title: String,
   location: String,
   date: Date,
   short_description: String,
   long_description: String,
   required: Number,
-  thumbnail: String,
   org_id:String,
+  enrolled: Number
 
 });
 const eventModel = mongoose.model('Events', eventSchema);

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const { eventModel, organizationModel } = require('../../database/db');
 const { minioClient, upload } = require('../../database/bucket_storage')
-var uniqid = require('uniqid');
+//var uniqid = require('uniqid');
 
 
 /* GET users listing. */
@@ -14,8 +14,7 @@ router.post('/', upload.single('file'), function (req, res, next) {
         var file = req.file.buffer
         //console.log(req.body.auth)
         const event_instance = new eventModel(req.body.formData);
-        event_instance.event_id = uniqid();
-        event_instance.org_id = req.body.auth.org_id
+        event_instance.org_id = req.body.auth._id
         event_instance.save()
           .then((mongo_res) => {
 
@@ -36,6 +35,27 @@ router.post('/', upload.single('file'), function (req, res, next) {
   } else {
     res.status(401)
     res.send("No Authorization")
+  }
+
+
+});
+
+router.get('/', function (req, res, next) {
+
+
+  if (req.cookies.token) {
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    console.log("cookies:",req.cookies)
+    eventModel.find({date: { $gte: today }})
+    .then((m_res)=>{
+      res.send(m_res)
+    })
+  }
+  else{
+    res.status(401)
+    res.send('Not logged in')
   }
 
 

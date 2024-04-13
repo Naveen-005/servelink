@@ -18,13 +18,15 @@ var app = express();
 
 var db = require('./database/db')
 //var bucket=require('./database/bucket_storage')
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3200',
+    credentials:true}));
 app.use(bodyParser.json());
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

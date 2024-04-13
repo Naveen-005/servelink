@@ -4,7 +4,7 @@ var passwordHash = require('password-hash');
 const { organizationModel } = require('../../database/db');
 //const {generateUsername} = require("unique-username-generator");
 var crypto = require('crypto');
-var uniqid = require('uniqid');
+//var uniqid = require('uniqid');
 
 /*
 function uid_generator(name){
@@ -32,13 +32,12 @@ router.post('/', function (req, res, next) {
 
                 organization_instance.token = crypto.randomBytes(64).toString('hex');
                 organization_instance.password = passwordHash.generate(req.body.password);
-                organization_instance.org_id = uniqid(req.body.name);
 
                 organization_instance.save()
                     .then((mongo_res) => {
                         res.send({
                             name: mongo_res.name,
-                            org_id: mongo_res.org_id,
+                            org_id: mongo_res._id,
                             token: mongo_res.token
                         })
                     }

@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
                 q_res.updateOne({token:generated_token}).then()
                 res.send({
                     name:q_res.name,
-                    org_id:q_res.org_id,
+                    org_id:q_res._id,
                     token:generated_token
                 })
             }

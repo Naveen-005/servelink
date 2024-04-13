@@ -12,9 +12,12 @@ import Admin from './pages/admin/admin'
 import MapTest from './components/map'
 import Profile from './pages/profile/profile'
 import Navbar from './components/navbar';
-import OrgPost from './pages/org_post/OrgPost';
 import Footer from './components/footer';
-
+import Sidebar from './pages/org_dash/components/sidebar';
+import Event_details from './components/event_details';
+import Odas from './pages/org_dash/Odas';
+import OrgPost from './pages/org_dash/org_post/OrgPost';
+import UserDropdown from './pages/org_dash/components/userdropdown';
 
 function App() {
   return (
@@ -32,7 +35,14 @@ function App() {
         <Route path="/test" element={<MapTest />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/*" element={<Index />} />
-        <Route path='/g' element={<OrgPost/>}/>
+        <Route path="/sidebar" element={<Sidebar />} />
+        <Route path="/event_details" element={<Event_details />} />
+        <Route path="/odas" element={<Odas />} />
+        <Route path="/post" element={<OrgPost />} />
+        <Route path="/p" element={<UserDropdown />} />
+       
+
+
       </Routes>
     </BrowserRouter>
   );

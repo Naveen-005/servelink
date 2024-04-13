@@ -90,7 +90,7 @@ function Events() {
 										<div class="progress-bar" role="progressbar" style={{ width: ' 29%', backgroundColor: '#2a5834' }} aria-valuenow="36" aria-valuemin="0" aria-valuemax="100">29/100</div>
 									</div>
 									<br />
-									<button type="button" class="btn btn-success float-end" >Enroll</button>
+									<button type="button" class="btn btn-success float-end" >view</button>
 								</div>
 
 							</div>
@@ -107,7 +107,7 @@ function Events() {
 										<div class="progress-bar" role="progressbar" style={{ width: ' 25%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25/100</div>
 									</div>
 									<br />
-									<button type="button" class="btn btn-success float-end" >Enroll</button>
+									<button type="button" class="btn btn-success float-end" >view</button>
 								</div>
 							</div>
 						</div>
@@ -124,7 +124,7 @@ function Events() {
 										<div class="progress-bar" role="progressbar" style={{ width: ' 80%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80/100</div>
 									</div>
 									<br />
-									<button type="button" class="btn btn-success float-end" >Enroll</button>
+									<button type="button" class="btn btn-success float-end" >view</button>
 								</div>
 							</div>
 						</div>
@@ -143,7 +143,7 @@ function Events() {
 										<div class="progress-bar" role="progressbar" style={{ width: ' 65%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">65/100</div>
 									</div>
 									<br />
-									<button type="button" class="btn btn-success float-end" >Enroll</button>
+									<button type="button" class="btn btn-success float-end" >view</button>
 
 								</div>
 							</div>
@@ -161,7 +161,7 @@ function Events() {
 										<div class="progress-bar" role="progressbar" style={{ width: ' 50%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50/100</div>
 									</div>
 									<br />
-									<button type="button" class="btn btn-success float-end" >Enroll</button>
+									<button type="button" class="btn btn-success float-end" >view</button>
 
 								</div>
 							</div>
@@ -177,7 +177,7 @@ function Events() {
 										<div class="progress-bar" role="progressbar" style={{ width: ' 95%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">95/100</div>
 									</div>
 									<br />
-									<button type="button" class="btn btn-success float-end" >Enroll</button>
+									<button type="button" class="btn btn-success float-end" >view</button>
 								</div>
 							</div>
 						</div>
@@ -194,7 +194,7 @@ function Events() {
 										<div class="progress-bar" role="progressbar" style={{ width: ' 41%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">41/100</div>
 									</div>
 									<br />
-									<button type="button" class="btn btn-success float-end" >Enroll</button>
+									<button type="button" class="btn btn-success float-end" >view</button>
 								</div>
 							</div>
 						</div>
@@ -222,7 +222,7 @@ function Events() {
 										<div class="progress-bar" role="progressbar" style={{ width: ' 75%', backgroundColor: '#2a5834' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">75/100</div>
 									</div>
 									<br />
-									<button type="button" class="btn btn-success float-end" >Enroll</button>
+									<button type="button" class="btn btn-success float-end" >view</button>
 								</div>
 							</div>
 						</div>

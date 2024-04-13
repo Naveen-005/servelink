@@ -47,7 +47,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
-        <Link className="navbar-brand logo m-0 float-start text-black-50" to="/">Servelink</Link>
+        <Link className="navbar-brand logo m-0 float-start text-black1-50" to="/">Servelink</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

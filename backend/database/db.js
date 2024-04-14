@@ -51,5 +51,11 @@ const eventSchema = new Schema({
 });
 const eventModel = mongoose.model('Events', eventSchema);
 
+const eventEnrollmentSchema = new Schema({
+  org_id: String,
+  vol_id: String
+});
+const eventEnrollmentModel = mongoose.model('Event_enrollment',eventEnrollmentSchema);
 
-module.exports = { VolunteerModel, organizationModel, eventModel };
+
+module.exports = { VolunteerModel, organizationModel, eventModel, eventEnrollmentModel };

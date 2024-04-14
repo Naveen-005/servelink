@@ -15,6 +15,7 @@ router.post('/', upload.single('file'), function (req, res, next) {
         //console.log(req.body.auth)
         const event_instance = new eventModel(req.body.formData);
         event_instance.org_id = req.body.auth._id
+        event_instance.enrolled=0
         event_instance.save()
           .then((mongo_res) => {
 
@@ -47,7 +48,6 @@ router.get('/', function (req, res, next) {
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    console.log("cookies:",req.cookies)
     eventModel.find({date: { $gte: today }})
     .then((m_res)=>{
       res.send(m_res)

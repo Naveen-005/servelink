@@ -13,6 +13,7 @@ var loginRouter_Organization = require('./routes/login/organization');
 var volunteerRegistration_Router=require('./routes/register/volunteer');
 var organizationRegistration_Router=require('./routes/register/organization');
 var eventRegistration_Router=require('./routes/register/event')
+const eventDetailsRouter=require('./routes/event_details');
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use('/login/organization',loginRouter_Organization);
 app.use('/register/volunteer',volunteerRegistration_Router);
 app.use('/register/organization',organizationRegistration_Router);
 app.use('/register/event',eventRegistration_Router);
+app.use('/event_details',eventDetailsRouter);
 
 
 module.exports = app;

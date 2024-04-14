@@ -14,9 +14,10 @@ router.post('/', function(req, res, next) {
             if(passwordHash.verify(req.body.password, q_res.password)){
 
                 generated_token = crypto.randomBytes(64).toString('hex');
+                q_res.updateOne({token:generated_token}).then()
                 res.send({
                     name:q_res.first_name,
-                    uid:q_res.uid,
+                    uid:q_res._id,
                     token:generated_token
                 })
             }

@@ -1,4 +1,4 @@
-
+import config from '../config.json'
 
 function Event({evnt}) {
 
@@ -8,11 +8,11 @@ function Event({evnt}) {
 
         <div class="col-lg-3 col-md-4">
             <div class="causes-item bg-white">
-                <img src={evnt.img_url} alt="Image" class="img-fluid mb-4 rounded" />
+                <img src={`${config.bucket_url}event/${evnt._id}.jpg`} alt="Image" class="img-fluid mb-4 rounded" />
                 <div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
                     <span class="date">{evnt.date}</span>
                     <h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>{evnt.title}</a></h3>
-                    <p>{evnt.description}</p>
+                    <p>{evnt.short_description}</p>
 
                     <div class="progress">
                         <div className="progress-bar" role="progressbar" style={{ width: `${percent}%`, backgroundColor: '#2a5834' }} aria-valuenow={evnt.enrolled} aria-valuemin="0" aria-valuemax={evnt.required}>{evnt.enrolled}/{evnt.required}</div>

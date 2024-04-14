@@ -1,13 +1,71 @@
 import React,{useState,useEffect,useRef} from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import config from '../../../config.json'
+import Cookies from 'js-cookie';
 import './OrgPost.css'
 import L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import 'leaflet/dist/leaflet.css';
+import { Helmet } from 'react-helmet';
 
 
-function OrgPost()
- {
+function OrgPost() {
+
+  const [formData, setFormData] = useState({
+    title: "",
+    location: "",
+    date: "",
+    short_description: "",
+    long_description: "",
+    required: "",
+    //org_id:"",
+  });
+
+  const [image, setImage] = useState(null)
+
+  function handleFileChange(event) {
+    setImage(event.target.files[0])
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    axios({
+      method: 'post',
+      url: config.server_api_url + '/register/event',
+      headers: {
+        'Content-Type': 'multipart/form-data' // Set content type to multipart/form-data
+      },
+      data: {
+        auth:{
+          name: Cookies.get('name'),
+          _id: Cookies.get('org_id'),
+          token: Cookies.get('token')
+        },
+        formData: formData,
+        file: image
+      }
+    })
+      .then((res) => {
+
+        alert("Succesfully registered")
+        //navigate("/")
+
+      })
+      .catch((err) => {
+        console.log(err)
+        alert(err)
+      });
+
+  };
+
+
 
   const [inputValue, setInputValue] = useState('');
 
@@ -62,13 +120,17 @@ function OrgPost()
   }, []);
 
   return (
+    
     <div class="system9">
+      <Helmet>
+    <title>Post</title>
+   </Helmet>
     <div class="container9">
     <h2 className='txt9'>New Post</h2>
     <Link id="crossButton9" to="/odas">&#10006;</Link>
-    <form>
+     <form onSubmit={handleSubmit}>
       <label for="eventName">Event Name:</label>
-      <input type="text" id="eventName" name="eventName" required/>
+      <input type="text" id="eventName" name="title" value={formData.title} onChange={handleChange} required />
 
       <label for="eventLocation">Location:</label>
       <input type="text" id="eventLocation" name="eventLocation" value={selectedLocation}
@@ -81,13 +143,13 @@ function OrgPost()
      </div>
 
       <label for="eventDate">Date:</label>
-      <input type="date" id="eventDate" name="eventDate" required/>
-
+      <input type="date" id="eventDate" name="date" value={formData.date} onChange={handleChange} required />
+         
       <label for="eventTime">Time:</label>
       <input type="time" id="eventTime" name="eventTime"/>
 
       <label for="media">Upload Media:</label>
-      <input type="file" id="media" name="media" accept="image/*, video/*, audio/*" multiple  onchange="previewMedia(event)"/>
+      <input type="file" id="media" name="media" accept="image/*, video/*, audio/*" multiple  onchange={handleFileChange} />
       <div id="mediaPreview"></div>
 
       <label for="description">Short Description: (max 20 words)</label>
@@ -97,7 +159,7 @@ function OrgPost()
       <input type="number" id="count" name="count" required/>
 
       <label for="description">Long Description: </label>
-      <textarea id="description" name="description" placeholder="write full details on here......" ></textarea>
+      <textarea id="description" name="description" placeholder="write full details on here......" value={formData.short_description} onChange={handleChange}></textarea>
       
       <button id="da" type="submit">Post</button>
     </form>

@@ -11,7 +11,7 @@ import './assets/vendor/datepicker/daterangepicker.css'
 import './assets/vendor/mdi-font/css/material-design-iconic-font.min.css'
 import './assets/vendor/font-awesome-4.7/css/font-awesome.min.css'
 import { Helmet } from 'react-helmet';
-    
+import Cookies from 'js-cookie';   
 
 
 function Register() {
@@ -55,9 +55,6 @@ function Register() {
    
     */}
 
-
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
         
@@ -67,18 +64,16 @@ function Register() {
             data: formData
             })
             .then((res) => {
-                localStorage.setItem('name', res.data.name);
-                localStorage.setItem('uid', res.data.uid);
-                localStorage.setItem('token', res.data.token);
+                Cookies.set('name', res.data.name, { expires: 7 })
+        		Cookies.set('uid', res.data.uid, { expires: 7 })
+        		Cookies.set('token', res.data.token, { expires: 7 })
+                alert("Registered Successfully");
                 navigate("/")
-
-
             })
             .catch((err) => {
                 console.log(err)
-                alert("Registraation failed")
+                alert(err)
         });
-
 
     };
 
@@ -87,10 +82,6 @@ function Register() {
         AOS.init();
     }, []);
 
-
-   
-      
-    
 
     return (
         <>
@@ -118,40 +109,30 @@ function Register() {
                                 <div class="row row-space">
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">first name</label>
-                                            <input class="input--style-4" type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
+                                            <label class="label2">first name</label>
+                                            <input class="input--style-4" type="text2" name="first_name" value={formData.first_name} onChange={handleChange} />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">last name</label>
-                                            <input class="input--style-4" type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
+                                            <label class="label2">last name</label>
+                                            <input class="input--style-4" type="text2" name="last_name" value={formData.last_name} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row row-space">
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">DOB</label>
+                                            <label class="label2">DOB</label>
                                                <br/>
             
                                                 <input class="input--style-9 js-datepicker" type="date" name="dob" value={formData.dob} onChange={handleChange} />
-                                            
-                                               {/* <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar" onClick={(toggleCalendar)}></i>*/}
-                                               {/* <DatePicker selected={formData.dob} onChange={handleChang} inline /> */}
-                                                
-                                            {/*
-                                                <DatePicker name="dob"  dateFormat="MM/dd/yyyy"  value={formData.dob} onChange={(newValue) => setFormData({...formData,dob:newValue})} />
-                                            </div>
-                                            */}
-                                           
-
-                                            
+                                         
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">Gender</label>
+                                            <label class="label2">Gender</label>
 
                                             <div class="p-t-9">
                                                 <br />
@@ -170,28 +151,28 @@ function Register() {
                                 <div class="row row-space">
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">Email</label>
+                                            <label class="label2">Email</label>
                                             <input class="input--style-4" type="email" name="email" value={formData.email} onChange={handleChange} />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">Phone Number</label>
-                                            <input class="input--style-4" type="text" name="phone_no" value={formData.phone_no} onChange={handleChange} />
+                                            <label class="label2">Phone Number</label>
+                                            <input class="input--style-4" type="text2" name="phone_no" value={formData.phone_no} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row row-space">
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">City</label>
-                                            <input class="input--style-4" type="text" name="city" value={formData.city} onChange={handleChange} />
+                                            <label class="label2">City</label>
+                                            <input class="input--style-4" type="text2" name="city" value={formData.city} onChange={handleChange} />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">District</label>
-                                            <input class="input--style-4" type="text" name="district" value={formData.district} onChange={handleChange} />
+                                            <label class="label2">District</label>
+                                            <input class="input--style-4" type="text2" name="district" value={formData.district} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
@@ -199,13 +180,13 @@ function Register() {
 
                                 <div class="col-6">
                                     <div class="input-group">
-                                        <label class="label">Pincode</label>
-                                        <input class="input--style-4" type="text" name="pincode" value={formData.pincode} onChange={handleChange}/>
+                                        <label class="label2">Pincode</label>
+                                        <input class="input--style-4" type="text2" name="pincode" value={formData.pincode} onChange={handleChange}/>
                                     </div>
                                 </div>
                                   <div class="col-6">
                                         <div class="input-group">
-                                            <label class="label">Password</label>
+                                            <label class="label2">Password</label>
                                             <input class="input--style-4" type="password" name="password" required value={formData.password} onChange={handleChange} />
                                         </div>
                                     </div>

@@ -5,9 +5,9 @@ const ObjectId = Schema.ObjectId;
 
 mongoose.connect(config.mongodb_url)
   .then(() => console.log('MongoDb Connected!'))
-  .catch((err)=>{
-    console.log("mongodb eroor: ",err)
-});
+  .catch((err) => {
+    console.log("mongodb eroor: ", err)
+  });
 
 //schemas
 
@@ -15,14 +15,13 @@ const volunteerSchema = new Schema({
   //author: ObjectId,
   first_name: String,
   last_name: String,
-  email:String,
-  phone_no:String,
-  city:String,
-  district:String,
+  email: String,
+  phone_no: String,
+  city: String,
+  district: String,
   dob: Date,
   password: String,
   token: String,
-  uid: String,
 });
 const VolunteerModel = mongoose.model('Volunteers', volunteerSchema);
 
@@ -35,32 +34,22 @@ const organizationSchema = new Schema({
   email: String,
   password: String,
   token: String,
-  uid: String,
-  
+
 });
-const organizationModel = mongoose.model('Organizations',organizationSchema);
+const organizationModel = mongoose.model('Organizations', organizationSchema);
 
 const eventSchema = new Schema({
+  title: String,
+  location: String,
+  date: Date,
+  short_description: String,
+  long_description: String,
+  required: Number,
+  org_id:String,
+  enrolled: Number
 
 });
-const eventModel = mongoose.model('Events',eventSchema);
+const eventModel = mongoose.model('Events', eventSchema);
 
 
-const addeventSchema = new Schema({
-  name:{
-      type:String,
-      required:true
-  },
-  location:{
-      type:String,
-  },
-  date:{
-      type:Date,      
-  }
-});
-
-const addevent = mongoose.model('AddEvent',addeventSchema);
-
-
-
-module.exports = {VolunteerModel,organizationModel,eventModel,addevent};
+module.exports = { VolunteerModel, organizationModel, eventModel };

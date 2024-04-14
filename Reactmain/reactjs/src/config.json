@@ -1,3 +1,4 @@
 {
-    "server_api_url":"http://localhost:3000"
+    "server_api_url":"http://localhost:3000",
+    "bucket_url":"http://127.0.0.1:9000/servelink/"
 }

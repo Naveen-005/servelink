@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
@@ -21,6 +21,14 @@ import './glightbox.min.css'
 
 
 function Index() {
+
+	const [activeTab, setActiveTab] = useState('mission');
+
+	const handleTabClick = (tabName) => {
+	  setActiveTab(tabName);
+	};
+
+	
 	useEffect(() => {
 		AOS.init();
 	}, []);
@@ -155,34 +163,43 @@ function Index() {
 					<div className="row justify-content-between">
 						<div className="col-lg-5 pe-lg-5" data-aos="fade-up" data-aos-delay="200">
 
-							<ul className="nav1 nav1-pills mb-5 custom-nav-pills" id="pills-tab" role="tablist">
-								<li className="nav1-item" role="presentation">
-									<button className="nav1-link active" id="pills-mission-tab" data-bs-toggle="pill" data-bs-target="#pills-mission" type="button" role="tab" aria-controls="pills-mission" aria-selected="true" >Our Mission</button>
-								</li>
-								<li className="nav1-item" role="presentation">
-									<button className="nav1-link" id="pills-values-tab" data-bs-toggle="pill" data-bs-target="#pills-values" type="button" role="tab" aria-controls="pills-values" aria-selected="false">Our Values</button>
-								</li>
-								<li className="nav1-item" role="presentation">
-									<button className="nav1-link" id="pills-history-tab" data-bs-toggle="pill" data-bs-target="#pills-history" type="button" role="tab" aria-controls="pills-history" aria-selected="false">Our History</button>
-								</li>
-							</ul>
-							<div className="tab-content" id="pills-tabContent" >
-								<div className="tab-pane fade show active" id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" style={{backgroundColor:'white'}}>
-									<h2 className="mb-3  fw-bold" style={{color:"#59886b",backgroundColor:'white'}} >Our Mission</h2>
-									<p align="justify" style={{backgroundColor:'white'}}> Our mission is to revolutionize the landscape of volunteer engagement by providing a centralized platform that
-										seamlessly connects volunteers with organizations in need. By addressing the current challenges of recruitment,
-										management, and retention faced by organizations, we aim to create a dynamic and efficient ecosystem where volunteers
-										can easily find opportunities that align with their passions and skills. Through our user-friendly interface and comprehensive
-										tools, we empower organizations to streamline their volunteer coordination processes, ensuring that every volunteer is effectively
-										utilized and valued.
-										Join us on our mission to unlock the full potential of volunteerism and create a more impactful and interconnected world.</p>
-
-
-
-								</div>
-								<div className="tab-pane fade" id="pills-values" role="tabpanel" aria-labelledby="pills-values-tab" style={{backgroundColor:'white'}}>
-									<h2 className="mb-3 fw-bold" style={{color:"#59886b"}}>Our Values</h2>
-									<p align="justify">At ServeLink, our values are at the core of everything we do. We are committed to empowering individuals to make
+						<ul className="nav1 nav1-pills mb-5 custom-nav-pills" id="pills-tab" role="tablist">
+        <li className="nav1-item" role="presentation">
+          <button
+            className={`nav1-link ${activeTab === 'mission' ? 'active' : ''}`}
+            onClick={() => handleTabClick('mission')}
+            aria-selected={activeTab === 'mission'}
+          >
+            Our Mission
+          </button>
+        </li>
+        <li className="nav1-item" role="presentation">
+          <button
+            className={`nav1-link ${activeTab === 'values' ? 'active' : ''}`}
+            onClick={() => handleTabClick('values')}
+            aria-selected={activeTab === 'values'}
+          >
+            Our Values
+          </button>
+        </li>
+        <li className="nav1-item" role="presentation">
+          <button
+            className={`nav1-link ${activeTab === 'history' ? 'active' : ''}`}
+            onClick={() => handleTabClick('history')}
+            aria-selected={activeTab === 'history'}
+          >
+            Our History
+          </button>
+        </li>
+      </ul>
+      <div className="tab-content" id="pills-tabContent">
+        <div className={`tab-pane fade ${activeTab === 'mission' ? 'show active' : ''}`} id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" style={{ backgroundColor: 'white' }}>
+          <h2 className="mb-3 fw-bold" style={{ color: "#59886b", backgroundColor: 'white' }}>Our Mission</h2>
+          <p align="justify" style={{ backgroundColor: 'white' }}> Our mission is to revolutionize the landscape of volunteer engagement by providing a centralized platform that seamlessly connects volunteers with organizations in need. By addressing the current challenges of recruitment, management, and retention faced by organizations, we aim to create a dynamic and efficient ecosystem where volunteers can easily find opportunities that align with their passions and skills. Through our user-friendly interface and comprehensive tools, we empower organizations to streamline their volunteer coordination processes, ensuring that every volunteer is effectively utilized and valued. Join us on our mission to unlock the full potential of volunteerism and create a more impactful and interconnected world.</p>
+        </div>
+        <div className={`tab-pane fade ${activeTab === 'values' ? 'show active' : ''}`} id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" style={{ backgroundColor: 'white' }}>
+          <h2 className="mb-3 fw-bold" style={{ color: "#59886b", backgroundColor: 'white' }}>Our Values</h2>
+          <p align="justify" style={{ backgroundColor: 'white' }}> At ServeLink, our values are at the core of everything we do. We are committed to empowering individuals to make
 										a meaningful impact in their communities by providing a comprehensive volunteer connecting system that streamlines
 										processes, enhances transparency, and matches volunteers with opportunities tailored to their location, skills, and
 										preferences. Central to our mission is the belief in collaboration and inclusivity, ensuring that organizations can
@@ -191,16 +208,14 @@ function Index() {
 										Furthermore, we embrace feedback and reviews as essential tools for continuous improvement, encouraging users to share their
 										experiences and insights to further enhance the volunteer experience for all. ServeLink is more than just a platform;
 										it's a vibrant community united by the shared goal of creating positive change and making a difference in the world.</p>
-
-									<p className="mt-5">
+										<p className="mt-5">
 										<Link className="btn btn-primary me-4" to="/login">Be A Volunteer</Link>
 
-									</p>
-								</div>
-								<div className="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab" style={{backgroundColor:'white'}}>
-
-									<h2 className="mb-3 fw-bold"style={{color:"#59886b"}}>Our History</h2>
-									<p align="justify">ServeLink traces its humble beginnings back to the year 2024 when a group
+		</p>
+		</div>
+        <div className={`tab-pane fade ${activeTab === 'history' ? 'show active' : ''}`} id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" style={{ backgroundColor: 'white' }}>
+          <h2 className="mb-3 fw-bold" style={{ color: "#59886b", backgroundColor: 'white' }}>Our History</h2>
+          <p align="justify" style={{ backgroundColor: 'white' }}> ServeLink traces its humble beginnings back to the year 2024 when a group
 										of passionate computer science students embarked on a journey to create
 										a platform that would revolutionize the way communities connect through
 										volunteering. As part of their mini-project, these visionary students
@@ -210,10 +225,13 @@ function Index() {
 										online platform dedicated to fostering collaboration, empowerment, and positive change
 										through volunteerism. From its inception, ServeLink has remained committed to its mission of uniting communities,
 										bridging gaps, and amplifying impact through volunteer service.</p>
+		</div>	
+		
+		
 
-
-
-								</div>
+								
+								
+								
 							</div>
 
 						</div>

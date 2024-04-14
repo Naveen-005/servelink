@@ -11,11 +11,11 @@ import Cookies from 'js-cookie';
 function Navbar() {
   const [volunteerDropdownOpen, setVolunteerDropdownOpen] = useState(false);
   const [organizationDropdownOpen, setOrganizationDropdownOpen] = useState(false);
-  //const [user_name, setUserName] = useState('Guest');
   const [guestDropdownOpen, setGuestnDropdownOpen] = useState(false);
   
 
   const [user_name,setUserName]=useState('Guest')
+  const [isLoggedIn,setLoginStatus] = useState(false)
 
  
 
@@ -36,10 +36,21 @@ function Navbar() {
     setOrganizationDropdownOpen(false); // Close volunteer dropdown when opening organization dropdown
   };
 
+  const handleLogout = () => {
+    setLoginStatus(false)
+    setUserName('Guest')
+    Cookies.remove('name');
+    Cookies.remove('uid');
+    Cookies.remove('token');
+    Cookies.remove('org_id');
+
+  };
+
   useEffect(() => {
     
     if (Cookies.get('name')) {
       setUserName(Cookies.get('name'))
+      setLoginStatus(true)
     }
 
   }, []);
@@ -89,14 +100,16 @@ function Navbar() {
               <Link className="nav-link" to="/contact">Contact</Link>
             </li>
             
-            <li className="nav-item dropdown"  style={{ marginLeft:'48%',cursor:'pointer'}}>
+            <li className="nav-item dropdown"  style={{ marginLeft:'45%',cursor:'pointer'}}>
             <li className="nav-item" >
              <a className="nav-link dropdown-toggle" onClick={toggleGuestDropdown}>{user_name}
              </a>
-             <ul className={`dropdown-menu  ${guestDropdownOpen ? 'show' : '' }` } style={{ position: 'absolute', right: 0, top: '100%', zIndex: 1000}} >
+             <ul className={`dropdown-menu  ${guestDropdownOpen ? 'show' : '' }` } style={{ position: 'absolute', right: 0, top: '100%', zIndex: 1000,width:'150px'}} >
                 <li><Link className="dropdown-item"  to="">Profile</Link></li>
                 <li className="dropdown-divider"></li>
-                <li><Link className="dropdown-item" to="">Logout</Link></li>
+                {isLoggedIn && (
+                  <li><Link className="dropdown-item" onClick={handleLogout}>Logout</Link></li>
+                )}
               </ul>
              
 

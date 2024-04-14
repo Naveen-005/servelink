@@ -75,7 +75,7 @@ function Orglog() {
                 <br />
 
                 <form onSubmit={handleSubmit}>
-                  <div className="form14-group14 first">
+                  <div className="form14-group14 first mb-3">
                     <label for="email">Email</label>
                     <input type="text" className="form14-control14" id="email" name="email" value={formData.email} onChange={handleChange}/>
                   </div>

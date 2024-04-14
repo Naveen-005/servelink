@@ -63,8 +63,8 @@ function Contact() {
                             <div className="row">
 
                                 <div className="mb-3 col-lg-6">
-                                    <label htmlFor="classNamee" className="ps-3 fw-bold mb-2">className</label>
-                                    <input type="text" className="form-control" id="classNamee" />
+                                    <label htmlFor="classNamee" className="ps-3 fw-bold mb-2">Name</label>
+                                    <input type="text1" className="form-control" id="classNamee" />
                                 </div>
                                 <div className="mb-3 col-lg-6">
                                     <label htmlFor="email" className="ps-3 fw-bold mb-2">Email</label>

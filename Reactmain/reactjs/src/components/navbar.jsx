@@ -58,7 +58,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
-        <Link className="navbar-brand logo m-0 float-start text-black-50" to="/">Servelink</Link>
+        <Link className="navbar-brand logo m-0 float-start text-black1-50" to="/">Servelink</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -100,11 +100,11 @@ function Navbar() {
               <Link className="nav-link" to="/contact">Contact</Link>
             </li>
             
-            <li className="nav-item dropdown"  style={{ marginLeft:'48%',cursor:'pointer'}}>
+            <li className="nav-item dropdown"  style={{ marginLeft:'45%',cursor:'pointer'}}>
             <li className="nav-item" >
              <a className="nav-link dropdown-toggle" onClick={toggleGuestDropdown}>{user_name}
              </a>
-             <ul className={`dropdown-menu  ${guestDropdownOpen ? 'show' : '' }` } style={{ position: 'absolute', right: 0, top: '100%', zIndex: 1000}} >
+             <ul className={`dropdown-menu  ${guestDropdownOpen ? 'show' : '' }` } style={{ position: 'absolute', right: 0, top: '100%', zIndex: 1000,width:'150px'}} >
                 <li><Link className="dropdown-item"  to="">Profile</Link></li>
                 <li className="dropdown-divider"></li>
                 {isLoggedIn && (

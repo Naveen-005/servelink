@@ -14,7 +14,6 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 import config from '../../config.json'
 
-
 import './style.css'
 import './tiny-slider.css'
 import './aos.css'

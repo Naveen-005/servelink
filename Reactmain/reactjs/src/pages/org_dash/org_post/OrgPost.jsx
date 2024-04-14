@@ -10,6 +10,7 @@ import 'leaflet/dist/leaflet.css';
 import { Helmet } from 'react-helmet';
 
 
+
 function OrgPost() {
 
   const [formData, setFormData] = useState({
@@ -64,7 +65,6 @@ function OrgPost() {
       });
 
   };
-
 
 
   const [inputValue, setInputValue] = useState('');
@@ -166,6 +166,7 @@ function OrgPost() {
   </div>
   </div>
   
+
   )
 }
 

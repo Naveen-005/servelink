@@ -1,7 +1,6 @@
 var Minio = require('minio')
 var config = require('../config.json');
-const multer = require('multer');
-const upload = multer();
+
 
 //const file='../../../Pictures/posters/pits.png'
 
@@ -22,4 +21,4 @@ minioClient.fPutObject('servelink', '/test/pic.jpg', file, {}, function (err, et
 })
 */
 
-module.exports = { minioClient,upload};
+module.exports = { minioClient};

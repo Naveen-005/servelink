@@ -5,6 +5,7 @@ import axios from 'axios';
 import config from '../config.json'
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 
 function Event_details() {
@@ -16,10 +17,23 @@ function Event_details() {
         const navigate = useNavigate();
 
         const handleEnroll = () => {
-            /*
-            // Logic to enroll user, e.g., API call
-            setEnrolled(enrolled + 1); // Increment enrolled count for demo purposes
-            */
+            axios({
+                method: 'post',
+                url: config.server_api_url + '/event_details',
+                withCredentials: true,
+                data: {
+                  event_id:event._id,
+                  vol_id:Cookies.get('uid'),
+                }
+              })
+                .then((res) => {
+          
+                    setEvent(prevEvent => ({ ...prevEvent, enrolled: prevEvent.enrolled + 1 }));
+          
+                })
+                .catch((err) => {
+                  alert(err)
+                });
         };
 
         const listStyle = {

@@ -10,4 +10,25 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.post('/', function(req, res, next) {
+  if(req.cookies.token && req.cookies.uid){
+    const eventEnrollmentInstance = new eventEnrollmentModel(req.body);
+    eventEnrollmentInstance.save()
+    .then((m_res)=>{
+      eventModel.updateOne({ _id: m_res.event_id }, { $inc: { enrolled: 1 } })
+      .then((m_res2)=>{
+        res.send("You have successfully registered for the event.")
+      })
+    })
+    .catch((err)=>{
+      res.status(500)
+      res.send("error in registering")
+    })
+  }
+  else{
+    res.status(401)
+    res.send("User not logged in")
+  }
+});
+
 module.exports = router;

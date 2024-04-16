@@ -39,7 +39,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/*" element={<Index />} />
         <Route path="/sidebar" element={<Sidebar />} />
-        <Route path="/event_details" element={<Event_details />} />
+        <Route path="/event_details/:id" element={<Event_details />} />
         <Route path="/odas" element={<Odas />} />
         <Route path="/post" element={<OrgPost />} />
         <Route path="/p" element={<UserDropdown />} />

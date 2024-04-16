@@ -1,4 +1,5 @@
 import config from '../config.json'
+import { Link } from 'react-router-dom';
 
 function Event({evnt}) {
 
@@ -18,7 +19,9 @@ function Event({evnt}) {
                         <div className="progress-bar" role="progressbar" style={{ width: `${percent}%`, backgroundColor: '#2a5834' }} aria-valuenow={evnt.enrolled} aria-valuemin="0" aria-valuemax={evnt.required}>{evnt.enrolled}/{evnt.required}</div>
                     </div>
                     <br />
-                    <button type="button" class="btn btn-success float-end" >Enroll</button>
+                    <Link to={`/event_details/${evnt._id}`}>
+                    <button type="button" class="btn btn-success float-end" >View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>

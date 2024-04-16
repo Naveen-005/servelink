@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const { eventModel, organizationModel } = require('../../database/db');
-const { minioClient, upload } = require('../../database/bucket_storage')
+const { minioClient} = require('../../database/bucket_storage')
 //var uniqid = require('uniqid');
+const multer = require('multer');
+const storage = multer.memoryStorage(); // Store file data in memory
+const upload = multer({ storage: storage });
 
 
 /* GET users listing. */
@@ -11,10 +14,12 @@ router.post('/', upload.single('file'), function (req, res, next) {
     organizationModel.findOne(req.body.auth)
       .then((mongo_res) => {
         //console.log("mongores:",mongo_res)
+        //console.log(req.file)
         var file = req.file.buffer
-        //console.log(req.body.auth)
+        console.log(req.body.formData)
         const event_instance = new eventModel(req.body.formData);
         event_instance.org_id = req.body.auth._id
+        event_instance.enrolled=0
         event_instance.save()
           .then((mongo_res) => {
 
@@ -47,7 +52,6 @@ router.get('/', function (req, res, next) {
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    console.log("cookies:",req.cookies)
     eventModel.find({date: { $gte: today }})
     .then((m_res)=>{
       res.send(m_res)

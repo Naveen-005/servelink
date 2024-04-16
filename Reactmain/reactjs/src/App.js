@@ -12,12 +12,15 @@ import Admin from './pages/admin/admin'
 import MapTest from './components/map'
 import Profile from './pages/profile/profile'
 import Navbar from './components/navbar';
+import OrgPost from './pages/org_dash/org_post/OrgPost';
 import Footer from './components/footer';
 import Sidebar from './pages/org_dash/components/sidebar';
 import Event_details from './components/event_details';
 import Odas from './pages/org_dash/Odas';
-import OrgPost from './pages/org_dash/org_post/OrgPost';
 import UserDropdown from './pages/org_dash/components/userdropdown';
+import Terms from './pages/index/terms';
+import Privacy from './pages/index/privacy';
+import Orgprofile from './pages/org_dash/orgprofile';
 
 function App() {
   return (
@@ -40,6 +43,9 @@ function App() {
         <Route path="/odas" element={<Odas />} />
         <Route path="/post" element={<OrgPost />} />
         <Route path="/p" element={<UserDropdown />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/orgprofile" element={<Orgprofile />} />
        
 
 

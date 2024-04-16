@@ -1,7 +1,8 @@
-body {
+.orglog {
   font-family: "Roboto", sans-serif;
   background-color: #fff;
   background-attachment: fixed; 
+  height: 100vh;
   
 }
   

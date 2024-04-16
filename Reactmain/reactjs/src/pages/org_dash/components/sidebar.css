@@ -23,6 +23,12 @@
     color: white;
     height: 100vh;
     overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Adjust width as needed */
+    overflow-y: auto; /* Allow sidebar content to scroll if it exceeds the height */
+   z-index: 1000; 
   }
   
   .top_section {
@@ -30,6 +36,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 10px;
+    
   }
   .logo {
     font-size: 18px;
@@ -55,7 +62,7 @@
     border-radius: 5px;
     background: rgb(238, 238, 238);
   
-    color: white;
+    color: rgb(0, 0, 0);
   }
   
   .routes {

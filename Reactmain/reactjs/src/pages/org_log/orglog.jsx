@@ -55,7 +55,7 @@ function Orglog() {
   }, []);
 
   return (
-    <div>
+    <div className='orglog1'>
      <Helmet>
              <title>Organization login</title>
             </Helmet>

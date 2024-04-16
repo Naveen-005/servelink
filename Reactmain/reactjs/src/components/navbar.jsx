@@ -102,9 +102,9 @@ function Navbar() {
             
             <li className="nav-item dropdown"  style={{ marginLeft:'45%',cursor:'pointer'}}>
             <li className="nav-item" >
-             <a className="nav-link dropdown-toggle" onClick={toggleGuestDropdown}>{user_name}
+             <a className="nav-link dropdown-toggle" onClick={toggleGuestDropdown} >{user_name}
              </a>
-             <ul className={`dropdown-menu  ${guestDropdownOpen ? 'show' : '' }` } style={{ position: 'absolute', right: 0, top: '100%', zIndex: 1000,width:'150px'}} >
+             <ul className={`dropdown-menu  ${guestDropdownOpen ? 'show' : '' }` } style={{ position: 'absolute', left: '-80%', top: '100%', zIndex: 1000, width: '150px' }}>
                 <li><Link className="dropdown-item"  to="">Profile</Link></li>
                 <li className="dropdown-divider"></li>
                 {isLoggedIn && (

@@ -54,7 +54,8 @@ const eventModel = mongoose.model('Events', eventSchema);
 
 const eventEnrollmentSchema = new Schema({
   event_id: String,
-  vol_id: String
+  vol_id: String,
+  skill: String
 });
 const eventEnrollmentModel = mongoose.model('Event_enrollment',eventEnrollmentSchema);
 

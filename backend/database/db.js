@@ -41,15 +41,38 @@ const organizationModel = mongoose.model('Organizations', organizationSchema);
 const eventSchema = new Schema({
   title: String,
   location: String,
-  date: Date,
+  loc_lat: String,
+  loc_lng: String,
+  date: String,
+  time: String,
   short_description: String,
   long_description: String,
   required: Number,
   org_id:String,
   enrolled: Number,
+  required: Number,
   skills: Object
 
 });
+
+eventSchema.pre('save', function(next) {
+  let sumOfSkills = 0;
+  const skills = this.skills;
+
+  // Calculate sum of values in the skills object
+  for (const skill in skills) {
+      if (skill) {
+          sumOfSkills += parseInt(skills[skill]);
+      }
+  }
+
+  // Set required field to the sum of skills
+  this.required = sumOfSkills;
+
+  // Call next to continue the save process
+  next();
+});
+
 const eventModel = mongoose.model('Events', eventSchema);
 
 const eventEnrollmentSchema = new Schema({

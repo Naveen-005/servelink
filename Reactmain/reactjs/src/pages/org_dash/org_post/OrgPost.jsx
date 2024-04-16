@@ -16,10 +16,12 @@ function OrgPost() {
   const [formData, setFormData] = useState({
     title: "",
     location: "",
+    loc_lat:"",
+    loc_lng:"",
     date: "",
+    time: "",
     short_description: "",
     long_description: "",
-    required: "",
     org_id:"",
     skills: {},
   });
@@ -71,7 +73,7 @@ function OrgPost() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Data:\n",formData)
-    console.log("Image:\n",image)
+    //console.log("Image:\n",image)
 
     axios({
       method: 'post',
@@ -118,6 +120,7 @@ const customIcon = L.divIcon({
 });
 
 */
+/*
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -130,11 +133,11 @@ const customIcon = L.divIcon({
       setInputValue(inputValue);
     }
   };
-
+*/
   const mapRef = useRef(null);
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
+  //const [selectedLocation, setSelectedLocation] = useState('');
+  //const [latitude, setLatitude] = useState('');
+  //const [longitude, setLongitude] = useState('');
 
   useEffect(() => {
     if (!mapRef.current) {
@@ -156,8 +159,12 @@ const customIcon = L.divIcon({
     
       mapRef.current.on('geosearch/showlocation', function (data) {
 
-        setLatitude(data.location.y);
-        setLongitude(data.location.x);
+        //setLatitude(data.location.y);
+        //setLongitude(data.location.x);
+        //console.log(data.location.raw.name)
+        setFormData((prevFormData) => ({ ...prevFormData, location: data.location.raw.name }));
+        setFormData((prevFormData) => ({ ...prevFormData, loc_lat: data.location.y }));
+        setFormData((prevFormData) => ({ ...prevFormData, loc_lng: data.location.x }));
 
         mapRef.current.eachLayer(function (layer) {
           if (layer instanceof L.Marker) {
@@ -165,10 +172,10 @@ const customIcon = L.divIcon({
           }
         });
 
-        console.log("geo:",data.location.y,data.location.x)
+        //console.log("geo:",data.location.y,data.location.x)
   
         // Add a marker at the clicked location
-        L.marker([data.location.y, data.location.x]).addTo(mapRef.current);
+        L.marker([formData.loc_lat, formData.loc_lng]).addTo(mapRef.current);
        
       });
     
@@ -186,9 +193,11 @@ const customIcon = L.divIcon({
      
       mapRef.current.on('click', function (e) {
         const { lat, lng } = e.latlng;
-        setLatitude(lat);
-        setLongitude(lng);
+        //setLatitude(lat);
+        //setLongitude(lng);
         // You can do more with the clicked coordinates if needed
+        setFormData((prevFormData) => ({ ...prevFormData, loc_lat: lat }));
+        setFormData((prevFormData) => ({ ...prevFormData, loc_lng: lng }));
 
         mapRef.current.eachLayer(function (layer) {
           if (layer instanceof L.Marker) {
@@ -199,8 +208,7 @@ const customIcon = L.divIcon({
         // Add a marker at the clicked location
         L.marker([lat, lng]).addTo(mapRef.current);
         //mapRef.current.setView([lat, lng], 12);
-        console.log("click:",lat,lng)
-
+        //console.log("click:",lat,lng)
 
       });
      
@@ -224,20 +232,21 @@ const customIcon = L.divIcon({
       <input type="text" id="eventName" name="title" value={formData.title} onChange={handleChange} required />
 
       <label for="eventLocation">Location:</label>
-      <input type="text" id="eventLocation" name="eventLocation" value={selectedLocation}
-        onChange={(e) => setSelectedLocation(e.target.value)}
+      <input type="text" id="eventLocation" name="location" value={formData.location}
+        onChange={handleChange}
         required/>
+
       <div id="map" style={{ width: '100%', height: '300px', marginTop: '10px' }}></div>
       <div>
-        <p>Latitude: {latitude}</p>
-        <p>Longitude: {longitude}</p>
+        <p>Latitude: {formData.loc_lat}</p>
+        <p>Longitude: {formData.loc_lng}</p>
      </div>
 
       <label for="eventDate">Date:</label>
       <input type="date" id="eventDate" name="date" value={formData.date} onChange={handleChange} required />
          
       <label for="eventTime">Time:</label>
-      <input type="time" id="eventTime" name="eventTime"/>
+      <input type="time" id="eventTime" name="time" value={formData.time} onChange={handleChange}/>
 {/*
       <label for="media">Upload Media:</label>
       <input type="file" id="media" name="image" accept="image/*"  onchange={handleFileChange} />
@@ -249,11 +258,11 @@ const customIcon = L.divIcon({
 
 
       <label for="description">Short Description: (max 40 words)</label>
-      <input type="text" id="description" name="description"  maxLength='40' value={inputValue} onChange={handleInputChange}required/>
-
+      <input type="text" id="description" name="short_description"  maxLength='40' value={formData.short_description} onChange={handleChange}required/>
+{/*
       <label for="count">Number of Volunteers required :</label>
       <input type="number" id="count" name="count" required/>
-
+*/}
       <label for="description">Long Description: </label>
       <textarea id="description" name="long_description" placeholder="write full details on here......" value={formData.long_description} onChange={handleChange}></textarea>
 

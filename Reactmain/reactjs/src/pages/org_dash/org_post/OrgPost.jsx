@@ -13,7 +13,6 @@ import { Helmet } from 'react-helmet';
 
 
 function OrgPost() {
-
   const [formData, setFormData] = useState({
     title: "",
     location: "",
@@ -213,7 +212,6 @@ const customIcon = L.divIcon({
   }, []);
 
   return (
-    
     <div class="system9">
       <Helmet>
     <title>Post</title>
@@ -250,8 +248,8 @@ const customIcon = L.divIcon({
       <input type="file" id="media" name="image" accept="image/*" onChange={handleFileChange} />
 
 
-      <label for="description">Short Description: (max 20 words)</label>
-      <input type="text" id="description" name="description"  value={inputValue} onChange={handleInputChange}required/>
+      <label for="description">Short Description: (max 40 words)</label>
+      <input type="text" id="description" name="description"  maxLength='40' value={inputValue} onChange={handleInputChange}required/>
 
       <label for="count">Number of Volunteers required :</label>
       <input type="number" id="count" name="count" required/>

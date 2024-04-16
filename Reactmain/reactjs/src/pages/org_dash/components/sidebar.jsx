@@ -10,6 +10,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./sidebarmenu";
 import Odas from "../Odas";
 import './sidebar.css'
+import { BsBell } from 'react-icons/bs';
+
 const routes = [
   {
     path: "/odas",
@@ -32,31 +34,9 @@ const routes = [
     icon: <BiAnalyse />,
   },
   {
-    path: "/file-manager",
-    name: "File Manager",
-    icon: <AiTwotoneFileExclamation />,
-    subRoutes: [
-      {
-        path: "/settings/profile",
-        name: "Profile ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/settings/2fa",
-        name: "2FA",
-        icon: <FaLock />,
-      },
-      {
-        path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
-      },
-    ],
-  },
-  {
     path: "/order",
-    name: "Order",
-    icon: <BsCartCheck />,
+    name: "Notification",
+    icon: <BsBell />,
   },
   {
     path: "/settings",
@@ -65,7 +45,7 @@ const routes = [
     exact: true,
     subRoutes: [
       {
-        path: "/settings/profile",
+        path: "/orgprofile",
         name: "Profile ",
         icon: <FaUser />,
       },

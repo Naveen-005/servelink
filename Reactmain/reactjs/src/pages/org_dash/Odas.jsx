@@ -5,10 +5,17 @@ import './odas.css'
 import { color } from 'framer-motion';
 import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import UserDropdown from './components/userdropdown';
+import { Helmet } from 'react-helmet';
 
 function Odas() {
   return (
     <>
+    <Helmet>
+      <title>Dashboard</title>
+    </Helmet>
+    <UserDropdown/>
+    <SideBar/>
     <div className="container10" style={containerStyle10}>  
     {/* Post content goes here */}
     <div>

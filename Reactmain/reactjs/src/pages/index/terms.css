@@ -1,0 +1,14 @@
+.terms1 {
+    background-image: url('terms1.png'); /* Replace 'background.jpg' with the path to your image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: This will make the background image fixed while scrolling */
+    height:100vh
+}
+.clr{
+    color: whitesmoke;
+}
+#abc{
+text-align: justify;
+padding: 100px;
+}

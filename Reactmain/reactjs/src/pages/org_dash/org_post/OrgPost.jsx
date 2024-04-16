@@ -11,7 +11,6 @@ import { Helmet } from 'react-helmet';
 
 
 function OrgPost() {
-
   const [formData, setFormData] = useState({
     title: "",
     location: "",
@@ -120,7 +119,6 @@ function OrgPost() {
   }, []);
 
   return (
-    
     <div class="system9">
       <Helmet>
     <title>Post</title>
@@ -152,8 +150,8 @@ function OrgPost() {
       <input type="file" id="media" name="media" accept="image/*, video/*, audio/*" multiple  onchange={handleFileChange} />
       <div id="mediaPreview"></div>
 
-      <label for="description">Short Description: (max 20 words)</label>
-      <input type="text" id="description" name="description"  value={inputValue} onChange={handleInputChange}required/>
+      <label for="description">Short Description: (max 40 words)</label>
+      <input type="text" id="description" name="description"  maxLength='40' value={inputValue} onChange={handleInputChange}required/>
 
       <label for="count">Number of Volunteers required :</label>
       <input type="number" id="count" name="count" required/>

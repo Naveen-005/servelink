@@ -33,6 +33,7 @@ function Orglog() {
     axios({
       method: 'post',
       url: config.server_api_url + '/login/organization',
+      withCredentials:true,
       data: formData
     })
       .then((res) => {
@@ -51,6 +52,9 @@ function Orglog() {
   };
 
   useEffect(() => {
+
+    Cookies.set('loggedIn', "false")
+
     AOS.init();
   }, []);
 

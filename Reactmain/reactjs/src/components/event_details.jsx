@@ -12,18 +12,20 @@ function Event_details() {
 
         const [enrolled, setEnrolled] = useState(0);
         const [event, setEvent] = useState(0);
+        const [skillCount, setSkillCount] = useState(0);
 
         const { id } = useParams();
         const navigate = useNavigate();
 
-        const handleEnroll = () => {
+        const handleEnroll = (skill) => {
             axios({
                 method: 'post',
                 url: config.server_api_url + '/event_details',
                 withCredentials: true,
                 data: {
-                  event_id:event._id,
+                  event_id:id,
                   vol_id:Cookies.get('uid'),
+                  skill: skill,
                 }
               })
                 .then((res) => {
@@ -53,8 +55,10 @@ function Event_details() {
                 }
               })
                 .then((res) => {
-          
-                    setEvent(res.data);
+
+                    setEvent(res.data.event);
+                    setSkillCount(res.data.skill_enrollment)
+                    console.log(skillCount)
     
                 })
                 .catch((err) => {
@@ -100,10 +104,24 @@ function Event_details() {
                             </ul>
                             </p>
                         </div>
+
+                        {Object.keys(event.skills).map(skill => (
+                            <div key={skill}>
+                            <p>{skill}</p>
+                            <progress
+                                value={parseInt(skillCount[skill], 10)}
+                                max={parseInt(event.skills[skill], 10)}
+                            ></progress>
+                            <p>{`${parseInt(skillCount[skill], 10)} / ${parseInt(event.skills[skill], 10)}`}</p>
+                            <button onClick={() => handleEnroll(skill)}>Enroll</button>
+                            </div>
+                        ))}
+
+
                         <div style={enrollmentStyle77}>
-                            <p>Enrolled: {enrolled}/100</p>
+                            <p>Enrolled: {enrolled}/{event.required}</p>
                             <input type="range" min="0" max={event.required} value={event.enrolled} style={rangeStyle77} disabled />
-                            <button onClick={handleEnroll} style={enrollButtonStyle7}>Enroll</button>
+                            <button onClick={() => handleEnroll('general')} style={enrollButtonStyle7}>Enroll</button>
                         </div>
                     </div>
                 </div>

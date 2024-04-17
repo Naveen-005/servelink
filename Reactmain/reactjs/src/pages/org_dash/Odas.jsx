@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet';
 
 function Odas() {
   return (
-    <>
+  <div className='mainbody1'>
     <Helmet>
       <title>Dashboard</title>
     </Helmet>
@@ -81,11 +81,11 @@ function Odas() {
           }}
     > 
       <Link to="/post" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <FaPlus size={24} color="#000" />
+          <FaPlus size={24} color="white" />
         </Link>
         </div>
 
-</>
+</div>
 );
 }
 
@@ -95,7 +95,7 @@ const containerStyle10 = {
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
     padding: '100px',
     color:'red',
-    
+    backgroundColor:'white'
 };
 
 

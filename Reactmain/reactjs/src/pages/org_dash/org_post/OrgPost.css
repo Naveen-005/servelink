@@ -1,6 +1,8 @@
 .system9 {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #ff7e5f, #feb47b); 
+  /*background: linear-gradient(to bottom, #ff7e5f, #feb47b); */
+  background: url('as1.avif') no-repeat center center fixed;
+  background-size: cover;
   margin: 0;
   padding: 2%;
   display: flex;
@@ -9,7 +11,7 @@
   height: 3% ;
 }
 .container9{
-  background-color: #f0f0f0;
+  background-color: rgb(152, 203, 200);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 40px;
@@ -23,11 +25,11 @@
     top:6%;
     right:18.5%;
     font-size: 11px;
-    background: #f0f0f0;
+    background: rgb(152, 203, 200);
     border: none;
     cursor: pointer;
     color: #060606; 
-    width: 5%;
+    width: 3%;
     
   
 }
@@ -41,24 +43,27 @@ label {
   font-weight: bold;
   color: #555;
 }
-input[type="text"],
-input[type="date"],
-input[type="file"],
-input[type="number"],
-input[type="time"] {
+input[type="text1"],
+input[type="date1"],
+input[type="file1"],
+input[type="number1"],
+input[type="time1"] {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  color: #060606;
+  background-color: #dbf3f1;
 }
 textarea {
   width: 100%;
   height: 900px;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #96bbc3;
   border-radius: 5px;
+  background-color: #dbf3f1;
 }
 select {
   width: 100%;
@@ -82,6 +87,21 @@ select {
   background-color: #279b69;
 }
 
+#d {
+  width: 10%;
+  padding: 11px;
+  margin: 10px 0 0px;
+  border: none;
+  border-radius: 49px;
+  background-color: #a7b53c;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  
+}
+#d:hover{
+  background-color: #d2df70;
+}
 .preview-container9 {
   max-width: 200px; /* Adjust the maximum width as needed */
   max-height: 200px; /* Adjust the maximum height as needed */

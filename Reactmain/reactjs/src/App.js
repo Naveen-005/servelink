@@ -21,6 +21,7 @@ import UserDropdown from './pages/org_dash/components/userdropdown';
 import Terms from './pages/index/terms';
 import Privacy from './pages/index/privacy';
 import Orgprofile from './pages/org_dash/orgprofile';
+import ProfileView from './pages/org_dash/profileview';
 
 function App() {
   return (
@@ -46,7 +47,12 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/orgprofile" element={<Orgprofile />} />
+        <Route path="/profileview" element={<ProfileView />} />
        
+
+
+
+
 
 
       </Routes>

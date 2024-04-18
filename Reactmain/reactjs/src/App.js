@@ -21,7 +21,7 @@ import UserDropdown from './pages/org_dash/components/userdropdown';
 import Terms from './pages/index/terms';
 import Privacy from './pages/index/privacy';
 import Orgprofile from './pages/org_dash/orgprofile';
-
+import Userdash from './pages/userdashbooard/userdash'
 function App() {
   return (
     <BrowserRouter>
@@ -46,6 +46,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/orgprofile" element={<Orgprofile />} />
+        <Route path="/userdash" element={<Userdash />} />
        
 
 

@@ -176,9 +176,6 @@ const customIcon = L.divIcon({
         });
 
         //console.log("geo:",data.location.y,data.location.x)
-  
-        // Add a marker at the clicked location
-        //L.marker([formData.loc_lat, formData.loc_lng]).addTo(mapRef.current);
         redDotMarker=L.circleMarker([formData.loc_lat, formData.loc_lng],{ color: 'red', radius: 5 }).addTo(mapRef.current);
 
        

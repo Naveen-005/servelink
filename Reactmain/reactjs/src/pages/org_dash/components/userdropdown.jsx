@@ -14,9 +14,9 @@ const UserDropdown = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu style={{ right: 0, left: 'auto' }}>
-          <Dropdown.Item href="#/profile">Profile</Dropdown.Item>
+          <Dropdown.Item href="/profileview">Profile</Dropdown.Item>
           <div className="dropdown-divider"></div>
-          <Dropdown.Item href="#/settings">Settings</Dropdown.Item>
+          <Dropdown.Item href="/settings">Settings</Dropdown.Item>
           <div className="dropdown-divider"></div>
           <Dropdown.Item href="#/logout">Logout</Dropdown.Item>
         </Dropdown.Menu>

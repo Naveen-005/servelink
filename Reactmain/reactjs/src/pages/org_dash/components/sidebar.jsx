@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
+import { FaBars, FaHistory, FaHome, FaLock, FaMoneyBill, FaPassport, FaPastafarianism, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
@@ -19,8 +19,8 @@ const routes = [
     icon: <FaHome />,
   },
   {
-    path: "/users",
-    name: "Users",
+    path: "/profileview",
+    name: "User",
     icon: <FaUser />,
   },
   {
@@ -34,7 +34,7 @@ const routes = [
     icon: <BiAnalyse />,
   },
   {
-    path: "/order",
+    path: "/notification",
     name: "Notification",
     icon: <BsBell />,
   },
@@ -50,15 +50,16 @@ const routes = [
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
-        name: "2FA",
+        path: "/authentication",
+        name: "Authentication",
         icon: <FaLock />,
       },
       {
-        path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
+        path: "/changepassword",
+        name: "Change password",
+        icon: <FaHistory />,
       },
+      
     ],
   },
   {

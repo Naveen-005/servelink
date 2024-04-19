@@ -1,9 +1,86 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import SideBar from './components/sidebar'
 import UserDropdown from './components/userdropdown'
+import axios from 'axios';
+import config from '../../config.json'
+
 
 function Orgprofile() {
+
+  const [formData,setFormData]= useState(null)
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const [image, setImage] = useState(null);
+
+  const handleFileChange = (event) => {
+    //console.log("event")
+    setImage(event.target.files[0]);
+    //console.log(image)
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    //console.log("Data:\n",formData)
+    //console.log("Image:\n",image)
+
+    axios({
+      method: 'put',
+      url: config.server_api_url + '/register/organization',
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'multipart/form-data' // Set content type to multipart/form-data
+      },
+      data:{
+        file: image,
+        formData: formData
+      },
+        
+
+    })
+      .then((res) => {
+
+        alert("Succesfully updated")
+        //navigate("/")
+        setFormData(res.data);
+
+      })
+      .catch((err) => {
+        console.log(err)
+        alert(err)
+      });
+
+  };
+
+  useEffect(() => {
+        
+    axios({
+        method: 'get',
+        url: config.server_api_url + '/register/organization',
+        withCredentials: true,
+
+      })
+        .then((res) => {
+
+            setFormData(res.data);
+            if(FormData){
+              console.log(formData)
+            }
+
+        })
+        .catch((err) => {
+            alert(err)
+
+    });
+    
+
+},[]);
+
+
   return (
     <div style={{ display: 'flex' }}>
         <UserDropdown/>
@@ -27,7 +104,7 @@ function Orgprofile() {
                     <div className="card-body">
                       <div className="d-flex align-items-start align-items-sm-center gap-4">
                         <img
-                          src=""
+                          src={`${config.bucket_url}profile/organization/${formData?._id}.jpg?${Date.now()}`}
                           alt="user-avatar"
                           className="d-block rounded"
                           height="100"
@@ -44,6 +121,8 @@ function Orgprofile() {
                               className="account-file-input"
                               hidden
                               accept="image/png, image/jpeg"
+                              name="image"
+                              onChange={handleFileChange}
                             />
                           </label>
                           <button type="button" className="btn btn-outline-secondary account-image-reset mb-4">
@@ -57,7 +136,7 @@ function Orgprofile() {
                     </div>
                     <hr className="my-0" />
                     <div className="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                      <form id="formAccountSettings">
                         <div className="row">
                           <div className="mb-3 col-md-6">
                             <label for="OrganizationName" className="form-label">Organization Name</label>
@@ -65,8 +144,9 @@ function Orgprofile() {
                               className="form-control"
                               type="text"
                               id="OrganizationName"
-                              name="OrganizationName"
-                              value=""
+                              name="name"
+                              value={formData?.name || ''}
+                              onChange={handleChange}
                               autofocus
                             />
                           </div>
@@ -74,38 +154,29 @@ function Orgprofile() {
                             <label for="domain" className="form-label">Domain</label>
                             <input className="form-control" type="text" name="domain" id="domain" value="" />
                           </div>
-                          <div className="mb-3 col-md-6">
-                            <label for="email" className="form-label">E-mail</label>
-                            <input
-                              className="form-control"
-                              type="text"
-                              id="email"
-                              name="email"
-                              value=""
-                              placeholder=""
-                            />
-                          </div>
-                         
+                          
                           <div className="mb-3 col-md-6">
                             <label className="form-label" for="phoneNumber">Phone Number</label>
                             <div className="input-group input-group-merge">
                               <input
                                 type="text"
                                 id="phoneNumber"
-                                name="phoneNumber"
+                                name="phone_no"
                                 className="form-control"
                                 placeholder=""
                                 maxlength="10"
+                                value={formData?.phone_no || ''}
+                                onChange={handleChange}
                               />
                             </div>
                           </div>
                           <div className="mb-3 col-md-6">
                             <label for="address" className="form-label">Address</label>
-                            <input type="text" className="form-control" id="address" name="address" placeholder="" />
+                            <input type="text" className="form-control" id="address" name="address" placeholder="" value={formData?.address || ''} onChange={handleChange}/>
                           </div>
                           <div className="mb-3 col-md-6">
                             <label for="state" className="form-label">District</label>
-                            <select id="state" className="select2 form-select">
+                            <select id="state" className="select2 form-select" name="district" value={formData?.district || ''} onChange={handleChange}>
                               <option value="">Select</option>
                               <option value="Thiruvanathapuram">Thiruvanathapuram</option>
                               <option value="Kollam">Kollam</option>
@@ -123,14 +194,16 @@ function Orgprofile() {
                             </select>
                           </div>
                           <div className="mb-3 col-md-6">
-                            <label for="zipCode" className="form-label">Pin Code</label>
+                            <label for="zipCode" className="form-label" >Pin Code</label>
                             <input
                               type="text"
                               className="form-control"
                               id="zipCode"
-                              name="zipCode"
+                              name="zip_code"
                               placeholder="292012"
                               maxlength="6"
+                              value={formData?.zip_code || ''}
+                              onChange={handleChange}
                             />
                           </div>
                           
@@ -143,43 +216,16 @@ function Orgprofile() {
                               id="country"
                               name="country"
                               placeholder=""
+                              value={formData?.country || ''}
+                              onChange={handleChange}
                              
                             />
                           </div>
 
-                          <div className="mb-3 col-md-6">
-                            <label for="currentpassword" className="form-label">Current password</label>
-                            <div className="input-group input-group-merge">
-                              <input
-                                type="password"
-                                id="password"
-                                name="currentpassword"
-                                className="form-control"
-                                placeholder=""
-                                
-                              />
-                            </div>
-                          </div>
-
-                          <div className="mb-3 col-md-6">
-                            <label for="newpassword" className="form-label">New password</label>
-                            <div className="input-group input-group-merge">
-                              <input
-                                type="password"
-                                id="password"
-                                name="newpassword"
-                                className="form-control"
-                                placeholder=""
-                                
-                              />
-                            </div>
-                          </div>
-
-
                         </div>
                      
                         <div className="mt-2">
-                          <button type="submit" className="btn btn-primary me-2">Save changes</button>
+                          <button onClick={handleSubmit} className="btn btn-primary me-2">Save changes</button>
                           <button type="reset" className="btn btn-outline-secondary">Cancel</button>
                         </div>
                       </form>

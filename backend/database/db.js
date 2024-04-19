@@ -34,6 +34,8 @@ const organizationSchema = new Schema({
   email: String,
   password: String,
   token: String,
+  phone_no: String,
+  zip_code: String,
 
 });
 const organizationModel = mongoose.model('Organizations', organizationSchema);

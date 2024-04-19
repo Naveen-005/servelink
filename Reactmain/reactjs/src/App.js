@@ -21,8 +21,13 @@ import UserDropdown from './pages/org_dash/components/userdropdown';
 import Terms from './pages/index/terms';
 import Privacy from './pages/index/privacy';
 import Orgprofile from './pages/org_dash/orgprofile';
+import Userdash from './pages/userdashbooard/userdash'
 import ProfileView from './pages/org_dash/profileview';
-
+import Sidebarprofile from './pages/org_dash/components/sidebarprofile';
+import Settings from './pages/org_dash/Settings';
+import Orgauth from './pages/org_dash/components/Orgauth';
+import Changepass from './pages/org_dash/components/Changepass';
+import Notification from './pages/org_dash/components/notification'
 function App() {
   return (
     <BrowserRouter>
@@ -47,9 +52,18 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/orgprofile" element={<Orgprofile />} />
+        <Route path="/userdash" element={<Userdash />} />
+       
         <Route path="/profileview" element={<ProfileView />} />
+        <Route path="/sp" element={<Sidebarprofile />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/authentication" element={<Orgauth />} />
+        <Route path="/changepassword" element={<Changepass />} />
+        <Route path="/notification" element={<Notification />} />
        
 
+
+ 
 
 
 

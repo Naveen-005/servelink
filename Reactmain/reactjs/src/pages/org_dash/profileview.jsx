@@ -1,45 +1,120 @@
-import React from 'react'
+import React from 'react';
+import Sidebarprofile from './components/sidebarprofile';
+import { Helmet } from 'react-helmet';
+import SideBar from './components/sidebar'
+import UserDropdown from './components/userdropdown';
+import { FaFontAwesome } from 'react-icons/fa';
+import { BiFontFamily } from 'react-icons/bi';
 
-function ProfileView() {
-
-  const organizationData = {
-    name: 'Your Organization Name',
-    domain: 'www.yourorganization.com',
-    email: 'info@yourorganization.com',
-    phoneNumber: '+1 234 567 890',
-    address: '123 Main Street',
-    district: 'Your District',
-    pincode: '12345',
-    country: 'Your Country',
-    profilePicUrl: 'url_to_your_profile_pic',
-    coverPicUrl: 'url_to_your_cover_pic',
-  };
-
+const ProfileView = () => {
   return (
-    <div className="organization-profile">
-      <div className="cover-pic">
-        <img src={organizationData.coverPicUrl} alt="Cover Pic" />
-      </div>
-      <div className="profile-info">
-        <div className="profile-pic">
-          <img src={organizationData.profilePicUrl} alt="Profile Pic" />
-        </div>
-        <div className="details">
-          <h1>{organizationData.name}</h1>
-          <p>Domain: {organizationData.domain}</p>
-          <p>Email: {organizationData.email}</p>
-          <p>Phone Number: {organizationData.phoneNumber}</p>
-          <p>Address: {organizationData.address}</p>
-          <p>District: {organizationData.district}</p>
-          <div className="pincode-country">
-            <input type="text" placeholder="Pincode" value={organizationData.pincode} readOnly />
-            <input type="text" placeholder="Country" value={organizationData.country} readOnly />
-          </div>
+    
+    <div className="container141" style={container141Style}>
+      <Helmet>
+      <title>Profile</title>
+    </Helmet>
+    <SideBar />
+    <UserDropdown />
+    <div className="container142" style={container142Style}>
+      <div style={rectangle141Style}>
+        <h1>cover photo</h1>
+        <div style={square141Style}>
+          <h1>Profile photo</h1>
         </div>
       </div>
+      <div style={boxStyle}>
+        <div>Organization Name</div>
+        <div>Domain</div>
+        <div>Joined Year</div>
+        
+      </div>
+      
+      <div style={sidebarStyle}>
+         <Sidebarprofile/>
+      </div>
+      <div style={buttonRowStyle}>
+        <button style={buttonStyle}>Ongoing Event</button>
+        <button style={buttonStyle}>Completed Event</button>
+      </div>
+      <div>
+        <h3>Reviews</h3>
+        
+      </div>
+    </div>
     </div>
   );
 };
 
+const container141Style = {
+  backgroundColor: 'aliceblue', 
+  padding: '60px',
+  
+  
+};
+const container142Style = {
+  backgroundColor: '#90AEAD',
+  border:'3px solid black',
+  position:'Relative',
+  left:'25px'
+};
 
-export default ProfileView
+const rectangle141Style = {
+  backgroundColor: '#ccc',
+  height: '200px',
+  border:'2px solid black',
+  position: 'relative',
+};
+
+const square141Style = {
+  width: '150px',
+  height: '150px',
+  backgroundColor: '#999',
+  position: 'absolute',
+  top: '62%',
+  left: '50%',
+  border:'2px solid black',
+  transform: 'translate(-50%, -50%)',
+};
+
+const boxStyle = {
+  marginTop: '',
+  padding: '10px',
+  backgroundColor: '#90AEAD',
+  BiFontFamily:'Helvetica',
+  fontweight: 'bold',
+  border:'1px solid black',
+  
+};
+
+const sidebarStyle = {
+  marginTop: '10px',
+  display: 'flex',
+  justifyContent: 'center',
+  width:'100px',
+  position:'relative',
+  left:'520px'
+
+  
+};
+
+const buttonRowStyle = {
+  marginTop: '100px',
+  display: 'flex',
+  justifyContent: 'space-between',
+};
+
+const buttonStyle = {
+  padding: '10px 201px',
+  backgroundColor: '#FF6A3D',
+  color: 'white',
+  border: 'none',
+  cursor: 'pointer',
+  transition: 'background-color 0.3s ease',
+  ':hover': {
+    backgroundColor: 'black', 
+  },
+};
+
+
+
+export default ProfileView;

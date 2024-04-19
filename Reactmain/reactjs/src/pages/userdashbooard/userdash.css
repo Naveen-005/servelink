@@ -1,0 +1,356 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+    --header117-height: 3rem;
+    --nav117-width: 68px;
+    --first-color: #4723D9;
+    --first-color-light: #AFA5D9;
+    --white-color: #F7F6FB;
+    --body-font: 'Nunito', sans-serif;
+    --normal-font-size: 1rem;
+    --z-fixed: 100
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box
+}
+
+body {
+    position: relative;
+    margin: var(--header117-height) 0 0 0;
+    padding: 0 1rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s
+}
+
+a {
+    text-decoration: none
+}
+
+.header117 {
+    width: 100%;
+    height: var(--header117-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: var(--white-color);
+    z-index: var(--z-fixed);
+    transition: .5s
+}
+
+.header117_toggle {
+    color: var(--first-color);
+    font-size: 1.5rem;
+    cursor: pointer
+}
+
+.header117_img {
+    position: fixed;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.btn {
+    text-transform: none;
+}
+
+
+
+.l-nav117bar {
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: var(--nav117-width);
+    height: 100vh;
+    background-color: var(--first-color);
+    padding: .5rem 1rem 0 0;
+    transition: .5s;
+    z-index: var(--z-fixed)
+}
+
+.nav117 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden
+}
+
+.nav117_logo,
+.nav117_link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+    padding: .5rem 0 .5rem 1.5rem
+}
+.nav117_link a{
+    color: rgb(255, 0, 0);
+  }
+
+.nav117_logo {
+    margin-bottom: 2rem
+}
+
+
+.nav117_logo-icon {
+    font-size: 1.25rem;
+    color: var(--white-color)
+}
+
+.nav117_logo-name {
+    color: var(--white-color);
+    font-weight: 700
+}
+
+.nav117_link {
+    position: relative;
+    color: var(--first-color-light);
+    margin-bottom: 1.5rem;
+    transition: .3s
+}
+
+.nav117_link:hover {
+    color: var(--white-color)
+}
+
+.nav117_icon {
+    font-size: 1.25rem
+}
+
+.show {
+    left: 0
+}
+
+.body-pd {
+    padding-left: calc(var(--nav117-width) + 1rem)
+}
+
+.active {
+    color: var(--white-color)
+}
+
+.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 32px;
+    background-color: var(--white-color)
+}
+
+.height-100 {
+    height: 100vh
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: calc(var(--header117-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav117-width))
+    }
+
+    .header117 {
+        height: calc(var(--header117-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav117-width) + 2rem)
+    }
+
+    /* .header117_img {
+        width: 40px;
+        height: 40px
+    }
+
+    .header117_img img {
+        width: 45px
+    } */
+
+    .l-nav117bar {
+        left: 0;
+        padding: 1rem 1rem 0 0
+    }
+
+    .show {
+        width: calc(var(--nav117-width) + 156px)
+    }
+
+    /* .body-pd {
+        padding-left: calc(var(--nav117-width) + 188px)
+    } */
+    /* Add padding to the body and header when navbar is expanded */
+    .body-pd {
+        padding-left: calc(var(--nav117-width) + 1rem); /* Adjust this value as needed */
+        transition: padding-left 0.5s ease;
+      }
+      
+      .header117.active {
+        left: 130px; /* Adjust this value as needed */
+        transition: left 0.5s ease;
+      }
+
+      .floating-card117 {
+        position: fixed; /* Change to fixed positioning */
+        top: calc(var(--header117-height) + 20px); /* Adjust top positioning as needed */
+        right: 20px; /* Adjust right positioning as needed */
+        z-index: 1000;
+        background-color: #232323;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 250px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-image {
+        width: 90px; /* Adjust size as needed */
+        height: 90px; /* Ensure width and height are equal to create a perfect circle */
+        border-radius: 50%;
+        object-fit: cover; /* Ensure the entire image fits within the circle without stretching */
+        margin-bottom: 1px;
+      }
+
+      .user-info {
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 15px; /* Adjust spacing between text and buttons */
+      }
+      
+      .user-name {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      
+      .user-email {
+        font-size: 14px;
+        color: #ffffff;
+        margin-bottom: 15px;
+      }
+      
+      .account-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Align buttons horizontally at the center */
+      }
+      
+      .account-actions button {
+        margin-bottom: 5px; /* Adjust spacing between buttons */
+      }
+      
+      .account-settings-button {
+        width: 150px;
+        color: #4723D9;
+      }
+      
+      .logout-button {
+        width: 100px;
+      }
+
+
+
+
+  /* Other styles... */
+  
+}
+.btn.btn-primary {
+    color: #fff;
+    background-color: #000cf3;
+    border: #000;
+}
+
+.cover-photo-container {
+    position: relative;
+    width: 100%;
+    height: 400px; 
+    overflow: hidden;
+    
+  }
+
+  .body-pd-expanded {
+    padding-left: calc(var(--nav117-width) + 86px);
+    transition: padding-left 0.5s ease;
+}
+
+  
+  .cover-photo {
+    padding-top: 60px;
+    width: 100%;
+    /* height: 500px; */
+  }
+  .profile-photo-overlay {
+    position: absolute;
+    top: 320px; /* Position the profile photo at the center vertically */
+    left: 50%; /* Position the profile photo at the center horizontally */
+    transform: translate(-50%, -50%); /* Center the profile photo precisely */
+    border-radius: 50%; /* Make it a circle */
+    border: 2px solid #fff; /* Add a border for better visibility */
+    width: 160px; /* Adjust size as needed */
+    height: 160px; /* Adjust size as needed */
+  }
+  .nev117{
+    color: #000;
+  }
+  .messages-floating-option {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .messages-floating-option i {
+    font-size: 24px;
+  }
+  .messages-floating-card {
+    /* Styles for the collapsed card */
+    width: 40px;
+    height: 40px;
+    transition: width 0.3s, height 0.3s;
+  }
+  
+  .messages-floating-card.expanded {
+    /* Styles for the expanded card */
+    width: 200px;
+    height: 200px;
+  }
+  .floating-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    right: 70px;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    width: 200px;
+    height: 100px;
+    border-radius: 25px;
+  }
+  .floating-card a {
+    color: rgb(0, 0, 0);
+  }
+  
+ 
+
+  /* .floating-card a:hover {
+    color: rgb(106, 106, 106);
+  } */
+  
+  

@@ -155,6 +155,9 @@ const customIcon = L.divIcon({
         //retainZoomLevel: true,
       });
 
+
+      let redDotMarker = null;
+
       mapRef.current.addControl(searchControl);
     
       mapRef.current.on('geosearch/showlocation', function (data) {
@@ -175,7 +178,9 @@ const customIcon = L.divIcon({
         //console.log("geo:",data.location.y,data.location.x)
   
         // Add a marker at the clicked location
-        L.marker([formData.loc_lat, formData.loc_lng]).addTo(mapRef.current);
+        //L.marker([formData.loc_lat, formData.loc_lng]).addTo(mapRef.current);
+        redDotMarker=L.circleMarker([formData.loc_lat, formData.loc_lng],{ color: 'red', radius: 5 }).addTo(mapRef.current);
+
        
       });
     
@@ -189,7 +194,8 @@ const customIcon = L.divIcon({
       mapRef.current.on('mouseup', function (e) {
         mapRef.current.dragging.enable();
       });
-
+     
+      
      
       mapRef.current.on('click', function (e) {
         const { lat, lng } = e.latlng;
@@ -199,19 +205,19 @@ const customIcon = L.divIcon({
         setFormData((prevFormData) => ({ ...prevFormData, loc_lat: lat }));
         setFormData((prevFormData) => ({ ...prevFormData, loc_lng: lng }));
 
-        mapRef.current.eachLayer(function (layer) {
-          if (layer instanceof L.Marker) {
-            mapRef.current.removeLayer(layer);
-          }
-        });
-  
+        if (redDotMarker) {
+          mapRef.current.removeLayer(redDotMarker);
+        }
+
+
+        
         // Add a marker at the clicked location
-        L.marker([lat, lng]).addTo(mapRef.current);
+        redDotMarker = L.circleMarker([lat, lng],{ color: 'red', radius: 5 }).addTo(mapRef.current);
         //mapRef.current.setView([lat, lng], 12);
         //console.log("click:",lat,lng)
 
       });
-     
+      
 
       
 
@@ -229,10 +235,10 @@ const customIcon = L.divIcon({
     <Link id="crossButton9" to="/odas">&#10006;</Link>
      <form onSubmit={handleSubmit}>
       <label for="eventName">Event Name:</label>
-      <input type="text" id="eventName" name="title" value={formData.title} onChange={handleChange} required />
+      <input type="text1" id="eventName" name="title" value={formData.title} onChange={handleChange} required />
 
       <label for="eventLocation">Location:</label>
-      <input type="text" id="eventLocation" name="location" value={formData.location}
+      <input type="text1" id="eventLocation" name="location" value={formData.location}
         onChange={handleChange}
         required/>
 
@@ -243,10 +249,10 @@ const customIcon = L.divIcon({
      </div>
 
       <label for="eventDate">Date:</label>
-      <input type="date" id="eventDate" name="date" value={formData.date} onChange={handleChange} required />
+      <input type="date1" id="eventDate" name="date" value={formData.date} onChange={handleChange} required />
          
       <label for="eventTime">Time:</label>
-      <input type="time" id="eventTime" name="time" value={formData.time} onChange={handleChange}/>
+      <input type="time1" id="eventTime" name="time" value={formData.time} onChange={handleChange}/>
 {/*
       <label for="media">Upload Media:</label>
       <input type="file" id="media" name="image" accept="image/*"  onchange={handleFileChange} />
@@ -254,11 +260,11 @@ const customIcon = L.divIcon({
   */}
 
       <label htmlFor="media">Upload Media:</label>
-      <input type="file" id="media" name="image" accept="image/*" onChange={handleFileChange} />
+      <input type="file1" id="media" name="image" accept="image/*" onChange={handleFileChange} />
 
 
       <label for="description">Short Description: (max 40 words)</label>
-      <input type="text" id="description" name="short_description"  maxLength='40' value={formData.short_description} onChange={handleChange}required/>
+      <input type="text1" id="description" name="short_description"  maxLength='40' value={formData.short_description} onChange={handleChange}required/>
 {/*
       <label for="count">Number of Volunteers required :</label>
       <input type="number" id="count" name="count" required/>
@@ -269,14 +275,14 @@ const customIcon = L.divIcon({
       {Object.entries(formData.skills).map(([skillName, skillLevel]) => (
         <div key={skillName}>
           <input
-            type="text"
+            type="text1"
             value={skillName}
             onChange={(e) => handleSkillChange(e.target.value, skillLevel)}
             placeholder="Skill Name"
             className='col-md-6'
           />
           <input
-            type="number"
+            type="number1"
             value={skillLevel}
             onChange={(e) => handleSkillChange(skillName, parseInt(e.target.value))}
             placeholder="Skill Level"
@@ -286,16 +292,17 @@ const customIcon = L.divIcon({
       ))}
 
       {/* Input for new skill name */}
+      <label for="skill">Add skill: </label>
       <input
-        type="text"
+        type="text1"
         value={newSkillName}
         onChange={handleNewSkillNameChange}
-        placeholder="New Skill Name"
+        placeholder=""
         className='col-md-6'
       />
 
 
-      <button onClick={handleAddSkill}>Add Skill</button>
+      <button id='d' onClick={handleAddSkill}>Add</button>
   
 
       <button id="da" type="submit">Post</button>

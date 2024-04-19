@@ -22,6 +22,8 @@ import Terms from './pages/index/terms';
 import Privacy from './pages/index/privacy';
 import Orgprofile from './pages/org_dash/orgprofile';
 import Userdash from './pages/userdashbooard/userdash'
+import ProfileView from './pages/org_dash/profileview';
+
 function App() {
   return (
     <BrowserRouter>
@@ -48,6 +50,12 @@ function App() {
         <Route path="/orgprofile" element={<Orgprofile />} />
         <Route path="/userdash" element={<Userdash />} />
        
+        <Route path="/profileview" element={<ProfileView />} />
+       
+
+
+
+
 
 
       </Routes>

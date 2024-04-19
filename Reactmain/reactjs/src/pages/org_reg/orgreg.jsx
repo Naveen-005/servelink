@@ -15,6 +15,7 @@ import './assets/vendor/css-hamburgers/hamburgers.min.css'
 import './assets/vendor/animsition/css/animsition.min.css'
 import './assets/vendor/select2/select2.min.css'
 import Cookies from 'js-cookie';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -69,6 +70,11 @@ function Orgreg() {
 
   return (
     <div>
+		<Helmet>
+			<title>
+				Organization Register
+			</title>
+		</Helmet>
        <div className="limiter5">
 		<div className="container13-login10013">
 			<div className="wrap13-login10013">

@@ -1,0 +1,191 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 10px;
+    background-image: url('./aa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+  }
+  
+  .box007 {
+    border: 5px double black;
+    padding: 20px;
+    background-color:darkcyan;
+  }
+  .box008 {
+    border: 3px solid black;
+    padding: 20px;
+    background-color: #ADEFD1FF;
+    height: 650px;
+  }
+  
+
+  .circle1 {
+    cursor: pointer;
+  }
+  
+  .active1 {
+    background-color: green !important;
+  }
+  
+  
+  .b08{
+    border: 1px solid rgb(43, 130, 60);
+    border-radius: 3px;
+    position: relative;
+    right: 30%;
+    padding: 8px;
+    margin: 9px;
+    background-color: rgb(43, 130, 60);
+    color: white;
+  }
+  .b08:hover{
+    background-color:darkgray;
+  }
+  .b09{
+    border: 1px solid rgb(43, 130, 60);
+    position: relative;
+    border-radius: 3px;
+    left: 30%;
+    padding: 8px;
+    margin: 9px;
+    background-color: rgb(43, 130, 60);
+    color: white;
+  }
+  .b09:hover{
+    background-color:darkgray;
+  }
+
+  .welcome{
+    padding: 93px;
+    align-items: center;
+  }
+
+  @import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+
+.welcome-message {
+  text-align: center;
+}
+
+.bomb-burst {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.burst {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: burst 3s infinite;
+}
+
+.burst--1 {
+  background-color: #ff8c00;
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.burst--2 {
+  background-color: #ffa500;
+  top: 30%;
+  left: 60%;
+  animation-delay: 0.5s;
+}
+
+.burst--3 {
+  background-color: #ffd700;
+  top: 50%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.burst--4 {
+  background-color: #ffff00;
+  top: 70%;
+  left: 50%;
+  animation-delay: 1.5s;
+}
+
+.burst--5 {
+  background-color: #00ff00;
+  top: 40%;
+  left: 80%;
+  animation-delay: 2s;
+}
+
+.burst--6 {
+  background-color: #00ffff;
+  top: 60%;
+  left: 10%;
+  animation-delay: 2.5s;
+}
+.burst--7 {
+  background-color: #d18ba3;
+  top: 90%;
+  left: 50%;
+  animation-delay: 2.5s;
+}
+.burst--8 {
+  background-color: #bd4b4b;
+  top: 10%;
+  left: 40%;
+  animation-delay: 2.5s;
+}
+.burst--8 {
+  background-color: #bd4b4b;
+  top: 30%;
+  left: 80%;
+  animation-delay: 2.5s;
+}
+.burst--8 {
+  background-color: #bd4b4b;
+  top: 30%;
+  left: 19%;
+  animation-delay: 2.5s;
+}
+
+.burst--9 {
+  background-color: #d67cd0;
+  top: 50%;
+  left: 20%;
+  animation-delay: 2.5s;
+}
+.burst--10 {
+  background-color: #cd9c67;
+  top: 30%;
+  left: 70%;
+  animation-delay: 2.5s;
+}
+
+
+
+@keyframes burst {
+  0% {
+    transform: scale(0);
+    opacity: 146;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+.b19{
+  border-radius: 6px;
+  border: 1px solid rgb(1, 151, 88);
+  background-color: rgb(1, 151, 88);
+  padding: 3%;
+  color: white;
+}
+.b19:hover{
+  background-color: #42c68b;
+  color: white;
+}

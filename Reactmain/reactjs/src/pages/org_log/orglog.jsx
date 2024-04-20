@@ -67,7 +67,7 @@ function Orglog() {
         <div className="bg14 order-1 order-md-2" style={{ backgroundImage: "url('assets/images/wew.jpg')" }}></div>
         <div className="contents14 order-2 order-md-1">
           <nav className="navbar11">
-            <Link className="home-btn" to="/index" style={{textDecoration:"none",color:"black",position:'relative',left:'5px'}} >Home </Link>
+            <Link className="home-btn" to="/" style={{textDecoration:"none",color:"black",position:'relative',left:'5px'}} >Home </Link>
           </nav>
 
           <div className="container14">

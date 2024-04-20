@@ -16,6 +16,12 @@ function Navbar() {
 
   const [user_name,setUserName]=useState('Guest')
   const [isLoggedIn,setLoginStatus] = useState(false)
+ 
+  const [activeLink, setActiveLink] = useState('');
+
+  const handleLinkClick = (link) => {
+  setActiveLink(link);
+ };
 
  
 
@@ -58,14 +64,14 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
-        <Link className="navbar-brand logo m-0 float-start text-black1-50" to="/">Servelink</Link>
+        <Link className="navbar-brand logo m-0 float-start text-black-50" to="/">Servelink</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto ">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/" onClick={() => handleLinkClick('home')}>Home</Link>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" onClick={toggleVolunteerDropdown}>
@@ -88,16 +94,16 @@ function Navbar() {
               </ul>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
+              <Link className="nav-link" to="/about" onClick={() => handleLinkClick('about')}>About</Link>
             </li>
             <li className="nav-item">
 
-              <Link className="nav-link " to="/events">Events</Link>
+              <Link className="nav-link" to="/events" onClick={() => handleLinkClick('events')}>Events</Link>
 
             </li>
            
             <li className="nav-item" >
-              <Link className="nav-link" to="/contact">Contact</Link>
+              <Link className="nav-link" to="/contact"  onClick={() => handleLinkClick('contact')}>Contact</Link>
             </li>
             
             <li className="nav-item dropdown"  style={{ marginLeft:'45%',cursor:'pointer'}}>

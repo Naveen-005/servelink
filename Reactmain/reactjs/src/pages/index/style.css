@@ -51,8 +51,11 @@ body {
 
 
 
+  
+
   .navbar{
-    background-color: #858585; /* Background color */
+    background-color: #9ca199; /* Background color */
+    border: 1px solid black;
     
   }
   .navbar-nav {
@@ -66,12 +69,90 @@ body {
     
     
   }
-  .navbar-nav .nav-link {
-    text-decoration: none; /* Removes underline from nav links */
-}
-.nav-item:hover{
-background-color: rgb(114, 114, 114);
 
+  .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .nav-link {
+    font-weight: 500;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    padding: 0.5rem 1rem;
+  }
+  
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: #ffc107;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background for dropdown menus */
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background on hover */
+  color: #fff;
+}
+
+ /* Responsiveness */
+ @media (max-width: 991px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #a19999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .nav-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .dropdown-menu {
+    background-color:  #a19999;;
+    border: none;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
 }
 
 
@@ -9209,9 +9290,24 @@ textarea {
         height: auto !important;
         padding-top: 4rem;
         padding-bottom: 4rem; } }
+
+       @keyframes fadeInOut {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      
   .hero.overlay {
     position: relative;
-    z-index: 1; }
+    z-index: 1; 
+    transition: background-image 0.6s ease-in-out;
+    }
     .hero.overlay:before {
       background-color: rgba(0, 0, 0, 0.4);
       content: "";

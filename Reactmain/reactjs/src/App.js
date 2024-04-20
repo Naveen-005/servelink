@@ -27,7 +27,11 @@ import Sidebarprofile from './pages/org_dash/components/sidebarprofile';
 import Settings from './pages/org_dash/Settings';
 import Orgauth from './pages/org_dash/components/Orgauth';
 import Changepass from './pages/org_dash/components/Changepass';
-import Notification from './pages/org_dash/components/notification'
+import Notification from './pages/org_dash/components/notification';
+import OrgForm from './pages/org_dash/org_redirect/OrgForm';
+import Error from './components/error';
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -43,7 +47,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/test" element={<MapTest />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/*" element={<Index />} />
+        <Route path="/*" element={<Error />} />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/event_details/:id" element={<Event_details />} />
         <Route path="/odas" element={<Odas />} />
@@ -53,14 +57,15 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/orgprofile" element={<Orgprofile />} />
         <Route path="/userdash" element={<Userdash />} />
-       
+          
         <Route path="/profileview" element={<ProfileView />} />
         <Route path="/sp" element={<Sidebarprofile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/authentication" element={<Orgauth />} />
         <Route path="/changepassword" element={<Changepass />} />
         <Route path="/notification" element={<Notification />} />
-       
+        <Route path="/org_verification" element={<OrgForm />} />
+        
 
 
  

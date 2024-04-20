@@ -52,7 +52,7 @@ function Orgreg() {
         		Cookies.set('org_id', res.data.org_id, { expires: 7 })
         		Cookies.set('token', res.data.token, { expires: 7 })
 				alert("Succesfully registered")
-                navigate("/")
+                navigate("/org_verification")
 
             })
             .catch((err) => {

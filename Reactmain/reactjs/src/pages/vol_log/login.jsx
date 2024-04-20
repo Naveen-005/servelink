@@ -71,7 +71,7 @@ function Login() {
 		<div className="container2-login1002" style={{backgroundImage: "url('assets/images/v1.jpg')"}}>
 			<div className="wrap2-login1002">
 				<nav className="navbar1">
-				<Link className="txt121" to="/index" style={{textDecoration:"none",color:"darkgrey",position:'relative',left:'5px'}} >Home <span className="sr-only"></span></Link>
+				<Link className="txt121" to="/" style={{textDecoration:"none",color:"darkgrey",position:'relative',left:'5px'}} >Home <span className="sr-only"></span></Link>
 				  </nav>
 				<form className="login1002-form12 validate-form12" onSubmit={handleSubmit}>
 					

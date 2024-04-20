@@ -1,8 +1,8 @@
-.orglog {
+.orglog1 {
   font-family: "Roboto", sans-serif;
-  background-color: #fff;
+  background-color: #cdc6c6;
   background-attachment: fixed; 
-  height: 100vh;
+  
   
 }
   
@@ -30,14 +30,17 @@ h2 {
 
 .half14, .half14 .container14 > .row {
   height: 100vh;
-  min-height: 700px; }
+  min-height: 700px;
+  
+}
 
 @media (max-width: 991.98px) {
   .half14 .bg {
     height: 200px; } }
 
 .half14 .contents14 {
-  background: #d2d2d2;}
+  background: #d2d2d2;
+}
 
 .half14 .contents14, .half14 .bg14 {
   width: 50%; }
@@ -50,7 +53,8 @@ h2 {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     height: 54px;
-    background: #fff; }
+    background: #fff;
+   }
     .half14 .contents14 .form14-control14:active, .half14 .contents14 .form14-control14:focus, .half14 .bg14 .form14-control14:active, .half14 .bg14 .form14-control14:focus {
       outline: none;
       -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
@@ -58,11 +62,15 @@ h2 {
 
 .half14 .bg14 {
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+ 
+}
 
 .half14 a {
   color: #888;
-  text-decoration: underline; }
+  text-decoration: underline; 
+
+}
 
 .half14 .btn {
   height: 54px;

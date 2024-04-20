@@ -31,6 +31,7 @@ import Notification from './pages/org_dash/components/notification';
 import OrgForm from './pages/org_dash/org_redirect/OrgForm';
 import Error from './components/error';
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -56,7 +57,7 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/orgprofile" element={<Orgprofile />} />
         <Route path="/userdash" element={<Userdash />} />
-       
+          
         <Route path="/profileview" element={<ProfileView />} />
         <Route path="/sp" element={<Sidebarprofile />} />
         <Route path="/settings" element={<Settings />} />

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
-:root {
+.by1{
     --header117-height: 3rem;
     --nav117-width: 68px;
     --first-color: #4723D9;
@@ -11,13 +11,14 @@
     --z-fixed: 100
 }
 
+/*
 *,
 ::before,
 ::after {
     box-sizing: border-box
 }
-
-body {
+*/
+.by{
     position: relative;
     margin: var(--header117-height) 0 0 0;
     padding: 0 1rem;
@@ -26,9 +27,13 @@ body {
     transition: .5s
 }
 
+/*
+
 a {
     text-decoration: none
 }
+
+*/
 
 .header117 {
     width: 100%;

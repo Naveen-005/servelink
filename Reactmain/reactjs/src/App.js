@@ -59,7 +59,6 @@ function App() {
         <Route path="/userdash" element={<Userdash />} />
           
         <Route path="/profileview" element={<ProfileView />} />
-        <Route path="/sp" element={<Sidebarprofile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/authentication" element={<Orgauth />} />
         <Route path="/changepassword" element={<Changepass />} />

@@ -1,11 +1,11 @@
 // import React from 'react';
 import React, { useState } from 'react';
-//import './userdash.css';
+import './userdash.css';
 //import 'bootstrap/dist/css/bootstrap.min.css';
-//import 'boxicons/css/boxicons.min.css';
+import 'boxicons/css/boxicons.min.css';
 //import '@fortawesome/fontawesome-free/css/all.min.css';
 
-// import 'boxicons/dist/css/boxicons.min.css';
+//import 'boxicons/dist/css/boxicons.min.css';
 
 function Userdash() {
 
@@ -53,6 +53,8 @@ function Userdash() {
 
 
   return (
+    <div className='by1'>
+    <div className='by'>
     <div id="body-pd" className={state.isNavbarOpen ? 'body-pd-expanded' : ''}>
             <header className={`header117 ${state.isNavbarOpen ? 'active' : ''}`} id="header117">
         <div className="header117_toggle" onClick={toggleNavbar}>
@@ -163,7 +165,8 @@ function Userdash() {
 
 
     </div>
-    
+    </div>
+    </div>
   );
 }
 

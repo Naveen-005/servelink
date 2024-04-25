@@ -1,4 +1,4 @@
-
+/*
 .font-robo {
   font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
 }
@@ -6,7 +6,9 @@
 .font-poppins {
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
 }
+*/
 
+/*
 .row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -17,6 +19,8 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+
+*/
 
 .row-space {
   -webkit-box-pack: justify;
@@ -377,15 +381,17 @@ input {
 .input--style-4 {
   line-height: 50px;
   background: #fafafa;
+  /*
   -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
   box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
   -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -moz-border-radius: 15px;
+  */
+ 
   padding: 0 20px;
   font-size: 16px;
-  color: #666;
+  color: #000000;
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -578,3 +584,5 @@ input {
     padding: 50px 40px;
   }
 }
+
+

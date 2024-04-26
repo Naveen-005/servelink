@@ -119,6 +119,7 @@ router.post('/', upload.single('file'), function (req, res, next) {
 });
 
 
+/*
 
 router.get('/', function (req, res, next) {
 
@@ -140,10 +141,9 @@ router.get('/', function (req, res, next) {
 
 
 });
+*/
 
 
-
-/*
 router.get('/', function (req, res, next) {
   if (req.cookies.token && req.cookies.uid) {
     const today = new Date();
@@ -181,11 +181,6 @@ router.get('/', function (req, res, next) {
     res.status(401).send({ message: "Unauthorized" });
   }
 });
-*/
-
-
-
-
 
 
 module.exports = router;

@@ -2,7 +2,7 @@ import { color } from 'framer-motion';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Sidebarprofile() {
+function Sidebarprofile({org}) {
   const [activeTab, setActiveTab] = useState('about');
 
   const handleTabClick = (tabName) => {
@@ -51,19 +51,20 @@ function Sidebarprofile() {
           {activeTab === 'about' && (
             <div style={styles.sidebarprofilePane}>
               <h2>About</h2>
-              <p>Add your organization's about information here.</p>
+              <p>{org?.about}</p>
             </div>
           )}
           {activeTab === 'address' && (
             <div style={styles.sidebarprofilePane}>
               <h2>Address</h2>
-              <p>Add your organization's address information here.</p>
+              <p>{org?.address}</p>
             </div>
           )}
           {activeTab === 'contact' && (
             <div style={styles.sidebarprofilePane}>
               <h2>Contact</h2>
-              <p>Add your organization's contact information here.</p>
+              <p>Email: {org?.email}</p>
+              <p>Phone no: {org?.phone_no}</p>
             </div>
           )}
         </div>

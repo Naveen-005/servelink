@@ -90,7 +90,7 @@ function Orgprofile() {
             </title>
         </Helmet>
         <SideBar/>
-        <div style={{ flexGrow: 1, paddingLeft: '150px' }}>
+        <div style={{ flexGrow: 1, paddingLeft: '10px' }}>
 
       <div className="container-xxl flex-grow-1 container-p-y">
               <h4 className="fw-bold py-3 mb-4"><span className="text-muted fw-light"></span> Account settings</h4>

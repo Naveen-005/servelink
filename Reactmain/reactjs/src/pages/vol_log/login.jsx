@@ -47,7 +47,7 @@ function Login() {
         		Cookies.set('token', res.data.token, { expires: 7 })
                 alert("Registered Successfully");
 				alert("Successfully logged in")
-                navigate("/")
+                navigate("/userdash")
 
             })
             .catch((err) => {
@@ -81,7 +81,7 @@ function Login() {
 					</span>
 
 					<div className="wrap2-input1002 validate-input" data-validate = "Enter email">
-						<input className="input1002" type="text121" name="email" placeholder="Email" value={formData.email} onChange={handleChange}/>
+						<input className="input1002" type="text" name="email" placeholder="Email" value={formData.email} onChange={handleChange}/>
 						<span className="focus-input1002" data-placeholder="&#xf207;"></span>
 					</div>
 

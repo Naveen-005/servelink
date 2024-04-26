@@ -5,6 +5,8 @@ import SideBar from './components/sidebar'
 import UserDropdown from './components/userdropdown';
 import { FaFontAwesome } from 'react-icons/fa';
 import { BiFontFamily } from 'react-icons/bi';
+import coverPhoto from './cvo.jpg'
+import ProfilePhoto from './dpo.jpg'
 
 const ProfileView = () => {
   return (
@@ -17,9 +19,11 @@ const ProfileView = () => {
     <UserDropdown />
     <div className="container142" style={container142Style}>
       <div style={rectangle141Style}>
-        <h1>cover photo</h1>
+        {/*<h1>cover photo</h1>*/}
+        <img src={coverPhoto} alt="Cover Photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         <div style={square141Style}>
-          <h1>Profile photo</h1>
+         {/* <h1>Profile photo</h1>*/}
+         <img src={ProfilePhoto} alt="Profile Photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       </div>
       <div style={boxStyle}>
@@ -36,10 +40,7 @@ const ProfileView = () => {
         <button style={buttonStyle}>Ongoing Event</button>
         <button style={buttonStyle}>Completed Event</button>
       </div>
-      <div>
-        <h3>Reviews</h3>
-        
-      </div>
+
     </div>
     </div>
   );
@@ -56,6 +57,7 @@ const container142Style = {
   border:'3px solid black',
   position:'Relative',
   left:'25px'
+
 };
 
 const rectangle141Style = {
@@ -63,6 +65,8 @@ const rectangle141Style = {
   height: '200px',
   border:'2px solid black',
   position: 'relative',
+  objectFit: 'cover',
+
 };
 
 const square141Style = {
@@ -103,9 +107,12 @@ const buttonRowStyle = {
   justifyContent: 'space-between',
 };
 
+
+
 const buttonStyle = {
-  padding: '10px 201px',
+  padding: '10px 21px',
   backgroundColor: '#FF6A3D',
+  margin:'3px',
   color: 'white',
   border: 'none',
   cursor: 'pointer',

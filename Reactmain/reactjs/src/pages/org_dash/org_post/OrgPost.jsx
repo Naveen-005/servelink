@@ -232,10 +232,10 @@ const customIcon = L.divIcon({
     <Link id="crossButton9" to="/odas">&#10006;</Link>
      <form onSubmit={handleSubmit}>
       <label for="eventName">Event Name:</label>
-      <input type="text1" id="eventName" name="title" value={formData.title} onChange={handleChange} required />
+      <input type="text" id="eventName" name="title" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}}  value={formData.title} onChange={handleChange} required />
 
       <label for="eventLocation">Location:</label>
-      <input type="text1" id="eventLocation" name="location" value={formData.location}
+      <input type="text" id="eventLocation" name="location" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.location}
         onChange={handleChange}
         required/>
 
@@ -246,10 +246,11 @@ const customIcon = L.divIcon({
      </div>
 
       <label for="eventDate">Date:</label>
-      <input type="date1" id="eventDate" name="date" value={formData.date} onChange={handleChange} required />
+      <input type="date" id="eventDate" name="date" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.date} onChange={handleChange} required />
          
       <label for="eventTime">Time:</label>
-      <input type="time1" id="eventTime" name="time" value={formData.time} onChange={handleChange}/>
+      <input type="time" id="eventTime" name="time" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.time} onChange={handleChange}/>
+     
 {/*
       <label for="media">Upload Media:</label>
       <input type="file" id="media" name="image" accept="image/*"  onchange={handleFileChange} />
@@ -257,11 +258,11 @@ const customIcon = L.divIcon({
   */}
 
       <label htmlFor="media">Upload Media:</label>
-      <input type="file1" id="media" name="image" accept="image/*" onChange={handleFileChange} />
+      <input type="file" id="media" name="image" accept="image/*" onChange={handleFileChange} />
 
 
       <label for="description">Short Description: (max 40 words)</label>
-      <input type="text1" id="description" name="short_description"  maxLength='40' value={formData.short_description} onChange={handleChange}required/>
+      <input type="text" id="description" name="short_description"  maxLength='40' style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.short_description} onChange={handleChange}required/>
 {/*
       <label for="count">Number of Volunteers required :</label>
       <input type="number" id="count" name="count" required/>
@@ -272,18 +273,21 @@ const customIcon = L.divIcon({
       {Object.entries(formData.skills).map(([skillName, skillLevel]) => (
         <div key={skillName}>
           <input
-            type="text1"
+            type="text"
             value={skillName}
             onChange={(e) => handleSkillChange(e.target.value, skillLevel)}
             placeholder="Skill Name"
             className='col-md-6'
+            style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} 
+          
           />
           <input
-            type="number1"
+            type="number"
             value={skillLevel}
             onChange={(e) => handleSkillChange(skillName, parseInt(e.target.value))}
             placeholder="Skill Level"
             className='col-md-6'
+            style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} 
           />
         </div>
       ))}
@@ -291,11 +295,12 @@ const customIcon = L.divIcon({
       {/* Input for new skill name */}
       <label for="skill">Add skill: </label>
       <input
-        type="text1"
+        type="text"
         value={newSkillName}
         onChange={handleNewSkillNameChange}
         placeholder=""
         className='col-md-6'
+        style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} 
       />
 
 

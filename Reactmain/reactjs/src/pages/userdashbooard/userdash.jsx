@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import './userdash.css';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import 'boxicons/css/boxicons.min.css';
+import { Helmet } from 'react-helmet';
+import {Link} from 'react-router-dom';
 //import '@fortawesome/fontawesome-free/css/all.min.css';
 
 //import 'boxicons/dist/css/boxicons.min.css';
@@ -55,6 +57,11 @@ function Userdash() {
   return (
     <div className='by1'>
     <div className='by'>
+      <Helmet>
+        <title>
+          VolunteerDashboard  
+        </title>
+      </Helmet>
     <div id="body-pd" className={state.isNavbarOpen ? 'body-pd-expanded' : ''}>
             <header className={`header117 ${state.isNavbarOpen ? 'active' : ''}`} id="header117">
         <div className="header117_toggle" onClick={toggleNavbar}>
@@ -100,7 +107,7 @@ function Userdash() {
           <div> 
             <a href="index" className="nav117_logo"> 
               <i className='fas fa-concierge-bell nav117_logo-icon'></i> 
-              <span className="nav117_logo-name">Servelink</span> 
+              <Link className="nav117_logo-name" to="/userdash">Servelink</Link> 
             </a>
  <div className="nav117_list"> 
       <a href="#" style={{ textDecoration: 'none' }} className={`nav117_link ${state.activeLink === 'Dashboard' ? 'active' : ''}`} onClick={() => handleLinkClick('Dashboard')}> 

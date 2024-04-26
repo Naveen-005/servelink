@@ -30,6 +30,7 @@ import Changepass from './pages/org_dash/components/Changepass';
 import Notification from './pages/org_dash/components/notification';
 import OrgForm from './pages/org_dash/org_redirect/OrgForm';
 import Error from './components/error';
+import Chatbot from './components/chatbot';
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
         <Route path="/changepassword" element={<Changepass />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/org_verification" element={<OrgForm />} />
+        <Route path="/chatbot" element={<Chatbot />} />
         
 
 

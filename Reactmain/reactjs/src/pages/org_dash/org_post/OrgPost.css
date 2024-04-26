@@ -43,19 +43,9 @@ label {
   font-weight: bold;
   color: #555;
 }
-input[type="text1"],
-input[type="date1"],
-input[type="file1"],
-input[type="number1"],
-input[type="time1"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: #060606;
-  background-color: #dbf3f1;
-}
+
+
+
 textarea {
   width: 100%;
   height: 900px;

@@ -110,13 +110,13 @@ function Register() {
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label2">first name</label>
-                                            <input class="input--style-4" type="text2" name="first_name" value={formData.first_name} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label2">last name</label>
-                                            <input class="input--style-4" type="text2" name="last_name" value={formData.last_name} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +158,7 @@ function Register() {
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label2">Phone Number</label>
-                                            <input class="input--style-4" type="text2" name="phone_no" value={formData.phone_no} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="phone_no" value={formData.phone_no} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
@@ -166,13 +166,13 @@ function Register() {
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label2">City</label>
-                                            <input class="input--style-4" type="text2" name="city" value={formData.city} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="city" value={formData.city} onChange={handleChange} />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label2">District</label>
-                                            <input class="input--style-4" type="text2" name="district" value={formData.district} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="district" value={formData.district} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +181,7 @@ function Register() {
                                 <div class="col-6">
                                     <div class="input-group">
                                         <label class="label2">Pincode</label>
-                                        <input class="input--style-4" type="text2" name="pincode" value={formData.pincode} onChange={handleChange}/>
+                                        <input class="input--style-4" type="text" name="pincode" value={formData.pincode} onChange={handleChange}/>
                                     </div>
                                 </div>
                                   <div class="col-6">
@@ -193,7 +193,7 @@ function Register() {
                                  </div>
 
                                 <div class="container1-login1001-form-btn">
-                                    <button class="login1001-form-btn" type="submit">
+                                    <button class="login1002-form12-btn" type="submit">
                                         Submit
                                     </button>
                                     <centre>

@@ -59,7 +59,7 @@ function App() {
         <Route path="/orgprofile" element={<Orgprofile />} />
         <Route path="/userdash" element={<Userdash />} />
           
-        <Route path="/profileview" element={<ProfileView />} />
+        <Route path="/profileview/:id?" element={<ProfileView />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/authentication" element={<Orgauth />} />
         <Route path="/changepassword" element={<Changepass />} />

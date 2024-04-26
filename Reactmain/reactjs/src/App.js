@@ -31,6 +31,7 @@ import Notification from './pages/org_dash/components/notification';
 import OrgForm from './pages/org_dash/org_redirect/OrgForm';
 import Error from './components/error';
 import Chatbot from './components/chatbot';
+import Messages from './pages/org_dash/messages';
 
 
 function App() {
@@ -66,7 +67,7 @@ function App() {
         <Route path="/notification" element={<Notification />} />
         <Route path="/org_verification" element={<OrgForm />} />
         <Route path="/chatbot" element={<Chatbot />} />
-        
+        <Route path="/org_message" element={<Messages />} />
 
 
  

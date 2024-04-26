@@ -114,3 +114,16 @@
     padding-left: 20px;
     border-bottom: #fff 0.5px solid;
   }
+
+  .main-container {
+    display: flex;
+  }
+  
+  .content {
+    flex: 1;
+    transition: margin-left 0.5s;
+  }
+  
+  .sidebar-open .content {
+    margin-left: 200px;
+  }

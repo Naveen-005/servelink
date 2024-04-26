@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './styleadmin.css'; 
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -20,6 +21,11 @@ const LoginPage = () => {
 
   return (
   <div className="container16">
+    <Helmet>
+      <title>
+        Admin
+      </title>
+    </Helmet>
       <div className="login16-container16">
         <center>
       <h1 style={{color:'white'}}>
@@ -30,22 +36,23 @@ const LoginPage = () => {
         <div className="form16-group16">
           <label htmlFor="username">Username</label>
           <input
-            type="text9"
+            type="text"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-          />
+            style={{width:'100%',padding: '10px',margin: '10px 0',border: '1px solid #ccc',borderRadius: '5px',color:'#c4bdbd', backgroundColor:'#3c3d3d'}}/>
         </div>
         <div className="form16-group16">
           <label htmlFor="password">Password</label>
           <input
-            type="password9"
+            type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
+            
+            style={{width:'100%',padding: '10px',margin: '10px 0',border: '1px solid #ccc',borderRadius: '5px',color:'#c4bdbd', backgroundColor:'#3c3d3d'}}/>
         </div>
         
           <div className="contact100-form12-checkbox">
@@ -59,7 +66,7 @@ const LoginPage = () => {
         < button type="button" onClick={handleLogin} style={{color:'white',backgroundColor:'gray',borderRadius:'10px',padding:'10px'}}>SIGN IN</button>
         </center>
       </form>
-      <div className="forgot16-password16">
+      <div className="forgot16-password16" >
         <Link to="">Forgot Password?</Link>
       </div>
     </div>

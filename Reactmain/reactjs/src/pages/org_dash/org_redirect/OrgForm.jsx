@@ -47,8 +47,8 @@ function OrgForm() {
     </Helmet>
            <h2>More Details</h2>
            <form onSubmit={handleSubmit}>
-                            <div className="mb-3 col-md-6">
-                            <label for="domain" className="form-label">Domain</label>
+                            <div className="mb-3 col-md-63">
+                            <label for="domain" className="form-label">About</label>
                             <input
                               className="form-control"
                               type="text"
@@ -58,7 +58,7 @@ function OrgForm() {
                               onChange={handleChange}
                             />
                            </div>
-                         
+                         <div className='row1'>
                           <div className="mb-3 col-md-6">
                             <label className="form-label" for="phoneNumber">Phone Number</label>
                             <div className="input-group input-group-merge">
@@ -85,6 +85,8 @@ function OrgForm() {
                                 onChange={handleChange}
                               />
                             </div>
+                          </div>
+
                           </div>
               <div>
               <label htmlFor="doc">Upload Doccuments:</label>
@@ -175,6 +177,8 @@ function OrgForm() {
   )}
 </div>
 <br/>
+<button className='bt32'>submit</button>
+<br/>
    <div style={{ display: 'flex', alignItems: 'center' }}>
   <label htmlFor="otp">Otp:  </label>
   <input
@@ -198,7 +202,58 @@ function OrgForm() {
            <button className='b09'  onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
          </div>
        );
-     case 4:
+
+
+
+       case 4:
+       return (
+         <div className='box008'>
+            <Helmet>
+        <title>
+            Authentication
+        </title>
+    </Helmet>
+           <h2>Authentication</h2>
+           <br/>
+           <div style={{ display: 'flex', alignItems: 'center' }}>
+  <label htmlFor="email">Email:</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    style={{
+      height: '40px',
+      width: '350px',
+      fontSize: '16px',
+      padding: '5px 10px',
+      marginLeft: '38px',
+    }}
+  />
+  {formData.email && (
+    <span style={{ color: 'green', marginLeft: '10px' }}>&#10003;</span>
+  )}
+</div>
+<br/>
+   <div style={{ display: 'flex', alignItems: 'center' }}>
+   
+    <button className='bt32'>submit</button>
+    
+
+           </div>
+           <button className='b08'  onClick={() => setCurrentStep(currentStep - 1)}>
+             Previous
+           </button>
+           <button className='b09'  onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
+         </div>
+       );
+
+
+
+
+     case 5:
+
        return (
          <div className='welcome'>
             <Helmet>
@@ -307,6 +362,24 @@ function OrgForm() {
            }}
          >
            4
+         </div>
+         <span>-----</span>
+         <div
+           className={`circle1 ${currentStep === 5 ? 'active1' : ''}`}
+           onClick={() => setCurrentStep(5)}
+           style={{
+             width: '30px',
+             height: '30px',
+             borderRadius: '50%',
+             backgroundColor: currentStep === 5 ? 'green' : 'gray',
+             color: 'white',
+             display: 'flex',
+             justifyContent: 'center',
+             alignItems: 'center',
+             marginLeft: '10px',
+           }}
+         >
+           5
          </div>
        </div>
        {renderStep()}

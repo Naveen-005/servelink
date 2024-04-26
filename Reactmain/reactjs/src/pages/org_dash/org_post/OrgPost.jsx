@@ -9,6 +9,7 @@ import L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import 'leaflet/dist/leaflet.css';
 import { Helmet } from 'react-helmet';
+import { color } from 'framer-motion';
 
 
 
@@ -239,7 +240,7 @@ const customIcon = L.divIcon({
         onChange={handleChange}
         required/>
 
-      <div id="map" style={{ width: '100%', height: '300px', marginTop: '10px' }}></div>
+      <div id="map" style={{ width: '100%', height: '300px', marginTop: '10px',color:'white' }}></div>
       <div>
         <p>Latitude: {formData.loc_lat}</p>
         <p>Longitude: {formData.loc_lng}</p>
@@ -317,4 +318,8 @@ const customIcon = L.divIcon({
 }
 
 
+
+
 export default OrgPost;
+
+

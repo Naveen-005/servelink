@@ -3,8 +3,6 @@ import Sidebarprofile from './components/sidebarprofile';
 import { Helmet } from 'react-helmet';
 import SideBar from './components/sidebar'
 import UserDropdown from './components/userdropdown';
-import { FaFontAwesome } from 'react-icons/fa';
-import { BiFontFamily } from 'react-icons/bi';
 import coverPhoto from './cvo.jpg'
 import ProfilePhoto from './dpo.jpg'
 
@@ -34,7 +32,7 @@ const ProfileView = () => {
       </div>
       
       <div style={sidebarStyle}>
-         <Sidebarprofile/>
+         <Sidebarprofile  />
       </div>
       <div style={buttonRowStyle}>
         <button style={buttonStyle}>Ongoing Event</button>
@@ -49,14 +47,16 @@ const ProfileView = () => {
 const container141Style = {
   backgroundColor: 'aliceblue', 
   padding: '60px',
-  
+  display: 'grid',
+  gridTemplateColumns: 'auto 1fr',
+ 
   
 };
 const container142Style = {
   backgroundColor: '#90AEAD',
   border:'3px solid black',
   position:'Relative',
-  left:'25px'
+  left:'15px'
 
 };
 
@@ -92,11 +92,7 @@ const boxStyle = {
 
 const sidebarStyle = {
   marginTop: '10px',
-  display: 'flex',
-  justifyContent: 'center',
-  width:'100px',
-  position:'relative',
-  left:'520px'
+  padding:'20px'
 
   
 };
@@ -118,8 +114,7 @@ const buttonStyle = {
   cursor: 'pointer',
   transition: 'background-color 0.3s ease',
   ':hover': {
-    backgroundColor: 'black', 
-  },
+    backgroundColor: 'black'},
 };
 
 

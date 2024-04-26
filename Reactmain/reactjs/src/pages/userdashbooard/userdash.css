@@ -283,7 +283,7 @@ a {
     border: #000;
 }
 
-.cover-photo-container {
+.cover-photo-container175 {
     position: relative;
     width: 100%;
     height: 400px; 
@@ -364,7 +364,7 @@ a {
   .floating-card a {
     color: rgb(0, 0, 0);
   }
-  .container12 {
+  .container172 {
     display: flex;
     justify-content: space-between; 
     padding-left: 59px;
@@ -460,16 +460,16 @@ a {
     margin-bottom: 12px; 
   }
 
-  .container12 {
+  .container172 {
     display: flex;
     width: 100%;
   }
-  .container121 {
+  .container1721 {
     display: flex;
     width: 50%;
   }
   
-  .section-container {
+  .section-container175 {
     flex: 1;
     width: 25%; /* Each section takes up 25% of the container width */
     padding: 0 10px; /* Optional: Add padding to each section */
@@ -589,7 +589,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(
   display: flex;
   gap: 80px;
 }
-#button-container {
+#button-container175 {
   display: flex;
   gap: 10px; /* Adjust the gap between buttons */
 }

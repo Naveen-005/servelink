@@ -128,7 +128,7 @@ function Userdash() {
       )}
         </div>
       </header>
-      <div className="cover-photo-container">
+      <div className="cover-photo-container175">
     <img src={"assets/images/567.jpg"} alt="Cover Photo" className="cover-photo" />
     <img src={"assets/images/th.jpeg"} alt="Profile Photo" className="profile-photo-overlay" style={{ borderWidth: '8px',borderColor: 'rgb(106, 106, 106)' }}/>
   </div>
@@ -183,8 +183,8 @@ function Userdash() {
 <button class="button-64" role="button"><span class="text">&nbsp;&nbsp;Event History&nbsp;&nbsp;</span></button>
 </div> 
       {/* Container Main start */}
-      <div className="container12">
-      <div className="section-container">
+      <div className="container172">
+      <div className="section-container175">
   <div className="left-section1">
     {/* Content for the left section */}
     <div className="post12">
@@ -211,7 +211,7 @@ function Userdash() {
 </div>
 </div>
   </div>
-  <div className="section-container">
+  <div className="section-container175">
   <div className="right-section1">
   {/* Content for the right section */}
   <div className="post121">
@@ -227,7 +227,7 @@ function Userdash() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et magna vel justo
         ultricies vestibulum. Nullam non interdum mauris, at cursus libero.
       </p>
-      <div id='post-container'>
+      <div id='post-container175'>
       <img src={"assets/images/vol6.jpg"} alt="Post Photo" className="post-photo12" />
       </div>
       {/* You can add more content here, like images, videos, etc. */}
@@ -236,7 +236,7 @@ function Userdash() {
       <button className="post-like-button">Like</button>
       <button className="post-comment-button">Comment</button>
       <button className="post-share-button">Share</button>
-      <div id="heart-container"></div>
+      <div id="heart-container175"></div>
     </div>
     </div>
   </div>
@@ -246,7 +246,7 @@ function Userdash() {
 
 {/* guygug */}
 
-<div className="section-container">
+<div className="section-container175">
   <div className="left-section1">
     {/* Content for the left section */}
     <div className="post12">
@@ -273,7 +273,7 @@ function Userdash() {
 </div>
 </div>
   </div>
-  <div className="section-container">
+  <div className="section-container175">
   <div className="right-section1">
     {/* Content for the right section */}
     <div className="post121">
@@ -303,8 +303,8 @@ function Userdash() {
 </div>
 {/* uzuuvhbk */}
 <div id='mov121'>
-<div className="container121">
-<div className="section-container">
+<div className="container1721">
+<div className="section-container175">
   <div className="left-section">
     {/* Content for the left section */}
     <div className="post12">
@@ -331,7 +331,7 @@ function Userdash() {
 </div>
 </div>
   </div>
-  <div className="section-container">
+  <div className="section-container175">
   <div className="left-section">
     {/* Content for the right section */}
     <div className="post121">

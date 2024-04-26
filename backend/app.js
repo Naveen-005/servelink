@@ -13,8 +13,11 @@ var loginRouter_Organization = require('./routes/login/organization');
 var volunteerRegistration_Router=require('./routes/register/volunteer');
 var organizationRegistration_Router=require('./routes/register/organization');
 var eventRegistration_Router=require('./routes/register/event')
-const eventDetailsRouter=require('./routes/event_details');
-const orgEventGetter=require('./routes/organization/event');
+var eventDetailsRouter=require('./routes/event_details');
+var orgEventGetter=require('./routes/organization/event');
+var orgProfileRouter=require('./routes/organization/profile');
+var changepasswordRouter=require('./routes/changePassword');
+
 
 var app = express();
 
@@ -40,6 +43,8 @@ app.use('/register/organization',organizationRegistration_Router);
 app.use('/register/event',eventRegistration_Router);
 app.use('/event_details',eventDetailsRouter);
 app.use('/org/event', orgEventGetter);
+app.use('/profile/organization',orgProfileRouter);
+app.use('/changePassword',changepasswordRouter);
 
 
 module.exports = app;

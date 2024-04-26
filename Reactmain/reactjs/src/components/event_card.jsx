@@ -11,7 +11,7 @@ function Event({evnt}) {
             <div class="causes-item bg-white">
                 <img src={`${config.bucket_url}event/${evnt._id}.jpg`} alt="Image" class="img-fluid mb-4 rounded" />
                 <div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
-                    <span class="date">{evnt.date}</span>
+                    <span class="date">{new Date(evnt.date).toDateString()}</span>
                     <h3><a href="#" style={{ textDecoration: 'none', color: "#2a5834" }}>{evnt.title}</a></h3>
                     <p>{evnt.short_description}</p>
 

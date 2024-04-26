@@ -53,8 +53,6 @@ function Orglog() {
 
   useEffect(() => {
 
-    Cookies.set('loggedIn', "false")
-
     AOS.init();
   }, []);
 

@@ -1,12 +1,51 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Sidebarprofile from './components/sidebarprofile';
 import { Helmet } from 'react-helmet';
 import SideBar from './components/sidebar'
 import UserDropdown from './components/userdropdown';
 import coverPhoto from './cvo.jpg'
 import ProfilePhoto from './dpo.jpg'
+import { useParams } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import config from '../../config.json'
 
 const ProfileView = () => {
+
+  const { id } = useParams();
+  const [org_id, setOrgId] = useState('');
+  const [org, setOrg] = useState(null);
+
+
+  useEffect(() => {
+
+    if(id){
+      setOrgId(id)
+    }
+    else{
+      setOrgId(Cookies.get('org_id'))
+    }
+
+    axios({
+      method: 'get',
+      url: config.server_api_url + '/profile/organization',
+      params:{
+          id: org_id
+      }
+    })
+      .then((res) => {
+
+          setOrg(res.data)
+          console.log(org)
+      })
+      .catch((err) => {
+          alert(err)
+
+  });
+
+   
+  },[org_id]);
+
   return (
     
     <div className="container141" style={container141Style}>
@@ -18,21 +57,20 @@ const ProfileView = () => {
     <div className="container142" style={container142Style}>
       <div style={rectangle141Style}>
         {/*<h1>cover photo</h1>*/}
-        <img src={coverPhoto} alt="Cover Photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <img src={`${config.bucket_url}profile/organization/banner/${org?._id}.jpg`} alt="Cover Photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         <div style={square141Style}>
          {/* <h1>Profile photo</h1>*/}
-         <img src={ProfilePhoto} alt="Profile Photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+         <img src={`${config.bucket_url}profile/organization/${org?._id}.jpg`} alt="Profile Photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       </div>
       <div style={boxStyle}>
-        <div>Organization Name</div>
-        <div>Domain</div>
+        <div>Organization Name: {org?.name}</div>
         <div>Joined Year</div>
         
       </div>
       
       <div style={sidebarStyle}>
-         <Sidebarprofile  />
+         <Sidebarprofile org={org}/>
       </div>
       <div style={buttonRowStyle}>
         <button style={buttonStyle}>Ongoing Event</button>

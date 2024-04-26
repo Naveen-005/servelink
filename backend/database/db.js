@@ -22,6 +22,7 @@ const volunteerSchema = new Schema({
   dob: Date,
   password: String,
   token: String,
+  skills: [String],
 });
 const VolunteerModel = mongoose.model('Volunteers', volunteerSchema);
 
@@ -45,7 +46,7 @@ const eventSchema = new Schema({
   location: String,
   loc_lat: String,
   loc_lng: String,
-  date: String,
+  date: Date,
   time: String,
   short_description: String,
   long_description: String,

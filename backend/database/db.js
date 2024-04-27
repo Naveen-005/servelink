@@ -38,6 +38,7 @@ const organizationSchema = new Schema({
   phone_no: String,
   zip_code: String,
   about: String,
+  otp: String
 
 });
 const organizationModel = mongoose.model('Organizations', organizationSchema);

@@ -17,6 +17,7 @@ var eventDetailsRouter=require('./routes/event_details');
 var orgEventGetter=require('./routes/organization/event');
 var orgProfileRouter=require('./routes/organization/profile');
 var changepasswordRouter=require('./routes/changePassword');
+var otpVerifier=require('./routes/otpVerify');
 
 
 var app = express();
@@ -45,6 +46,7 @@ app.use('/event_details',eventDetailsRouter);
 app.use('/org/event', orgEventGetter);
 app.use('/profile/organization',orgProfileRouter);
 app.use('/changePassword',changepasswordRouter);
+app.use('/otpVerify',otpVerifier);
 
 
 module.exports = app;

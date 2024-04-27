@@ -1,7 +1,5 @@
-
-import React,{useState,useEffect,useRef, useContext } from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import { Link } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 import axios from 'axios';
 import config from '../../../config.json'
 import Cookies from 'js-cookie';
@@ -10,22 +8,16 @@ import L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import 'leaflet/dist/leaflet.css';
 import { Helmet } from 'react-helmet';
-import { LocationContext } from '../../../components/LocationContext';
-import { useLocationData } from '../../../components/LocationContext';
-// const { locationData, updateLocationData } = useContext(LocationContext);
-
+import { color } from 'framer-motion';
 
 
 
 function OrgPost() {
-  
-  const { setLocationData } = useLocationData();
-  // const { locationData, updateLocationData } = useContext(LocationContext); // Using the context here
   const [formData, setFormData] = useState({
     title: "",
     location: "",
-    loc_lat: "", // Initialize with default value
-    loc_lng: "",
+    loc_lat:"",
+    loc_lng:"",
     date: "",
     time: "",
     short_description: "",
@@ -33,17 +25,8 @@ function OrgPost() {
     org_id:"",
     skills: {},
   });
-//     const history = useHistory();
-
-// const handleNavigation = () => {
-//   history.push(`/userdash?lat=${formData.loc_lat}&lng=${formData.loc_lng}`);
-// };
-// const { locationData, updateLocationData } = useContext(LocationContext);
   const [newSkillName, setNewSkillName] = useState("");
   const [image, setImage] = useState(null);
-
-
-
 
   const handleFileChange = (event) => {
     console.log("event")
@@ -89,11 +72,8 @@ function OrgPost() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    setLocationData(formData.loc_lat, formData.loc_lng); // Setting location data using context
-    console.log("Data:\n",formData);
+    console.log("Data:\n",formData)
     //console.log("Image:\n",image)
-    // Update location data in the context before submitting
-    // updateLocationData(formData.loc_lat, formData.loc_lng);
 
     axios({
       method: 'post',
@@ -110,7 +90,7 @@ function OrgPost() {
         file: image,
         formData: formData,
         
-      },
+      }
     })
       .then((res) => {
 
@@ -124,9 +104,6 @@ function OrgPost() {
       });
 
   };
-
-
-
 /*
   // Define CSS styles for the marker
 const markerStyle = {
@@ -161,7 +138,6 @@ const customIcon = L.divIcon({
   //const [selectedLocation, setSelectedLocation] = useState('');
   //const [latitude, setLatitude] = useState('');
   //const [longitude, setLongitude] = useState('');
-    // Update formData when locationData changes
 
   useEffect(() => {
     if (!mapRef.current) {
@@ -181,8 +157,7 @@ const customIcon = L.divIcon({
 
 
       let redDotMarker = null;
-
-      mapRef.current.addControl(searchControl);
+mapRef.current.addControl(searchControl);
     
       mapRef.current.on('geosearch/showlocation', function (data) {
 
@@ -256,24 +231,25 @@ const customIcon = L.divIcon({
     <Link id="crossButton9" to="/odas">&#10006;</Link>
      <form onSubmit={handleSubmit}>
       <label for="eventName">Event Name:</label>
-      <input type="text1" id="eventName" name="title" value={formData.title} onChange={handleChange} required />
+      <input type="text" id="eventName" name="title" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}}  value={formData.title} onChange={handleChange} required />
 
       <label for="eventLocation">Location:</label>
-      <input type="text1" id="eventLocation" name="location" value={formData.location}
+      <input type="text" id="eventLocation" name="location" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.location}
         onChange={handleChange}
         required/>
 
-      <div id="map" style={{ width: '100%', height: '300px', marginTop: '10px' }}></div>
+      <div id="map" style={{ width: '100%', height: '300px', marginTop: '10px',color:'white' }}></div>
       <div>
         <p>Latitude: {formData.loc_lat}</p>
         <p>Longitude: {formData.loc_lng}</p>
      </div>
 
       <label for="eventDate">Date:</label>
-      <input type="date1" id="eventDate" name="date" value={formData.date} onChange={handleChange} required />
+      <input type="date" id="eventDate" name="date" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.date} onChange={handleChange} required />
          
       <label for="eventTime">Time:</label>
-      <input type="time1" id="eventTime" name="time" value={formData.time} onChange={handleChange}/>
+      <input type="time" id="eventTime" name="time" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.time} onChange={handleChange}/>
+     
 {/*
       <label for="media">Upload Media:</label>
       <input type="file" id="media" name="image" accept="image/*"  onchange={handleFileChange} />
@@ -281,11 +257,9 @@ const customIcon = L.divIcon({
   */}
 
       <label htmlFor="media">Upload Media:</label>
-      <input type="file1" id="media" name="image" accept="image/*" onChange={handleFileChange} />
-
-
-      <label for="description">Short Description: (max 40 words)</label>
-      <input type="text1" id="description" name="short_description"  maxLength='40' value={formData.short_description} onChange={handleChange}required/>
+      <input type="file" id="media" name="image" accept="image/*" onChange={handleFileChange} />
+<label for="description">Short Description: (max 40 words)</label>
+      <input type="text" id="description" name="short_description"  maxLength='40' style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.short_description} onChange={handleChange}required/>
 {/*
       <label for="count">Number of Volunteers required :</label>
       <input type="number" id="count" name="count" required/>
@@ -296,18 +270,21 @@ const customIcon = L.divIcon({
       {Object.entries(formData.skills).map(([skillName, skillLevel]) => (
         <div key={skillName}>
           <input
-            type="text1"
+            type="text"
             value={skillName}
             onChange={(e) => handleSkillChange(e.target.value, skillLevel)}
             placeholder="Skill Name"
             className='col-md-6'
+            style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} 
+          
           />
           <input
-            type="number1"
+            type="number"
             value={skillLevel}
             onChange={(e) => handleSkillChange(skillName, parseInt(e.target.value))}
             placeholder="Skill Level"
             className='col-md-6'
+            style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} 
           />
         </div>
       ))}
@@ -315,11 +292,12 @@ const customIcon = L.divIcon({
       {/* Input for new skill name */}
       <label for="skill">Add skill: </label>
       <input
-        type="text1"
+        type="text"
         value={newSkillName}
         onChange={handleNewSkillNameChange}
         placeholder=""
         className='col-md-6'
+        style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} 
       />
 
 
@@ -334,6 +312,8 @@ const customIcon = L.divIcon({
 
   )
 }
+
+
 
 
 export default OrgPost;

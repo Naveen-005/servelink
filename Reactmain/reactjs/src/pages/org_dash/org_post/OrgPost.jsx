@@ -1,6 +1,7 @@
 
-import React,{useState,useEffect,useRef} from 'react'
+import React,{useState,useEffect,useRef, useContext } from 'react'
 import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 import config from '../../../config.json'
 import Cookies from 'js-cookie';
@@ -9,15 +10,22 @@ import L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import 'leaflet/dist/leaflet.css';
 import { Helmet } from 'react-helmet';
+import { LocationContext } from '../../../components/LocationContext';
+import { useLocationData } from '../../../components/LocationContext';
+// const { locationData, updateLocationData } = useContext(LocationContext);
+
 
 
 
 function OrgPost() {
+  
+  const { setLocationData } = useLocationData();
+  // const { locationData, updateLocationData } = useContext(LocationContext); // Using the context here
   const [formData, setFormData] = useState({
     title: "",
     location: "",
-    loc_lat:"",
-    loc_lng:"",
+    loc_lat: "", // Initialize with default value
+    loc_lng: "",
     date: "",
     time: "",
     short_description: "",
@@ -25,8 +33,17 @@ function OrgPost() {
     org_id:"",
     skills: {},
   });
+//     const history = useHistory();
+
+// const handleNavigation = () => {
+//   history.push(`/userdash?lat=${formData.loc_lat}&lng=${formData.loc_lng}`);
+// };
+// const { locationData, updateLocationData } = useContext(LocationContext);
   const [newSkillName, setNewSkillName] = useState("");
   const [image, setImage] = useState(null);
+
+
+
 
   const handleFileChange = (event) => {
     console.log("event")
@@ -72,8 +89,11 @@ function OrgPost() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Data:\n",formData)
+    setLocationData(formData.loc_lat, formData.loc_lng); // Setting location data using context
+    console.log("Data:\n",formData);
     //console.log("Image:\n",image)
+    // Update location data in the context before submitting
+    // updateLocationData(formData.loc_lat, formData.loc_lng);
 
     axios({
       method: 'post',
@@ -90,7 +110,7 @@ function OrgPost() {
         file: image,
         formData: formData,
         
-      }
+      },
     })
       .then((res) => {
 
@@ -104,6 +124,9 @@ function OrgPost() {
       });
 
   };
+
+
+
 /*
   // Define CSS styles for the marker
 const markerStyle = {
@@ -138,6 +161,7 @@ const customIcon = L.divIcon({
   //const [selectedLocation, setSelectedLocation] = useState('');
   //const [latitude, setLatitude] = useState('');
   //const [longitude, setLongitude] = useState('');
+    // Update formData when locationData changes
 
   useEffect(() => {
     if (!mapRef.current) {

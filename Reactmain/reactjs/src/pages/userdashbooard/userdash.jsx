@@ -1,8 +1,18 @@
 // import React from 'react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+// import { useLocationData } from '../../components/LocationContext';
+
 import './userdash.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+// import 'leaflet/dist/leaflet.css'; // Import Leaflet CSS
+// import L from 'leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css'; // Import Leaflet CSS
+import L from 'leaflet';
+import axios from 'axios';
+
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -51,6 +61,96 @@ function Userdash() {
       isMessagesVisible: !prevState.isMessagesVisible
     }));
   };
+  const [markerData, setMarkerData] = useState([]);
+  const mapRef = useRef(null);
+  const [events, setEvents] = useState([]);
+  const [mapCenter, setMapCenter] = useState([51.505, -0.09]); // Default map center
+  const [mapZoom, setMapZoom] = useState(13); // Default map zoom level
+ // Fetch marker data from backend on component mount
+ const [additionalCoordinates, setAdditionalCoordinates] = useState([
+  [9.681830, 76.778503],
+  [9.670300,76.556763],
+  [9.748060, 76.644550],
+  [9.655434, 76.722451],
+  [9.628738,76.645533],
+  [9.594995, 76.430260],
+  [9.748328, 76.457228],
+  [9.556297, 76.791736],
+]);
+
+// Fetch event data from backend API and update additionalCoordinates
+useEffect(() => {
+  axios.get('/api/events')
+    .then(response => {
+      setEvents(response.data);
+      if (response.data.length > 0) {
+        setMapCenter([parseFloat(response.data[0].loc_lat), parseFloat(response.data[0].loc_lng)]);
+        const eventDataCoordinates = response.data.map(event => [parseFloat(event.loc_lat), parseFloat(event.loc_lng)]);
+        setAdditionalCoordinates(prevCoordinates => [...prevCoordinates, ...eventDataCoordinates]);
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching event data:', error);
+    });
+}, []);
+
+// Render map and markers
+useEffect(() => {
+  if (mapRef.current && !mapRef.current._leaflet_id) {
+    const map = L.map(mapRef.current);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Create custom icon
+    const customIcon = L.icon({
+      iconUrl: 'assets/images/mark12.png',
+      iconSize: [40, 42],
+      iconAnchor: [20, 42]
+    });
+    const customIcon1 = L.icon({
+      iconUrl: 'assets/images/mark13.png',
+      iconSize: [40, 42],
+      iconAnchor: [20, 42]
+    });
+
+    function addMarkers(coordinatesArray, icon) {
+      coordinatesArray.forEach(coords => {
+        const [lat, lng] = coords;
+        L.marker([lat, lng], { icon: icon }).addTo(map);
+      });
+    }
+
+    // Watch the user's position
+    const watchID = navigator.geolocation.watchPosition(
+      (pos) => {
+        const { latitude, longitude, accuracy } = pos.coords;
+        L.marker([latitude, longitude], { icon: customIcon }).addTo(map);
+        map.setView([latitude, longitude],2);
+        const bounds = L.latLngBounds([[latitude - 0.05, longitude - 0.05], [latitude + 0.05, longitude + 0.05]]);
+        map.fitBounds(bounds);
+        // Add additional markers using additionalCoordinates state
+        addMarkers(additionalCoordinates, customIcon1);
+      },
+      (err) => {
+        if (err.code === 1) {
+          alert("Allow location access");
+        } else {
+          alert("Can't get location");
+        }
+      }
+    );
+
+    // Clean up function
+    return () => {
+      navigator.geolocation.clearWatch(watchID);
+      map.remove();
+    };
+  }
+}, [additionalCoordinates]);
+
+  
+
 
 
   const [isButtonVisible, setIsButtonVisible] = useState(false);
@@ -138,7 +238,7 @@ function Userdash() {
           <div> 
             <a href="index" className="nav117_logo"> 
               <i className='fas fa-concierge-bell nav117_logo-icon'></i> 
-              <span className="nav117_logo-name">Servelink</span> 
+              <span className="nav117_logo-name" style={{ fontSize: '30px', fontWeight: 1800}}>Servelink</span> 
             </a>
  <div className="nav117_list"> 
       <a href="#" style={{ textDecoration: 'none' }} className={`nav117_link ${state.activeLink === 'Dashboard' ? 'active' : ''}`} onClick={() => handleLinkClick('Dashboard')}> 
@@ -358,6 +458,10 @@ function Userdash() {
   </div>
   </div>
   </div>
+
+<div id='maploc163'>
+<div id="map" ref={mapRef} style={{ height: '470px' }}></div>
+</div>
 </div>
 </div>
 
@@ -369,13 +473,13 @@ function Userdash() {
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
       )}
-
-
-
-      {/* <div className="messages-floating-option" onClick={handleMessagesClick}>
-          <i className="bx bx-message-square-detail"></i>
-        </div> */}
-
+<div>
+  <h1>map user location</h1>
+  </div>
+  {/* <div id='maploc163'>
+<div id="map" ref={mapRef} style={{ height: '400px' }}></div>
+</div> */}
+      
 <div className="messages-floating-option" onClick={handleMessagesClick} style={{ boxShadow: '0 4px 10px rgba(0, 0, 0, 0.99)' }}>
         <i className="bx bx-message-square-detail"></i>
       </div>

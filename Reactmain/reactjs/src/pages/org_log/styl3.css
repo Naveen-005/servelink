@@ -29,7 +29,7 @@ h2 {
   font-size: 20px; }
 
 .half14, .half14 .container14 > .row {
-  height: 100vh;
+  height: 100%;
   min-height: 700px;
   
 }

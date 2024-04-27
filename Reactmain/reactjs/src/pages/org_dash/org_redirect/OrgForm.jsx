@@ -81,6 +81,7 @@ function OrgForm() {
                                 id="pinocode"
                                 name="pincode"
                                 className="form-control"
+                                maxLength="6"
                                 value={formData.pincode}
                                 onChange={handleChange}
                               />

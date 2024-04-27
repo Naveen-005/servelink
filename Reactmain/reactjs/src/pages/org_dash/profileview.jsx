@@ -15,7 +15,14 @@ const ProfileView = () => {
   const { id } = useParams();
   const [org_id, setOrgId] = useState('');
   const [org, setOrg] = useState(null);
+ 
+  const handleBackClick = () => {
+    window.location.href = '/ongoing_event';   
+  };
 
+  const handleBack1Click = () => {
+    window.location.href = '/complete_event';  
+  };
 
   useEffect(() => {
 
@@ -43,6 +50,7 @@ const ProfileView = () => {
 
   });
 
+ 
    
   },[org_id]);
 
@@ -73,8 +81,8 @@ const ProfileView = () => {
          <Sidebarprofile org={org}/>
       </div>
       <div style={buttonRowStyle}>
-        <button style={buttonStyle}>Ongoing Event</button>
-        <button style={buttonStyle}>Completed Event</button>
+        <button style={buttonStyle} onClick={handleBackClick}>Ongoing Event</button>
+        <button style={buttonStyle} onClick={handleBack1Click}>Completed Event</button>
       </div>
 
     </div>

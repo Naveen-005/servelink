@@ -25,16 +25,19 @@ const routes = [
     name: "Messages",
     icon: <MdMessage />,
   },
+  /*
   {
     path: "/analytics",
     name: "Analytics",
     icon: <BiAnalyse />,
   },
+
   {
     path: "/notification",
     name: "Notification",
     icon: <BsBell />,
   },
+  */
   {
     path: "/settings",
     name: "Settings",
@@ -134,6 +137,7 @@ const SideBar = ({ children }) => {
             <FaBars onClick={toggle} />
           </div>
         </div>
+        {/*
         <div className="search">
           <div className="search_icon">
             <BiSearch />
@@ -151,6 +155,7 @@ const SideBar = ({ children }) => {
             )}
           </AnimatePresence>
         </div>
+          */}
         <section className="routes">
           {routes.map((route, index) => {
             if (route.subRoutes) {

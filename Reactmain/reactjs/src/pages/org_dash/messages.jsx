@@ -41,7 +41,10 @@ const styleName = {
   }),
 
   area121:()=>({
-   padding:'130px'
+    display: 'flex',
+    height: '100vh',
+    flex: 1,
+    padding: '50px',
   }),
 
   popupContainer: () => ({
@@ -108,9 +111,25 @@ const styleName = {
     '&:hover': {
       backgroundColor: '#e53935',
     },
-  
+
   }),
 };
+
+
+const Meter = ({ total, enrolled }) => {
+  const percentage = (enrolled / total) * 100;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', marginRight: '101px' }}>
+      <div style={{ width: '100px', height: '20px', backgroundColor: '#ddd', borderRadius: '10px',  }}>
+        <div style={{ height: '100%', backgroundColor: '#4CAF50', borderRadius: '10px', width: `${percentage}%` }} />
+      </div>
+      <span>{`${enrolled}/${total}`}</span>
+    </div>
+  );
+
+  
+};
+
 
 const Messages = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -136,6 +155,7 @@ const Messages = () => {
   };
 
   return (
+
     <div style={styleName.area121()}>
         <Helmet>
             <title>
@@ -143,7 +163,10 @@ const Messages = () => {
             </title>
         </Helmet>
         <SideBar/>
+        
+        
     <div style={styleName.rec121('#ffffff')}>
+
       <div style={styleName.eventName('#333')}>Event Name
       <br/>
       <img
@@ -156,6 +179,10 @@ const Messages = () => {
        {/*<div style={styleName.eventButton1('#4CAF50', '#fff')}> Ongoing</div>  // THIS IS NEEDED!!!*/}
 
       <div style={styleName.divider('#cccccc')} />
+
+      <Meter total={100} enrolled={75} />
+
+
       <div style={styleName.popupContainer()}>
         <div
           style={styleName.popup(showPopup, '#ffffff', '#cccccc')}
@@ -192,6 +219,7 @@ const Messages = () => {
       </div>
     </div>
     </div>
+  
   );
 };
 

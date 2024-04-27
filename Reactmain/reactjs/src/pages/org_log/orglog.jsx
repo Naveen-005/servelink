@@ -1,12 +1,12 @@
 import React, { useEffect,useState } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+//import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import config from '../../config.json'
 import './styl3.css'
-import './bootstrap.min.css'
+//import './bootstrap.min.css'
 import { Helmet } from 'react-helmet';
 import Cookies from 'js-cookie';
 
@@ -79,11 +79,11 @@ function Orglog() {
                 <form onSubmit={handleSubmit}>
                   <div className="form14-group14 first mb-3">
                     <label for="email">Email</label>
-                    <input type="text" className="form14-control14" id="email" name="email" value={formData.email} onChange={handleChange}/>
+                    <input type="text" className="form14-control14" id="email" name="email" value={formData.email} onChange={handleChange} required/>
                   </div>
                   <div className="form14-group14 last mb-3">
                     <label for="password">Password</label>
-                    <input type="password" className="form14-control14" id="password" name="password" value={formData.password} onChange={handleChange}/>
+                    <input type="password" className="form14-control14" id="password" name="password" value={formData.password} onChange={handleChange} required/>
                   </div>
 
                   <div className="d-flex mb-5 align-items-center">

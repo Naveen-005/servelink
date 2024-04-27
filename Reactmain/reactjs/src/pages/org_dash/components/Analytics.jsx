@@ -7,12 +7,7 @@ function Analytics() {
   const [totalRequired, setTotalRequired] = useState(100);
   const [maleCount, setMaleCount] = useState(30);
   const [femaleCount, setFemaleCount] = useState(20);
-  const [enrollmentByPlace, setEnrollmentByPlace] = useState([
-    { place: 'Place A', percentage: 40 },
-    { place: 'Place B', percentage: 30 },
-    { place: 'Place C', percentage: 20 },
-    { place: 'Place D', percentage: 10 },
-  ]);
+ 
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -55,21 +50,13 @@ function Analytics() {
                 <span>Female :</span>
                 <span>{femaleCount}</span>
               </div>
-              <div style={{ marginBottom: '10px' }}>Enrollment by Place:</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
-                {enrollmentByPlace.map((item, index) => (
-                  <div key={index} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>{item.place} :</span>
-                    <span>{item.percentage}%</span>
-                  </div>
-                ))}
               </div>
-            </div>
+              )}
             
-          )}
+        
         </div>
+      
       </div>
-      {/* Add more containers here */}
     </div>
   );
 }

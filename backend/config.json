@@ -3,6 +3,8 @@
     "minio_endpoint":"127.0.0.1",
     "minio_port":9000,
     "minio_access_key":"minioadmin",
-    "minio_secret_key":"minioadmin"
+    "minio_secret_key":"minioadmin",
+    "email":"servelink59@gmil.com",
+    "email_password":"servelink@123"
 
 }

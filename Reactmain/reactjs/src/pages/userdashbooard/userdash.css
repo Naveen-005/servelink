@@ -1,15 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
 .by1{
-    --header117-height: 3rem;
+    --header117-height: 2rem;
     --nav117-width: 68px;
-    --first-color: #4723D9;
+    --first-color: #1b1236;
     --first-color-light: #AFA5D9;
-    --white-color: #F7F6FB;
+    --first-color-dark: white;
+    --white-color: rgb(210, 178, 178);
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
     --z-fixed: 100
+   
 }
+
 
 /*
 *,
@@ -46,7 +49,7 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: var(--white-color);
+    background-color: #72A0C1;
     z-index: var(--z-fixed);
     transition: .5s
 }
@@ -67,6 +70,7 @@ a {
     justify-content: center;
     border-radius: 50%;
     overflow: hidden;
+    /* color: #000000; */
 }
 .btn {
     text-transform: none;
@@ -84,6 +88,7 @@ a {
     padding: .5rem 1rem 0 0;
     transition: .5s;
     z-index: var(--z-fixed)
+  
 }
 
 .nav117 {
@@ -129,7 +134,8 @@ a {
 }
 
 .nav117_link:hover {
-    color: var(--white-color)
+  color: white
+    /* color: var(--white-color) */
 }
 
 .nav117_icon {
@@ -145,7 +151,8 @@ a {
 }
 
 .active {
-    color: var(--white-color)
+  color: #ff5900;
+    /* color: var(--white-color) */
 }
 
 .active::before {
@@ -277,7 +284,7 @@ a {
     border: #000;
 }
 
-.cover-photo-container {
+.cover-photo-container175 {
     position: relative;
     width: 100%;
     height: 400px; 
@@ -292,23 +299,29 @@ a {
 
   
   .cover-photo {
-    padding-top: 60px;
+    padding-top: -20px;
     width: 100%;
     /* height: 500px; */
   }
   .profile-photo-overlay {
     position: absolute;
-    top: 320px; /* Position the profile photo at the center vertically */
-    left: 50%; /* Position the profile photo at the center horizontally */
-    transform: translate(-50%, -50%); /* Center the profile photo precisely */
-    border-radius: 50%; /* Make it a circle */
-    border: 2px solid #fff; /* Add a border for better visibility */
-    width: 160px; /* Adjust size as needed */
-    height: 160px; /* Adjust size as needed */
+    top: 320px; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    border-radius: 50%; 
+    border: 2px solid #ffffff; 
+    width: 160px; 
+    height: 160px; 
   }
-  .nev117{
-    color: #000;
+  .nev117 {
+    padding-left: 58px;
+    color: #d0d0d0;
+    font-family: monospace; 
+    text-decoration: dotted; 
+    text-decoration-style: wavy;
+   /* Add a dotted border bottom */
   }
+
   .messages-floating-option {
     position: fixed;
     bottom: 20px;
@@ -324,14 +337,14 @@ a {
     font-size: 24px;
   }
   .messages-floating-card {
-    /* Styles for the collapsed card */
+   
     width: 40px;
     height: 40px;
     transition: width 0.3s, height 0.3s;
   }
   
   .messages-floating-card.expanded {
-    /* Styles for the expanded card */
+    
     width: 200px;
     height: 200px;
   }
@@ -352,11 +365,263 @@ a {
   .floating-card a {
     color: rgb(0, 0, 0);
   }
+  .container172 {
+    display: flex;
+    justify-content: space-between; 
+    padding-left: 59px;
+    color: #3300ff;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+   margin-top: 0px;
+   padding-top: 120px;
+  }
   
- 
-
-  /* .floating-card a:hover {
-    color: rgb(106, 106, 106);
+  /* .left-section,
+  .right-section {
+    width: calc(50%);
+    padding: 0.3rem; 
+    flex: 1; 
+    
   } */
   
   
+  .left-section {
+    background-color: #ffffff;
+    
+  }
+  
+  .right-section {
+    background-color: #ffffff;
+  }
+  
+  
+  .post12 {
+    background-color: #ffffff;
+    border: 1px solid #c6c5c5;
+    border-radius: 0px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .post121 {
+    background-color: #ffffff;
+    border: 1px solid #c6c5c5;
+    border-radius: 0px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .post-header12 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .profile-picture12 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .post-header-info12 {
+    flex-grow: 1; /* Grow to fill remaining space */
+  }
+  
+  .post-author12 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .post-time12 {
+    margin: 0;
+    color: #888;
+  }
+  
+  .post-content12 {
+    margin-bottom: 12px;
+  }
+  
+  .post-actions12 button {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  
+  .post-actions12 button:hover {
+    background-color: #ddd;
+  }
+  
+  .post-photo12 {
+    max-width: 100%; 
+    height: auto;
+    margin-bottom: 12px; 
+  }
+
+  .container172 {
+    display: flex;
+    width: 100%;
+  }
+  .container1721 {
+    display: flex;
+    width: 50%;
+  }
+  
+  .section-container175 {
+    flex: 1;
+    width: 25%; /* Each section takes up 25% of the container width */
+    padding: 0 10px; /* Optional: Add padding to each section */
+  }
+  
+  #mov121{
+    padding-left: 58px;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+  }
+  /* .button-64 {
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    height: 130px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+  
+  }
+  
+  .button-64:active,
+  .button-64:hover {
+    outline: 0;
+  }
+  
+  .button-64 span {
+    background-color: rgb(5, 6, 45);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+    text-align:right;
+  }
+  
+  .button-64:hover span {
+    background: none;
+  } */
+  
+
+  .button-64 {
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    /* border: 0; */
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 20px;
+    justify-content: space-between; /* Adjusted property */
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    height: 150px;
+    border: #000;
+    border-width: 20px;
+  }
+  
+  .button-64:active,
+  .button-64:hover {
+    outline: 0;
+  }
+  
+  .button-64 span {
+    background-color:none;
+    padding: 16px 24px;
+    border-radius: 6px;
+    transition: 300ms;
+    border-width: 20px ;
+  
+
+  }
+  
+  .button-64:hover span {
+    background: black;
+    color: #888;
+  }
+  
+  @media (min-width: 768px) {
+    .button-64 {
+      font-size: 24px;
+      min-width: 235px;
+    }
+  }
+#button121{
+  padding-left: 150px;
+  padding-right: 170px;
+  color: #00DDEB;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+  margin-top: -8px;
+  display: flex;
+  gap: 80px;
+}
+#button-container175 {
+  display: flex;
+  gap: 10px; /* Adjust the gap between buttons */
+}
+.components117{
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+padding-top: 8px;
+padding-bottom: 20px;
+}
+.button-64 .text {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration-style: dashed;
+}
+
+#scrollToTopBtn {
+  display:flex; /* Hide the button by default */
+  position: fixed; /* Fixed position to keep it visible */
+  bottom: 80px;
+  right: 0px;
+  z-index: 99; /* Ensure it appears above other content */
+  background-color: #9d9d9d; /* Button background color */
+  color: rgb(255, 255, 255); /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 100%; /* Add some rounding to the button */
+  padding: 7px 10px; /* Add padding */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+#scrollToTopBtn:hover {
+  background-color: #333; /* Darken button background color on hover */
+}

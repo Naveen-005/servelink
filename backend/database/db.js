@@ -38,6 +38,7 @@ const organizationSchema = new Schema({
   phone_no: String,
   zip_code: String,
   about: String,
+  otp: String
 
 });
 const organizationModel = mongoose.model('Organizations', organizationSchema);
@@ -86,5 +87,11 @@ const eventEnrollmentSchema = new Schema({
 });
 const eventEnrollmentModel = mongoose.model('Event_enrollment',eventEnrollmentSchema);
 
+const messageSchema = new Schema({
+  event_id: String,
+  message: String
+});
+const messageModel = mongoose.model('Messages',messageSchema);
 
-module.exports = { VolunteerModel, organizationModel, eventModel, eventEnrollmentModel };
+
+module.exports = { VolunteerModel, organizationModel, eventModel, eventEnrollmentModel, messageModel };

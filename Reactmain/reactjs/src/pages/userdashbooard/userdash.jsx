@@ -32,7 +32,8 @@ function Userdash() {
     isCardVisible: false,
     activeLink: 'Dashboard',
     isMessagesVisible: false,
-    setIsCardExpanded: false
+    setIsCardExpanded: false,
+    clicked: false  
   });
 
   const toggleNavbar = () => {
@@ -182,15 +183,73 @@ useEffect(() => {
     });
   };
 
+  // const handleClick = () => {
+  //   setState(prevState => ({
+  //     ...prevState,
+  //     clicked: !prevState.clicked // Toggle the value of clicked
+  //   }));
+  // };
 
+  const [clicked, setClicked] = useState(false);
 
-
+  // const handleClick = () => {
+  //   setClicked(!clicked);
+  // };
   
+  // const [photoStates, setPhotoStates] = useState([]);
+  // const [photoStates, setPhotoStates] = useState([true, ...Array(numberOfPhotos - 1).fill(false)]);
+  // Function to handle clicking on an image
+  // const [photoStates, setPhotoStates] = useState([true]);
+  const [photoStates1, setPhotoStates1] = useState([true]); // for card18.jpg
+const [photoStates2, setPhotoStates2] = useState([true]); // for card17.webp
+const [photoStates3, setPhotoStates3] = useState([true]);
+const [photoStates4, setPhotoStates4] = useState([true]);
+  // const handleClick = (index) => {
+  //   setPhotoStates(prevStates => {
+  //     const newStates = [...prevStates]; // Copy the previous states
+  //     newStates[index] = !newStates[index]; // Toggle the state of the clicked image
+  //     return newStates;
+  //   });
+  // };
+ // Handle click for the first set of images
+const handleClick1 = (index) => {
+  setPhotoStates1(prevStates => {
+    const newStates = [...prevStates];
+    newStates[index] = !newStates[index];
+    return newStates;
+  });
+};
 
- 
-
+// Handle click for the second set of images
+const handleClick2 = (index) => {
+  setPhotoStates2(prevStates => {
+    const newStates = [...prevStates];
+    newStates[index] = !newStates[index];
+    return newStates;
+  });
+};
   
+// Handle click for the third set of images
+const handleClick3 = (index) => {
+  setPhotoStates3(prevStates => {
+    const newStates = [...prevStates];
+    newStates[index] = !newStates[index];
+    return newStates;
+  });
+};
+// Handle click for the fourth set of images
+const handleClick4 = (index) => {
+  setPhotoStates4(prevStates => {
+    const newStates = [...prevStates];
+    newStates[index] = !newStates[index];
+    return newStates;
+  });
+};
 
+const cardRef = useRef(null);
+const handleButtonClick = () => {
+  cardRef.current.scrollIntoView({ behavior: 'smooth' });
+};
 
   return (
     <div className='by1'>
@@ -218,7 +277,7 @@ useEffect(() => {
             <p className="user-email">john.doe@example.com</p>
             {/* Account Actions */}
             <div className="account-actions">
-              <button className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }}>Account Settings</button>
+            <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }}>Account Settings</a>
               <button className="btn btn-danger logout-button" style={{ fontSize: '15px' }}>
                 <i className="fas fa-sign-out-alt" ></i>Logout
               </button>
@@ -253,7 +312,7 @@ useEffect(() => {
         <i className='bx bx-message-square-detail nav117_icon'></i> 
         <span className="nav117_name">Past History</span> 
       </a> 
-      <a href="#" style={{ textDecoration: 'none' }}className={`nav117_link ${state.activeLink === 'Upcoming Events' ? 'active' : ''}`} onClick={() => handleLinkClick('Upcoming Events')}> 
+      <a href="events" style={{ textDecoration: 'none' }}className={`nav117_link ${state.activeLink === 'Upcoming Events' ? 'active' : ''}`} onClick={() => handleLinkClick('Upcoming Events')}> 
         <i className='bx bx-bookmark nav117_icon'></i> 
         <span className="nav117_name">Upcoming Events </span> 
       </a> 
@@ -277,7 +336,8 @@ useEffect(() => {
   <h1 className="nev117">Welcome, Nevin</h1>
   </div>
       <div id='button121'>
-<button class="button-64" role="button"><span class="text">&nbsp;&nbsp;Active Events&nbsp;&nbsp;</span></button>
+<button class="button-64" role="button" onClick={handleButtonClick}>
+  <span class="text">&nbsp;&nbsp;Active Events&nbsp;&nbsp;</span></button>
 <a href="events" class="button-64" role="button"><span class="text">Explore Events</span></a>
 <button class="button-64" role="button"><span class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read news&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
 <button class="button-64" role="button"><span class="text">&nbsp;&nbsp;Event History&nbsp;&nbsp;</span></button>
@@ -464,10 +524,11 @@ useEffect(() => {
 </div>
 </div>
 </div>
-
-      <div className="height-100 bg-light">
+<div className='errr117'>
+      {/* <div className="height-100 bg-light"> */}
         <h4>Main Components</h4>
-      </div>
+      {/* </div> */}
+     
       {isButtonVisible && (
         <button id="scrollToTopBtn" className="scroll-to-top-button" onClick={scrollToTop}>
         <FontAwesomeIcon icon={faArrowUp} />
@@ -476,6 +537,74 @@ useEffect(() => {
 <div>
   <h1>map user location</h1>
   </div>
+  </div>
+
+  {/* <div className="card1786" style={{ backgroundColor: 'gray' }}>
+     <div id="carddetails1786">
+    <img src={"assets/images/logo167.jpeg"} alt="Upcoming Events" id="carddetails1786"/> */}
+    <div className="card1786" style={{ backgroundColor: 'gray' }} ref={cardRef}>
+      <div id="carddetails1786">
+    <i className="bx bxs-megaphone bx-lg"style={{ color: 'red' }}></i>
+    <span className="icon-alt"><h4 style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Upcoming Events</h4></span> 
+    </div>
+    <div className="card-body1786">
+      <div className="photos-container1786">
+      <div>
+      {photoStates1.map((clicked, index) => (
+  <div className="card-photo1786" key={index}>
+    <img src={"assets/images/card18.jpg"} alt={`Photo ${index + 1}`} />
+    <div className="black-box" onClick={() => handleClick1(index)}>
+    <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event1 comming soon... </span>
+    <button className="centered-button1316">Apply</button>
+    <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>EventName</h6></span>
+    <span className="event-description">Place</span>
+    </div>
+  </div>
+))}
+{photoStates2.map((clicked, index) => (
+  <div className="card-photo1786" key={index}>
+    <img src={"assets/images/card13.jpg"} alt={`Photo ${index + 1}`} />
+    <div className="black-box" onClick={() => handleClick2(index)}>
+    <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event2 comming soon... </span>
+    <button className="centered-button1316">Apply</button>
+    <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>EventName</h6></span>
+    <span className="event-description">Place</span>
+    </div>
+  </div>
+))}
+{photoStates4.map((clicked, index) => (
+  <div className="card-photo1786" key={index}>
+    <img src={"assets/images/card16.jpg"} alt={`Photo ${index + 1}`} />
+    <div className="black-box" onClick={() => handleClick4(index)}>
+    <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event3 comming soon... </span>
+    <button className="centered-button1316">Apply</button>
+    <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>EventName</h6></span>
+    <span className="event-description">Place</span>
+    </div>
+  </div>
+))}
+{photoStates3.map((clicked, index) => (
+  <div className="card-photo1786" key={index}>
+    <img src={"assets/images/d123.jpg"} alt={`Photo ${index + 1}`} />
+    <div className="black-box" onClick={() => handleClick3(index)}>
+    <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event4 comming soon... </span>
+    <button className="centered-button1316">Apply</button>
+    <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>EventName</h6></span>
+    <span className="event-description">Place</span>
+    </div>
+  </div>
+))}
+
+
+</div>
+
+      </div>
+      <h5 className="card-title1786">title</h5>
+      <p className="card-text1786">tast somethinh</p>
+      <a href="#" className="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+
   {/* <div id='maploc163'>
 <div id="map" ref={mapRef} style={{ height: '400px' }}></div>
 </div> */}

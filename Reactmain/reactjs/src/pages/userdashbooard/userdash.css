@@ -24,10 +24,11 @@
 .by{
     position: relative;
     margin: var(--header117-height) 0 0 0;
-    padding: 0 1rem;
+    /* padding: 0 10rem; */
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    transition: .5s
+    transition: .5s;
+   
 }
 
 /*
@@ -314,7 +315,7 @@ a {
     height: 160px; 
   }
   .nev117 {
-    padding-left: 58px;
+    padding-left: 78px;
     color: #d0d0d0;
     font-family: monospace; 
     text-decoration: dotted; 

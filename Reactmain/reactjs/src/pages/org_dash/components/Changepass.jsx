@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import SideBar from './sidebar';
 import UserDropdown from './userdropdown';
+import axios from 'axios';
+import config from '../../../config.json'
 
 const Changepass = () => {
   const [currentPassword, setCurrentPassword] = useState('');
@@ -23,9 +25,40 @@ const Changepass = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle password change logic here
+    /*
     console.log('Current Password:', currentPassword);
     console.log('New Password:', newPassword);
     console.log('Confirm New Password:', confirmNewPassword);
+    */
+    if(newPassword===confirmNewPassword){
+
+      axios({
+        method: 'put',
+        url: config.server_api_url + '/changePassword',
+        withCredentials: true,
+        data:{
+          oldPassword: currentPassword,
+          newPassword: newPassword
+        }
+      })
+        .then((res) => {
+  
+          alert(res.data)
+  
+        })
+        .catch((err) => {
+  
+          alert(err.response.data)
+  
+        });
+
+
+
+    }
+    else{
+      alert("Password does not match")
+    }
+
   };
 
   return (

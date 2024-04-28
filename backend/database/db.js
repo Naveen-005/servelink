@@ -22,6 +22,7 @@ const volunteerSchema = new Schema({
   dob: Date,
   password: String,
   token: String,
+  skills: [String],
 });
 const VolunteerModel = mongoose.model('Volunteers', volunteerSchema);
 
@@ -36,6 +37,8 @@ const organizationSchema = new Schema({
   token: String,
   phone_no: String,
   zip_code: String,
+  about: String,
+  otp: String
 
 });
 const organizationModel = mongoose.model('Organizations', organizationSchema);
@@ -45,7 +48,7 @@ const eventSchema = new Schema({
   location: String,
   loc_lat: String,
   loc_lng: String,
-  date: String,
+  date: Date,
   time: String,
   short_description: String,
   long_description: String,
@@ -84,5 +87,11 @@ const eventEnrollmentSchema = new Schema({
 });
 const eventEnrollmentModel = mongoose.model('Event_enrollment',eventEnrollmentSchema);
 
+const messageSchema = new Schema({
+  event_id: String,
+  message: String
+});
+const messageModel = mongoose.model('Messages',messageSchema);
 
-module.exports = { VolunteerModel, organizationModel, eventModel, eventEnrollmentModel };
+
+module.exports = { VolunteerModel, organizationModel, eventModel, eventEnrollmentModel, messageModel };

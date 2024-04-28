@@ -18,6 +18,12 @@ function Contact() {
         AOS.init();
     }, []);
 
+   
+        const handleClick = () => {
+          const mailtoLink = `https://mail.google.com/mail/?view=cm&to=servelink2024@gmail.com`;
+          window.open(mailtoLink);
+        };
+
     return (
         <> 
             <Helmet>
@@ -34,7 +40,7 @@ function Contact() {
                             <p data-aos="fade-up" className=" mb-5 text-white lead text-white-50">For any inquiries or assistance,
                                 don't hesitate to get in touch with us!</p>
                             <p data-aos="fade-up" data-aos-delay="100">
-                                <Link className="btn btn-primary me-4" to="/login">Connect</Link>
+                                <Link className="btn btn-primary me-4" to="" style={{backgroundColor:'#59886b'}} onClick={handleClick}>Connect</Link>
                             </p>
 
                         </div>
@@ -77,7 +83,7 @@ function Contact() {
                                 </div>
 
                                 <div className="col-lg-6">
-                                    <input type="submit" className="btn btn-primary text-white py-3" value="Send Message" />
+                                    <input type="submit" className="btn btn-primary text-white py-3" style={{backgroundColor:'#59886b'}} value="Send Message" />
                                 </div>
 
                             </div>
@@ -109,7 +115,7 @@ function Contact() {
                                 <div className="col-6 col-lg-6 mb-4">
                                     <h3 className="h6 fw-bold text-secondary">Email</h3>
                                     <p>
-                                        <a href="#">info@mydomain.com</a>
+                                        <a href="#">servelink2024@gmail.com</a>
                                     </p>
                                 </div>
 

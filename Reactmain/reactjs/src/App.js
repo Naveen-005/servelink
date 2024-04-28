@@ -11,9 +11,7 @@ import Orgreg from './pages/org_reg/orgreg';
 import Admin from './pages/admin/admin'
 import MapTest from './components/map'
 import Profile from './pages/profile/profile'
-import Navbar from './components/navbar';
 import OrgPost from './pages/org_dash/org_post/OrgPost';
-import Footer from './components/footer';
 import Sidebar from './pages/org_dash/components/sidebar';
 import Event_details from './components/event_details';
 import Odas from './pages/org_dash/Odas';
@@ -30,6 +28,11 @@ import Changepass from './pages/org_dash/components/Changepass';
 import Notification from './pages/org_dash/components/notification';
 import OrgForm from './pages/org_dash/org_redirect/OrgForm';
 import Error from './components/error';
+import Chatbot from './components/chatbot';
+import Messages from './pages/org_dash/messages';
+import Ongoingevent from './pages/org_dash/components/ongoingevent';
+import CompletedEvents from './pages/org_dash/components/completedevents';
+import Analytics from './pages/org_dash/components/Analytics';
 
 
 function App() {
@@ -58,13 +61,17 @@ function App() {
         <Route path="/orgprofile" element={<Orgprofile />} />
         <Route path="/userdash" element={<Userdash />} />
           
-        <Route path="/profileview" element={<ProfileView />} />
+        <Route path="/profileview/:id?" element={<ProfileView />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/authentication" element={<Orgauth />} />
         <Route path="/changepassword" element={<Changepass />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/org_verification" element={<OrgForm />} />
-        
+        <Route path="/chatbot" element={<Chatbot />} />
+        <Route path="/org_message" element={<Messages />} />
+        <Route path="/ongoing_event" element={<Ongoingevent />} />
+        <Route path="/complete_event" element={<CompletedEvents />} />
+        <Route path="/sample" element={<Analytics />} />
 
 
  

@@ -19,6 +19,8 @@ import axios from 'axios';
 // import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 import 'boxicons/css/boxicons.min.css';
+import { Helmet } from 'react-helmet';
+import {Link} from 'react-router-dom';
 //import '@fortawesome/fontawesome-free/css/all.min.css';
 
 //import 'boxicons/dist/css/boxicons.min.css';
@@ -254,6 +256,11 @@ const handleButtonClick = () => {
   return (
     <div className='by1'>
     <div className='by'>
+      <Helmet>
+        <title>
+          VolunteerDashboard  
+        </title>
+      </Helmet>
     <div id="body-pd" className={state.isNavbarOpen ? 'body-pd-expanded' : ''}>
             <header className={`header117 ${state.isNavbarOpen ? 'active' : ''}`} id="header117">
         <div className="header117_toggle" onClick={toggleNavbar}>

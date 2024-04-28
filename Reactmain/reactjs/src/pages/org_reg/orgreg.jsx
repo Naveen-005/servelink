@@ -86,14 +86,14 @@ function Orgreg() {
 					
 					<div className="wrap13-input100013 validate-input" data-validate = "name">
 					<label>Organization Name</label>
-						<input className="input100013" type="text" name="name" value={formData.name} onChange={handleChange}/>
+						<input className="input100013" type="text" name="name" value={formData.name} onChange={handleChange} required/>
 						<span className="focus-input100013"></span>
 						{/*<span className="label-input100013">Organization Name</span>*/}
 					</div>
 					
 					<div className="wrap13-input100013 validate-input" data-validate = "Address">
 					<label>Address</label>
-						<input className="input100013" type="text" name="address" value={formData.address} onChange={handleChange}/>
+						<input className="input100013" type="text" name="address" value={formData.address} onChange={handleChange} required/>
 						<span className="focus-input100013"></span>
 						{/*<span className="label-input100013">Address</span>*/}
 					</div>
@@ -109,7 +109,7 @@ function Orgreg() {
 					
 					<div className="wrap13-input100013 validate-input" data-validate = "Country">
 					<label>Country</label>
-						<input className="input100013" type="text" name="country" value={formData.country} onChange={handleChange}/>
+						<input className="input100013" type="text" name="country" value={formData.country} onChange={handleChange} required/>
 						<span className="focus-input100013"></span>
 						{/*<span className="label-input100013">Country</span>*/}
 					</div>
@@ -117,7 +117,7 @@ function Orgreg() {
 					
 					<div className="wrap13-input100013 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<label>Email</label>
-						<input className="input100013" type="text" name="email" value={formData.email} onChange={handleChange}/>
+						<input className="input100013" type="text" name="email" value={formData.email} onChange={handleChange} required/>
 						<span className="focus-input100013"></span>
 						{/*<span className="label-input100013">Email</span>*/}
 					</div>
@@ -126,7 +126,7 @@ function Orgreg() {
 				   
 					<div className="wrap13-input100013 validate-input" data-validate="Password is required">
 					<label>Password</label>
-						<input className="input100013" type="password" name="password" value={formData.password} onChange={handleChange}/>
+						<input className="input100013" type="password" name="password" value={formData.password} onChange={handleChange} required/>
 						<span className="focus-input100013"></span>
 						{/*<span className="label-input100013">Password</span>*/}
 					</div>

@@ -77,7 +77,7 @@ function About() {
 
 							</p>
 							<p data-aos="fade-up" data-aos-delay="100">
-								<a href="#" className="btn btn-primary me-4">Join </a>
+								<Link className="btn btn-primary me-4" style={{backgroundColor:'#59886b'}} to='/login'>Join </Link>
 							</p>
 
 						</div>

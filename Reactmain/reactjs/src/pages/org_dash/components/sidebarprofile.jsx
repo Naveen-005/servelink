@@ -1,8 +1,7 @@
-import { color } from 'framer-motion';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Sidebarprofile() {
+function Sidebarprofile({org}) {
   const [activeTab, setActiveTab] = useState('about');
 
   const handleTabClick = (tabName) => {
@@ -51,19 +50,20 @@ function Sidebarprofile() {
           {activeTab === 'about' && (
             <div style={styles.sidebarprofilePane}>
               <h2>About</h2>
-              <p>Add your organization's about information here.</p>
+              <p>{org?.about}</p>
             </div>
           )}
           {activeTab === 'address' && (
             <div style={styles.sidebarprofilePane}>
               <h2>Address</h2>
-              <p>Add your organization's address information here.</p>
+              <p>{org?.address}</p>
             </div>
           )}
           {activeTab === 'contact' && (
             <div style={styles.sidebarprofilePane}>
               <h2>Contact</h2>
-              <p>Add your organization's contact information here.</p>
+              <p>Email: {org?.email}</p>
+              <p>Phone no: {org?.phone_no}</p>
             </div>
           )}
         </div>
@@ -75,15 +75,18 @@ function Sidebarprofile() {
 export default Sidebarprofile;
 
 const styles = {
+  sidebarWrapper: {
+    position: 'relative', // Added relative positioning
+  },
   sidebarprofileContainer: {
     display: 'flex',
     flexDirection: 'column',
-    width: '1000px',
-    border:'3px solid black',
+    width: '100%', // Set width to 100% to fit within the container
+    border: '3px solid black',
     borderRadius: '4px',
     backgroundColor: '#76ABAE',
-    color:'white',
-    height:'400px',
+    color: 'white',
+    height: 'auto', // Removed fixed height
   },
   sidebarprofileTabs: {
     display: 'flex',
@@ -111,10 +114,11 @@ const styles = {
     height: '2px',
     width: '100%',
     backgroundColor: '#76ABAE',
-    
   },
   sidebarprofileContent: {
     padding: '20px',
+    overflow: 'auto', // Added overflow: 'auto' to handle content overflow
+    maxHeight: 'calc(100vh - 200px)', // Set a maximum height for the content area
   },
   sidebarprofilePane: {
     display: 'block',

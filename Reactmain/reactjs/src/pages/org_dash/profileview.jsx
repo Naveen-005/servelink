@@ -1,12 +1,59 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Sidebarprofile from './components/sidebarprofile';
 import { Helmet } from 'react-helmet';
 import SideBar from './components/sidebar'
 import UserDropdown from './components/userdropdown';
-import { FaFontAwesome } from 'react-icons/fa';
-import { BiFontFamily } from 'react-icons/bi';
+import coverPhoto from './cvo.jpg'
+import ProfilePhoto from './dpo.jpg'
+import { useParams } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import config from '../../config.json'
 
 const ProfileView = () => {
+
+  const { id } = useParams();
+  const [org_id, setOrgId] = useState('');
+  const [org, setOrg] = useState(null);
+ 
+  const handleBackClick = () => {
+    window.location.href = '/ongoing_event';   
+  };
+
+  const handleBack1Click = () => {
+    window.location.href = '/complete_event';  
+  };
+
+  useEffect(() => {
+
+    if(id){
+      setOrgId(id)
+    }
+    else{
+      setOrgId(Cookies.get('org_id'))
+    }
+
+    axios({
+      method: 'get',
+      url: config.server_api_url + '/profile/organization',
+      params:{
+          id: org_id
+      }
+    })
+      .then((res) => {
+
+          setOrg(res.data)
+          console.log(org)
+      })
+      .catch((err) => {
+          alert(err)
+
+  });
+
+ 
+   
+  },[org_id]);
+
   return (
     
     <div className="container141" style={container141Style}>
@@ -17,29 +64,27 @@ const ProfileView = () => {
     <UserDropdown />
     <div className="container142" style={container142Style}>
       <div style={rectangle141Style}>
-        <h1>cover photo</h1>
+        {/*<h1>cover photo</h1>*/}
+        <img src={`${config.bucket_url}profile/organization/banner/${org?._id}.jpg`} alt="Cover Photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         <div style={square141Style}>
-          <h1>Profile photo</h1>
+         {/* <h1>Profile photo</h1>*/}
+         <img src={`${config.bucket_url}profile/organization/${org?._id}.jpg`} alt="Profile Photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       </div>
       <div style={boxStyle}>
-        <div>Organization Name</div>
-        <div>Domain</div>
+        <div>Organization Name: {org?.name}</div>
         <div>Joined Year</div>
         
       </div>
       
       <div style={sidebarStyle}>
-         <Sidebarprofile/>
+         <Sidebarprofile org={org}/>
       </div>
       <div style={buttonRowStyle}>
-        <button style={buttonStyle}>Ongoing Event</button>
-        <button style={buttonStyle}>Completed Event</button>
+        <button style={buttonStyle} onClick={handleBackClick}>Ongoing Event</button>
+        <button style={buttonStyle} onClick={handleBack1Click}>Completed Event</button>
       </div>
-      <div>
-        <h3>Reviews</h3>
-        
-      </div>
+
     </div>
     </div>
   );
@@ -48,14 +93,17 @@ const ProfileView = () => {
 const container141Style = {
   backgroundColor: 'aliceblue', 
   padding: '60px',
-  
+  display: 'grid',
+  gridTemplateColumns: 'auto 1fr',
+ 
   
 };
 const container142Style = {
   backgroundColor: '#90AEAD',
   border:'3px solid black',
   position:'Relative',
-  left:'25px'
+  left:'15px'
+
 };
 
 const rectangle141Style = {
@@ -63,6 +111,8 @@ const rectangle141Style = {
   height: '200px',
   border:'2px solid black',
   position: 'relative',
+  objectFit: 'cover',
+
 };
 
 const square141Style = {
@@ -88,11 +138,7 @@ const boxStyle = {
 
 const sidebarStyle = {
   marginTop: '10px',
-  display: 'flex',
-  justifyContent: 'center',
-  width:'100px',
-  position:'relative',
-  left:'520px'
+  padding:'20px'
 
   
 };
@@ -103,16 +149,18 @@ const buttonRowStyle = {
   justifyContent: 'space-between',
 };
 
+
+
 const buttonStyle = {
-  padding: '10px 201px',
+  padding: '10px 21px',
   backgroundColor: '#FF6A3D',
+  margin:'3px',
   color: 'white',
   border: 'none',
   cursor: 'pointer',
   transition: 'background-color 0.3s ease',
   ':hover': {
-    backgroundColor: 'black', 
-  },
+    backgroundColor: 'black'},
 };
 
 

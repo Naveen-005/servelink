@@ -258,7 +258,13 @@ mapRef.current.addControl(searchControl);
 
       <label htmlFor="media">Upload Media:</label>
       <input type="file" id="media" name="image" accept="image/*" onChange={handleFileChange} />
-<label for="description">Short Description: (max 40 words)</label>
+
+
+
+
+
+      <label for="description">Short Description: (max 40 words)</label>
+
       <input type="text" id="description" name="short_description"  maxLength='40' style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.short_description} onChange={handleChange}required/>
 {/*
       <label for="count">Number of Volunteers required :</label>
@@ -316,4 +322,8 @@ mapRef.current.addControl(searchControl);
 
 
 
+
 export default OrgPost;
+
+
+

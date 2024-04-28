@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useEffect } from 'react';
+import Cookies from 'js-cookie';
+
 
 const UserDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(prevState => !prevState);
+
+  const [user_name,setUserName]=useState('Guest')
+  const [isLoggedIn,setLoginStatus] = useState(false)
+  const handleLogout = () => {
+    setLoginStatus(false)
+    setUserName('Guest')
+    Cookies.remove('name');
+    Cookies.remove('uid');
+    Cookies.remove('token');
+    Cookies.remove('org_id');
+
+  };
 
   return (
     <div className="user-dropdown-container" style={{ position: 'absolute', top: 2, right: -80 }}>
@@ -18,7 +33,8 @@ const UserDropdown = () => {
           <div className="dropdown-divider"></div>
           <Dropdown.Item href="/settings">Settings</Dropdown.Item>
           <div className="dropdown-divider"></div>
-          <Dropdown.Item href="#/logout">Logout</Dropdown.Item>
+          <Dropdown.Item  onClick={handleLogout} >Logout</Dropdown.Item>
+        
         </Dropdown.Menu>
       </Dropdown>
     </div>

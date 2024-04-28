@@ -19,6 +19,8 @@ import axios from 'axios';
 // import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 import 'boxicons/css/boxicons.min.css';
+import { Helmet } from 'react-helmet';
+import {Link} from 'react-router-dom';
 //import '@fortawesome/fontawesome-free/css/all.min.css';
 
 //import 'boxicons/dist/css/boxicons.min.css';
@@ -195,6 +197,11 @@ useEffect(() => {
   return (
     <div className='by1'>
     <div className='by'>
+      <Helmet>
+        <title>
+          VolunteerDashboard  
+        </title>
+      </Helmet>
     <div id="body-pd" className={state.isNavbarOpen ? 'body-pd-expanded' : ''}>
             <header className={`header117 ${state.isNavbarOpen ? 'active' : ''}`} id="header117">
         <div className="header117_toggle" onClick={toggleNavbar}>
@@ -238,7 +245,10 @@ useEffect(() => {
           <div> 
             <a href="index" className="nav117_logo"> 
               <i className='fas fa-concierge-bell nav117_logo-icon'></i> 
+
               <span className="nav117_logo-name" style={{ fontSize: '30px', fontWeight: 1800}}>Servelink</span> 
+
+
             </a>
  <div className="nav117_list"> 
       <a href="#" style={{ textDecoration: 'none' }} className={`nav117_link ${state.activeLink === 'Dashboard' ? 'active' : ''}`} onClick={() => handleLinkClick('Dashboard')}> 

@@ -189,3 +189,18 @@
   background-color: #42c68b;
   color: white;
 }
+
+.bt32 {
+  background-color: #74c374;
+  color: white;
+  padding: 2px 21px;
+  border-radius: 3px;
+  display: block;
+  margin: 0 auto; /* This centers the button horizontally */
+}
+.bt32:hover{
+  background-color: #42c68b;
+}
+.row1{
+  display: flex;
+}

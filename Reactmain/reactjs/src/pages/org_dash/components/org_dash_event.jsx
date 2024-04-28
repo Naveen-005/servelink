@@ -5,6 +5,7 @@ function Org_Event({ evnt }) {
 
         <div className="container10" style={containerStyle10}>
             {/* Post content goes here */}
+            
             <div>
                 <h2>{evnt.title}</h2>
                 <p>{evnt.short_description}</p>
@@ -26,7 +27,7 @@ const containerStyle10 = {
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
     padding: '100px',
     color: 'red',
-  
+    backgroundColor: 'white',
   };
 
 export default Org_Event;

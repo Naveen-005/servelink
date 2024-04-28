@@ -222,15 +222,18 @@ const renderStep = () => {
           <form>
             <div className="mb-3 col-md-63">
               <label for="domain" className="form-label">About</label>
-              <input
-                className="form-control"
-                type="text"
-                id="domain"
-                name="about"
-                value={formData.about}
-                onChange={handleChange}
-              />
+              
+               <textarea
+               value={formData.about}
+               onChange={handleChange}
+               style={{ width: '100%',backgroundColor:'white' }}
+               rows={7}
+              
+             />
+               
+            
             </div>
+            
             <div className='row1'>
               <div className="mb-3 col-md-6">
                 <label className="form-label" for="phoneNumber">Phone Number</label>

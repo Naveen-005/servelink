@@ -10,6 +10,7 @@ import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import config from '../../config.json'
 import Org_Event from './components/org_dash_event';
+import Analytics from './components/Analytics';
 
 
 function Odas() {
@@ -86,10 +87,17 @@ function Odas() {
 </div>
 
   */}
+  
 
       {events && events.map((evnt, index) => (
+       <>
         <Org_Event key={index} evnt={evnt} />
-      ))}
+        <Analytics key={index} evnt={evnt}/>
+        </>
+      ))
+
+      }
+      
 
 
 
@@ -99,26 +107,18 @@ function Odas() {
       <div
         style={{
           position: 'fixed',
-          bottom: '20px', // Adjust this value to change the distance from the bottom
-          right: '20px', // Adjust this value to change the distance from the right
-          backgroundColor: 'green',
-          borderRadius: '10%',
+          bottom: '20px',
+          right: '20px',
+          backgroundColor: '#735DA5',
           padding: '10px',
-          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-          cursor: 'pointer',
-          zIndex: 1000, // Ensure it's above other content
-          animation: 'glow 1.5s ease-in-out infinite alternate', // CSS animation for glowing effect
+          boxShadow: '0px 0px 17px rgba(0, 0, 0, 0.2)',
+          zIndex: '2',// CSS animation for glowing effect
+          borderRadius:'13%'
         }}
-        // Keyframes for the glowing effect
-        onAnimationName={{
-          '@keyframes glow': {
-            from: { backgroundColor: 'green' },
-            to: { backgroundColor: 'lime' }, // Change the glow color here
-          },
-        }}
+       
       >
         <Link to="/post" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <FaPlus size={24} color="white" />
+          <FaPlus size={20} color="white" />
         </Link>
       </div>
 

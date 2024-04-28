@@ -1,4 +1,3 @@
-
 import React,{useState,useEffect,useRef} from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -158,8 +157,7 @@ const customIcon = L.divIcon({
 
 
       let redDotMarker = null;
-
-      mapRef.current.addControl(searchControl);
+mapRef.current.addControl(searchControl);
     
       mapRef.current.on('geosearch/showlocation', function (data) {
 

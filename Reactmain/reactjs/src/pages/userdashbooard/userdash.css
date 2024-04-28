@@ -24,7 +24,6 @@
 .by{
     position: relative;
     margin: var(--header117-height) 0 0 0;
-    padding: 0 10rem;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: .5s;
@@ -118,12 +117,13 @@ a {
 
 .nav117_logo-icon {
     font-size: 1.25rem;
-    color: var(--white-color)
+    color: var(--white-color);
 }
 
 .nav117_logo-name {
     color: var(--white-color);
-    font-weight: 700
+    font-weight: 700;
+    
 }
 
 .nav117_link {
@@ -134,7 +134,7 @@ a {
 }
 
 .nav117_link:hover {
-  color: white
+  color: white;
     /* color: var(--white-color) */
 }
 
@@ -314,7 +314,7 @@ a {
     height: 160px; 
   }
   .nev117 {
-    padding-left: 58px;
+    padding-left: 78px;
     color: #d0d0d0;
     font-family: monospace; 
     text-decoration: dotted; 
@@ -607,6 +607,9 @@ padding-bottom: 20px;
   letter-spacing: 1px;
   text-decoration-style: dashed;
 }
+/* .nav117_logo-name {
+  font-size: 40px;
+} */
 
 #scrollToTopBtn {
   display:flex; /* Hide the button by default */
@@ -624,4 +627,146 @@ padding-bottom: 20px;
 
 #scrollToTopBtn:hover {
   background-color: #333; /* Darken button background color on hover */
+}
+#map {
+  width: 630px; /* Set the width to 100% of the parent container */
+  height: 400px; /* Set the height to 400 pixels */
+  border: 10px solid #a19e9e; /* Add a border around the map */
+  border-radius: 8px; /* Add some border radius for rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow for visual effect */
+  background-color: #f9f9f9; /* Set the background color of the map */
+
+}
+#maploc163{
+  /* /* margin-left: calc((100vw - 400px) / 2);
+  margin-right: 10px; */
+  position: absolute;
+  right: 20px;
+
+}
+.errr117{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+}
+/* .card1786{
+  margin-left: 52px;
+  margin-top: -8px;
+}
+.card-photo1786{
+  height: 300px;
+  width: auto;
+  border-radius: 7px;
+ margin-top: 50px;
+ margin-left: 130px;
+ margin-right: -20px;
+ position: relative;
+}
+.card-details1786{
+  margin-left: 130px;
+} */
+/* .card-details1786::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10;
+  width: 100%;
+  height: 50px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+  
+} */
+/* .card-photo1786 .black-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+}
+.card-body1786 {
+  position: relative;
+  z-index: 2; 
+  padding: 20px;
+} */
+#carddetails1786{
+  margin-top: 8px;
+  padding-top: 30px;
+  margin-left: 70px;
+  margin-bottom: 80px;
+ 
+}
+.card1786 {
+  margin-left: 1px;
+  margin-top: -8px;
+}
+
+.card-photo1786 {
+  display: inline-block; /* Display images inline */
+  position: relative;
+  border-radius: 7px;
+  margin-left: 75px; 
+  margin-right: 40px; 
+  margin-bottom: 65px; 
+}
+
+.card-photo1786 img {
+  height: 300px;
+  width: auto;
+ border-radius: 8px;
+}
+
+.black-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px; 
+  background-color: rgba(6, 6, 113, 0.596); 
+  z-index: 1; 
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.card-photo1786:hover .black-box {
+  background-color: rgba(0, 0, 0, 0.719); /* Change the background color on hover */
+}
+
+
+.card-body1786 {
+  position: relative;
+  z-index: 2; 
+  padding: 20px;
+}
+.text-red {
+  color: red; /* Set the color to red */
+}
+.white-text1736 {
+  color: white;
+  font-style: italic;
+  font-size: small;
+  padding-left: 15px;
+  padding-top: 4px;
+}
+.event-description{
+  color: #000;
+ 
+}
+.centered-button1316 {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 40%;
+  transform: translate(-30%, -380%);
+  background-color: rgba(0, 0, 0, 0.705);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.centered-button1316:hover {
+  background-color: rgba(255, 0, 0, 0.603); /* Change background color on hover */
+}
+.card-photo1786:hover .centered-button1316 {
+  display: block; /* Show the button on hover */
 }

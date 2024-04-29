@@ -31,7 +31,7 @@ function Odas() {
 
       })
       .catch((err) => {
-        alert(err)
+        alert(err.response?.data)
 
       });
 

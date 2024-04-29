@@ -64,7 +64,7 @@ function OrgForm() {
 
       })
       .catch((err) => {
-        alert(err)
+        alert(err.response?.data)
       });
 
   }
@@ -93,7 +93,7 @@ function OrgForm() {
 
       })
       .catch((err) => {
-        alert(err)
+        alert(err.response?.data)
       });
 
   }
@@ -121,7 +121,7 @@ function OrgForm() {
 
       })
       .catch((err) => {
-        alert(err)
+        alert(err.response?.data)
       });
 
   }
@@ -171,7 +171,7 @@ function OrgForm() {
 
       })
       .catch((err) => {
-        alert(err)
+        alert(err.response?.data)
       });
 
   }
@@ -199,7 +199,7 @@ function OrgForm() {
           setCurrentStep(currentStep + 1);
         })
         .catch((err) => {
-          alert(err)
+          alert(err.response?.data)
         });
 
     }

@@ -46,7 +46,7 @@ const ProfileView = () => {
           console.log(org)
       })
       .catch((err) => {
-          alert(err)
+          alert(err.response?.data)
 
   });
 

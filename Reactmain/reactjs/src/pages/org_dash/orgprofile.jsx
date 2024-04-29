@@ -51,7 +51,7 @@ function Orgprofile() {
       })
       .catch((err) => {
         console.log(err)
-        alert(err)
+        alert(err.response?.data)
       });
 
   };
@@ -73,7 +73,7 @@ function Orgprofile() {
 
         })
         .catch((err) => {
-            alert(err)
+            alert(err.response?.data)
 
     });
     

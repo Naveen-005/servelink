@@ -52,7 +52,7 @@ function Login() {
             })
             .catch((err) => {
                 console.log(err)
-                alert("login failed")
+                alert(err.response?.data)
         });
 
 

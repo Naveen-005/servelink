@@ -72,7 +72,7 @@ function Register() {
             })
             .catch((err) => {
                 console.log(err)
-                alert(err)
+                alert(err.response?.data)
         });
 
     };

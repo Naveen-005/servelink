@@ -24,7 +24,6 @@
 .by{
     position: relative;
     margin: var(--header117-height) 0 0 0;
-    /* padding: 0 10rem; */
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: .5s;
@@ -629,7 +628,7 @@ padding-bottom: 20px;
 #scrollToTopBtn:hover {
   background-color: #333; /* Darken button background color on hover */
 }
-#map {
+#map1316 {
   width: 630px; /* Set the width to 100% of the parent container */
   height: 400px; /* Set the height to 400 pixels */
   border: 10px solid #a19e9e; /* Add a border around the map */

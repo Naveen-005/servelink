@@ -25,6 +25,9 @@ import {Link} from 'react-router-dom';
 
 //import 'boxicons/dist/css/boxicons.min.css';
 
+import config from '../../config.json'
+
+
 function Userdash() {
 
   const [isCardVisible, setIsCardVisible] = useState(false);
@@ -70,6 +73,7 @@ function Userdash() {
   const [mapCenter, setMapCenter] = useState([51.505, -0.09]); // Default map center
   const [mapZoom, setMapZoom] = useState(13); // Default map zoom level
  // Fetch marker data from backend on component mount
+ /*
  const [additionalCoordinates, setAdditionalCoordinates] = useState([
   [9.681830, 76.778503],
   [9.670300,76.556763],
@@ -80,9 +84,73 @@ function Userdash() {
   [9.748328, 76.457228],
   [9.556297, 76.791736],
 ]);
+*/
+// const [additionalname, setAdditionalname] = useState(null);
+// useEffect(() => {
+//   axios({
+//     method: 'get',
+//     url: config.server_api_url + '/event/voluntername',
+//     //withCredentials: true,
+//   })
+//     .then((res) => {
 
-// Fetch event data from backend API and update additionalCoordinates
+//       setAdditionalname(res.data);
+
+
+
+//     })
+//     .catch((err) => {
+//       alert(err)
+
+//     });
+
+
+
+// }, []);
+const [additionalname, setAdditionalname] = useState(null);
+
 useEffect(() => {
+  axios({
+    method: 'get',
+    url: config.server_api_url + '/login/voluntername',
+    //withCredentials: true,
+  })
+  .then((res) => {
+ console.log(res.data)
+    setAdditionalname(res.data)
+  })
+  .catch((err) => {
+    alert(err);
+  });
+}, []);
+
+// function addNames(namesArray) {
+//   namesArray?.forEach(name => {
+//     console.log(name.first_name, name.last_name); 
+   
+//   });
+// }
+// useEffect(() => {
+//   if (additionalname) {
+//     addNames(additionalname);
+
+//   }
+// },[additionalname]);
+useEffect(() => {
+  const addNames = (namesArray) => {
+    namesArray?.forEach((name) => {
+      console.log(name?.first_name, name?.last_name);
+    });
+  };
+
+  if (additionalname) {
+    addNames(additionalname);
+  }
+}, [additionalname]);
+
+
+
+  /*
   axios.get('/api/events')
     .then(response => {
       setEvents(response.data);
@@ -95,6 +163,29 @@ useEffect(() => {
     .catch(error => {
       console.error('Error fetching event data:', error);
     });
+    */
+    const [additionalCoordinates, setAdditionalCoordinates] = useState(null);
+
+    // Fetch event data from backend API and update additionalCoordinates
+    useEffect(() => {
+    axios({
+      method: 'get',
+      url: config.server_api_url + '/event/location',
+      //withCredentials: true,
+    })
+      .then((res) => {
+        
+        // console.log(res.data)
+        setAdditionalCoordinates(res.data);
+
+      })
+      .catch((err) => {
+        alert(err)
+
+      });
+
+
+
 }, []);
 
 // Render map and markers
@@ -118,9 +209,9 @@ useEffect(() => {
     });
 
     function addMarkers(coordinatesArray, icon) {
-      coordinatesArray.forEach(coords => {
-        const [lat, lng] = coords;
-        L.marker([lat, lng], { icon: icon }).addTo(map);
+      coordinatesArray?.forEach(coords => {
+        //const [lat, lng] = coords;
+        L.marker([coords.loc_lat, coords.loc_lng], { icon: icon }).addTo(map);
       });
     }
 
@@ -197,7 +288,6 @@ useEffect(() => {
   // const handleClick = () => {
   //   setClicked(!clicked);
   // };
-  
   // const [photoStates, setPhotoStates] = useState([]);
   // const [photoStates, setPhotoStates] = useState([true, ...Array(numberOfPhotos - 1).fill(false)]);
   // Function to handle clicking on an image
@@ -280,8 +370,8 @@ const handleButtonClick = () => {
           {/* User Information */}
           <div className="user-info">
           <img src={"assets/images/th.jpeg"} alt="Profile Image" className="profile-image" />
-            <h3 className="user-name" style={{ fontSize: '28px' }}>John Doe</h3>
-            <p className="user-email">john.doe@example.com</p>
+            <h3 className="user-name" style={{ fontSize: '28px' }}>{additionalname.first_name}name</h3>
+            <p className="user-email">{additionalname && `${additionalname.first_name} ${additionalname.last_name}`}</p>
             {/* Account Actions */}
             <div className="account-actions">
             <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }}>Account Settings</a>
@@ -527,7 +617,7 @@ const handleButtonClick = () => {
   </div>
 
 <div id='maploc163'>
-<div id="map" ref={mapRef} style={{ height: '470px' }}></div>
+<div id="map1316" ref={mapRef} style={{ height: '470px' }}></div>
 </div>
 </div>
 </div>
@@ -615,6 +705,20 @@ const handleButtonClick = () => {
   {/* <div id='maploc163'>
 <div id="map" ref={mapRef} style={{ height: '400px' }}></div>
 </div> */}
+
+<div>
+{additionalname !== null ? (
+      <div>
+        <h3>Name: {additionalname.first_name} {additionalname.last_name}</h3>
+        {/* Add additional data to display */}
+      </div>
+    ) : (
+      <p>Loading...</p>
+    )}
+  </div>
+
+
+
       
 <div className="messages-floating-option" onClick={handleMessagesClick} style={{ boxShadow: '0 4px 10px rgba(0, 0, 0, 0.99)' }}>
         <i className="bx bx-message-square-detail"></i>

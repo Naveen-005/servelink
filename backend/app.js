@@ -18,6 +18,8 @@ var orgEventGetter=require('./routes/organization/event');
 var orgProfileRouter=require('./routes/organization/profile');
 var changepasswordRouter=require('./routes/changePassword');
 var otpVerifier=require('./routes/otpVerify');
+var locationGetter=require('./routes/eventcoordinates');
+var volnameGetter=require('./routes/volunteername');
 
 
 var app = express();
@@ -47,6 +49,8 @@ app.use('/org/event', orgEventGetter);
 app.use('/profile/organization',orgProfileRouter);
 app.use('/changePassword',changepasswordRouter);
 app.use('/otpVerify',otpVerifier);
+app.use('/event/location',locationGetter);
+app.use('/login/voluntername',volnameGetter);
 
 
 module.exports = app;

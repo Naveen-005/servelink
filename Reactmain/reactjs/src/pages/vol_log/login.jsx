@@ -21,6 +21,8 @@ import Cookies from 'js-cookie';
 function Login() {
 
 	const [formData, setFormData] = useState({
+		first_name: "",
+		last_name: "",
         email: "",
         password: "",
     });

@@ -1,23 +1,16 @@
-// // backend/server.js
-// console.log("Starting server...");
-// const express = require('express');
-// const bodyParser = require('body-parser');
+var express = require('express');
+var router = express.Router();
+const { eventModel } = require('../database/db');
 
-// const app = express();
-// const PORT = process.env.PORT || 3000;
 
-// app.use(bodyParser.json());
+router.get('/', function(req, res, next) {
 
-// app.post('/api/storeCoordinates', (req, res) => {
-//   const { latitude, longitude } = req.body;
-//   console.log('Latitude:', latitude);
-//   console.log('Longitude:', longitude);
-//   console.log("Starting server...");
-//   res.status(200).send('Coordinates stored successfully.');
-// });
+    eventModel.find().select('loc_lat loc_lng')
+    .then((m_res)=>{
+        console.log(m_res)
+        res.send(m_res)
+    })
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
-// console.log("Starting server...");
-// module.exports = router;
+});
+
+module.exports = router;

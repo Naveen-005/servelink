@@ -13,9 +13,7 @@ router.get('/', function(req, res, next) {
     }
     else{
         res.status(401)
-        res.send({
-            message:"not logged in"
-        })
+        res.send("not logged in")
     }
 
 });

@@ -116,7 +116,7 @@ useEffect(() => {
     withCredentials: true,
   })
   .then((res) => {
- console.log(res.data)
+    console.log(res.data)
     setAdditionalname(res.data)
   })
   .catch((err) => {
@@ -136,10 +136,11 @@ useEffect(() => {
 
 //   }
 // },[additionalname]);
+
 // useEffect(() => {
 //   const addNames = (namesArray) => {
-//     namesArray?.forEach((name) => {
-//       console.log(name?.first_name, name?.last_name);
+//     namesArray((name) => {
+//       console.log(name.first_name, name.last_name);
 //     });
 //   };
 
@@ -171,7 +172,7 @@ useEffect(() => {
     axios({
       method: 'get',
       url: config.server_api_url + '/event/location',
-      //withCredentials: true,
+      withCredentials: true,
     })
       .then((res) => {
         
@@ -370,8 +371,8 @@ const handleButtonClick = () => {
           {/* User Information */}
           <div className="user-info">
           <img src={"assets/images/th.jpeg"} alt="Profile Image" className="profile-image" />
-            <h3 className="user-name" style={{ fontSize: '28px' }}>{additionalname.first_name}name</h3>
-            <p className="user-email">{additionalname && `${additionalname.first_name} ${additionalname.last_name}`}</p>
+            <h3 className="user-name" style={{ fontSize: '28px' }}>{additionalname.first_name.charAt(0).toUpperCase() + additionalname.first_name.slice(1)} {additionalname.last_name.charAt(0).toUpperCase() + additionalname.last_name.slice(1)}</h3>
+            <p className="user-email">{additionalname.email}</p>
             {/* Account Actions */}
             <div className="account-actions">
             <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }}>Account Settings</a>
@@ -394,7 +395,9 @@ const handleButtonClick = () => {
           <div> 
             <a href="index" className="nav117_logo"> 
               <i className='fas fa-concierge-bell nav117_logo-icon'></i> 
+
               <span className="nav117_logo-name" style={{ fontSize: '30px', fontWeight: 1800}}>Servelink</span> 
+
             </a>
  <div className="nav117_list"> 
       <a href="#" style={{ textDecoration: 'none' }} className={`nav117_link ${state.activeLink === 'Dashboard' ? 'active' : ''}`} onClick={() => handleLinkClick('Dashboard')}> 
@@ -430,14 +433,14 @@ const handleButtonClick = () => {
         </nav117>
       </div>
       <div className="components117">
-  <h1 className="nev117">Welcome, Nevin</h1>
+  <h1 className="nev117">Welcome,{additionalname.first_name}</h1>
   </div>
       <div id='button121'>
 <button class="button-64" role="button" onClick={handleButtonClick}>
-  <span class="text">&nbsp;&nbsp;Active Events&nbsp;&nbsp;</span></button>
-<a href="events" class="button-64" role="button"><span class="text">Explore Events</span></a>
-<button class="button-64" role="button"><span class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read news&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
-<button class="button-64" role="button"><span class="text">&nbsp;&nbsp;Event History&nbsp;&nbsp;</span></button>
+  <span class="text pulse-grow-btn171">&nbsp;&nbsp;Active Events&nbsp;&nbsp;</span></button>
+<a href="events" class="button-64" role="button"><span class="text pulse-grow-btn171">Explore Events</span></a>
+<button class="button-64" role="button"><span class="text pulse-grow-btn171">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read news&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+<button class="button-64" role="button"><span class="text pulse-grow-btn171">&nbsp;&nbsp;Event History&nbsp;&nbsp;</span></button>
 </div> 
       {/* Container Main start */}
       <div className="container172">
@@ -706,16 +709,16 @@ const handleButtonClick = () => {
 <div id="map" ref={mapRef} style={{ height: '400px' }}></div>
 </div> */}
 
-<div>
+{/* <div>
 {additionalname !== null ? (
       <div>
-        <h3>Name: {additionalname.first_name} {additionalname.last_name}</h3>
-        {/* Add additional data to display */}
+        <h3>Name: {additionalname.first_name} {additionalname.last_name} {additionalname.email}</h3>
+        
       </div>
     ) : (
       <p>Loading...</p>
     )}
-  </div>
+  </div> */}
 
 
 

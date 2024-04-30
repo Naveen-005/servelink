@@ -24,6 +24,7 @@
 .by{
     position: relative;
     margin: var(--header117-height) 0 0 0;
+
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: .5s;
@@ -48,7 +49,8 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: #72A0C1;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg,rgba(0,212,255,1)  0%, rgba(9,9,121,1) 72%,rgba(2,0,36,1)  100%);
     z-index: var(--z-fixed);
     transition: .5s
 }
@@ -264,7 +266,7 @@ a {
       }
       
       .account-settings-button {
-        width: 150px;
+        width: 160px;
         color: #4723D9;
       }
       
@@ -769,4 +771,42 @@ padding-bottom: 20px;
 }
 .card-photo1786:hover .centered-button1316 {
   display: block; /* Show the button on hover */
+}
+.wave-animation171 {
+  display: inline-block;
+  position: relative;
+  animation: wave 1.5s infinite;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(10deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+.pulse-grow-btn171 {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf4f00; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: pulse-grow 5.5s;
+}
+.pulse-grow-btn171:hover {
+  animation: pulse-grow 1.5s infinite;
+}
+@keyframes pulse-grow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

@@ -93,7 +93,7 @@ function Orglog() {
                       <div className="control__indicator"></div>
                     </label>
 
-                    <Link className="ml-auto" to=""><a className="forgot-pass" style={{ textDecoration: 'none' }}>Forgot Password</a></Link>
+                    <Link className="ml-auto forgot-pass" to="" style={{ textDecoration: 'none' }}>Forgot Password</Link>
 
 
                   </div>

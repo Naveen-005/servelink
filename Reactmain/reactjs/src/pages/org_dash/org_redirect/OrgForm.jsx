@@ -68,7 +68,6 @@ function OrgForm() {
         
 
         alert(err.response?.data)
-    main
       });
 
   }

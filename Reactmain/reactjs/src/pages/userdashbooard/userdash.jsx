@@ -113,10 +113,10 @@ useEffect(() => {
   axios({
     method: 'get',
     url: config.server_api_url + '/login/voluntername',
-    //withCredentials: true,
+    withCredentials: true,
   })
   .then((res) => {
- console.log(res.data)
+    console.log(res.data)
     setAdditionalname(res.data)
   })
   .catch((err) => {
@@ -136,17 +136,18 @@ useEffect(() => {
 
 //   }
 // },[additionalname]);
-useEffect(() => {
-  const addNames = (namesArray) => {
-    namesArray?.forEach((name) => {
-      console.log(name?.first_name, name?.last_name);
-    });
-  };
 
-  if (additionalname) {
-    addNames(additionalname);
-  }
-}, [additionalname]);
+// useEffect(() => {
+//   const addNames = (namesArray) => {
+//     namesArray((name) => {
+//       console.log(name.first_name, name.last_name);
+//     });
+//   };
+
+//   if (additionalname) {
+//     addNames(additionalname);
+//   }
+// }, [additionalname]);
 
 
 
@@ -171,7 +172,7 @@ useEffect(() => {
     axios({
       method: 'get',
       url: config.server_api_url + '/event/location',
-      //withCredentials: true,
+      withCredentials: true,
     })
       .then((res) => {
         

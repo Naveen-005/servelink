@@ -65,7 +65,6 @@ function OrgForm() {
       })
       .catch((err) => {
         alert(err.response?.data)
-       
       });
 
   }

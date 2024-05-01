@@ -585,6 +585,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(
 #button121{
   padding-left: 150px;
   padding-right: 170px;
+  padding-bottom: 30px;
   color: #00DDEB;
   background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
@@ -692,7 +693,7 @@ padding-bottom: 20px;
   padding: 20px;
 } */
 #carddetails1786{
-  margin-top: 8px;
+  margin-top: 0px;
   padding-top: 30px;
   margin-left: 70px;
   margin-bottom: 80px;
@@ -701,8 +702,12 @@ padding-bottom: 20px;
 .card1786 {
   margin-left: 1px;
   margin-top: -8px;
-}
 
+}
+.card1787 {
+  background: rgba(14, 7, 149, 0.537);
+  background: linear-gradient(90deg, rgb(3, 1, 49) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+}
 .card-photo1786 {
   display: inline-block; /* Display images inline */
   position: relative;
@@ -810,3 +815,34 @@ padding-bottom: 20px;
     transform: scale(1);
   }
 }
+.centered-button1317 {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 40%;
+  transform: translate(-30%, -380%);
+  background-color: rgba(94, 89, 89, 0.603); 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.centered-button1317:hover {
+  background-color: rgba(0, 0, 0, 0.705);/* Change background color on hover */
+}
+.card-photo1786:hover .centered-button1317 {
+  display: block; /* Show the button on hover */
+}
+
+.card-photo1786 img {
+  /* Add your default styles for the image inside the card here */
+  width: 100%; /* Set the initial width of the image */
+  transition: width 0.3s ease; 
+/* Add a transition for smoother resizing */
+}
+
+.card-photo1786.toggled-photo img {
+  width: 120%;
+  height: 350px; /* Increase the width of the image when toggled */
+}
+

@@ -21,7 +21,7 @@ var otpVerifier=require('./routes/otpVerify');
 
 var locationGetter=require('./routes/eventcoordinates');
 var volnameGetter=require('./routes/volunteername');
-
+var historyfinder=require('./routes/eventhistory');
 
 
 var app = express();
@@ -54,7 +54,7 @@ app.use('/otpVerify',otpVerifier);
 
 app.use('/event/location',locationGetter);
 app.use('/login/voluntername',volnameGetter);
-
+app.use('/event/history',historyfinder);
 
 
 module.exports = app;

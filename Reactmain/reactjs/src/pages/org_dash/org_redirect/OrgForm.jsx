@@ -64,9 +64,6 @@ function OrgForm() {
 
       })
       .catch((err) => {
-
-        
-
         alert(err.response?.data)
       });
 
@@ -239,11 +236,11 @@ const renderStep = () => {
               <label for="domain" className="form-label">About</label>
               
                <textarea
+               name='about'
                value={formData.about}
                onChange={handleChange}
                style={{ width: '100%',backgroundColor:'white' }}
                rows={7}
-              
              />
                
             
@@ -477,6 +474,7 @@ const renderStep = () => {
 };
 
 return (
+  <>
   <div className="App">
 
     <div className="box007" style={{ height: '750px', width: '550px', margin: '0 auto' }}>
@@ -576,6 +574,7 @@ return (
       {renderStep()}
     </div>
   </div>
+  </>
 );
 }
 

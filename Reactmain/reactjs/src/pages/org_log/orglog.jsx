@@ -41,7 +41,7 @@ function Orglog() {
         Cookies.set('org_id', res.data.org_id, { expires: 7 })
         Cookies.set('token', res.data.token, { expires: 7 })
         alert("Successfully logged in");
-        navigate("/")
+        navigate("/odas")
 
       })
       .catch((err) => {
@@ -93,7 +93,7 @@ function Orglog() {
                       <div className="control__indicator"></div>
                     </label>
 
-                    <Link className="ml-auto" to=""><a className="forgot-pass" style={{ textDecoration: 'none' }}>Forgot Password</a></Link>
+                    <Link className="ml-auto forgot-pass" to="" style={{ textDecoration: 'none' }}>Forgot Password</Link>
 
 
                   </div>

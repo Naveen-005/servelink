@@ -91,7 +91,6 @@ function Odas() {
 
       {events && events.map((evnt, index) => (
        <>
-        <Org_Event key={index} evnt={evnt} />
         <Analytics key={index} evnt={evnt}/>
         </>
       ))

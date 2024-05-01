@@ -288,7 +288,7 @@ const containerStyle10 = {
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
   padding: '100px',
   color: ' #990011',
-  backgroundColor: 'white',
+  backgroundColor: '#FFF2D7',
   position: 'relative',
 };
 

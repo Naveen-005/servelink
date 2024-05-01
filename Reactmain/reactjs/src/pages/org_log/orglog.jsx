@@ -41,7 +41,7 @@ function Orglog() {
         Cookies.set('org_id', res.data.org_id, { expires: 7 })
         Cookies.set('token', res.data.token, { expires: 7 })
         alert("Successfully logged in");
-        navigate("/")
+        navigate("/odas")
 
       })
       .catch((err) => {

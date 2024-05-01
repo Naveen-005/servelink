@@ -39,7 +39,7 @@ function Odas() {
 
 
   return (
-    <div className='mainbody1'>
+    <div className='mainbody1' style={{backgroundColor:'#E4EA8C',padding:'10px',backgroundAttachment:'fixed',minHeight:'100vh'}}>
       <Helmet>
         <title>Dashboard</title>
       </Helmet>
@@ -109,11 +109,11 @@ function Odas() {
           position: 'fixed',
           bottom: '20px',
           right: '20px',
-          backgroundColor: '#735DA5',
+          backgroundColor: 'red',
           padding: '10px',
           boxShadow: '0px 0px 17px rgba(0, 0, 0, 0.2)',
           zIndex: '2',// CSS animation for glowing effect
-          borderRadius:'13%'
+          borderRadius:'18px 0 13px '
         }}
        
       >

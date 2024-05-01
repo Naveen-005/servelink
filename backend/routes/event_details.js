@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
             skill_enrollment: enrollmentCounts
           };
           //responseData.event.date = new Date(responseData.event.date).toLocaleDateString();
-          console.log("response:\n",responseData);
+          //console.log("response:\n",responseData);
           res.send(responseData);
         })
         .catch(error => {

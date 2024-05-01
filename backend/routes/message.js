@@ -25,7 +25,7 @@ router.get('/', async function(req, res, next) {
 router.post('/', function(req, res, next) {
     
     if(req.cookies.org_id){
-        const message_instance = new messageModel(req.body.formData);
+        const message_instance = new messageModel(req.body);
         message_instance.save()
         .then(()=>{
             res.send("Message sent successfully")

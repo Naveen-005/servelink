@@ -59,11 +59,12 @@ const ProfileView = () => {
   return (
     
     <div className="container141" style={container141Style}>
+      <UserDropdown />
       <Helmet>
       <title>Profile</title>
     </Helmet>
     <SideBar />
-    <UserDropdown />
+    
     <div className="container142" style={container142Style}>
       <div style={rectangle141Style}>
         {/*<h1>cover photo</h1>*/}

@@ -27,6 +27,8 @@ function Register() {
         pincode: "",
         gender: "",
         password:"",
+        skills: [],
+        profilePhoto: null,
 
     });
 
@@ -76,6 +78,30 @@ function Register() {
         });
 
     };
+
+    const handle1Change = (e) => {
+        const { name, value } = e.target;
+        if (name.includes('skills')) {
+          const index = parseInt(name.match(/\d+/)[0], 10);
+          const newSkills = [...formData.skills];
+          newSkills[index] = value;
+          setFormData({ ...formData, skills: newSkills });
+        } else {
+          setFormData({ ...formData, [name]: value });
+        }
+      };
+
+
+    const addSkill = () => {
+        setFormData({ ...formData, skills: [...formData.skills, ''] });
+      };
+    const removeSkill = (index) => {
+        const newSkills = [...formData.skills];
+        newSkills.splice(index, 1);
+        setFormData({ ...formData, skills: newSkills });
+      };
+    
+     
 
 
     useEffect(() => {
@@ -191,7 +217,84 @@ function Register() {
                                         </div>
                                     </div>
                                  </div>
+                                 <div className="row row-space">
+                                 <div className="col-12">
+    <div className="input-group">
+      <label className="label2">Profile Photo</label>
+      <input
+        className="input--style-4"
+        type="file"
+        name="profilePhoto"
+        accept="image/*"
+        //onChange={handleFileChange}
+      />
+      
+    </div>
+  </div>
 
+                               
+  <div className="col-12">
+    <div className="input-group">
+    <label className="label2" style={{ marginRight: '10px',whiteSpace: 'pre-line'  }}>Skills</label><br/>
+      
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px',position:'relative',left:'10px' }}>
+        <input
+          className="input--style-4"
+          type="text"
+          name="newSkill"
+          value={formData.newSkill}
+          onChange={handleChange}
+          placeholder="Enter a skill"
+          style={{ flexGrow: 1, marginRight: '15px' }}
+        />
+        <button
+          type="button"
+          onClick={addSkill}
+          style={{
+            backgroundColor: 'green',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            padding: '3px 5px 3px 5px',
+            cursor: 'pointer',
+            marginRight: '5px',
+          }}
+        >
+          +
+        </button>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {formData.skills.map((skill, index) => (
+          <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            <input
+              className="input--style-4"
+              type="text"
+              name={`skills[${index}]`}
+              value={skill}
+              onChange={handle1Change}
+              placeholder="Enter a skill"
+              style={{ flexGrow: 1, marginRight: '10px' }}
+            />
+            <button
+              type="button"
+              onClick={() => removeSkill(index)}
+              style={{
+                backgroundColor: '#dc3545',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '5px 10px',
+                cursor: 'pointer',
+              }}
+            >
+              -
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
                                 <div class="container1-login1001-form-btn">
                                     <button class="login1002-form12-btn" type="submit">
                                         Submit
@@ -213,4 +316,5 @@ function Register() {
         </>
     )
 }
+
 export default Register;

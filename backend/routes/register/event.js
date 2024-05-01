@@ -83,7 +83,9 @@ router.post('/', upload.single('file'), function (req, res, next) {
     organizationModel.findOne(req.body.auth)
       .then((mongo_res) => {
 
+
         if (req.file.buffer) {
+
           var file = req.file.buffer
         }
         console.log(req.body.formData)
@@ -93,7 +95,7 @@ router.post('/', upload.single('file'), function (req, res, next) {
 
         event_instance.save()
           .then((mongo_res) => {
-            if (req.file.buffer) {
+            if (req.file?.buffer) {
 
               minioClient.putObject('servelink', '/event/' + mongo_res._id + '.jpg', file, {}, function (err, etag) {
                 if (err)

@@ -21,6 +21,10 @@ var otpVerifier=require('./routes/otpVerify');
 var volunteerListRouter=require('./routes/volunteerList');
 var MessageRouter=require('./routes/message');
 
+var locationGetter=require('./routes/eventcoordinates');
+var volnameGetter=require('./routes/volunteername');
+
+
 
 var app = express();
 
@@ -51,6 +55,10 @@ app.use('/changePassword',changepasswordRouter);
 app.use('/otpVerify',otpVerifier);
 app.use('/event/volunteerList',volunteerListRouter);
 app.use('/message',MessageRouter);
+
+app.use('/event/location',locationGetter);
+app.use('/login/voluntername',volnameGetter);
+
 
 
 module.exports = app;

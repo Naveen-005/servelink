@@ -151,11 +151,15 @@ function Analytics({ evnt }) {
           <div className="popup" style={popupStyle}>
             <div style={columnStyle}>
               <span>Enrolled :</span>
+
+            
+
               <span>{evnt.enrolled}</span>
             </div>
             <div style={columnStyle}>
               <span>Total Required :</span>
               <span>{evnt.required}</span>
+
             </div>
             <div style={rangeBarContainer}>
               <div

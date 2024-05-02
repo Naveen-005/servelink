@@ -38,8 +38,15 @@ const organizationSchema = new Schema({
   phone_no: String,
   zip_code: String,
   about: String,
-  otp: String
+  otp: String,
+  verified: Boolean,
+  joined_Date: Date,
 
+});
+organizationSchema.pre('save', function(next) {
+  this.verified=false
+  this.joined_Date=new Date()
+  next();
 });
 const organizationModel = mongoose.model('Organizations', organizationSchema);
 

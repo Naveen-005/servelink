@@ -125,7 +125,7 @@ useEffect(() => {
 }, []);
 
 
-const [additionalhistory, setAdditionalhistory] = useState(null);
+const [additionalHistory, setAdditionalhistory] = useState(null);
 
 useEffect(() => {
   axios({
@@ -142,7 +142,41 @@ useEffect(() => {
   });
 }, []);
 
-  /*
+ 
+
+
+
+const [events1, setEvents1] = useState([]);
+	
+	useEffect(() => {
+
+		axios({
+			method: 'get',
+			url: config.server_api_url + '/register/event',
+			withCredentials: true,
+			data:{}
+		  })
+			.then((res) => {
+	  
+				setEvents1(res.data);
+
+			})
+			.catch((err) => {
+				alert(err)
+	
+		});
+
+	
+	}, []);
+
+
+/*
+
+
+
+
+
+  
   axios.get('/api/events')
     .then(response => {
       setEvents(response.data);
@@ -388,6 +422,18 @@ const handleClickDetails = () => {
   
 };
 
+function scrollToCard() {
+  const card = document.getElementById('scrollTarget');
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+function scrollToContent() {
+  const content = document.getElementById('scrollTarget1');
+  if (content) {
+    content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
 
 
@@ -420,7 +466,7 @@ const handleClickDetails = () => {
           <div className="user-info">
           <img src={`${config.bucket_url}profile/${dash._id}.jpg`} alt="Profile Image" className="profile-image" />
             <h3 className="user-name" style={{ fontSize: '28px' }}>{additionalname.first_name.charAt(0).toUpperCase() + additionalname.first_name.slice(1)} {additionalname.last_name.charAt(0).toUpperCase() + additionalname.last_name.slice(1)}</h3>
-            <p className="user-email">{additionalname.email}</p>
+            <p className="user-email">{additionalname.email} </p>
             {/* Account Actions */}
             <div className="account-actions">
             <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }}>Account Settings</a>
@@ -487,19 +533,48 @@ const handleClickDetails = () => {
 <button class="button-64" role="button" onClick={handleButtonClick}>
   <span class="text pulse-grow-btn171">&nbsp;&nbsp;Active Events&nbsp;&nbsp;</span></button>
 <a href="events" class="button-64" role="button"><span class="text pulse-grow-btn171">Explore Events</span></a>
-<button class="button-64" role="button"><span class="text pulse-grow-btn171">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read news&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
-<button class="button-64" role="button"><span class="text pulse-grow-btn171">&nbsp;&nbsp;Event History&nbsp;&nbsp;</span></button>
+<button class="button-64" role="button" onClick={scrollToContent}><span class="text pulse-grow-btn171">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read news&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+<button class="button-64" role="button" onClick={scrollToCard}><span class="text pulse-grow-btn171">&nbsp;&nbsp;Event History&nbsp;&nbsp;</span></button>
 </div> 
 {/* //////// */}
 
-<div className="card1787" style={{ backgroundColor: 'gray' }}>
+<div className="card1787" id="scrollTarget" style={{ backgroundColor: 'gray' }}>
       <div id="carddetails1786">
     <i className="bx bxs-megaphone bx-lg"style={{ color: 'red' }}></i>
     <span className="icon-alt"><h4 style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', color: 'white' }}>Event History</h4></span>
     </div>
     <div className="card-body1786">
       <div className="photos-container1786">
+
       <div>
+
+      {additionalHistory?.map((event, index) => (
+  <div className={'card-photo1786'} key={index}>
+    <div className="image-container">
+      <img src={`${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '100%' }} />
+      <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+        <p style={{ margin: 0 }}>
+          {event.title && <div>{event.title}</div>} {/* Render event name */}
+          {event.location && <div>{event.location}</div>} {/* Render event place */}
+        </p>
+      </div>
+    </div>
+    <div className="black-box">
+      <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
+        <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
+      </span>
+      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick1(index)} style={{ position: 'relative' }}>Details</button>
+      <div className={`event-details ${clicked ? '' : 'hidden'}`}>
+        {/* Additional event details can be rendered here */}
+        {/* <h6 style={{ margin: '0', padding: '0', color: 'white' }}>{event.title}</h6> */}
+        {/* <span style={{ color: 'white' }}>{event.location}</span> */}
+      </div>
+    </div>
+  </div>
+))}
+
+{/*         
+
       {photoStates1.map((clicked, index) => (
         <div className={'card-photo1786'} key={index}>
           <div className="image-container">
@@ -519,13 +594,14 @@ const handleClickDetails = () => {
             </span>
             <button className={"centered-button1317 ${clicked ? 'toggled-photo' : ''}"}   onClick={() => handleClick1(index)} style={{ position: 'relative' }}>Details</button>
             <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-              {/* <h6 style={{ margin: '0', padding: '0', color: 'white' }}>EventName</h6> */}
-              {/* <span style={{ color: 'white' }}>Place</span> */}
+            
             </div>
           </div>
         </div>
-      ))}
-      {photoStates2.map((clicked, index) => (
+      ))} */}
+
+    
+      {/* {photoStates2.map((clicked, index) => (
         <div className={'card-photo1786'} key={index}>
           <div className="image-container">
             <img src={clicked ? "assets/images/114.jpg" : "assets/images/card18.jpg"} alt={`Photo ${index + 1}`} style={{ width: '100%' }} />
@@ -544,8 +620,7 @@ const handleClickDetails = () => {
             </span>
             <button className={"centered-button1317 ${clicked ? 'toggled-photo' : ''}"} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
             <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-              {/* <h6 style={{ margin: '0', padding: '0', color: 'white' }}>EventName</h6> */}
-              {/* <span style={{ color: 'white' }}>Place</span> */}
+           
             </div>
           </div>
         </div>
@@ -569,8 +644,7 @@ const handleClickDetails = () => {
             </span>
             <button className={"centered-button1317 ${clicked ? 'toggled-photo' : ''}"} onClick={() => handleClick4(index)} style={{ position: 'relative' }}>Details</button>
             <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-              {/* <h6 style={{ margin: '0', padding: '0', color: 'white' }}>EventName</h6>
-              <span style={{ color: 'white' }}>Place</span> */}
+            
             </div>
           </div>
         </div>
@@ -595,12 +669,12 @@ const handleClickDetails = () => {
             </span>
             <button className={"centered-button1317 ${clicked ? 'toggled-photo' : ''}"} onClick={() => handleClick3(index)} style={{ position: 'relative' }}>Details</button>
             <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-              {/* <h6 style={{ margin: '0', padding: '0', color: 'white' }}>EventName</h6>
-              <span style={{ color: 'white' }}>Place</span> */}
+             
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
+      
 
 </div>
 
@@ -616,20 +690,23 @@ const handleClickDetails = () => {
       {/* Container Main start */}
       <div className="container172">
       <div className="section-container175">
-  <div className="left-section1">
+  <div className="left-section1" id="scrollTarget1">
     {/* Content for the left section */}
     <div className="post12">
   <div className="post-header12">
-    <img src={"assets/images/th1.jpeg"} alt="Profile Picture" className="profile-picture12" />
+    <img src={"assets/images/Francesca Tuckey.png"} alt="Profile Picture" className="profile-picture12" />
     <div className="post-header-info12">
-      <h3 className="post-author12">John Doe</h3>
-      <p className="post-time12">Posted on January 1, 2024</p>
+      <h3 className="post-author12">Francesca Tuckey</h3>
+      <p className="post-time12">Posted on Friday 21 April 2023 </p>
     </div>
   </div>
   <div className="post-content12">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et magna vel justo
-      ultricies vestibulum. Nullam non interdum mauris, at cursus libero.
+    The study of 2,000 adults found assisting in schools, volunteering in charity shops and litter picking in community spaces are some of the most popular ways they are lending their services.
+
+While others have helped out with Scouts or Brownies, local sports events or given lifts to people in need.
+
+Nearly half (46 per cent) would like to volunteer in the near future, but to date, 47 per cent of those yet to do so admit they previously haven’t had the time, while 24 per cent blame a lack of energy.
     </p>
     <img src={"assets/images/vol27.jpg"} alt="Post Photo" className="post-photo12  " />
     {/* You can add more content here, like images, videos, etc. */}
@@ -647,16 +724,21 @@ const handleClickDetails = () => {
   {/* Content for the right section */}
   <div className="post121">
     <div className="post-header12">
-      <img src={"assets/images/im.jpeg"} alt="Profile Picture" className="profile-picture12" />
+      <img src={"assets/images/Imy Brighty-Potts.png"} alt="Profile Picture" className="profile-picture12" />
       <div className="post-header-info12">
-        <h3 className="post-author12">John Doe</h3>
-        <p className="post-time12">Posted on January 1, 2024</p>
+        <h3 className="post-author12">Imy Brighty-Potts</h3>
+        <p className="post-time12">Posted on Wednesday 03 May 2023</p>
       </div>
     </div>
     <div className="post-content12">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et magna vel justo
-        ultricies vestibulum. Nullam non interdum mauris, at cursus libero.
+      
+
+Helpforce’s research suggests 56% of the UK public is willing to volunteer to support the health and wellbeing of people in their local communities.
+
+When asked what would motivate people to volunteer, making a difference to individuals (34%), their local community (28%), and having a sense of purpose (26%), were the most compelling reasons.
+
+“Numerous studies have shown the widespread benefits that volunteering has for the volunteers themselves,” says Mark Lever OBE, chief executive of Helpforce.
       </p>
       <div id='post-container175'>
       <img src={"assets/images/vol6.jpg"} alt="Post Photo" className="post-photo12" />
@@ -682,17 +764,16 @@ const handleClickDetails = () => {
     {/* Content for the left section */}
     <div className="post12">
   <div className="post-header12">
-    <img src={"assets/images/th1.jpeg"} alt="Profile Picture" className="profile-picture12" />
+    <img src={"assets/images/James Pollard.png"} alt="Profile Picture" className="profile-picture12" />
     <div className="post-header-info12">
-      <h3 className="post-author12">John Doe</h3>
-      <p className="post-time12">Posted on January 1, 2024</p>
+      <h3 className="post-author12"> James Pollard</h3>
+      <p className="post-time12">Posted on 5 days ago</p>
     </div>
   </div>
   <div className="post-content12">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et magna vel justo
-      ultricies vestibulum. Nullam non interdum mauris, at cursus libero.
-    </p>
+    Michelle Barbin's job at Blue Cross Blue Shield of Massachusetts brings fulfillment, though she occasionally feels empty. While she values improving consumer experiences, her empathetic nature resonates most. With nearly 19 years at the company, she finds true satisfaction in supporting nonprofits. Routine tasks gain meaning when aligned with her desire to make a difference, like spearheading marketing campaigns for organizations in need.
+   </p>
     <img src={"assets/images/vol22.jpg"} alt="Post Photo" className="post-photo12  " />
     {/* You can add more content here, like images, videos, etc. */}
   </div>
@@ -709,16 +790,16 @@ const handleClickDetails = () => {
     {/* Content for the right section */}
     <div className="post121">
     <div className="post-header12">
-    <img src={"assets/images/im.jpeg"} alt="Profile Picture" className="profile-picture12" />
+    <img src={"assets/images/Harry Stedman.png"} alt="Profile Picture" className="profile-picture12" />
     <div className="post-header-info12">
-      <h3 className="post-author12">John Doe</h3>
-      <p className="post-time12">Posted on January 1, 2024</p>
+      <h3 className="post-author12">Harry Stedman</h3>
+      <p className="post-time12">Posted on Thursday 06 July 2023</p>
     </div>
   </div>
     <div className="post-content12">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et magna vel justo
-      ultricies vestibulum. Nullam non interdum mauris, at cursus libero.
+      
+On its 75th anniversary, the NHS receives support from the Royal Voluntary Service, which aims to recruit 25,000 more volunteers for hospital and community roles. This initiative, facilitated by NHS England, assists the most vulnerable with short-term aid, including shopping, prescription deliveries, friendly calls, and medical supply transportation. The Royal Voluntary Service seeks to address immediate and forthcoming needs, aligning with the evolving demands of healthcare.
     </p>
     <img src={"assets/images/vol25.jpg"} alt="Post Photo" className="post-photo12  " />
     {/* You can add more content here, like images, videos, etc. */}
@@ -740,16 +821,16 @@ const handleClickDetails = () => {
     {/* Content for the left section */}
     <div className="post12">
   <div className="post-header12">
-    <img src={"assets/images/th1.jpeg"} alt="Profile Picture" className="profile-picture12" />
+    <img src={"assets/images/Nina Lloyd.png"} alt="Profile Picture" className="profile-picture12" />
     <div className="post-header-info12">
-      <h3 className="post-author12">John Doe</h3>
-      <p className="post-time12">Posted on January 1, 2024</p>
+      <h3 className="post-author12">Nina Lloyd</h3>
+      <p className="post-time12">Posted on Tuesday 06 June 2023</p>
     </div>
   </div>
   <div className="post-content12">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et magna vel justo
-      ultricies vestibulum. Nullam non interdum mauris, at cursus libero.
+    
+Amid staff shortages in the social care sector, the Government plans to launch a recruitment drive for volunteers. The initiative, expected to be announced on Wednesday, will utilize an app to enlist members of the public for tasks like providing phone support and delivering medicine. Volunteers may also assist with shopping and errands, addressing various needs within the community.
     </p>
     <img src={"assets/images/vol24.jpg"} alt="Post Photo" className="post-photo12  " />
     {/* You can add more content here, like images, videos, etc. */}
@@ -767,16 +848,15 @@ const handleClickDetails = () => {
     {/* Content for the right section */}
     <div className="post121">
     <div className="post-header12">
-    <img src={"assets/images/im.jpeg"} alt="Profile Picture" className="profile-picture12" />
+    <img src={"assets/images/Glenn Gamboa.png"} alt="Profile Picture" className="profile-picture12" />
     <div className="post-header-info12">
-      <h3 className="post-author12">John Doe</h3>
-      <p className="post-time12">Posted on January 1, 2024</p>
+      <h3 className="post-author12">Glenn Gamboa</h3>
+      <p className="post-time12">Posted on Thursday 20 April 2023 </p>
     </div>
   </div>
     <div className="post-content12">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et magna vel justo
-      ultricies vestibulum. Nullam non interdum mauris, at cursus libero.
+    At the Our Ocean Youth Leadership Summit in Panama, Daniela Fernandez attracted 77 volunteers from 45 countries to develop ocean protection solutions. The summit targeted individuals aged 18 to 35, a demographic often criticized for insufficient volunteering. Fernandez emphasized the desire of young people for meaningful impact, citing the lack of suitable projects as a barrier. In the US, volunteerism declined by 7% between 2019 and 2021.
     </p>
     <img src={"assets/images/vol23.jpg"} alt="Post Photo" className="post-photo12  " />
     {/* You can add more content here, like images, videos, etc. */}
@@ -821,7 +901,20 @@ const handleClickDetails = () => {
     <div className="card-body1786">
       <div className="photos-container1786">
       <div>
-      {photoStates1.map((clicked, index) => (
+
+      {events1.map((evnt1, index) => (
+  <div className="card-photo1786" key={index}>
+    <img src={`${config.bucket_url}event/${evnt1._id}.jpg`} alt={`Photo ${index + 1}`} />
+    <div className="black-box" onClick={() => handleClick1(index)}>
+      <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event1 coming soon... </span>
+      <button className="centered-button1316">Apply</button>
+      <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>{evnt1.title}</h6></span> {/* Render event name */}
+      <span className="event-description">{evnt1.place}</span> {/* Render event place */}
+    </div>
+  </div>
+))}
+
+      {/* {photoStates1.map((clicked, index) => (
   <div className="card-photo1786" key={index}>
     <img src={"assets/images/card18.jpg"} alt={`Photo ${index + 1}`} />
     <div className="black-box" onClick={() => handleClick1(index)}>
@@ -864,7 +957,7 @@ const handleClickDetails = () => {
     <span className="event-description">Place</span>
     </div>
   </div>
-))}
+))} */}
 
 
 </div>

@@ -24,6 +24,8 @@ var MessageRouter=require('./routes/message');
 var locationGetter=require('./routes/eventcoordinates');
 var volnameGetter=require('./routes/volunteername');
 var historyfinder=require('./routes/eventhistory');
+var org_verfier=require('./routes/admin/org_verify');
+var counter=require('./routes/count');
 
 
 var app = express();
@@ -59,6 +61,8 @@ app.use('/message',MessageRouter);
 app.use('/event/location',locationGetter);
 app.use('/login/voluntername',volnameGetter);
 app.use('/event/history',historyfinder);
+app.use('/admin/org_verify',org_verfier);
+app.use('/count',counter);
 
 
 module.exports = app;

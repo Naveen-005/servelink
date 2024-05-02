@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Adminsidebar from './components/Adminsidebar';
 import UserIcon from './components/UserIcon';
+import axios from 'axios';
+import config from '../../config.json'
+
 
 const AdminOrg = () => {
   const [selectedOrg, setSelectedOrg] = useState(null);
@@ -109,19 +112,61 @@ const AdminOrg = () => {
     borderRadius: '0 39px 0 10px',
   };
 
-  const newOrganizations = [
-    { name: 'Organization A', date: '2023-04-15', documents: ['doc1.pdf', 'doc2.doc'] },
-    { name: 'Organization B', date: '2023-04-20', documents: ['doc3.pdf'] },
-    { name: 'Organization C', date: '2023-04-25', documents: [] },
-  ];
+  const [unverifiedOrg,setUnverifiedOrg]=useState(null)
+  const [count,setCount]=useState(null)
 
   const handleViewDetails = (org) => {
     setSelectedOrg(org);
   };
 
+  const handleVerify = (id) => {
+    axios({
+      method: 'post',
+      url: config.server_api_url + '/admin/org_verify',
+      withCredentials: true,
+      data:{id:id}
+    })
+      .then((res) => {
+        alert("Verified")
+        
+      })
+      .catch((err) => {
+        alert(err.response?.data)
+      });
+  };
+
   const closeDetailsModal = () => {
     setSelectedOrg(null);
   };
+
+  useEffect(() => {
+
+    axios({
+      method: 'get',
+      url: config.server_api_url + '/admin/org_verify',
+      withCredentials: true,
+    })
+      .then((res) => {
+        setUnverifiedOrg(res.data);
+      })
+      .catch((err) => {
+        alert(err.response?.data)
+      });
+
+
+      axios({
+        method: 'get',
+        url: config.server_api_url + '/count',
+        withCredentials: true,
+      })
+        .then((res) => {
+          setCount(res.data)
+        })
+        .catch((err) => {
+          alert(err.response?.data)
+        });
+
+  }, []);
 
   return (
     <>
@@ -141,8 +186,8 @@ const AdminOrg = () => {
                 e.currentTarget.style.transform = 'scale(1)'; // Reset scale transformation on mouse leave
               }}
             >
-              <div style={statValueStyle}>1000</div>
-              <div style={statLabelStyle}>Users Joined</div>
+              <div style={statValueStyle}>{count?.vol}</div>
+              <div style={statLabelStyle}>Volunteers</div>
             </div>
             <div
               style={{
@@ -156,8 +201,8 @@ const AdminOrg = () => {
                 e.currentTarget.style.transform = 'scale(1)'; // Reset scale transformation on mouse leave
               }}
             >
-              <div style={statValueStyle}>56</div>
-              <div style={statLabelStyle}>Events Hosted</div>
+              <div style={statValueStyle}>{count?.events}</div>
+              <div style={statLabelStyle}>Events</div>
             </div>
             <div
               style={{
@@ -171,15 +216,15 @@ const AdminOrg = () => {
                 e.currentTarget.style.transform = 'scale(1)'; // Reset scale transformation on mouse leave
               }}
             >
-              <div style={statValueStyle}>128</div>
-              <div style={statLabelStyle}>Feedbacks</div>
+              <div style={statValueStyle}>{count?.org}</div>
+              <div style={statLabelStyle}>Organizations</div>
             </div>
           </div>
           <div style={newOrganizationsContainerStyle}>
             <div style={tableHeaderStyle}>
               <h3>New Organizations</h3>
             </div>
-            {newOrganizations.map((org, index) => (
+            {unverifiedOrg?.map((org, index) => (
               <div
                 key={index}
                 style={{
@@ -194,22 +239,34 @@ const AdminOrg = () => {
                 }}
               >
                 <div>{org.name}</div>
-                <div>{org.date}</div>
-                <button onClick={() => handleViewDetails(org)}>View Details</button>
+                <div>{new Date(org.joined_Date).toDateString()}</div>
+                <button onClick={(e) => {e.preventDefault(); handleViewDetails(org)}}>View Details</button>
               </div>
             ))}
           </div>
+
           {selectedOrg && (
             <div style={organizationDetailsContainerStyle}>
               <h3>Organization Details</h3>
               <p>Name: {selectedOrg.name}</p>
-              <p>Date: {selectedOrg.date}</p>
+              <p>Date: {new Date(selectedOrg.joined_Date).toDateString()}</p>
               <h4>Documents:</h4>
+              
               <ul>
-                {selectedOrg.documents.map((doc, index) => (
+              <iframe src={`${config.bucket_url}profile/organization/document/${selectedOrg._id}.pdf`} style={{width: '100%', height: '600px'}}></iframe>
+              
+                {              
+                //<embed src={`${config.bucket_url}profile/organization/document/${selectedOrg._id}.pdf`} type="application/pdf" width="100%" height="600px" />
+
+                /*selectedOrg.documents.map((doc, index) => (
                   <li key={index}>{doc}</li>
-                ))}
+                ))
+              */}
+
               </ul>
+              <button  onClick={(e)=>{e.preventDefault(); handleVerify(selectedOrg._id)}}>
+                Verify
+              </button>
               <button style={buttonStyle} onClick={closeDetailsModal}>
                 x
               </button>

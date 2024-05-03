@@ -22,7 +22,7 @@ const UserDropdown = () => {
   };
 
   return (
-    <div className="user-dropdown-container" style={{ position: 'fixed', top: 2, right: -80 }}>
+    <div className="user-dropdown-container" style={{ position: 'absolute', top: 2, right: -80 }}>
       <Dropdown show={dropdownOpen} onToggle={toggleDropdown} style={{ right: 'calc(100% - 150px)', minWidth: '150px' }}>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
           <i className="fa fa-user" aria-hidden="true"></i>

@@ -8,7 +8,7 @@ function Event({evnt}) {
     return (
 
         <div class="col-lg-3 col-md-4">
-            <div class="causes-item bg-white">
+            <div class="causes-item bg-white" style={{border:'4%',borderRadius:'5%',boxShadow:'0 0 10px 0'}}>
                 <img src={`${config.bucket_url}event/${evnt._id}.jpg`} alt="Image" class="img-fluid mb-4 rounded" />
                 <div class="px-4 pb-3 pt-3" style={{ height: '300px' }}>
                     <span class="date">{new Date(evnt.date).toDateString()}</span>

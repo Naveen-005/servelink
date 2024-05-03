@@ -106,23 +106,22 @@ function Event_details() {
                         </div>
 
                         {event.skills && Object.keys(event.skills).map(skill => (
-                            <div key={skill}>
-                            <p>{skill}</p>
-                            <progress
-                                value={parseInt(skillCount[skill], 10)}
-                                max={parseInt(event.skills[skill], 10)}
-                            ></progress>
-                            <p>{`${parseInt(skillCount[skill], 10)} / ${parseInt(event.skills[skill], 10)}`}</p>
-                            <button onClick={() => handleEnroll(skill)}>Enroll</button>
-                            </div>
-                        ))}
-
-
+                         <div key={skill} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                         <div style={{ flex: 1 }}>
+                        <p>{skill}</p>
+                        <progress value={parseInt(skillCount[skill], 10)} max={parseInt(event.skills[skill], 10)}></progress>
+                        <p>{`${parseInt(skillCount[skill], 10)} / ${parseInt(event.skills[skill], 10)}`}</p>
+                             </div>
+                         <button onClick={() => handleEnroll(skill)} style={enrollButtonStyle7}>Enroll</button>
+                        </div>
+                       ))}
+                       {/*
                         <div style={enrollmentStyle77}>
                             <p>Enrolled: {enrolled}/{event.required}</p>
                             <input type="range" min="0" max={event.required} value={event.enrolled} style={rangeStyle77} disabled />
                             <button onClick={() => handleEnroll('general')} style={enrollButtonStyle7}>Enroll</button>
                         </div>
+                    */}
                     </div>
                 </div>
             </div>
@@ -182,8 +181,10 @@ function Event_details() {
         marginTop: '8px ',
         backgroundColor:'green',
         borderRadius:'25% ',
-        padding:'2%',
+        padding:'3%',
         color:'white',
+       
+        
        
     };
     

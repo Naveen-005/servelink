@@ -18,7 +18,7 @@ const SearchBar = ({ onSearch }) => {
         placeholder="Search..."
         value={query}
         onChange={handleInputChange}
-        style={{ width: '300px' }} // Adjust the width as needed
+        style={{ width: '301px' }} // Adjust the width as needed
       />
       <button onClick={handleSearch}>Search</button>
     </div>

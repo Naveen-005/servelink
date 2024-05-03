@@ -26,6 +26,7 @@ var volnameGetter=require('./routes/volunteername');
 var historyfinder=require('./routes/eventhistory');
 var org_verfier=require('./routes/admin/org_verify');
 var counter=require('./routes/count');
+var volunteerReportRouter=require('./routes/volunteerReport');
 
 
 var app = express();
@@ -63,6 +64,7 @@ app.use('/login/voluntername',volnameGetter);
 app.use('/event/history',historyfinder);
 app.use('/admin/org_verify',org_verfier);
 app.use('/count',counter);
+app.use('/report/volunteer',volunteerReportRouter);
 
 
 module.exports = app;

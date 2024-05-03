@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Adminsidebar from './components/Adminsidebar';
+import axios from 'axios';
+import config from '../../config.json'
+
 
 const AdminReport = () => {
   const reportedAccounts = [
@@ -22,6 +25,24 @@ const AdminReport = () => {
     setSelectedAccount(null);
     setReason('');
   };
+
+  const [reportedVolunteers,setReportedVolunteer]=useState(null)
+
+  useEffect(() => {
+
+    axios({
+      method: 'get',
+      url: config.server_api_url + '/report/volunteer',
+      withCredentials: true,
+    })
+      .then((res) => {
+        setReportedVolunteer(res.data)
+      })
+      .catch((err) => {
+        alert(err.response?.data)
+      });
+  }, []);
+
 
   return (
     <div
@@ -46,9 +67,9 @@ const AdminReport = () => {
       >
         Reported Accounts
       </h1>
-      {reportedAccounts.map((account) => (
+      {reportedVolunteers?.map((account,index) => (
         <div
-          key={account}
+          key={index}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -73,7 +94,7 @@ const AdminReport = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
             onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           >
-            {account}
+            {account.first_name} {account.last_name}
           </span>
           <div style={{ display: 'flex', gap: '11rem' }}>
             <button
@@ -164,7 +185,7 @@ const AdminReport = () => {
                       Close
                     </button>
                   </div>
-                  <p>{reason}</p>
+                  <p>{account.reason}</p>
                 </div>
               )}
             </div>

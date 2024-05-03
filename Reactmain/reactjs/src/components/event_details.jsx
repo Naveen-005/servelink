@@ -13,7 +13,7 @@ function Event_details() {
         const [enrolled, setEnrolled] = useState(0);
         const [event, setEvent] = useState(0);
         const [skillCount, setSkillCount] = useState(0);
-
+        const [conditions, setConditions] = useState(0);
         const { id } = useParams();
         const navigate = useNavigate();
 
@@ -26,6 +26,7 @@ function Event_details() {
                   event_id:id,
                   vol_id:Cookies.get('uid'),
                   skill: skill,
+                  conditions: conditions,
                 }
               })
                 .then((res) => {
@@ -58,6 +59,7 @@ function Event_details() {
 
                     setEvent(res.data.event);
                     setSkillCount(res.data.skill_enrollment)
+                    setConditions(res.data.conditions)
                     console.log(skillCount)
     
                 })
@@ -86,7 +88,7 @@ function Event_details() {
                     <div className="divider" style={dividerStyle}></div>
                     <div className="column2" style={coloumnStyle78}>
                     <button onClick={() => navigate('/events')} style={closeButtonStyle77}>X</button>
-                        <h2 style={{ fontSize: '14px', fontWeight: 'bold', color: 'green' }}>{event.title}</h2>
+                        <h2 style={{ fontSize: '44px', fontWeight: 'bold', color: 'green' }}>{event.title}</h2>
                         <p>Hosted by : {event.org_name} <br/>Date  :{new Date(event.date).toDateString()} <br/> Time :{event.time}</p>
                         
                         <div style={descriptionStyle77}>
@@ -97,8 +99,7 @@ function Event_details() {
                         <div style={conditionsStyle77}>
                             <p>Conditions for Volunteers:
                             <ul style={listStyle}>
-                                <li>Male or Female volunteers preferred.</li>
-                                <li>Age groups: 18-50</li>
+                                <li>{event.conditions}</li>
                                 <li>Location: {event.location}</li>
                                 <li>Qualifications: Relevant qualifications if required</li>
                             </ul>

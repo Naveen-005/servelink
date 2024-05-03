@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import coverPhoto from './cvo.jpg'
 import { Helmet } from 'react-helmet';
 import SideBar from './components/sidebar';
+import UserDropdown from './components/userdropdown';
 
 const styleName = {
   rec121: (bgColor = '#f2f2f2') => ({
@@ -119,6 +120,7 @@ const Review = () => {
 
   return (
     <div style={styleName.area121()}>
+      <UserDropdown/>
       <Helmet>
         <title>Messages</title>
       </Helmet>

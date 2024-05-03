@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useRef} from 'react'
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import config from '../../../config.json'
 import Cookies from 'js-cookie';
@@ -13,6 +13,9 @@ import { color } from 'framer-motion';
 
 
 function OrgPost() {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     title: "",
     location: "",
@@ -22,6 +25,7 @@ function OrgPost() {
     time: "",
     short_description: "",
     long_description: "",
+    conditions:"",
     org_id:"",
     skills: {},
   });
@@ -69,6 +73,19 @@ function OrgPost() {
       setNewSkillName(""); // Clear the new skill name input after adding
     }
   };
+
+  const handleRemoveSkill = (skillName) => {
+    const updatedSkills = { ...formData.skills };
+    delete updatedSkills[skillName];
+  
+    // Check if the updatedSkills object is empty
+    if (Object.keys(updatedSkills).length === 0) {
+      // If empty, clear the newSkillName state
+      setNewSkillName("");
+    }
+  
+    setFormData({ ...formData, skills: updatedSkills });
+  };
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -94,8 +111,8 @@ function OrgPost() {
     })
       .then((res) => {
 
-        alert("Succesfully registered")
-        //navigate("/")
+        alert("Succesfully posted")
+        navigate("/odas")
 
       })
       .catch((err) => {
@@ -260,7 +277,7 @@ mapRef.current.addControl(searchControl);
       <input type="file" id="media" name="image" accept="image/*" onChange={handleFileChange} />
 
 
-      <label for="description">Short Description: (max 40 words)</label>
+      <label for="description">Short Description: (max 40 letters)</label>
       <input type="text" id="description" name="short_description"  maxLength='40' style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.short_description} onChange={handleChange}required/>
 {/*
       <label for="count">Number of Volunteers required :</label>
@@ -268,6 +285,9 @@ mapRef.current.addControl(searchControl);
 */}
       <label for="description">Long Description: </label>
       <textarea id="description" name="long_description" placeholder="write full details on here......" value={formData.long_description} onChange={handleChange}></textarea>
+      
+      <label for="conditions">Conditions: </label>
+      <textarea id="conditions" name="conditions" placeholder="" value={formData.conditions} onChange={handleChange}></textarea>
 
       {Object.entries(formData.skills).map(([skillName, skillLevel]) => (
         <div key={skillName}>
@@ -288,9 +308,13 @@ mapRef.current.addControl(searchControl);
             className='col-md-6'
             style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} 
           />
+           <button id="d"onClick={() => handleRemoveSkill(skillName)} style={{ backgroundColor: 'red',padding:'7px',width:'18%' }}>
+      Remove
+    </button>
         </div>
       ))}
-
+      
+     
       {/* Input for new skill name */}
       <label for="skill">Add skill: </label>
       <input
@@ -304,6 +328,7 @@ mapRef.current.addControl(searchControl);
 
 
       <button id='d' onClick={handleAddSkill}>Add</button>
+      
   
 
       <button id="da" type="submit">Post</button>

@@ -141,6 +141,11 @@ const AdminVol = () => {
 
   return (
     <div style={styles.container}>
+      <helmet>
+        <title>
+          Volunteer
+        </title>
+      </helmet>
       <Adminsidebar />
       <div style={styles.content}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>

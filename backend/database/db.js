@@ -59,6 +59,7 @@ const eventSchema = new Schema({
   time: String,
   short_description: String,
   long_description: String,
+  conditions:String,
   required: Number,
   org_id:String,
   enrolled: Number,

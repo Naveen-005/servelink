@@ -33,6 +33,11 @@ const AdminReport = () => {
         backgroundSize: '100%',
       }}
     >
+      <helmet>
+        <title>
+          Reported
+        </title>
+      </helmet>
       <Adminsidebar />
       <h1
         style={{

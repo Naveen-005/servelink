@@ -1,12 +1,50 @@
 import React, { useState } from 'react';
 import './styleadmin.css'; 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavigationType, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import config from '../../config.json'
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  
+  const navigate= useNavigate()
+
+  const [formData, setFormData] = useState({
+        username: "",
+        password: "",
+    });
+
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      
+    axios({
+      method: 'post',
+      url: config.server_api_url + '/admin',
+      data: formData
+      })
+      .then((res) => {
+          console.log(res);
+          alert("Successfully logged in")
+          navigate("/admindash")
+
+      })
+      .catch((err) => {
+          console.log(err)
+          alert(err.response?.data)
+  });
+    };
+
+
 
   const handleLogin = () => {
     // Add your login logic here
@@ -38,8 +76,9 @@ const LoginPage = () => {
           <input
             type="text"
             id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            name='username'
+            value={formData.username}
+            onChange={handleChange}
             required
             style={{width:'100%',padding: '10px',margin: '10px 0',border: '1px solid #ccc',borderRadius: '5px',color:'#c4bdbd', backgroundColor:'#3c3d3d'}}/>
         </div>
@@ -48,8 +87,9 @@ const LoginPage = () => {
           <input
             type="password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name='password'
+            value={formData.password}
+            onChange={handleChange}
             required
             
             style={{width:'100%',padding: '10px',margin: '10px 0',border: '1px solid #ccc',borderRadius: '5px',color:'#c4bdbd', backgroundColor:'#3c3d3d'}}/>
@@ -63,12 +103,10 @@ const LoginPage = () => {
 					</div>
         
         <center>
-        < button type="button" onClick={handleLogin} style={{color:'white',backgroundColor:'gray',borderRadius:'10px',padding:'10px'}}>SIGN IN</button>
+        < button type="button" onClick={handleSubmit} style={{color:'white',backgroundColor:'gray',borderRadius:'10px',padding:'10px'}}>SIGN IN</button>
         </center>
       </form>
-      <div className="forgot16-password16" >
-        <Link to="">Forgot Password?</Link>
-      </div>
+     
     </div>
   </div>
   );

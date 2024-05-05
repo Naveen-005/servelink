@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { FaBars, FaHistory, FaHome, FaLock, FaUser } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
+import { MdMessage, MdReviews } from "react-icons/md";
 import { BiAnalyse, BiSearch, BiCog } from "react-icons/bi";
 import { AiFillHeart } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
@@ -21,9 +21,9 @@ const routes = [
     icon: <FaUser />,
   },
   {
-    path: "/org_message",
-    name: "Messages",
-    icon: <MdMessage />,
+    path: "/org_review",
+    name: "Reviews",
+    icon: <MdReviews />,
   },
   /*
   {

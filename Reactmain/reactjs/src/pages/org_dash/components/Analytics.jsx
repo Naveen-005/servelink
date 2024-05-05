@@ -208,12 +208,14 @@ function Analytics({ evnt }) {
     
 
       {showVolunteers && volunteerButtonPosition && (
-        <div className="volunteer-popup" style={{ ...volunteerPopupStyle, right: volunteerButtonPosition.left, top: volunteerButtonPosition.bottom }}>
+        <div className="volunteer-popup" style={ volunteerPopupStyle}>
           <div style={closeButtonContainer}>
             <button onClick={() => setShowVolunteers(false)} style={closeButtonStyle}>
               X
             </button>
           </div>
+
+
           <h3>Volunteers</h3>
           {/*
           <ul>
@@ -228,6 +230,7 @@ function Analytics({ evnt }) {
         {volunteerList && volunteerList.map((volunteer) => (
           <li key={volunteer.id} onClick={() => handleVolunteerClick(volunteer)}>
             {volunteer.name}
+            <button style={{backgroundColor:'red',padding:'9px',borderRadius:'14px',color:'white'}}>Report</button>
           </li>
         ))}
       </ul>
@@ -353,9 +356,9 @@ const buttonStyle = {
 };
 
 const volunteerPopupStyle = {
-  position: 'absolute',
-  top: '50%',
-  left: '15%',
+  position: 'relative',
+  top: '40%',
+  left: '20%',
   transform: 'translateY(-8%)',
   backgroundColor: '#6AB187',
   padding: '20px',
@@ -363,6 +366,7 @@ const volunteerPopupStyle = {
   borderRadius: '8px',
   zIndex: '2',
   width: '300px',
+  
 
 };
 

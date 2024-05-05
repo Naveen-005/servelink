@@ -29,7 +29,7 @@ import Notification from './pages/org_dash/components/notification';
 import OrgForm from './pages/org_dash/org_redirect/OrgForm';
 import Error from './components/error';
 import Chatbot from './components/chatbot';
-import Messages from './pages/org_dash/messages';
+import Messages from './pages/org_dash/Review';
 import Ongoingevent from './pages/org_dash/components/ongoingevent';
 import CompletedEvents from './pages/org_dash/components/completedevents';
 import Analytics from './pages/org_dash/components/Analytics';
@@ -38,6 +38,8 @@ import AdminOrg from './pages/AdminDashboard/AdminOrg';
 import AdminVol from './pages/AdminDashboard/AdminVol';
 import AdminReport from './pages/AdminDashboard/AdminReport';
 import AdminFeedback from './pages/AdminDashboard/AdminFeedback';
+import Review from './pages/org_dash/Review';
+import Search from './components/search';
 
 function App() {
   return (
@@ -77,11 +79,11 @@ function App() {
         <Route path="/changepassword" element={<Changepass />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/org_verification" element={<OrgForm />} />
-        <Route path="/org_message" element={<Messages />} />
+        <Route path="/org_review" element={<Review />} />
         <Route path="/ongoing_event" element={<Ongoingevent />} />
         <Route path="/complete_event" element={<CompletedEvents />} />
         <Route path="/sample" element={<Analytics />} />
-
+        
 
         {/*VOLUNTEER PAGES*/}          
         <Route path="/userdash" element={<Userdash />} />

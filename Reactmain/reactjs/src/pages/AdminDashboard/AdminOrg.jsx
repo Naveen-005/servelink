@@ -3,6 +3,7 @@ import Adminsidebar from './components/Adminsidebar';
 import UserIcon from './components/UserIcon';
 import axios from 'axios';
 import config from '../../config.json'
+import { Helmet } from 'react-helmet';
 
 
 const AdminOrg = () => {
@@ -13,6 +14,7 @@ const AdminOrg = () => {
     padding: '15px',
     backgroundAttachment: 'fixed',
     backgroundSize: '100%',
+    minHeight: '200vh',
   };
 
   const containerStyle = {
@@ -99,17 +101,29 @@ const AdminOrg = () => {
     padding: '20px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
     position: 'relative',
-    top: '-250px',
+    top: '-150px',
     right: '-390px',
   };
 
   const buttonStyle = {
-    backgroundColor: 'green',
-    padding: '11px',
+    backgroundColor: 'red',
     position: 'absolute',
-    top: '-3px',
-    left: '310px',
-    borderRadius: '0 39px 0 10px',
+    top: '2px',
+    left: '302px',
+    border: 'none',
+    borderRadius: '30px',
+    padding: '0.2rem 0.5rem',
+    cursor: 'pointer',
+  };
+
+  const button1Style ={
+   backgroundColor:'green',
+   position: 'absolute',
+   left: '80%',
+   top:'51%',
+   borderRadius:'2px',
+   padding:'6px',
+   color:'yellow',
   };
 
   const [unverifiedOrg,setUnverifiedOrg]=useState(null)
@@ -170,6 +184,11 @@ const AdminOrg = () => {
 
   return (
     <>
+     <Helmet>
+      <title>
+        Organization
+      </title>
+     </Helmet>
       <div style={container1Style}>
         <Adminsidebar />
         <div style={containerStyle}>
@@ -251,7 +270,9 @@ const AdminOrg = () => {
               <p>Name: {selectedOrg.name}</p>
               <p>Date: {new Date(selectedOrg.joined_Date).toDateString()}</p>
               <h4>Documents:</h4>
-              
+              <button style={button1Style}  onClick={(e)=>{e.preventDefault(); handleVerify(selectedOrg._id)}}>
+                Verify
+              </button>
               <ul>
               <iframe src={`${config.bucket_url}profile/organization/document/${selectedOrg._id}.pdf`} style={{width: '100%', height: '600px'}}></iframe>
               
@@ -264,9 +285,7 @@ const AdminOrg = () => {
               */}
 
               </ul>
-              <button  onClick={(e)=>{e.preventDefault(); handleVerify(selectedOrg._id)}}>
-                Verify
-              </button>
+              
               <button style={buttonStyle} onClick={closeDetailsModal}>
                 x
               </button>

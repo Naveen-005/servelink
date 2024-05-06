@@ -28,6 +28,7 @@ var org_verfier=require('./routes/admin/org_verify');
 var counter=require('./routes/count');
 var volunteerReportRouter=require('./routes/volunteerReport');
 var volunteerReportAction= require('./routes/vol_Report_Action');
+var admin= require('./routes/login/admin');
 
 
 var app = express();
@@ -67,6 +68,7 @@ app.use('/admin/org_verify',org_verfier);
 app.use('/count',counter);
 app.use('/report/volunteer',volunteerReportRouter);
 app.use('/report/volunteer/action',volunteerReportAction);
+app.use('/admin',admin);
 
 
 module.exports = app;

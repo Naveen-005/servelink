@@ -56,7 +56,7 @@ function Footer() {
 								<ul className="list-unstyled links mb-4">
 								<li><Link className="" to="">+91 0000000</Link></li>
 								<li><Link className="" to="">+91 0000000</Link></li>
-								<li><Link className="" to="">abc@gmail.com</Link></li>
+								<li><Link className="" to="">servelink2024@gmail.com</Link></li>
 								</ul>
 
 								<h3>Connect</h3>

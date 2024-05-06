@@ -28,7 +28,7 @@ function Register() {
         gender: "",
         password:"",
         skills: [],
-        profilePhoto: null,
+        //profilePhoto: null,
 
     });
 
@@ -38,6 +38,12 @@ function Register() {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    };
+
+    const [Profile_pic,setProfilePic]=useState(null)
+    const handleFileChange = (event) => {
+      //console.log("event")
+      setProfilePic(event.target.files[0]);
     };
 
     const handle_radio_change=(event)=>{
@@ -59,16 +65,24 @@ function Register() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(Profile_pic)
         
         axios({
             method: 'post',
             url: config.server_api_url + '/register/volunteer',
-            data: formData
+            withCredentials:true,
+            headers: {
+              'Content-Type': 'multipart/form-data' // Set content type to multipart/form-data
+            },
+            data:{
+              formData: formData,
+              file: Profile_pic
+            }
             })
             .then((res) => {
                 Cookies.set('name', res.data.name, { expires: 7 })
-        		Cookies.set('uid', res.data.uid, { expires: 7 })
-        		Cookies.set('token', res.data.token, { expires: 7 })
+        		    Cookies.set('uid', res.data.uid, { expires: 7 })
+        		    Cookies.set('token', res.data.token, { expires: 7 })
                 alert("Registered Successfully");
                 navigate("/")
             })
@@ -78,7 +92,7 @@ function Register() {
         });
 
     };
-
+/*
     const handle1Change = (e) => {
         const { name, value } = e.target;
         if (name.includes('skills')) {
@@ -90,6 +104,42 @@ function Register() {
           setFormData({ ...formData, [name]: value });
         }
       };
+*/
+/*
+const handle1Change = (e) => {
+  const { name, value } = e.target;
+  if (name === 'newSkill') {
+    setFormData({ ...formData, newSkill: value });
+  } else if (name.includes('skills')) {
+    const index = parseInt(name.match(/\d+/)[0], 10);
+    const newSkills = [...formData.skills];
+    newSkills[index] = value;
+    setFormData({ ...formData, skills: newSkills });
+  } else {
+    setFormData({ ...formData, [name]: value });
+  }
+};
+*/
+const handle1Change = (e) => {
+  const { name, value } = e.target;
+
+  // If the input field name is 'newSkill', update the newSkill value directly
+  if (name === 'newSkill') {
+    setFormData({ ...formData, newSkill: value });
+  } 
+  // If the input field name includes 'skills', update the skills array
+  else if (name.startsWith('skills')) {
+    const index = parseInt(name.split('skills[')[1].split(']')[0], 10);
+    const newSkills = [...formData.skills];
+    newSkills[index] = value;
+    setFormData({ ...formData, skills: newSkills });
+  } 
+  // For other fields, update their values directly
+  else {
+    setFormData({ ...formData, [name]: value });
+  }
+};
+
 
 
     const addSkill = () => {
@@ -226,7 +276,7 @@ function Register() {
         type="file"
         name="profilePhoto"
         accept="image/*"
-        //onChange={handleFileChange}
+        onChange={handleFileChange}
       />
       
     </div>
@@ -238,6 +288,7 @@ function Register() {
     <label className="label2" style={{ marginRight: '10px',whiteSpace: 'pre-line'  }}>Skills</label><br/>
       
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px',position:'relative',left:'10px' }}>
+        {/*
         <input
           className="input--style-4"
           type="text"
@@ -247,6 +298,7 @@ function Register() {
           placeholder="Enter a skill"
           style={{ flexGrow: 1, marginRight: '15px' }}
         />
+  */}
         <button
           type="button"
           onClick={addSkill}

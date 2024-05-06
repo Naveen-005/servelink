@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect ,useState} from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
@@ -16,6 +16,7 @@ import './tiny-slider.css'
 import './aos.css'
 import './flatpickr.min.css'
 import './glightbox.min.css'
+import Loader from '../../components/loader';
 
 
 
@@ -49,13 +50,15 @@ function About() {
 		]
 	};
 
+	
 
 	return (
 		<div>
-
+     
             <Helmet>
              <title>About</title>
             </Helmet>
+			
 			<div className="site-mobile-menu site-navbar-target">
 				<div className="site-mobile-menu-header">
 					<div className="site-mobile-menu-close">
@@ -209,7 +212,7 @@ function About() {
 				</div>
 			</div>
         	<Footer />
-
+			
 		</div>
 	)
 }

@@ -39,7 +39,6 @@ import AdminVol from './pages/AdminDashboard/AdminVol';
 import AdminReport from './pages/AdminDashboard/AdminReport';
 import AdminFeedback from './pages/AdminDashboard/AdminFeedback';
 import Review from './pages/org_dash/Review';
-import Search from './components/search';
 
 function App() {
   return (

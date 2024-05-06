@@ -7,8 +7,7 @@ import axios from 'axios';
 import config from '../../config.json'
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+ 
   const [rememberMe, setRememberMe] = useState(false);
   
   const navigate= useNavigate()
@@ -44,14 +43,6 @@ const LoginPage = () => {
   });
     };
 
-
-
-  const handleLogin = () => {
-    // Add your login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
-    console.log('Remember Me:', rememberMe);
-  };
 
   const handleRememberMeChange = (e) => {
     setRememberMe(e.target.checked);

@@ -13,7 +13,7 @@ function Footer() {
 								<h3>Navigation</h3>
 								<ul className="list-unstyled float-left links " style={{textDecoration:"none"}}>
 								 <li><Link className="" to="/about">About us</Link></li>
-								 <li><Link className="" to="/events">News</Link></li>
+								 <li><Link className="" to="/events">Events</Link></li>
 								 <li><Link className="" to="/login">Volunteers</Link></li>
 								 <li><Link className="" to="/terms">Terms</Link></li>
 								 <li><Link className="" to="/privacy">Privacy</Link></li>

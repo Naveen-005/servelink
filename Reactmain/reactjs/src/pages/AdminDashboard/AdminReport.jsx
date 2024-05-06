@@ -5,6 +5,7 @@ import config from '../../config.json'
 
 
 const AdminReport = () => {
+  /*
   const reportedAccounts = [
     'account name 1',
     'account name 2',
@@ -12,7 +13,7 @@ const AdminReport = () => {
     'account name 4',
     'account name 5',
   ];
-
+*/
   const [selectedAccount, setSelectedAccount] = useState(null);
   const [reason, setReason] = useState('');
 
@@ -24,6 +25,28 @@ const AdminReport = () => {
   const handleCloseModal = () => {
     setSelectedAccount(null);
     setReason('');
+  };
+
+  const handleReportAction = (vol_id) => {
+
+    axios({
+      method: 'post',
+      url: config.server_api_url + '/report/volunteer/action',
+      withCredentials: true,
+      data:{
+        vol_id: vol_id,
+        action: 'Suspend'
+      }
+    })
+      .then((res) => {
+        //setReportedVolunteer(res.data)
+        alert("Account suspended");
+
+      })
+      .catch((err) => {
+        alert(err.response?.data)
+      });
+    
   };
 
   const [reportedVolunteers,setReportedVolunteer]=useState(null)
@@ -128,7 +151,10 @@ const AdminReport = () => {
                 cursor: 'pointer',
                 transition: 'transform 0.3s ease',
               }}
-              onClick={''}
+              onClick={(e) => {
+                e.preventDefault(); // Prevent the default action
+                handleReportAction(account.vol_id); // Call the handleReportAction function with the vol_id
+              }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
               onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
             >

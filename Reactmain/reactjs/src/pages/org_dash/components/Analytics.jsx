@@ -17,6 +17,46 @@ function Analytics({ evnt }) {
   const [message, setMessage] = useState('');
   const [selectedVolunteer, setSelectedVolunteer] = useState(null);
   const [volunteerButtonPosition, setVolunteerButtonPosition] = useState(null);
+  const [reportPopup, setReportPopup] = useState(false);
+
+  const [reportText, setReportText] = useState('');
+
+  const toggleReportPopup = (vol) => {
+    setSelectedVolunteer(vol)
+    setReportPopup(!reportPopup);
+    //alert("report: ",reportPopup)
+  };
+
+  const handleReportChange = (e) => {
+    setReportText(e.target.value);
+  };
+
+  const submitReport = (vol_id) => {
+    // You can do something with the report text here, like sending it to a server
+    //console.log("Report submitted: " + reportText);
+    // Close the popup after submission
+    axios({
+      method: 'post',
+      url: config.server_api_url + '/report/volunteer',
+      withCredentials: true,
+      data: {
+        vol_id: vol_id,
+        reason: reportText,
+        event_id:evnt._id
+      }
+    })
+      .then((res) => {
+
+        alert("Reported volunteer")
+        setReportText('')
+
+      })
+      .catch((err) => {
+        alert(err.response?.data)
+
+      });;
+    setReportPopup(false);
+  };
 
   const [messageData, setMessageData] = useState({
     event_id: evnt._id,
@@ -73,12 +113,6 @@ function Analytics({ evnt }) {
     console.log(`Navigating to ${volunteer.name}'s profile`);
   };
 
-  const volunteers = [
-    { id: 1, name: 'John Doe' },
-    { id: 2, name: 'Jane Smith' },
-    { id: 3, name: 'Bob Johnson' },
-    // Add more volunteers as needed
-  ];
 
   const [skillEnrollment,setSkillEnrollment]=useState(null)
   const [volunteerList,setVolunteerList]=useState(null)
@@ -229,11 +263,22 @@ function Analytics({ evnt }) {
           <ul>
         {volunteerList && volunteerList.map((volunteer) => (
           <li key={volunteer.id} onClick={() => handleVolunteerClick(volunteer)}>
-            {volunteer.name}
-            <button style={{backgroundColor:'red',padding:'9px',borderRadius:'14px',color:'white'}}>Report</button>
+            {volunteer.first_name} {volunteer.last_name}
+            <button style={{backgroundColor:'red',padding:'9px',borderRadius:'14px',color:'white'}} onClick={() => toggleReportPopup(volunteer)}>Report</button>
           </li>
         ))}
       </ul>
+        </div>
+      )}
+
+      {reportPopup && (
+        <div className="popup">
+          <textarea
+            value={reportText}
+            onChange={handleReportChange}
+            placeholder="Reason:"
+          ></textarea>
+          <button onClick={() => submitReport(selectedVolunteer._id)}>Report Volunteer</button>
         </div>
       )}
 

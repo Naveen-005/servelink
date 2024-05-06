@@ -102,7 +102,7 @@ const messageSchema = new Schema({
 const messageModel = mongoose.model('Messages',messageSchema);
 
 const volunteerReportSchema = new Schema({
-  vol_id: { type: Schema.Types.ObjectId, ref: 'Volunteers' },
+  vol_id: String,
   reason: String,
   event_id: String,
   actionTaken: Boolean
@@ -113,6 +113,12 @@ volunteerReportSchema.pre('save', function(next) {
 });
 const volunteerReportModel = mongoose.model('Vol_Report',volunteerReportSchema);
 
+const volunteerReportActionSchema = new Schema({
+  vol_id: String,
+  action: String,
+});
+const volunteerReportActionModel = mongoose.model('vol_report_acton',volunteerReportActionSchema);
 
 
-module.exports = { VolunteerModel, organizationModel, eventModel, eventEnrollmentModel, messageModel, volunteerReportModel };
+
+module.exports = { VolunteerModel, organizationModel, eventModel, eventEnrollmentModel, messageModel, volunteerReportModel, volunteerReportActionModel };

@@ -32,10 +32,11 @@ function Event_details() {
                 .then((res) => {
           
                     setEvent(prevEvent => ({ ...prevEvent, enrolled: prevEvent.enrolled + 1 }));
+                    alert("successfully Enrolled")
           
                 })
                 .catch((err) => {
-                  alert(err)
+                  alert(err.response?.data)
                 });
         };
 
@@ -64,7 +65,7 @@ function Event_details() {
     
                 })
                 .catch((err) => {
-                    alert(err)
+                    alert(err.response?.data)
         
             });
             

@@ -317,10 +317,37 @@ useEffect(() => {
 // const [photoStates3, setPhotoStates3] = useState([true]);
 // const [photoStates4, setPhotoStates4] = useState([true]);
 
-const [photoStates1, setPhotoStates1] = useState(Array(1).fill(false));
+// const [photoStates1, setPhotoStates1] = useState(Array(1).fill(false));
+
+// const handleClick1 = (index) => {
+//   setPhotoStates1(prevStates => {
+//     const newStates = [...prevStates];
+//     newStates[index] = !newStates[index];
+//     return newStates;
+//   });
+// };
+// const handleClickDetails1 = () => {
+ 
+//   setPhotoStates1(prevStates => prevStates.map(state => !state));
+// };
+// useEffect(() => {
+//   setPhotoStates1(Array(additionalHistory.length).fill(false)); // Reset photo states when additionalHistory changes
+// }, [additionalHistory]);
+
+const [photoStates1, setPhotoStates1] = useState([]);
+
+// Ensure additionalHistory is not null before setting the length of photoStates1
+const additionalHistoryLength = additionalHistory ? additionalHistory.length : 0;
+
+useEffect(() => {
+  setPhotoStates1(Array(additionalHistoryLength).fill(false)); // Reset photo states when additionalHistory changes
+}, [additionalHistoryLength]);
+
+
   const [photoStates2, setPhotoStates2] = useState(Array(1).fill(false));
   const [photoStates3, setPhotoStates3] = useState(Array(1).fill(false));
   const [photoStates4, setPhotoStates4] = useState(Array(1).fill(false));
+  const [photoStates5, setPhotoStates5] = useState(Array(1).fill(false));
 
 // const handleClick1 = (index) => {
 //   setPhotoStates1(prevStates => {
@@ -336,17 +363,7 @@ const [photoStates1, setPhotoStates1] = useState(Array(1).fill(false));
 //   setPhotoStates1(Array(photoStates1.length).fill(false));
 // }, []);
 
-const handleClick1 = (index) => {
-  setPhotoStates1(prevStates => {
-    const newStates = [...prevStates];
-    newStates[index] = !newStates[index];
-    return newStates;
-  });
-};
-const handleClickDetails1 = () => {
-  // Toggle the state of all cards
-  setPhotoStates1(prevStates => prevStates.map(state => !state));
-};
+
 
 // useEffect(() => {
 //   setPhotoStates2(Array(photoStates2.length).fill(false));
@@ -399,6 +416,17 @@ const handleClickDetails4 = () => {
   setPhotoStates4(prevStates => prevStates.map(state => !state));
 };
 
+const handleClick5 = (index) => {
+  setPhotoStates5(prevStates => {
+    const newStates = [...prevStates];
+    newStates[index] = !newStates[index];
+    return newStates;
+  });
+};
+const handleClickDetails5 = () => {
+  // Toggle the state of all cards
+  setPhotoStates5(prevStates => prevStates.map(state => !state));
+};
 const cardRef = useRef(null);
 const handleButtonClick = () => {
   cardRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -419,7 +447,9 @@ const handleClickDetails = () => {
   if (photoStates4.includes(true)) {
     setPhotoStates4(Array(photoStates4.length).fill(false));
   }
-  
+  if (photoStates5.includes(true)) {
+    setPhotoStates5(Array(photoStates5.length).fill(false));
+  }
 };
 
 function scrollToCard() {
@@ -548,58 +578,241 @@ function scrollToContent() {
 
       <div>
 
-      {additionalHistory?.map((event, index) => (
+ {/* {additionalHistory?.map((event, index) => (
   <div className={'card-photo1786'} key={index}>
-    <div className="image-container">
-      <img src={`${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '100%' }} />
+    <div className="image-container" onClick={() => handleClick2(index)}> 
+      <img src={`${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '200px', height: '350px' }} />
       <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
         <p style={{ margin: 0 }}>
-          {event.title && <div>{event.title}</div>} {/* Render event name */}
-          {event.location && <div>{event.location}</div>} {/* Render event place */}
+          {event.title && <div>{event.title}</div>} 
+          {event.location && <div>{event.location}</div>}
         </p>
       </div>
+    </div>
+    <div className="black-box">
+      <span className={`white-text1736 ${photoStates1[index] ? 'hidden' : ''}`}>
+        <i className={`bx ${photoStates1[index] ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
+      </span>
+      <button className={`centered-button1317 ${photoStates1[index] ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
+      <div className={`event-details ${photoStates1[index] ? '' : 'hidden'}`}>
+     
+      </div>
+    </div>
+  </div>
+))} */}
+
+
+{/* 1111
+{additionalHistory?.map((event, index) => (
+  <div className={'card-photo1786'} key={index}>
+    <div className="image-container"> 
+      <img src={`${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '200px', height: '350px' }} />
+      <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+        <p style={{ margin: 0 }}>
+          {event.title && <div>{event.title}</div>} 
+          {event.location && <div>{event.location}</div>}
+        </p>
+      </div>
+    </div>
+    <div className="black-box">
+      <span className={`white-text1736`}>
+        
+      </span>
+      <button className={`centered-button1317 ${photoStates1[index] ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
+    
+    </div>
+  </div>
+))}
+
+      111   */}
+
+{/* {additionalHistory?.map((event, index)=> (
+  <div className={'card-photo1786'} key={index}>
+    <div className="image-container">
+      
+      {photoStates2.map((clicked, index) => (
+        <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`}key={index} style={{ width: '100%' }} />
+      ))}
+      {clicked && (
+        <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+          <p style={{ margin: 0 }}>
+            <div>Event Name</div>
+            <div>Event Place</div>
+          </p>
+        </div>
+      )}
     </div>
     <div className="black-box">
       <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
         <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
       </span>
-      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick1(index)} style={{ position: 'relative' }}>Details</button>
+      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
       <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-        {/* Additional event details can be rendered here */}
-        {/* <h6 style={{ margin: '0', padding: '0', color: 'white' }}>{event.title}</h6> */}
-        {/* <span style={{ color: 'white' }}>{event.location}</span> */}
+        
       </div>
     </div>
   </div>
-))}
-
-{/*         
-
-      {photoStates1.map((clicked, index) => (
-        <div className={'card-photo1786'} key={index}>
-          <div className="image-container">
-            <img src={clicked ? "assets/images/114.jpg" : "assets/images/d123.jpg"} alt={`Photo ${index + 1}`} style={{ width: '100%' }} />
-            {clicked && (
-              <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-                <p style={{ margin: 0 }}>
-                <div>Event Name</div>
-                  <div>Event Place</div>
-                  </p>
-              </div>
-            )}
-          </div>
-          <div className="black-box">
-            <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
-              <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
-            </span>
-            <button className={"centered-button1317 ${clicked ? 'toggled-photo' : ''}"}   onClick={() => handleClick1(index)} style={{ position: 'relative' }}>Details</button>
-            <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-            
-            </div>
-          </div>
+))} */}
+{/* {photoStates2.map((clicked, index) => (
+  <div className={'card-photo1786'} key={index}>
+    <div className="black-box">
+      <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
+        <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
+      </span>
+      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
+      <div className={`event-details ${clicked ? '' : 'hidden'}`}>
+        
+      </div>
+    </div>
+    <div className="image-container">
+     
+      {additionalHistory?.map((event, imageIndex) => (
+        <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${imageIndex + 1}`} key={imageIndex} style={{ width: '100%' }} />
+      ))}
+      {clicked && (
+        <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+          <p style={{ margin: 0 }}>
+            <div>Event Name</div>
+            <div>Event Place</div>
+          </p>
         </div>
-      ))} */}
+      )}
+    </div>
+  </div>
+))} */}
 
+{photoStates2.map((clicked, index) => (
+  <div className={'card-photo1786'} key={index}>
+    <div className="black-box">
+      <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
+        
+      </span>
+      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
+      <div className={`event-details ${clicked ? '' : 'hidden'}`}>
+        
+      </div>
+    </div>
+    <div className="image-container">
+      {/* Accessing only the first value from additionalHistory */}
+      {additionalHistory?.[0] && (
+        <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${additionalHistory[0]._id}.jpg`} alt={`Photo 1`} style={{ width: '200px' }} />
+      )}
+      {clicked && (
+        <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+          <p style={{ margin: 0 }}>
+            
+          <div className='wert1236'>
+  {additionalHistory?.[0]?.title && <div>{additionalHistory[0].title.charAt(0).toUpperCase() + additionalHistory[0].title.slice(1)}</div>}
+</div>
+
+            <div className='wert1276'>
+            {additionalHistory?.[0]?.location && <div>{additionalHistory[0].location}</div>}
+            </div>
+          </p>
+        </div>
+      )}
+    </div>
+  </div>
+))}
+{photoStates3.map((clicked, index) => (
+  <div className={'card-photo1786'} key={index}>
+    <div className="black-box">
+      <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
+        
+      </span>
+      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick3(index)} style={{ position: 'relative' }}>Details</button>
+      <div className={`event-details ${clicked ? '' : 'hidden'}`}>
+        
+      </div>
+    </div>
+    <div className="image-container">
+      {/* Accessing only the first value from additionalHistory */}
+      {additionalHistory?.[0] && (
+        <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${additionalHistory[1]._id}.jpg`} alt={`Photo 1`} style={{ width: '200px' }} />
+      )}
+      {clicked && (
+        <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+          <p style={{ margin: 0 }}>
+            
+          <div className='wert1236'>
+  {additionalHistory?.[0]?.title && <div>{additionalHistory[1].title.charAt(0).toUpperCase() + additionalHistory[1].title.slice(1)}</div>}
+</div>
+
+            <div className='wert1276'>
+            {additionalHistory?.[1]?.location && <div>{additionalHistory[1].location}</div>}
+            </div>
+          </p>
+        </div>
+      )}
+    </div>
+  </div>
+))}
+{photoStates4.map((clicked, index) => (
+  <div className={'card-photo1786'} key={index}>
+    <div className="black-box">
+      <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
+        
+      </span>
+      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick4(index)} style={{ position: 'relative' }}>Details</button>
+      <div className={`event-details ${clicked ? '' : 'hidden'}`}>
+        
+      </div>
+    </div>
+    <div className="image-container">
+      {/* Accessing only the first value from additionalHistory */}
+      {additionalHistory?.[0] && (
+        <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${additionalHistory[2]._id}.jpg`} alt={`Photo 1`} style={{ width: '200px' }} />
+      )}
+      {clicked && (
+        <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+          <p style={{ margin: 0 }}>
+            
+          <div className='wert1236'>
+  {additionalHistory?.[0]?.title && <div>{additionalHistory[2].title.charAt(0).toUpperCase() + additionalHistory[2].title.slice(1)}</div>}
+</div>
+
+            <div className='wert1276'>
+            {additionalHistory?.[2]?.location && <div>{additionalHistory[2].location}</div>}
+            </div>
+          </p>
+        </div>
+      )}
+    </div>
+  </div>
+))}
+{photoStates5.map((clicked, index) => (
+  <div className={'card-photo1786'} key={index}>
+    <div className="black-box">
+      <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
+        
+      </span>
+      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick5(index)} style={{ position: 'relative' }}>Details</button>
+      <div className={`event-details ${clicked ? '' : 'hidden'}`}>
+        
+      </div>
+    </div>
+    <div className="image-container">
+      {/* Accessing only the first value from additionalHistory */}
+      {additionalHistory?.[3] && (
+        <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${additionalHistory[3]._id}.jpg`} alt={`Photo 1`} style={{ width: '200px' }} />
+      )}
+      {clicked && (
+        <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+          <p style={{ margin: 0 }}>
+            
+          <div className='wert1236'>
+  {additionalHistory?.[3]?.title && <div>{additionalHistory[3].title.charAt(0).toUpperCase() + additionalHistory[3].title.slice(1)}</div>}
+</div>
+
+            <div className='wert1276'>
+            {additionalHistory?.[3]?.location && <div>{additionalHistory[3].location}</div>}
+            </div>
+          </p>
+        </div>
+      )}
+    </div>
+  </div>
+))}
     
       {/* {photoStates2.map((clicked, index) => (
         <div className={'card-photo1786'} key={index}>
@@ -624,7 +837,8 @@ function scrollToContent() {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
+      {/* 
       {photoStates4.map((clicked, index) => (
         <div className={'card-photo1786'} key={index}>
           <div className="image-container">
@@ -679,9 +893,7 @@ function scrollToContent() {
 </div>
 
       </div>
-      <h5 className="card-title1786">title</h5>
-      <p className="card-text1786">tast somethinh</p>
-      <a href="#" className="btn btn-primary">Go somewhere</a>
+
     </div>
 </div>
 
@@ -875,20 +1087,18 @@ Amid staff shortages in the social care sector, the Government plans to launch a
 </div>
 </div>
 </div>
-<div className='errr117'>
-      {/* <div className="height-100 bg-light"> */}
+{/* <div className='errr117'>
+     
         <h4>Main Components</h4>
-      {/* </div> */}
+      
      
       {isButtonVisible && (
         <button id="scrollToTopBtn" className="scroll-to-top-button" onClick={scrollToTop}>
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
       )}
-<div>
-  <h1>map user location</h1>
-  </div>
-  </div>
+
+  </div> */}
 
   {/* <div className="card1786" style={{ backgroundColor: 'gray' }}>
      <div id="carddetails1786">
@@ -904,11 +1114,11 @@ Amid staff shortages in the social care sector, the Government plans to launch a
 
       {events1.map((evnt1, index) => (
   <div className="card-photo1786" key={index}>
-    <img src={`${config.bucket_url}event/${evnt1._id}.jpg`} alt={`Photo ${index + 1}`} />
-    <div className="black-box" onClick={() => handleClick1(index)}>
-      <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event1 coming soon... </span>
+    <img src={`${config.bucket_url}event/${evnt1._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '200px', height: '330px' }}/>
+    <div className="black-box" onClick={() => handleClick2(index)}>
+      <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> {evnt1.title.charAt(0).toUpperCase() + evnt1.title.slice(1)} coming soon... </span>
       <button className="centered-button1316">Apply</button>
-      <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>{evnt1.title}</h6></span> {/* Render event name */}
+      <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>Event Name: <span style={{ fontFamily: 'Arial', fontSize: '17px', fontWeight: 'bold' }}>{evnt1.title.toUpperCase()}</span></h6></span> {/* Render event name */}
       <span className="event-description">{evnt1.place}</span> {/* Render event place */}
     </div>
   </div>

@@ -11,6 +11,7 @@ router.get('/', async function (req, res, next) {
             const volunteer = await VolunteerModel.findById(review.vol_id);
             return {
                 reviewMsg: review.reviewMsg,
+                reviewRating: review.reviewRating,
                 volunteer: volunteer ? {
                     first_name: volunteer.first_name,
                     last_name: volunteer.last_name
@@ -41,6 +42,7 @@ router.post('/', async function (req, res, next) {
             if (existingReview) {
 
                 existingReview.reviewMsg = req.body.reviewMsg;
+                existingReview.reviewRating=req.body.reviewRating
                 await existingReview.save();
                 res.status(200).send('Review updated successfully');
             } else {
@@ -48,7 +50,8 @@ router.post('/', async function (req, res, next) {
                 const reviewInstance = new eventReviewModel({
                     vol_id: req.cookies.uid,
                     event_id: req.body.event_id,
-                    reviewMsg: req.body.reviewMsg
+                    reviewMsg: req.body.reviewMsg,
+                    reviewRating: req.body.reviewRating
                 });
                 await reviewInstance.save();
                 res.status(201).send('New review created successfully');

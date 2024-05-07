@@ -144,9 +144,41 @@ useEffect(() => {
   });
 }, []);
 
- 
+const [reviewData, setReviewData] = useState({
+  event_id: '',
+  reviewMsg: '',
+  reviewRating: ''
+});
+const handleReviewChange = (e) => {
+  const { name, value } = e.target;
+  setReviewData(prevState => ({
+    ...prevState,
+    [name]: value
+  }));
+};
+
+const handleReviewSubmit = (e) => {
+  e.preventDefault();
+  //console.log("review data:\n",reviewData)
+  axios({
+    method: 'post',
+    url: config.server_api_url + '/event/review',
+    data:reviewData,
+    withCredentials: true,
+  })
+    .then((res) => {
+
+     alert("Review Added")
+
+    })
+    .catch((err) => {
+      alert(err.response?.data)
+
+    });
 
 
+  
+};
 
 const [events1, setEvents1] = useState([]);
 	
@@ -1293,7 +1325,7 @@ Amid staff shortages in the social care sector, the Government plans to launch a
   <h2>Leave a Review</h2>
   <div className="form-group">
   <label htmlFor="eventSelect" className="sr-only">Select Event:</label>
-  <select id="eventSelect" className="form-control" style={{ width: '160px' }}required>
+  <select id="eventSelect" className="form-control" style={{ width: '160px' }} name="event_id" onChange={handleReviewChange} value={reviewData.event_id} required>
     <option value="" disabled selected>Select Event</option>
     {additionalHistory?.map((event, index) => (
       <option key={index} value={event._id}>{event.title}</option>
@@ -1305,7 +1337,7 @@ Amid staff shortages in the social care sector, the Government plans to launch a
 
 <div className="form-group">
   <label htmlFor="ratingSelect" className="sr-only">Rating:</label>
-  <select id="ratingSelect" className="form-control" style={{ width: '160px' }} >
+  <select id="ratingSelect" className="form-control" style={{ width: '160px' }} name="reviewRating" onChange={handleReviewChange} value={reviewData.reviewRating}>
     <option value="" disabled selected>Rating</option>
     <option value="bad">Bad</option>
     <option value="satisfying">Satisfying</option>
@@ -1320,9 +1352,9 @@ Amid staff shortages in the social care sector, the Government plans to launch a
 
   <div className="form-group" style={{ width: '460px' }}>
     <label htmlFor="reviewText">Review:</label>
-    <textarea id="reviewText" className="form-control" placeholder="Write your review here..." rows="4" cols="50"></textarea>
+    <textarea id="reviewText" className="form-control" placeholder="Write your review here..." rows="4" cols="50" name="reviewMsg" value={reviewData.reviewMsg} onChange={handleReviewChange}></textarea>
   </div>
-  <button className="btn btn-primary" onClick={() => alert('Your review has been submitted successfully!')}>
+  <button className="btn btn-primary" onClick={handleReviewSubmit}>
         Submit Review
       </button>
 </div>

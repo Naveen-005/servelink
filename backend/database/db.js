@@ -128,7 +128,8 @@ const adminModel = mongoose.model('admin', adminSchema);
 const eventReviewSchema = new Schema({
   vol_id: String,
   event_id: String,
-  reviewMsg: String
+  reviewMsg: String,
+  reviewRating: String
 });
 const eventReviewModel = mongoose.model('event_review',eventReviewSchema);
 

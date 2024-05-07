@@ -181,6 +181,7 @@ const ReviewCard = ({_event}) => {
                         {reviews?.map((review, index) => (
                             <div key={index} style={styleName.reviewContainer}>
                                 <div style={styleName.reviewName}>{review.volunteer.first_name} {review.volunteer.last_name}</div>
+                                <div style={styleName.reviewText}>Rating: {review.reviewRating}</div>
                                 <div style={styleName.reviewText}>{review.reviewMsg}</div>
                             </div>
                         ))}

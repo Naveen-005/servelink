@@ -1117,7 +1117,8 @@ Amid staff shortages in the social care sector, the Government plans to launch a
     <img src={`${config.bucket_url}event/${evnt1._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '200px', height: '330px' }}/>
     <div className="black-box" onClick={() => handleClick2(index)}>
       <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> {evnt1.title.charAt(0).toUpperCase() + evnt1.title.slice(1)} coming soon... </span>
-      <button className="centered-button1316">Apply</button>
+      {/* <button className="centered-button1316">Apply</button> */}
+       <a href="/event_details/6631d043534cceb8e04f5385" className="centered-button1316">Apply</a>
       <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>Event Name: <span style={{ fontFamily: 'Arial', fontSize: '17px', fontWeight: 'bold' }}>{evnt1.title.toUpperCase()}</span></h6></span> {/* Render event name */}
       <span className="event-description">{evnt1.place}</span> {/* Render event place */}
     </div>

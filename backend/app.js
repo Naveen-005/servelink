@@ -29,7 +29,8 @@ var counter=require('./routes/count');
 var volunteerReportRouter=require('./routes/volunteerReport');
 var volunteerReportAction= require('./routes/vol_Report_Action');
 var admin= require('./routes/login/admin');
-var volunteerProfile=require('./routes/volunteerProfile')
+var volunteerProfile=require('./routes/volunteerProfile');
+var eventReview=require('./routes/register/eventReview');
 
 
 var app = express();
@@ -71,6 +72,7 @@ app.use('/report/volunteer',volunteerReportRouter);
 app.use('/report/volunteer/action',volunteerReportAction);
 app.use('/admin',admin);
 app.use('/volunteerProfile',volunteerProfile)
+app.use('/event/review',eventReview);
 
 
 

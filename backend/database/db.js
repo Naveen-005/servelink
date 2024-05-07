@@ -125,6 +125,13 @@ const adminSchema = new Schema({
 });
 const adminModel = mongoose.model('admin', adminSchema);
 
+const eventReviewSchema = new Schema({
+  vol_id: String,
+  event_id: String,
+  reviewMsg: String
+});
+const eventReviewModel = mongoose.model('event_review',eventReviewSchema);
+
 
 module.exports = {
   VolunteerModel,
@@ -134,5 +141,6 @@ module.exports = {
   messageModel,
   volunteerReportModel,
   volunteerReportActionModel,
-  adminModel
+  adminModel,
+  eventReviewModel
 };

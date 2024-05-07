@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import coverPhoto from './cvo.jpg'
 import { Helmet } from 'react-helmet';
 import SideBar from './components/sidebar';
 import UserDropdown from './components/userdropdown';
+import ReviewCard from './ReviewCard';
+import axios from 'axios';
+import config from '../../config.json'
 
 const styleName = {
   rec121: (bgColor = '#f2f2f2') => ({
@@ -118,6 +121,29 @@ const Review = () => {
     { name: 'David Wilson', text: 'It was an excellent event. Looking forward to the next one!' },
   ];
 
+  const [evnt,setEvnt]=useState(null)
+
+  useEffect(() => {
+
+
+    axios({
+      method: 'get',
+      url: config.server_api_url + '/org/event',
+      withCredentials: true,
+    })
+      .then((res) => {
+
+        setEvnt(res.data);
+
+      })
+      .catch((err) => {
+        alert(err.response?.data)
+
+      });
+
+  }, []);
+
+
   return (
     <div style={styleName.area121()}>
       <UserDropdown/>
@@ -126,6 +152,12 @@ const Review = () => {
       </Helmet>
       <SideBar />
 
+      {evnt?.map((event, index) => (
+        <ReviewCard key={index} _event={event} />
+      ))}
+   
+
+{/*
       <div style={styleName.rec121('#ffffff')}>
         <div style={styleName.eventName('#333')}>
           Event Name
@@ -137,11 +169,11 @@ const Review = () => {
           />
         </div>
         <div style={styleName.eventButton('red', '#fff')}>Completed</div>
-        {/* <div style={styleName.eventButton1('#4CAF50', '#fff')}> Ongoing</div> */}
+        {/* <div style={styleName.eventButton1('#4CAF50', '#fff')}> Ongoing</div> 
 
         <div style={styleName.divider('#cccccc')} />
 
-        <Meter total={100} enrolled={75} />
+    <Meter total={100} enrolled={75} />
 
         <div style={styleName.popupContainer()}>
           <div style={styleName.popup(showPopup)}>
@@ -189,6 +221,7 @@ const Review = () => {
           </button>
         </div>
       </div>
+      */}
     </div>
   );
 };

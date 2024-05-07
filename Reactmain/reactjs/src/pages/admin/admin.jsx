@@ -36,7 +36,7 @@ const LoginPage = () => {
           Cookies.set('name', res.data.name, { expires: 7 })
         	Cookies.set('admin', res.data.admin_id, { expires: 7 })
           alert("Successfully logged in")
-          navigate("/adminvol")
+          navigate("/adminorg")
 
       })
       .catch((err) => {

@@ -1,18 +1,16 @@
 // import React from 'react';
 import React, { useState, useEffect, useRef } from 'react';
-// import { useLocationData } from '../../components/LocationContext';
+
 
 import './userdash.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
-// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-// import 'leaflet/dist/leaflet.css'; // Import Leaflet CSS
-// import L from 'leaflet';
+
 import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; // Import Leaflet CSS
 import L from 'leaflet';
 import axios from 'axios';
-import Cookies from 'js-cookie';
+
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,8 +18,7 @@ import Cookies from 'js-cookie';
 
 import 'boxicons/css/boxicons.min.css';
 import { Helmet } from 'react-helmet';
-import {  Link } from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
 //import '@fortawesome/fontawesome-free/css/all.min.css';
 
 //import 'boxicons/dist/css/boxicons.min.css';
@@ -74,41 +71,7 @@ function Userdash(dash) {
   const [events, setEvents] = useState([]);
   const [mapCenter, setMapCenter] = useState([51.505, -0.09]); // Default map center
   const [mapZoom, setMapZoom] = useState(13); // Default map zoom level
- // Fetch marker data from backend on component mount
- /*
- const [additionalCoordinates, setAdditionalCoordinates] = useState([
-  [9.681830, 76.778503],
-  [9.670300,76.556763],
-  [9.748060, 76.644550],
-  [9.655434, 76.722451],
-  [9.628738,76.645533],
-  [9.594995, 76.430260],
-  [9.748328, 76.457228],
-  [9.556297, 76.791736],
-]);
-*/
-// const [additionalname, setAdditionalname] = useState(null);
-// useEffect(() => {
-//   axios({
-//     method: 'get',
-//     url: config.server_api_url + '/event/voluntername',
-//     //withCredentials: true,
-//   })
-//     .then((res) => {
 
-//       setAdditionalname(res.data);
-
-
-
-//     })
-//     .catch((err) => {
-//       alert(err)
-
-//     });
-
-
-
-// }, []);
 const [additionalname, setAdditionalname] = useState(null);
 
 useEffect(() => {
@@ -170,28 +133,6 @@ const [events1, setEvents1] = useState([]);
 
 	
 	}, []);
-
-
-/*
-
-
-
-
-
-  
-  axios.get('/api/events')
-    .then(response => {
-      setEvents(response.data);
-      if (response.data.length > 0) {
-        setMapCenter([parseFloat(response.data[0].loc_lat), parseFloat(response.data[0].loc_lng)]);
-        const eventDataCoordinates = response.data.map(event => [parseFloat(event.loc_lat), parseFloat(event.loc_lng)]);
-        setAdditionalCoordinates(prevCoordinates => [...prevCoordinates, ...eventDataCoordinates]);
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching event data:', error);
-    });
-    */
     const [additionalCoordinates, setAdditionalCoordinates] = useState(null);
 
     // Fetch event data from backend API and update additionalCoordinates
@@ -270,36 +211,6 @@ useEffect(() => {
     };
   }
 }, [additionalCoordinates]);
-
-
-const [user_name,setUserName]=useState('Guest')
-const [isLoggedIn,setLoginStatus] = useState(false)
-
-const handleLogout = () => {
-  setLoginStatus(false)
-  setUserName('Guest')
-  Cookies.remove('name');
-  Cookies.remove('org_id');
-  Cookies.remove('token');
-  Cookies.remove('uid');
-
-
-};
-
-useEffect(() => {
-  
-  if (Cookies.get('name')) {
-    setUserName(Cookies.get('name'))
-    setLoginStatus(true)
-  }
-
-}, []);
-
-
-
-
-
-
   const [isButtonVisible, setIsButtonVisible] = useState(false);
 
   useEffect(() => {
@@ -329,37 +240,10 @@ useEffect(() => {
     });
   };
 
-  // const handleClick = () => {
-  //   setState(prevState => ({
-  //     ...prevState,
-  //     clicked: !prevState.clicked // Toggle the value of clicked
-  //   }));
-  // };
 
   const [clicked, setClicked] = useState(false);
 
 
-//   const [photoStates1, setPhotoStates1] = useState([true]);
-// const [photoStates2, setPhotoStates2] = useState([true]); 
-// const [photoStates3, setPhotoStates3] = useState([true]);
-// const [photoStates4, setPhotoStates4] = useState([true]);
-
-// const [photoStates1, setPhotoStates1] = useState(Array(1).fill(false));
-
-// const handleClick1 = (index) => {
-//   setPhotoStates1(prevStates => {
-//     const newStates = [...prevStates];
-//     newStates[index] = !newStates[index];
-//     return newStates;
-//   });
-// };
-// const handleClickDetails1 = () => {
- 
-//   setPhotoStates1(prevStates => prevStates.map(state => !state));
-// };
-// useEffect(() => {
-//   setPhotoStates1(Array(additionalHistory.length).fill(false)); // Reset photo states when additionalHistory changes
-// }, [additionalHistory]);
 
 const [photoStates1, setPhotoStates1] = useState([]);
 const [org,setOrg] = useState(null);
@@ -375,27 +259,6 @@ useEffect(() => {
   const [photoStates3, setPhotoStates3] = useState(Array(1).fill(false));
   const [photoStates4, setPhotoStates4] = useState(Array(1).fill(false));
   const [photoStates5, setPhotoStates5] = useState(Array(1).fill(false));
-
-// const handleClick1 = (index) => {
-//   setPhotoStates1(prevStates => {
-//     const newStates = [...prevStates];
-//     newStates[index] = !newStates[index];
-//     return newStates;
-//   });
-// };
-
-// const [photoStates1, setPhotoStates1] = useState([]);
-
-// useEffect(() => {
-//   setPhotoStates1(Array(photoStates1.length).fill(false));
-// }, []);
-
-
-
-// useEffect(() => {
-//   setPhotoStates2(Array(photoStates2.length).fill(false));
-// }, []);
-
 
 
 // Handle click for the second set of images
@@ -492,12 +355,6 @@ function scrollToContent() {
   }
 }
 
-function logout() {
-
-  localStorage.removeItem('authToken');
-
-  window.location.href = '/login'; 
-}
 
 
 
@@ -517,27 +374,9 @@ function logout() {
         <div className="header117_img">
           {/* Wrap the image inside a button element */}
           <button onClick={toggleCardVisibility} className="profile-photo-button" style={{ width: '150px' }}>
-  <img src={`${config.bucket_url}profile/volunteer/${additionalname?._id}.jpg`} alt="No photo" style={{ width: '100%', height: '100%' }} />
+  <img src={`${config.bucket_url}profile/volunteer/${additionalname?._id}.jpg`} alt="" style={{ width: '100%', height: '100%' }} />
 </button>
-{/* {`${config.bucket_url}profile/volunteer/${additionalname?._id}.jpg`} */}
 
-          {/* {state.isCardVisible && (
-        <div className="floating-card117" id="floatingCard117">
-         
-          <div className="user-info">
-          <img src={`${config.bucket_url}profile/volunteer/${dash._id}.jpg`} alt="Profile Image" className="profile-image" />
-            <h3 className="user-name" style={{ fontSize: '28px' }}>{additionalname.first_name.charAt(0).toUpperCase() + additionalname.first_name.slice(1)} {additionalname.last_name.charAt(0).toUpperCase() + additionalname.last_name.slice(1)}</h3>
-            <p className="user-email">{additionalname.email} </p>
-            
-            <div className="account-actions">
-            <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }}>Account Settings</a>
-              <button className="btn btn-danger logout-button" style={{ fontSize: '15px' }}>
-                <i className="fas fa-sign-out-alt" ></i>Logout
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
       {state.isCardVisible && additionalname && (
   <div className="floating-card117" id="floatingCard117">
     {/* Profile Picture */}
@@ -551,17 +390,14 @@ function logout() {
      )  }
      
     
-      <h3 className="user-name" style={{ fontSize: '28px' }}>{additionalname?.first_name.charAt(0).toUpperCase() + additionalname?.first_name.slice(1)} {additionalname?.last_name.charAt(0).toUpperCase() + additionalname?.last_name.slice(1)}</h3>
-      <p className="user-email">{additionalname?.email} </p>
+      <h3 className="user-name" style={{ fontSize: '28px' }}>{additionalname.first_name.charAt(0).toUpperCase() + additionalname.first_name.slice(1)} {additionalname.last_name.charAt(0).toUpperCase() + additionalname.last_name.slice(1)}</h3>
+      <p className="user-email">{additionalname.email} </p>
       {/* Account Actions */}
       <div className="account-actions">
-        <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }} >Account Settings</a>
-        {isLoggedIn && (
- <Link to="/login" className="btn btn-danger logout-button" style={{ fontSize: '15px' }} onClick={handleLogout}>
- <i className="fas fa-sign-out-alt"></i>Logout
-</Link>
-)}
-
+        <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }}>Account Settings</a>
+        <button className="btn btn-danger logout-button" style={{ fontSize: '15px' }}>
+          <i className="fas fa-sign-out-alt" ></i>Logout
+        </button>
       </div>
     </div>
     
@@ -602,21 +438,12 @@ function logout() {
         <i className='bx bx-bookmark nav117_icon'></i> 
         <span className="nav117_name">Upcoming Events </span> 
       </a> 
-              {/* <a href="#" className="nav117_link"> 
-                <i className='bx bx-folder nav117_icon'></i> 
-                <span className="nav117_name">Files</span> 
-              </a> 
-              <a href="#" className="nav117_link"> 
-                <i className='bx bx-bar-chart-alt-2 nav117_icon'></i> 
-                <span className="nav117_name">Stats</span> 
-              </a>  */}
+             
             </div>
           </div> 
           <a href="#" style={{ textDecoration: 'none' }}className="nav117_link"> 
             <i className='bx bx-log-out nav117_icon'></i> 
-            <Link to="/login" className="nav117_name" onClick={handleLogout}>
-  SignOut
-</Link>
+            <span className="nav117_name">SignOut</span> 
           </a>
         </nav117>
       </div>
@@ -642,117 +469,8 @@ function logout() {
 
       <div>
 
- {/* {additionalHistory?.map((event, index) => (
-  <div className={'card-photo1786'} key={index}>
-    <div className="image-container" onClick={() => handleClick2(index)}> 
-      <img src={`${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '200px', height: '350px' }} />
-      <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-        <p style={{ margin: 0 }}>
-          {event.title && <div>{event.title}</div>} 
-          {event.location && <div>{event.location}</div>}
-        </p>
-      </div>
-    </div>
-    <div className="black-box">
-      <span className={`white-text1736 ${photoStates1[index] ? 'hidden' : ''}`}>
-        <i className={`bx ${photoStates1[index] ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
-      </span>
-      <button className={`centered-button1317 ${photoStates1[index] ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
-      <div className={`event-details ${photoStates1[index] ? '' : 'hidden'}`}>
-     
-      </div>
-    </div>
-  </div>
-))} */}
 
-{/* 
-1111 */}
-{additionalHistory?.map((event, index) => (
-  <div className={'card-photo1786'} key={index}>
-    <div className="image-container"> 
-      <img src={`${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '200px', height: '350px' }} />
-      <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-        <p style={{ margin: 0 }}>
-          {/* {event.title && <div>{event.title}</div>} 
-          {event.location && <div>{event.location}</div>} */}
-        </p>
-      </div>
-    </div>
-    <div className="black-boox">
-      <span className={`white-text1736`}>
-        
-      </span>
 
-      {/* <button className={`centered-button1317 ${photoStates1[index] ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button> */}
-      <div className='wert1236'>
-      {event.title && <div>{event.title.charAt(0).toUpperCase() + event.title.slice(1)}</div>}
-
-      </div>
-      <div className='wert176'>
-    {event.location && <div>{event.location}</div>}
-    </div>
-    </div>
-   
-  </div>
-))}
-
-      {/* 111   */}
-
-{/* {additionalHistory?.map((event, index)=> (
-  <div className={'card-photo1786'} key={index}>
-    <div className="image-container">
-      
-      {photoStates2.map((clicked, index) => (
-        <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`}key={index} style={{ width: '100%' }} />
-      ))}
-      {clicked && (
-        <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-          <p style={{ margin: 0 }}>
-            <div>Event Name</div>
-            <div>Event Place</div>
-          </p>
-        </div>
-      )}
-    </div>
-    <div className="black-box">
-      <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
-        <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
-      </span>
-      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
-      <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-        
-      </div>
-    </div>
-  </div>
-))} */}
-{/* {photoStates2.map((clicked, index) => (
-  <div className={'card-photo1786'} key={index}>
-    <div className="black-box">
-      <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
-        <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
-      </span>
-      <button className={`centered-button1317 ${clicked ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
-      <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-        
-      </div>
-    </div>
-    <div className="image-container">
-     
-      {additionalHistory?.map((event, imageIndex) => (
-        <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${imageIndex + 1}`} key={imageIndex} style={{ width: '100%' }} />
-      ))}
-      {clicked && (
-        <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-          <p style={{ margin: 0 }}>
-            <div>Event Name</div>
-            <div>Event Place</div>
-          </p>
-        </div>
-      )}
-    </div>
-  </div>
-))} */}
-{/* 
 {photoStates2.map((clicked, index) => (
   <div className={'card-photo1786'} key={index}>
     <div className="black-box">
@@ -765,7 +483,7 @@ function logout() {
       </div>
     </div>
     <div className="image-container">
-   
+      {/* Accessing only the first value from additionalHistory */}
       {additionalHistory?.[0] && (
         <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${additionalHistory[0]._id}.jpg`} alt={`Photo 1`} style={{ width: '200px' }} />
       )}
@@ -798,7 +516,7 @@ function logout() {
       </div>
     </div>
     <div className="image-container">
-    
+      {/* Accessing only the first value from additionalHistory */}
       {additionalHistory?.[0] && (
         <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${additionalHistory[1]._id}.jpg`} alt={`Photo 1`} style={{ width: '200px' }} />
       )}
@@ -831,7 +549,7 @@ function logout() {
       </div>
     </div>
     <div className="image-container">
-      
+      {/* Accessing only the first value from additionalHistory */}
       {additionalHistory?.[0] && (
         <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${additionalHistory[2]._id}.jpg`} alt={`Photo 1`} style={{ width: '200px' }} />
       )}
@@ -864,7 +582,7 @@ function logout() {
       </div>
     </div>
     <div className="image-container">
-      
+      {/* Accessing only the first value from additionalHistory */}
       {additionalHistory?.[3] && (
         <img src={clicked ? "assets/images/114.jpg" : `${config.bucket_url}event/${additionalHistory[3]._id}.jpg`} alt={`Photo 1`} style={{ width: '200px' }} />
       )}
@@ -884,82 +602,9 @@ function logout() {
       )}
     </div>
   </div>
-))} */}
+))}
     
-      {/* {photoStates2.map((clicked, index) => (
-        <div className={'card-photo1786'} key={index}>
-          <div className="image-container">
-            <img src={clicked ? "assets/images/114.jpg" : "assets/images/card18.jpg"} alt={`Photo ${index + 1}`} style={{ width: '100%' }} />
-            {clicked && (
-              <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-                <p style={{ margin: 0 }}>
-                  <div>Event Name</div>
-                  <div>Event Place</div>
-                  </p>
-              </div>
-            )}
-          </div>
-          <div className="black-box">
-            <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
-              <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
-            </span>
-            <button className={"centered-button1317 ${clicked ? 'toggled-photo' : ''}"} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button>
-            <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-           
-            </div>
-          </div>
-        </div>
-      ))} */}
-      {/* 
-      {photoStates4.map((clicked, index) => (
-        <div className={'card-photo1786'} key={index}>
-          <div className="image-container">
-            <img src={clicked ? "assets/images/114.jpg" : "assets/images/d123.jpg"} alt={`Photo ${index + 1}`} style={{ width: '100%' }} />
-            {clicked && (
-              <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-                <p style={{ margin: 0 }}>
-                <div>Event Name</div>
-                  <div>Event Place</div>
-                  </p>
-              </div>
-            )}
-          </div>
-          <div className="black-box">
-            <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
-              <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
-            </span>
-            <button className={"centered-button1317 ${clicked ? 'toggled-photo' : ''}"} onClick={() => handleClick4(index)} style={{ position: 'relative' }}>Details</button>
-            <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-            
-            </div>
-          </div>
-        </div>
-      ))}
 
-{photoStates3.map((clicked, index) => (
-        <div className={'card-photo1786'} key={index}>
-          <div className="image-container">
-            <img src={clicked ? "assets/images/114.jpg" : "assets/images/card18.jpg"} alt={`Photo ${index + 1}`} style={{ width: '100%' }} />
-            {clicked && (
-              <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-                <p style={{ margin: 0 }}>
-                <div>Event Name</div>
-                  <div>Event Place</div>
-                  </p>
-              </div>
-            )}
-          </div>
-          <div className="black-box">
-            <span className={`white-text1736 ${clicked ? 'hidden' : ''}`}>
-              <i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i>
-            </span>
-            <button className={"centered-button1317 ${clicked ? 'toggled-photo' : ''}"} onClick={() => handleClick3(index)} style={{ position: 'relative' }}>Details</button>
-            <div className={`event-details ${clicked ? '' : 'hidden'}`}>
-             
-            </div>
-          </div>
-        </div>
-      ))} */}
       
 
 </div>
@@ -1159,22 +804,6 @@ Amid staff shortages in the social care sector, the Government plans to launch a
 </div>
 </div>
 </div>
-{/* <div className='errr117'>
-     
-        <h4>Main Components</h4>
-      
-     
-      {isButtonVisible && (
-        <button id="scrollToTopBtn" className="scroll-to-top-button" onClick={scrollToTop}>
-        <FontAwesomeIcon icon={faArrowUp} />
-      </button>
-      )}
-
-  </div> */}
-
-  {/* <div className="card1786" style={{ backgroundColor: 'gray' }}>
-     <div id="carddetails1786">
-    <img src={"assets/images/logo167.jpeg"} alt="Upcoming Events" id="carddetails1786"/> */}
     <div className="card1786" style={{ backgroundColor: 'gray' }} ref={cardRef}>
       <div id="carddetails1786">
     <i className="bx bxs-megaphone bx-lg"style={{ color: 'red' }}></i>
@@ -1190,81 +819,25 @@ Amid staff shortages in the social care sector, the Government plans to launch a
     <div className="black-box" onClick={() => handleClick2(index)}>
       <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> {evnt1.title.charAt(0).toUpperCase() + evnt1.title.slice(1)} coming soon... </span>
       {/* <button className="centered-button1316">Apply</button> */}
-      <a href={`/event_details/${evnt1?._id}`} className="centered-button1316">Apply</a>
-
+       <a href="/event_details/6631eac3c04a9c7fbc5ed8f6" className="centered-button1316">Apply</a>
       <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>Event Name: <span style={{ fontFamily: 'Arial', fontSize: '17px', fontWeight: 'bold' }}>{evnt1.title.toUpperCase()}</span></h6></span> {/* Render event name */}
       <span className="event-description">{evnt1.place}</span> {/* Render event place */}
     </div>
   </div>
 ))}
 
-      {/* {photoStates1.map((clicked, index) => (
-  <div className="card-photo1786" key={index}>
-    <img src={"assets/images/card18.jpg"} alt={`Photo ${index + 1}`} />
-    <div className="black-box" onClick={() => handleClick1(index)}>
-    <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event1 comming soon... </span>
-    <button className="centered-button1316">Apply</button>
-    <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>EventName</h6></span>
-    <span className="event-description">Place</span>
-    </div>
-  </div>
-))}
-{photoStates2.map((clicked, index) => (
-  <div className="card-photo1786" key={index}>
-    <img src={"assets/images/card13.jpg"} alt={`Photo ${index + 1}`} />
-    <div className="black-box" onClick={() => handleClick2(index)}>
-    <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event2 comming soon... </span>
-    <button className="centered-button1316">Apply</button>
-    <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>EventName</h6></span>
-    <span className="event-description">Place</span>
-    </div>
-  </div>
-))}
-{photoStates4.map((clicked, index) => (
-  <div className="card-photo1786" key={index}>
-    <img src={"assets/images/card16.jpg"} alt={`Photo ${index + 1}`} />
-    <div className="black-box" onClick={() => handleClick4(index)}>
-    <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event3 comming soon... </span>
-    <button className="centered-button1316">Apply</button>
-    <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>EventName</h6></span>
-    <span className="event-description">Place</span>
-    </div>
-  </div>
-))}
-{photoStates3.map((clicked, index) => (
-  <div className="card-photo1786" key={index}>
-    <img src={"assets/images/d123.jpg"} alt={`Photo ${index + 1}`} />
-    <div className="black-box" onClick={() => handleClick3(index)}>
-    <span className="white-text1736"><i className={`bx ${clicked ? 'bxs-heart text-red' : 'bx-heart'}`}></i> Event4 comming soon... </span>
-    <button className="centered-button1316">Apply</button>
-    <span className="event-description"><h6 style={{ margin: '0', padding: '0' }}>EventName</h6></span>
-    <span className="event-description">Place</span>
-    </div>
-  </div>
-))} */}
+  
 
 
 </div>
 
       </div>
-      
+      <h5 className="card-title1786">title</h5>
+      <p className="card-text1786">tast somethinh</p>
+      <a href="#" className="btn btn-primary">Go somewhere</a>
     </div>
 </div>
 
-  {/* <div id='maploc163'>
-<div id="map" ref={mapRef} style={{ height: '400px' }}></div>
-</div> */}
-
-{/* <div>
-{additionalname !== null ? (
-      <div>
-        <h3>Name: {additionalname.first_name} {additionalname.last_name} {additionalname.email}</h3>
-        
-      </div>
-    ) : (
-      <p>Loading...</p>
-    )}
-  </div> */}
 
 
 
@@ -1286,46 +859,7 @@ Amid staff shortages in the social care sector, the Government plans to launch a
       
       )}
 
-<div className='y567891'></div>
 
-
-<div className="review-section review-section1201">
-  <h2>Leave a Review</h2>
-  <div className="form-group">
-  <label htmlFor="eventSelect" className="sr-only">Select Event:</label>
-  <select id="eventSelect" className="form-control" style={{ width: '160px' }}required>
-    <option value="" disabled selected>Select Event</option>
-    {additionalHistory?.map((event, index) => (
-      <option key={index} value={event._id}>{event.title}</option>
-    ))}
-  </select>
-</div>
-
-
-
-<div className="form-group">
-  <label htmlFor="ratingSelect" className="sr-only">Rating:</label>
-  <select id="ratingSelect" className="form-control" style={{ width: '160px' }} >
-    <option value="" disabled selected>Rating</option>
-    <option value="bad">Bad</option>
-    <option value="satisfying">Satisfying</option>
-    <option value="good">Good</option>
-    <option value="awesome">Awesome Experience</option>
-    {/* Adjust the range of ratings as needed */}
-  </select>
-</div>
-
-
-
-
-  <div className="form-group" style={{ width: '460px' }}>
-    <label htmlFor="reviewText">Review:</label>
-    <textarea id="reviewText" className="form-control" placeholder="Write your review here..." rows="4" cols="50"></textarea>
-  </div>
-  <button className="btn btn-primary" onClick={() => alert('Your review has been submitted successfully!')}>
-        Submit Review
-      </button>
-</div>
 
 
     </div>

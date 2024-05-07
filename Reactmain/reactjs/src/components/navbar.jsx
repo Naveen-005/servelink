@@ -49,6 +49,8 @@ function Navbar() {
     Cookies.remove('uid');
     Cookies.remove('token');
     Cookies.remove('org_id');
+    Cookies.remove('admin');
+    
 
   };
 

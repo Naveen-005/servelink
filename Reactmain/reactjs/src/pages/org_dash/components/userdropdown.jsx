@@ -10,14 +10,15 @@ const UserDropdown = () => {
   const toggleDropdown = () => setDropdownOpen(prevState => !prevState);
 
   const [user_name,setUserName]=useState('Guest')
-  const [isLoggedIn,setLoginStatus] = useState(false)
+  //const [isLoggedIn,setLoginStatus] = useState(false)
   const handleLogout = () => {
-    setLoginStatus(false)
-    setUserName('Guest')
+
     Cookies.remove('name');
     Cookies.remove('uid');
     Cookies.remove('token');
     Cookies.remove('org_id');
+    Cookies.remove('admin');
+    alert("Logged out")
 
   };
 

@@ -418,7 +418,7 @@ const handleClickDetails = () => {
           {/* <img src="https://i.imgur.com/hczKIze.jpg" alt="Profile Photo" className="profile-photo" /> */}
           {/* User Information */}
           <div className="user-info">
-          <img src={`${config.bucket_url}profile/${dash._id}.jpg`} alt="Profile Image" className="profile-image" />
+          <img src={`${config.bucket_url}profile/volunteer/${dash._id}.jpg`} alt="Profile Image" className="profile-image" />
             <h3 className="user-name" style={{ fontSize: '28px' }}>{additionalname.first_name.charAt(0).toUpperCase() + additionalname.first_name.slice(1)} {additionalname.last_name.charAt(0).toUpperCase() + additionalname.last_name.slice(1)}</h3>
             <p className="user-email">{additionalname.email}</p>
             {/* Account Actions */}

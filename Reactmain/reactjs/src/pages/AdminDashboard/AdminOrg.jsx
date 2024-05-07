@@ -14,7 +14,7 @@ const AdminOrg = () => {
     padding: '15px',
     backgroundAttachment: 'fixed',
     backgroundSize: '100%',
-    minHeight: '200vh',
+    minHeight: '210vh',
   };
 
   const containerStyle = {

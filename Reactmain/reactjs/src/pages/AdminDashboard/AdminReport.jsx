@@ -110,13 +110,14 @@ const AdminReport = () => {
             width: '80%',
             left: '17%',
             animation: 'slideIn 0.5s ease',
+            marginRight:'2rem',
           }}
         >
           <span
             style={{
               fontSize: '1.2rem',
               fontWeight: 'bold',
-              marginRight: '3rem',
+              marginRight: '15rem',
               transition: 'transform 0.3s ease',
             }}
             onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
@@ -124,8 +125,10 @@ const AdminReport = () => {
           >
             {account.first_name} {account.last_name}
           </span>
+
+          
           <div style={{ display: 'flex', gap: '11rem' }}>
-            <button
+           {/* <button
               style={{
                 backgroundColor: '#dc3545',
                 color: '#fff',
@@ -141,10 +144,12 @@ const AdminReport = () => {
             >
               Delete
             </button>
+            */}
+            
             <button
               style={{
-                backgroundColor: '#ffc107',
-                color: '#333',
+                backgroundColor: 'red',
+                color: 'white',
                 border: 'none',
                 borderRadius: '4px',
                 padding: '0.5rem 1rem',

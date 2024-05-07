@@ -89,7 +89,7 @@ function App() {
         
 
         {/*ADMIN PAGES*/} 
-        <Route path="/admindash" element={<AdminDash />} />
+       {/*<Route path="/admindash" element={<AdminDash />} />*/}
         <Route path="/adminorg" element={<AdminOrg/>} />
         <Route path="/adminvol" element={<AdminVol/>} />
         <Route path="/adminrep" element={<AdminReport/>} />

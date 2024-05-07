@@ -46,8 +46,7 @@ function Event_details() {
         };
 
         useEffect(() => {
-
-            
+ 
             axios({
                 method: 'get',
                 url: config.server_api_url + '/event_details',
@@ -68,7 +67,6 @@ function Event_details() {
                     alert(err.response?.data)
         
             });
-            
 
         },[]);
 
@@ -85,6 +83,8 @@ function Event_details() {
                 <div className="content" style={contentStyle77}>
                     <div className="column1" style={coloumnStyle77}>
                         <img src={`${config.bucket_url}event/${event._id}.jpg`} alt="Event" style={imageStyle77} />
+                        <a href={`https://www.google.com/maps/dir/?api=1&destination=${event.loc_lat},${event.loc_lng}`} target="_blank">Get Directions</a>
+
                     </div>
                     <div className="divider" style={dividerStyle}></div>
                     <div className="column2" style={coloumnStyle78}>

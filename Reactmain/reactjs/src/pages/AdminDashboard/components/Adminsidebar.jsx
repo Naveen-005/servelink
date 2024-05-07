@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
 
 const Adminsidebar = ({ children }) => {
   const location = useLocation();
@@ -46,6 +48,17 @@ const Adminsidebar = ({ children }) => {
     marginLeft: '200px',
     padding: '20px',
     flex: 1,
+  };
+
+  const handleLogout = () => {
+
+    Cookies.remove('name');
+    Cookies.remove('uid');
+    Cookies.remove('token');
+    Cookies.remove('org_id');
+    Cookies.remove('admin');
+    alert("Logged out")
+
   };
 
   return (

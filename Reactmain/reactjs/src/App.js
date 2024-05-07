@@ -61,7 +61,7 @@ function App() {
 
          {/* TESTING PAGES*/}
         <Route path="/test" element={<MapTest />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<Profile />} />
         <Route path="/chatbot" element={<Chatbot />} />
 
 

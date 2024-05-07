@@ -361,14 +361,14 @@ useEffect(() => {
 //   setPhotoStates1(Array(additionalHistory.length).fill(false)); // Reset photo states when additionalHistory changes
 // }, [additionalHistory]);
 
-const [photoStates1, setPhotoStates1] = useState([]);
-const [org,setOrg] = useState(null);
-// Ensure additionalHistory is not null before setting the length of photoStates1
-const additionalHistoryLength = additionalHistory ? additionalHistory.length : 0;
+// const [photoStates1, setPhotoStates1] = useState([]);
+// const [org,setOrg] = useState(null);
 
-useEffect(() => {
-  setPhotoStates1(Array(additionalHistoryLength).fill(false)); // Reset photo states when additionalHistory changes
-}, [additionalHistoryLength]);
+// const additionalHistoryLength = additionalHistory ? additionalHistory.length : 0;
+
+// useEffect(() => {
+//   setPhotoStates1(Array(additionalHistoryLength).fill(false)); // Reset photo states when additionalHistory changes
+// }, [additionalHistoryLength]);
 
  // const [dash,setDash] = useState(null);
   const [photoStates2, setPhotoStates2] = useState(Array(1).fill(false));
@@ -462,9 +462,9 @@ const handleButtonClick = () => {
 
 const handleClickDetails = () => {
   // Toggle back any toggled photo when clicking on details
-  if (photoStates1.includes(true)) {
-    setPhotoStates1(Array(photoStates1.length).fill(false));
-  }
+  // if (photoStates1.includes(true)) {
+  //   setPhotoStates1(Array(photoStates1.length).fill(false));
+  // }
   if (photoStates2.includes(true)) {
     setPhotoStates2(Array(photoStates2.length).fill(false));
   }
@@ -1335,3 +1335,4 @@ Amid staff shortages in the social care sector, the Government plans to launch a
 }
 
 export default Userdash;
+

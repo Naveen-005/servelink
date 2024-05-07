@@ -150,7 +150,7 @@ function Orgreg() {
 				<div className="login10013-more" style={{backgroundImage: "url('assets/images/13.jpg')"}}>
 					<nav className="navbar1">
 						
-						<Link className="home-btn" to="/" style={{ textDecoration: 'none', color: '#2a5834',position:'relative',left:'170%'}} >Home</Link>
+						<Link className="home-btn" to="/" style={{ textDecoration: 'none', color: '#2a5834',position:'relative',left:'1203px'}} >Home</Link>
 						<br/>
 						</nav>
 				</div>

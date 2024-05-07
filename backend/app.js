@@ -29,6 +29,7 @@ var counter=require('./routes/count');
 var volunteerReportRouter=require('./routes/volunteerReport');
 var volunteerReportAction= require('./routes/vol_Report_Action');
 var admin= require('./routes/login/admin');
+var volunteerProfile=require('./routes/volunteerProfile')
 
 
 var app = express();
@@ -69,6 +70,8 @@ app.use('/count',counter);
 app.use('/report/volunteer',volunteerReportRouter);
 app.use('/report/volunteer/action',volunteerReportAction);
 app.use('/admin',admin);
+app.use('/volunteerProfile',volunteerProfile)
+
 
 
 module.exports = app;

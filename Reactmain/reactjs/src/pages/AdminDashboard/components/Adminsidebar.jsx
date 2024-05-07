@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
 
 const Adminsidebar = ({ children }) => {
   const location = useLocation();
@@ -35,7 +37,7 @@ const Adminsidebar = ({ children }) => {
 
   const menuItems = [
    // { label: 'Dashboard', path: '/admindash' },
-    { label: 'Volunteer', path: '/adminvol' },
+   // { label: 'Volunteer', path: '/adminvol' },
     { label: 'Organization', path: '/adminorg' },
     { label: 'Reported', path: '/adminrep' },
   //  { label: 'Feedback', path: '/adminfeed' },
@@ -46,6 +48,17 @@ const Adminsidebar = ({ children }) => {
     marginLeft: '200px',
     padding: '20px',
     flex: 1,
+  };
+
+  const handleLogout = () => {
+
+    Cookies.remove('name');
+    Cookies.remove('uid');
+    Cookies.remove('token');
+    Cookies.remove('org_id');
+    Cookies.remove('admin');
+    alert("Logged out")
+
   };
 
   return (

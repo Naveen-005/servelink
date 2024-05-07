@@ -1,9 +1,42 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate , useParams} from 'react-router-dom';
 import './profile.css';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
+import config from '../../config.json'
 
-function profile() {
+
+function Profile() {
+
+    const [volunteer, setVolunteer]=useState(null)
+    const { id } = useParams();
+    const [eventCount, setEventCount]=useState(0)
+
+
+    useEffect(() => {
+ 
+        axios({
+            method: 'get',
+            url: config.server_api_url + '/volunteerProfile',
+            withCredentials: true,
+            params:{
+                id: id
+            }
+          })
+            .then((res) => {
+
+                setVolunteer(res.data.volunteer)
+                setEventCount(res.data.eventCount)
+                //console.log(res.data)
+
+            })
+            .catch((err) => {
+                alert(err.response?.data)
+    
+        });
+
+    },[]);
+
   return (
     <div>
             <Helmet>
@@ -17,7 +50,7 @@ function profile() {
                         <div className="rounded-top text-white d-flex flex-row"
                             style={{backgroundColor: '#000', height:'200px'}}>
                             <div className="ms-4 mt-5 d-flex flex-column" style={{width:'150px'}}>
-                                <img src={"https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"}
+                                <img src={`${config.bucket_url}profile/volunteer/${volunteer?._id}.jpg`}
                                     alt="Generic placeholder image" className="img-fluid img-thumbnail mt-4 mb-2"
                                     style={{width: '150px', zIndex:'1'}}/>
                                     {/*
@@ -28,15 +61,15 @@ function profile() {
                                 */}
                             </div>
                             <div className="ms-3" style={{marginTop: '130px'}}>
-                                <h5>Andy Horwitz</h5>
-                                <p>Level 5</p>
+                                <h5>{volunteer?.first_name} {volunteer?.last_name}</h5>
+                                <p>{}</p>
                             </div>
                         </div>
                         <div className="p-4 text-black" style={{backgroundColor: '#f8f9fa'}}>
                           
                             <div className="d-flex justify-content-end text-center py-1">
                                 <div>
-                                    <p className="mb-1 h5">23</p>
+                                    <p className="mb-1 h5">{eventCount}</p>
                                     <p className="small text-muted mb-0">Events</p>
                                 </div>
                                 <div className="px-3">
@@ -49,7 +82,15 @@ function profile() {
                                 </div>
                             </div>
                         
-                        <p className="pt-5">Special Skill: Cooking</p>
+{      /*                  <p className="pt-5">Special Skill: {volunteer?.skills}</p>
+*/}
+                        <p className="pt-5">Special Skill:
+                        {volunteer?.skills.map((skill, index) => (
+                        <span key={index}> {skill}{index !== volunteer.skills.length - 1 ? ', ' : ''}</span>
+                        ))}
+                        </p>
+
+
                         </div>
                         <div className="card-body p-4 text-black">
                             <div className="mb-5">
@@ -93,4 +134,4 @@ function profile() {
   )
 }
 
-export default profile
+export default Profile

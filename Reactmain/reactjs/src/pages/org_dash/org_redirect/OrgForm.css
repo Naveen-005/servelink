@@ -2,7 +2,7 @@
     font-family: sans-serif;
     text-align: center;
     padding: 10px;
-    background-image: url('./aa.jpg');
+    background-image: url('./pc02.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,15 +10,19 @@
   }
   
   .box007 {
-    border: 5px double black;
+   border: 6px double black;
     padding: 20px;
-    background-color:darkcyan;
+     /* background-color:C4DFE6; */
+    background-color: darkcyan; 
+   
+    
   }
   .box008 {
-    border: 3px solid black;
+    /*border: 3px solid black;*/
     padding: 20px;
-    background-color: #ADEFD1FF;
+    /*background-color: #ADEFD1FF;*/
     height: 650px;
+    
   }
   
 

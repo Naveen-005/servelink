@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     if(req.query.id){
 
     organizationModel.findById(req.query.id).select('-password').then((m_res)=>{
-        console.log(m_res)
+        //console.log(m_res)
         res.send(m_res)
     })
     //console.log(req.query.id)
@@ -24,7 +24,7 @@ router.put('/', upload.single('file'), function(req, res, next) {
 
     if(req.cookies.org_id && req.file.buffer){
         if(req.body.filetype==="document"){
-            minioClient.putObject('servelink', '/profile/organization/document/' + req.cookies.org_id + '.pdf', req.file.buffer, {}, function (err, etag) {
+            minioClient.putObject('servelink', '/profile/organization/document/' + req.cookies.org_id + '.pdf', req.file.buffer, {'Content-Type': 'application/pdf'}, function (err, etag) {
                 if (err)
                   console.log(err)
                 else

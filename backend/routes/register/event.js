@@ -10,7 +10,7 @@ const upload = multer({ storage: storage });
 
 // Function to calculate the score for an event
 function calculateEventScore(event, volunteerLat, volunteerLng, volunteerSkills) {
-  
+
   const distanceScore = calculateDistanceScore(event.loc_lat, event.loc_lng, volunteerLat, volunteerLng);
   const skillScore = calculateSkillScore(event.skills, volunteerSkills);
   const dateScore = calculateDateScore(new Date(event.date));
@@ -30,17 +30,15 @@ function calculateDistanceScore(eventLat, eventLng, volunteerLat, volunteerLng) 
 
   // Haversine formula
   const a = Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
-            Math.cos(lat1Rad) * Math.cos(lat2Rad) *
-            Math.sin(deltaLng / 2) * Math.sin(deltaLng / 2);
+    Math.cos(lat1Rad) * Math.cos(lat2Rad) *
+    Math.sin(deltaLng / 2) * Math.sin(deltaLng / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   const distance = earthRadius * c; // Distance in kilometers
 
-  // You can define your scoring function based on the distance
-  // For example, you might want to give a higher score to closer events
-  // Here, I'm just using a linear function, but you can adjust it according to your preference
+
   const maxDistance = 100; // Maximum distance in kilometers
   const minScore = 0;
-  const maxScore = 20; 
+  const maxScore = 20;
   const distanceScore = 1 - (distance / maxDistance); // Linear function for scoring
 
   // Ensure the score is within the range [minScore, maxScore]
@@ -60,7 +58,7 @@ function calculateSkillScore(eventSkills, volunteerSkills) {
     // Check if the volunteer possesses this skill
     if (volunteerSkills.includes(eventSkill)) {
 
-      totalScore += 3; 
+      totalScore += 3;
     }
   }
 
@@ -82,40 +80,48 @@ router.post('/', upload.single('file'), function (req, res, next) {
   if (req.body.auth) {
     organizationModel.findOne(req.body.auth)
       .then((mongo_res) => {
-
-
-        if (req.file.buffer) {
-
-          var file = req.file.buffer
+        if(!mongo_res){
+          res.status(401).send("Not logged in")
         }
-        console.log(req.body.formData)
-        const event_instance = new eventModel(req.body.formData);
-        event_instance.org_id = req.body.auth._id
-        event_instance.enrolled = 0
+        else if (mongo_res.verified === true) {
+          if (req.file.buffer) {
 
-        event_instance.save()
-          .then((mongo_res) => {
-            if (req.file?.buffer) {
+            var file = req.file.buffer
+          }
+          console.log(req.body.formData)
+          const event_instance = new eventModel(req.body.formData);
+          event_instance.org_id = req.body.auth._id
+          event_instance.enrolled = 0
 
-              minioClient.putObject('servelink', '/event/' + mongo_res._id + '.jpg', file, {}, function (err, etag) {
-                if (err)
-                  console.log(err)
-                else
-                  console.log('File uploaded successfully.')
-              })
-            }
+          event_instance.save()
+            .then((mongo_res) => {
+              if (req.file?.buffer) {
 
-            res.send('Event successfully registered');
+                minioClient.putObject('servelink', '/event/' + mongo_res._id + '.jpg', file, {}, function (err, etag) {
+                  if (err)
+                    console.log(err)
+                  else
+                    console.log('File uploaded successfully.')
+                })
+              }
 
-          })
+              res.send('Event successfully registered');
 
+            })
+        }else{
+          res.status(401).send("Your organization is not verified");
+        }
 
+        })
 
-      })
-  } else {
-    res.status(401)
-    res.send("No Authorization")
   }
+
+
+
+ else {
+  res.status(401)
+    res.send("No Authorization")
+}
 
 
 });
@@ -131,7 +137,7 @@ router.get('/', function (req, res, next) {
     //today.setHours(0, 0, 0, 0);
     eventModel.find({ date: { $gte: today } })
       .then((m_res) => {
-        console.log("today:",today)
+        console.log("today:", today)
         console.log(m_res)
         res.send(m_res)
       })

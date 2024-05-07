@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './OrgForm.css'
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import config from '../../../config.json'
 
@@ -64,9 +64,6 @@ function OrgForm() {
 
       })
       .catch((err) => {
-
-        
-
         alert(err.response?.data)
       });
 
@@ -239,11 +236,11 @@ const renderStep = () => {
               <label for="domain" className="form-label">About</label>
               
                <textarea
+               name='about'
                value={formData.about}
                onChange={handleChange}
                style={{ width: '100%',backgroundColor:'white' }}
                rows={7}
-              
              />
                
             
@@ -272,6 +269,7 @@ const renderStep = () => {
                     id="pinocode"
                     name="zip_code"
                     className="form-control"
+                    maxLength="6"
                     value={formData.zip_code}
                     onChange={handleChange}
                   />
@@ -280,7 +278,7 @@ const renderStep = () => {
 
             </div>
             <div>
-              <label htmlFor="doc">Upload Doccuments:</label>
+              <label htmlFor="doc">Upload Doccuments:(PDF ONLY)</label>
               <input type="file" id="doc" name="doccuments" accept="doccuments/*" onChange={handlePdfChange} />
             </div>
 
@@ -477,6 +475,7 @@ const renderStep = () => {
 };
 
 return (
+  <>
   <div className="App">
 
     <div className="box007" style={{ height: '750px', width: '550px', margin: '0 auto' }}>
@@ -576,6 +575,7 @@ return (
       {renderStep()}
     </div>
   </div>
+  </>
 );
 }
 

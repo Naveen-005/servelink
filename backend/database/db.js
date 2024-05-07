@@ -38,8 +38,15 @@ const organizationSchema = new Schema({
   phone_no: String,
   zip_code: String,
   about: String,
-  otp: String
+  otp: String,
+  verified: Boolean,
+  joined_Date: Date,
 
+});
+organizationSchema.pre('save', function (next) {
+  this.verified = false
+  this.joined_Date = new Date()
+  next();
 });
 const organizationModel = mongoose.model('Organizations', organizationSchema);
 
@@ -52,23 +59,24 @@ const eventSchema = new Schema({
   time: String,
   short_description: String,
   long_description: String,
+  conditions: String,
   required: Number,
-  org_id:String,
+  org_id: String,
   enrolled: Number,
   required: Number,
   skills: Object
 
 });
 
-eventSchema.pre('save', function(next) {
+eventSchema.pre('save', function (next) {
   let sumOfSkills = 0;
   const skills = this.skills;
 
   // Calculate sum of values in the skills object
   for (const skill in skills) {
-      if (skill) {
-          sumOfSkills += parseInt(skills[skill]);
-      }
+    if (skill) {
+      sumOfSkills += parseInt(skills[skill]);
+    }
   }
 
   // Set required field to the sum of skills
@@ -85,13 +93,46 @@ const eventEnrollmentSchema = new Schema({
   vol_id: String,
   skill: String
 });
-const eventEnrollmentModel = mongoose.model('Event_enrollment',eventEnrollmentSchema);
+const eventEnrollmentModel = mongoose.model('Event_enrollment', eventEnrollmentSchema);
 
 const messageSchema = new Schema({
   event_id: String,
   message: String
 });
-const messageModel = mongoose.model('Messages',messageSchema);
+const messageModel = mongoose.model('Messages', messageSchema);
+
+const volunteerReportSchema = new Schema({
+  vol_id: String,
+  reason: String,
+  event_id: String,
+  actionTaken: Boolean
+});
+volunteerReportSchema.pre('save', function (next) {
+  this.actionTaken = false
+  next();
+});
+const volunteerReportModel = mongoose.model('Vol_Report', volunteerReportSchema);
+
+const volunteerReportActionSchema = new Schema({
+  vol_id: String,
+  action: String,
+});
+const volunteerReportActionModel = mongoose.model('vol_report_acton', volunteerReportActionSchema);
+
+const adminSchema = new Schema({
+  username: String,
+  password: String
+});
+const adminModel = mongoose.model('admin', adminSchema);
 
 
-module.exports = { VolunteerModel, organizationModel, eventModel, eventEnrollmentModel, messageModel };
+module.exports = {
+  VolunteerModel,
+  organizationModel,
+  eventModel,
+  eventEnrollmentModel,
+  messageModel,
+  volunteerReportModel,
+  volunteerReportActionModel,
+  adminModel
+};

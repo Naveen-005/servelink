@@ -18,10 +18,17 @@ var orgEventGetter=require('./routes/organization/event');
 var orgProfileRouter=require('./routes/organization/profile');
 var changepasswordRouter=require('./routes/changePassword');
 var otpVerifier=require('./routes/otpVerify');
+var volunteerListRouter=require('./routes/volunteerList');
+var MessageRouter=require('./routes/message');
 
 var locationGetter=require('./routes/eventcoordinates');
 var volnameGetter=require('./routes/volunteername');
 var historyfinder=require('./routes/eventhistory');
+var org_verfier=require('./routes/admin/org_verify');
+var counter=require('./routes/count');
+var volunteerReportRouter=require('./routes/volunteerReport');
+var volunteerReportAction= require('./routes/vol_Report_Action');
+var admin= require('./routes/login/admin');
 
 
 var app = express();
@@ -51,10 +58,17 @@ app.use('/org/event', orgEventGetter);
 app.use('/profile/organization',orgProfileRouter);
 app.use('/changePassword',changepasswordRouter);
 app.use('/otpVerify',otpVerifier);
+app.use('/event/volunteerList',volunteerListRouter);
+app.use('/message',MessageRouter);
 
 app.use('/event/location',locationGetter);
 app.use('/login/voluntername',volnameGetter);
 app.use('/event/history',historyfinder);
+app.use('/admin/org_verify',org_verfier);
+app.use('/count',counter);
+app.use('/report/volunteer',volunteerReportRouter);
+app.use('/report/volunteer/action',volunteerReportAction);
+app.use('/admin',admin);
 
 
 module.exports = app;

@@ -3,8 +3,6 @@ import Sidebarprofile from './components/sidebarprofile';
 import { Helmet } from 'react-helmet';
 import SideBar from './components/sidebar'
 import UserDropdown from './components/userdropdown';
-import coverPhoto from './cvo.jpg'
-import ProfilePhoto from './dpo.jpg'
 import { useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';
@@ -59,11 +57,12 @@ const ProfileView = () => {
   return (
     
     <div className="container141" style={container141Style}>
+      <UserDropdown />
       <Helmet>
       <title>Profile</title>
     </Helmet>
     <SideBar />
-    <UserDropdown />
+    
     <div className="container142" style={container142Style}>
       <div style={rectangle141Style}>
         {/*<h1>cover photo</h1>*/}

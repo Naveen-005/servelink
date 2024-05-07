@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 
 function Footer() {
   return (
@@ -25,11 +26,18 @@ function Footer() {
 							<div className="widget">
 								<h3>Popular Causes</h3>
 								<ul className="list-unstyled float-left links">
-								<li><Link className="" to="">Food for hungry</Link></li>
-								<li><Link className="" to="">Education for Children</Link></li>
-								<li><Link className="" to="">Support for Livelihood</Link></li>
+								<li>
+								<ScrollLink to="food-for-hungry" smooth={true} duration={500}>
+                                            Food for hungry
+                                     </ScrollLink></li>
+								<li><ScrollLink to="education-for-children" smooth={true} duration={500}>
+                                      Education for Children
+                                       </ScrollLink></li>
+								<li> <ScrollLink to="support-live-hood" smooth={true} duration={500}>
+                                         Support for Livelihood
+                                      </ScrollLink></li>
 								<li><Link className="" to="">Medical Mission</Link></li>
-								<li><Link className="" to="">Education</Link></li>
+								
 								</ul>
 							</div>
 						</div>
@@ -53,12 +61,8 @@ function Footer() {
 									Choondacherry P.O,
 									Palai, Kottayam 686 579,
 									Kerala,India.</address>
-								<ul className="list-unstyled links mb-4">
-								<li><Link className="" to="">+91 0000000</Link></li>
-								<li><Link className="" to="">+91 0000000</Link></li>
-								<li><Link className="" to="">servelink2024@gmail.com</Link></li>
-								</ul>
-
+								
+                              {/*
 								<h3>Connect</h3>
 								<ul className="list-unstyled social">
 									<li><a href="#"><span className="icon-instagram"></span></a></li>
@@ -68,7 +72,7 @@ function Footer() {
 									<li></li>
 
 								</ul>
-
+                              */}
 							</div>
 						</div>
 

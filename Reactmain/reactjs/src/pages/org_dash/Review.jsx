@@ -71,7 +71,7 @@ const styleName = {
     position: 'absolute',
     left: '50%',
     transform: 'translateX(-50%)',
-    height: '25%',
+    height: '15%',
     width: '1px',
     backgroundColor: color,
   }),
@@ -148,13 +148,14 @@ const Review = () => {
     <div style={styleName.area121()}>
       <UserDropdown/>
       <Helmet>
-        <title>Messages</title>
+        <title>Review</title>
       </Helmet>
       <SideBar />
-
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
       {evnt?.map((event, index) => (
         <ReviewCard key={index} _event={event} />
       ))}
+      </div>
    
 
 {/*

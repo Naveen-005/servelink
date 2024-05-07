@@ -104,9 +104,10 @@ function Navbar() {
 
             </li>
            
-            <li className="nav-item" >
+           {/* <li className="nav-item" >
               <Link className="nav-link" to="/contact"  onClick={() => handleLinkClick('contact')}>Contact</Link>
             </li>
+           */}
             
             <li className="nav-item dropdown"  style={{ marginLeft:'45%',cursor:'pointer'}}>
             <li className="nav-item" >

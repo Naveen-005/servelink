@@ -10,6 +10,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import { Helmet } from 'react-helmet';
+import { Element } from 'react-scroll';
 
 
 import './style.css'
@@ -349,6 +350,7 @@ function Index() {
 				<div className="container mb-5">
 					<div className="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
 						<Slider {...settings} className="features-slider">
+						<Element name="food-for-hungry">
 							<div className="item px-2" >
 								<div className="causes-item bg-white ">
 									<img src={"assets/images/v13.jpg"} alt="Image" className="img-fluid mb-4 rounded" />
@@ -364,7 +366,9 @@ function Index() {
 									</div>
 								</div>
 							</div>
+							</Element>
 
+							<Element name="education-for-children">
 							<div className="item px-2" >
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/v11.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>
@@ -380,6 +384,9 @@ function Index() {
 									</div>
 								</div>
 							</div>
+							</Element>
+
+							<Element name="support-live-hood">
 
 							<div className="item px-2" >
 								<div className="causes-item bg-white">
@@ -395,7 +402,8 @@ function Index() {
 									</div>
 								</div>
 							</div>
-
+                            </Element>
+							
 							<div className="item px-2">
 								<div className="causes-item bg-white">
 									<a href="#"><img src={"assets/images/p2.jpg"} alt="Image" className="img-fluid mb-4 rounded" /></a>

@@ -49,8 +49,8 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg,rgba(0,212,255,1)  0%, rgba(9,9,121,1) 72%,rgba(2,0,36,1)  100%);
+    background: rgb(131, 131, 131);
+    /* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,125,232,1) 39%, rgba(202,179,214,1) 100%); */
     z-index: var(--z-fixed);
     transition: .5s
 }
@@ -372,8 +372,8 @@ a {
     justify-content: space-between; 
     padding-left: 59px;
     color: #3300ff;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,125,232,1) 39%, rgba(202,179,214,1) 100%);
    margin-top: 0px;
    padding-top: 120px;
   }
@@ -480,8 +480,8 @@ a {
   
   #mov121{
     padding-left: 58px;
-    background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,125,232,1) 39%, rgba(202,179,214,1) 100%);
   }
   /* .button-64 {
     align-items: center;
@@ -587,8 +587,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(
   padding-right: 170px;
   padding-bottom: 30px;
   color: #00DDEB;
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,125,232,1) 39%, rgba(202,179,214,1) 100%);
   margin-top: -8px;
   display: flex;
   gap: 80px;
@@ -598,8 +598,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(
   gap: 10px; /* Adjust the gap between buttons */
 }
 .components117{
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,125,232,1) 39%, rgba(202,179,214,1) 100%);
 padding-top: 8px;
 padding-bottom: 20px;
 }
@@ -633,8 +633,8 @@ padding-bottom: 20px;
 }
 #map1316 {
   width: 630px; /* Set the width to 100% of the parent container */
-  height: 400px; /* Set the height to 400 pixels */
-  border: 10px solid #a19e9e; /* Add a border around the map */
+  height: 600px; /* Set the height to 400 pixels */
+  border: 10px solid #000000; /* Add a border around the map */
   border-radius: 8px; /* Add some border radius for rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow for visual effect */
   background-color: #f9f9f9; /* Set the background color of the map */
@@ -648,8 +648,8 @@ padding-bottom: 20px;
 
 }
 .errr117{
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,125,232,1) 39%, rgba(202,179,214,1) 100%);
 }
 /* .card1786{
   margin-left: 52px;
@@ -705,8 +705,8 @@ padding-bottom: 20px;
 
 }
 .card1787 {
-  background: rgba(14, 7, 149, 0.537);
-  background: linear-gradient(90deg, rgb(3, 1, 49) 0%, rgba(9,9,121,1) 72%, rgba(0,212,255,1) 100%);
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,125,232,1) 39%, rgba(202,179,214,1) 100%);
 }
 .card-photo1786 {
   display: inline-block; /* Display images inline */
@@ -844,5 +844,18 @@ padding-bottom: 20px;
 .card-photo1786.toggled-photo img {
   width: 120%;
   height: 350px; /* Increase the width of the image when toggled */
+}
+.wert1236{
+  color: #670000;
+  font: larger;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wert1276{
+  width: 200px;
+  color: #410000;
+  font-size: small;
+  font-weight: 400;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 

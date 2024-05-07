@@ -35,7 +35,7 @@ const Adminsidebar = ({ children }) => {
 
   const menuItems = [
    // { label: 'Dashboard', path: '/admindash' },
-    { label: 'Volunteer', path: '/adminvol' },
+   // { label: 'Volunteer', path: '/adminvol' },
     { label: 'Organization', path: '/adminorg' },
     { label: 'Reported', path: '/adminrep' },
   //  { label: 'Feedback', path: '/adminfeed' },

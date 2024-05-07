@@ -53,7 +53,7 @@ function App() {
         <Route path="/login-organization" element={<Orglog />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register-organization" element={<Orgreg />} />
-        <Route path="/admin" element={<Admin />} />
+        
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/*" element={<Error />} />
@@ -89,9 +89,10 @@ function App() {
         
 
         {/*ADMIN PAGES*/} 
-        <Route path="/admindash" element={<AdminDash />} />
+        <Route path="/admin" element={<Admin />} />
+       {/*<Route path="/admindash" element={<AdminDash />} />*/}
         <Route path="/adminorg" element={<AdminOrg/>} />
-        <Route path="/adminvol" element={<AdminVol/>} />
+        {/*<Route path="/adminvol" element={<AdminVol/>} />*/}
         <Route path="/adminrep" element={<AdminReport/>} />
         <Route path="/adminfeed" element={<AdminFeedback/>} />
 

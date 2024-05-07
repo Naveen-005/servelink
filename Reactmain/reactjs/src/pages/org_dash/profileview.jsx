@@ -74,7 +74,7 @@ const ProfileView = () => {
       </div>
       <div style={boxStyle}>
         <div>Organization Name: {org?.name}</div>
-        <div>Joined Year</div>
+        <div>Joined On : May 2024</div>
         
       </div>
       
@@ -82,8 +82,8 @@ const ProfileView = () => {
          <Sidebarprofile org={org}/>
       </div>
       <div style={buttonRowStyle}>
-        <button style={buttonStyle} onClick={handleBackClick}>Ongoing Event</button>
-        <button style={buttonStyle} onClick={handleBack1Click}>Completed Event</button>
+        {/*<button style={buttonStyle} onClick={handleBackClick}>Ongoing Event</button>*/}
+        {/*<button style={buttonStyle} onClick={handleBack1Click}>Completed Event</button>*/}
       </div>
 
     </div>
@@ -134,13 +134,14 @@ const boxStyle = {
   BiFontFamily:'Helvetica',
   fontweight: 'bold',
   border:'1px solid black',
+  //color:'black'
   
 };
 
 const sidebarStyle = {
   marginTop: '10px',
-  padding:'20px'
-
+  padding:'20px',
+  
   
 };
 

@@ -234,7 +234,7 @@ const handle1Change = (e) => {
                                     <div class="col-6">
                                         <div class="input-group">
                                             <label class="label2">Phone Number</label>
-                                            <input class="input--style-4" type="text" name="phone_no" value={formData.phone_no} onChange={handleChange} />
+                                            <input class="input--style-4" type="text" name="phone_no" maxLength="10" value={formData.phone_no} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
@@ -257,7 +257,7 @@ const handle1Change = (e) => {
                                 <div class="col-6">
                                     <div class="input-group">
                                         <label class="label2">Pincode</label>
-                                        <input class="input--style-4" type="text" name="pincode" value={formData.pincode} onChange={handleChange}/>
+                                        <input class="input--style-4" type="text" name="pincode" maxLength="6" value={formData.pincode} onChange={handleChange}/>
                                     </div>
                                 </div>
                                   <div class="col-6">

@@ -150,11 +150,11 @@ function Orgprofile() {
                               autofocus
                             />
                           </div>
-                          <div className="mb-3 col-md-6">
+                         {/* <div className="mb-3 col-md-6">
                             <label for="domain" className="form-label">Domain</label>
                             <input className="form-control" type="text" name="domain" id="domain" value="" />
                           </div>
-                          
+  */} 
                           <div className="mb-3 col-md-6">
                             <label className="form-label" for="phoneNumber">Phone Number</label>
                             <div className="input-group input-group-merge">

@@ -34,11 +34,11 @@ const Adminsidebar = ({ children }) => {
   };
 
   const menuItems = [
-    { label: 'Dashboard', path: '/admindash' },
+   // { label: 'Dashboard', path: '/admindash' },
     { label: 'Volunteer', path: '/adminvol' },
     { label: 'Organization', path: '/adminorg' },
     { label: 'Reported', path: '/adminrep' },
-    { label: 'Feedback', path: '/adminfeed' },
+  //  { label: 'Feedback', path: '/adminfeed' },
     { label: 'Logout', path: '' },
   ];
 

@@ -3,8 +3,6 @@ import Sidebarprofile from './components/sidebarprofile';
 import { Helmet } from 'react-helmet';
 import SideBar from './components/sidebar'
 import UserDropdown from './components/userdropdown';
-import coverPhoto from './cvo.jpg'
-import ProfilePhoto from './dpo.jpg'
 import { useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';

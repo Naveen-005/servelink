@@ -270,15 +270,21 @@ function Analytics({ evnt }) {
       </ul>
         </div>
       )}
+      
 
       {reportPopup && (
-        <div className="popup">
+        <div className="popup" style={ volunteer1PopupStyle}>
+          <div style={closeButtonContainer}>
+            <button onClick={() => setReportPopup(false)} style={closeButtonStyle}>
+              X
+            </button>
+          </div>
           <textarea
             value={reportText}
             onChange={handleReportChange}
             placeholder="Reason:"
           ></textarea>
-          <button onClick={() => submitReport(selectedVolunteer._id)}>Report Volunteer</button>
+          <button onClick={() => submitReport(selectedVolunteer._id)} style={{backgroundColor:'red',padding:'10px',color:'white',borderRadius:'24px'}}>Send</button>
         </div>
       )}
 
@@ -414,6 +420,20 @@ const volunteerPopupStyle = {
   
 
 };
+
+const volunteer1PopupStyle = {
+  position: 'relative ',
+  top: '-100px',
+  left: '45%',
+  transform: 'translateY(-8%)',
+  backgroundColor: '#6AB187',
+  padding: '20px',
+  boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+  borderRadius: '8px',
+  zIndex: '2',
+  width: '300px',
+}
+
 
 const messagePopupStyle = {
   position: 'fixed',

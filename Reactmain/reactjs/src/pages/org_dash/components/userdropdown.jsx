@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useEffect } from 'react';
 import Cookies from 'js-cookie';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const UserDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(prevState => !prevState);
-
+  const navigate = useNavigate();
   const [user_name,setUserName]=useState('Guest')
   //const [isLoggedIn,setLoginStatus] = useState(false)
   const handleLogout = () => {
@@ -18,8 +19,10 @@ const UserDropdown = () => {
     Cookies.remove('token');
     Cookies.remove('org_id');
     Cookies.remove('admin');
-    alert("Logged out")
+    alert("Logged out");
+    navigate("/");
 
+   
   };
 
   return (

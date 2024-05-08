@@ -36,7 +36,9 @@ function Footer() {
 								<li> <ScrollLink to="support-live-hood" smooth={true} duration={500}>
                                          Support for Livelihood
                                       </ScrollLink></li>
-								<li><Link className="" to="">Medical Mission</Link></li>
+								<li><ScrollLink to="support-live-hood" smooth={true} duration={500}>
+                                         Health Care
+                                      </ScrollLink></li>
 								
 								</ul>
 							</div>

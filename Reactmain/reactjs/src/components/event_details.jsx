@@ -17,6 +17,9 @@ function Event_details() {
         const { id } = useParams();
         const navigate = useNavigate();
 
+        const [reloadTrigger, setReloadTrigger] = useState(false);
+
+
         const handleEnroll = (skill) => {
             axios({
                 method: 'post',
@@ -33,6 +36,7 @@ function Event_details() {
           
                     setEvent(prevEvent => ({ ...prevEvent, enrolled: prevEvent.enrolled + 1 }));
                     alert("successfully Enrolled")
+                    setReloadTrigger(prevState => !prevState);
           
                 })
                 .catch((err) => {
@@ -68,7 +72,7 @@ function Event_details() {
         
             });
 
-        },[]);
+        },[reloadTrigger]);
 
         
         
@@ -90,7 +94,7 @@ function Event_details() {
                     <div className="column2" style={coloumnStyle78}>
                     <button onClick={() => navigate('/events')} style={closeButtonStyle77}>X</button>
                         <h2 style={{ fontSize: '44px', fontWeight: 'bold', color: 'green' }}>{event.title}</h2>
-                        <p>Hosted by : {event.org_name} <br/>Date  :{new Date(event.date).toDateString()} <br/> Time :{event.time}</p>
+                        <p>Date  :{new Date(event.date).toDateString()} <br/> Time :{event.time}</p>
                         
                         <div style={descriptionStyle77}>
                             <p>

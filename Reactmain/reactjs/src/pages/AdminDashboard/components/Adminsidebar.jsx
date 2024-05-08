@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation,useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 
@@ -50,6 +50,7 @@ const Adminsidebar = ({ children }) => {
     flex: 1,
   };
 
+  const navigate = useNavigate();
   const handleLogout = () => {
 
     Cookies.remove('name');
@@ -57,7 +58,9 @@ const Adminsidebar = ({ children }) => {
     Cookies.remove('token');
     Cookies.remove('org_id');
     Cookies.remove('admin');
-    alert("Logged out")
+    alert("Logged out");
+    navigate("/");
+    
 
   };
 

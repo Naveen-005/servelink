@@ -635,7 +635,7 @@ function logout() {
             <a href="index" className="nav117_logo"> 
               <i className='fas fa-concierge-bell nav117_logo-icon'></i> 
 
-              <span className="nav117_logo-name" style={{ fontSize: '30px', fontWeight: 1800}}>Servelink</span> 
+              <Link to='/' className="nav117_logo-name" style={{ fontSize: '30px', fontWeight: 1800}}>Servelink</Link> 
 
             </a>
  <div className="nav117_list"> 
@@ -680,7 +680,7 @@ function logout() {
 <button class="button-64" role="button" onClick={handleButtonClick}>
   <span class="text pulse-grow-btn171">&nbsp;&nbsp;Active Events&nbsp;&nbsp;</span></button>
 <a href="events" class="button-64" role="button"><span class="text pulse-grow-btn171">Explore Events</span></a>
-<button class="button-64" role="button" onClick={scrollToContent}><span class="text pulse-grow-btn171">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read news&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+ {/*<button class="button-64" role="button" onClick={scrollToContent}><span class="text pulse-grow-btn171">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read news&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>*/}
 <button class="button-64" role="button" onClick={scrollToCard}><span class="text pulse-grow-btn171">&nbsp;&nbsp;Event History&nbsp;&nbsp;</span></button>
 </div> 
 {/* //////// */}

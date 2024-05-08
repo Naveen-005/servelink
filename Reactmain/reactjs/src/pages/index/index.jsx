@@ -503,30 +503,33 @@ function Index() {
 						<div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 							<div className="row section-counter">
 								<div className="col-lg-6">
+
+									
 									<div className="counter">
 										<i className="flaticon-social-services d-block text-secondary"></i>
 
-										<span className="number countup">209</span>
-										<span className="d-block">New Causes</span>
+										<span className="number countup">10</span>
+										<span className="d-block">Causes</span>
 									</div>
+				                    
 
 									<div className="counter">
 										<i className="flaticon-charity-money d-block text-secondary"></i>
-										<span className="number"><span className="countup">10</span>M</span>
-										<span className="d-block">Fund Raised</span>
+										<span className="number"><span className="countup">10</span></span>
+										<span className="d-block">Events</span>
 									</div>
 
 								</div>
 								<div className="col-lg-6">
 									<div className="counter mt-5">
 										<i className="flaticon-money-donation d-block text-secondary"></i>
-										<span className="number countup">3000</span>
-										<span className="d-block">Donors</span>
+										<span className="number countup">8</span>
+										<span className="d-block">Organizations</span>
 									</div>
 
 									<div className="counter">
 										<i className="flaticon-organs-donation d-block text-secondary"></i>
-										<span className="number countup">10000</span>
+										<span className="number countup">15</span>
 										<span className="d-block">Volunteers</span>
 									</div>
 								</div>

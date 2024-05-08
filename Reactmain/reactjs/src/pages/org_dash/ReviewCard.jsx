@@ -8,7 +8,7 @@ import config from '../../config.json'
 
 const styleName = {
     rec121: (bgColor = '#f2f2f2') => ({
-        width: '190%',
+        width: '230%',
         height: '200px',
         display: 'flex',
         justifyContent: 'space-between',
@@ -69,10 +69,10 @@ const styleName = {
         //margin:'4px'
     }),
     divider: (color = '#ccc') => ({
-        position: 'absolute',
-        left: '60%',
+        position: 'relative',
+        left: '10%',
         transform: 'translateX(-50%)',
-        height: '35%',
+        height: '134%',
         width: '2px',
         backgroundColor: color,
         
@@ -151,7 +151,7 @@ const ReviewCard = ({_event}) => {
                         style={{ width: '200px', height: '110px', objectFit: 'cover' }}
                     />
                 </div>
-                <div style={styleName.eventButton('red', '#fff')}>Completed</div>
+                {/*<div style={styleName.eventButton('red', '#fff')}>Completed</div>*/}
                 {/* <div style={styleName.eventButton1('#4CAF50', '#fff')}> Ongoing</div> */}
 
                 <div style={styleName.divider('#cccccc')} />

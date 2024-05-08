@@ -30,13 +30,18 @@ router.get('/', function (req, res, next) {
           //Object.assign(event, { enrollmentCounts });
 
           //event.date=event.date.toDateString()
-          const responseData = {
-            event: event,
-            skill_enrollment: enrollmentCounts
-          };
-          //responseData.event.date = new Date(responseData.event.date).toLocaleDateString();
-          //console.log("response:\n",responseData);
-          res.send(responseData);
+          organizationModel.findById(event.org_id).select('name')
+          .then((_org)=>{
+            const responseData = {
+              event: event,
+              skill_enrollment: enrollmentCounts,
+              org_name: _org.name
+            };
+
+            res.send(responseData);
+
+          })
+
         })
         .catch(error => {
           console.error("Error calculating enrollment counts:", error);

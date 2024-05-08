@@ -608,7 +608,7 @@ function logout() {
       <p className="user-email">{additionalname?.email} </p>
       {/* Account Actions */}
       <div className="account-actions">
-        <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }} >Account Settings</a>
+        {/* <a href="profile" className="btn btn-primary account-settings-button" style={{ fontSize: '15px' }} >Account Settings</a> */}
         {isLoggedIn && (
  <Link to="/login" className="btn btn-danger logout-button" style={{ fontSize: '15px' }} onClick={handleLogout}>
  <i className="fas fa-sign-out-alt"></i>Logout
@@ -643,10 +643,10 @@ function logout() {
         <i className='bx bx-grid-alt nav117_icon'></i> 
         <span className="nav117_name">Dashboard</span> 
       </a> 
-      <a href="profile" style={{ textDecoration: 'none' }}className={`nav117_link ${state.activeLink === 'Account' ? 'active' : ''}`} onClick={() => handleLinkClick('Account')}> 
+      {/* <a href="profile" style={{ textDecoration: 'none' }}className={`nav117_link ${state.activeLink === 'Account' ? 'active' : ''}`} onClick={() => handleLinkClick('Account')}> 
         <i className='bx bx-user nav117_icon'></i> 
         <span className="nav117_name">Account</span> 
-      </a> 
+      </a>  */}
       <a href="#" style={{ textDecoration: 'none' }}className={`nav117_link ${state.activeLink === 'Past History' ? 'active' : ''}`} onClick={() => handleLinkClick('Past History')}> 
         <i className='bx bx-message-square-detail nav117_icon'></i> 
         <span className="nav117_name">Past History</span> 
@@ -689,6 +689,7 @@ function logout() {
       <div id="carddetails1786">
     <i className="bx bxs-megaphone bx-lg"style={{ color: 'red' }}></i>
     <span className="icon-alt"><h4 style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', color: 'white' }}>Event History</h4></span>
+    
     </div>
     <div className="card-body1786">
       <div className="photos-container1786">
@@ -1020,15 +1021,20 @@ function logout() {
       </div>
 
     </div>
+    <div id='maploc163'>
+    <div id='maploc168'>
+<div id="map1316" ref={mapRef} style={{ height: '470px' }}></div>
+</div>
+</div>
 </div>
 
 
 
       {/* Container Main start */}
-      <div className="container172">
+      {/* <div className="container172">
       <div className="section-container175">
   <div className="left-section1" id="scrollTarget1">
-    {/* Content for the left section */}
+    
     <div className="post12">
   <div className="post-header12">
     <img src={"assets/images/Francesca Tuckey.png"} alt="Profile Picture" className="profile-picture12" />
@@ -1046,7 +1052,7 @@ While others have helped out with Scouts or Brownies, local sports events or giv
 Nearly half (46 per cent) would like to volunteer in the near future, but to date, 47 per cent of those yet to do so admit they previously haven’t had the time, while 24 per cent blame a lack of energy.
     </p>
     <img src={"assets/images/vol27.jpg"} alt="Post Photo" className="post-photo12  " />
-    {/* You can add more content here, like images, videos, etc. */}
+   
   </div>
   <div className="post-actions12">
   <button className="post-like-button">Like</button>
@@ -1058,7 +1064,7 @@ Nearly half (46 per cent) would like to volunteer in the near future, but to dat
   </div>
   <div className="section-container175">
   <div className="right-section1">
-  {/* Content for the right section */}
+
   <div className="post121">
     <div className="post-header12">
       <img src={"assets/images/Imy Brighty-Potts.png"} alt="Profile Picture" className="profile-picture12" />
@@ -1080,7 +1086,7 @@ When asked what would motivate people to volunteer, making a difference to indiv
       <div id='post-container175'>
       <img src={"assets/images/vol6.jpg"} alt="Post Photo" className="post-photo12" />
       </div>
-      {/* You can add more content here, like images, videos, etc. */}
+     
     </div>
     <div className="post-actions12">
       <button className="post-like-button">Like</button>
@@ -1094,11 +1100,11 @@ When asked what would motivate people to volunteer, making a difference to indiv
 
 
 
-{/* guygug */}
+
 
 <div className="section-container175">
   <div className="left-section1">
-    {/* Content for the left section */}
+ 
     <div className="post12">
   <div className="post-header12">
     <img src={"assets/images/James Pollard.png"} alt="Profile Picture" className="profile-picture12" />
@@ -1112,7 +1118,7 @@ When asked what would motivate people to volunteer, making a difference to indiv
     Michelle Barbin's job at Blue Cross Blue Shield of Massachusetts brings fulfillment, though she occasionally feels empty. While she values improving consumer experiences, her empathetic nature resonates most. With nearly 19 years at the company, she finds true satisfaction in supporting nonprofits. Routine tasks gain meaning when aligned with her desire to make a difference, like spearheading marketing campaigns for organizations in need.
    </p>
     <img src={"assets/images/vol22.jpg"} alt="Post Photo" className="post-photo12  " />
-    {/* You can add more content here, like images, videos, etc. */}
+    
   </div>
   <div className="post-actions12">
     <button className="post-like-button">Like</button>
@@ -1124,7 +1130,7 @@ When asked what would motivate people to volunteer, making a difference to indiv
   </div>
   <div className="section-container175">
   <div className="right-section1">
-    {/* Content for the right section */}
+  
     <div className="post121">
     <div className="post-header12">
     <img src={"assets/images/Harry Stedman.png"} alt="Profile Picture" className="profile-picture12" />
@@ -1139,7 +1145,7 @@ When asked what would motivate people to volunteer, making a difference to indiv
 On its 75th anniversary, the NHS receives support from the Royal Voluntary Service, which aims to recruit 25,000 more volunteers for hospital and community roles. This initiative, facilitated by NHS England, assists the most vulnerable with short-term aid, including shopping, prescription deliveries, friendly calls, and medical supply transportation. The Royal Voluntary Service seeks to address immediate and forthcoming needs, aligning with the evolving demands of healthcare.
     </p>
     <img src={"assets/images/vol25.jpg"} alt="Post Photo" className="post-photo12  " />
-    {/* You can add more content here, like images, videos, etc. */}
+   
   </div>
     <div className="post-actions12">
     <button className="post-like-button">Like</button>
@@ -1149,13 +1155,13 @@ On its 75th anniversary, the NHS receives support from the Royal Voluntary Servi
   </div>
   </div>
 </div>
-</div>
-{/* uzuuvhbk */}
+</div> */}
+
 <div id='mov121'>
 <div className="container1721">
-<div className="section-container175">
+{/* <div className="section-container175">
   <div className="left-section">
-    {/* Content for the left section */}
+ 
     <div className="post12">
   <div className="post-header12">
     <img src={"assets/images/Nina Lloyd.png"} alt="Profile Picture" className="profile-picture12" />
@@ -1170,7 +1176,7 @@ On its 75th anniversary, the NHS receives support from the Royal Voluntary Servi
 Amid staff shortages in the social care sector, the Government plans to launch a recruitment drive for volunteers. The initiative, expected to be announced on Wednesday, will utilize an app to enlist members of the public for tasks like providing phone support and delivering medicine. Volunteers may also assist with shopping and errands, addressing various needs within the community.
     </p>
     <img src={"assets/images/vol24.jpg"} alt="Post Photo" className="post-photo12  " />
-    {/* You can add more content here, like images, videos, etc. */}
+  
   </div>
   <div className="post-actions12">
     <button className="post-like-button">Like</button>
@@ -1179,10 +1185,10 @@ Amid staff shortages in the social care sector, the Government plans to launch a
   </div>
 </div>
 </div>
-  </div>
-  <div className="section-container175">
+  </div> */}
+  {/* <div className="section-container175">
   <div className="left-section">
-    {/* Content for the right section */}
+
     <div className="post121">
     <div className="post-header12">
     <img src={"assets/images/Glenn Gamboa.png"} alt="Profile Picture" className="profile-picture12" />
@@ -1196,7 +1202,7 @@ Amid staff shortages in the social care sector, the Government plans to launch a
     At the Our Ocean Youth Leadership Summit in Panama, Daniela Fernandez attracted 77 volunteers from 45 countries to develop ocean protection solutions. The summit targeted individuals aged 18 to 35, a demographic often criticized for insufficient volunteering. Fernandez emphasized the desire of young people for meaningful impact, citing the lack of suitable projects as a barrier. In the US, volunteerism declined by 7% between 2019 and 2021.
     </p>
     <img src={"assets/images/vol23.jpg"} alt="Post Photo" className="post-photo12  " />
-    {/* You can add more content here, like images, videos, etc. */}
+  
   </div>
     <div className="post-actions12">
     <button className="post-like-button">Like</button>
@@ -1205,14 +1211,13 @@ Amid staff shortages in the social care sector, the Government plans to launch a
   </div>
   </div>
   </div>
-  </div>
+  </div> */}
+  
 
-<div id='maploc163'>
-<div id="map1316" ref={mapRef} style={{ height: '470px' }}></div>
+
 </div>
 </div>
-</div>
-{/* <div className='errr117'>
+<div className='errr117'>
      
         <h4>Main Components</h4>
       
@@ -1223,7 +1228,7 @@ Amid staff shortages in the social care sector, the Government plans to launch a
       </button>
       )}
 
-  </div> */}
+  </div>
 
   {/* <div className="card1786" style={{ backgroundColor: 'gray' }}>
      <div id="carddetails1786">
@@ -1327,7 +1332,7 @@ Amid staff shortages in the social care sector, the Government plans to launch a
       </div>
 
       {isCardVisible && (
-        <div className="floating-card">
+        <div className="floating-card"  style={{ maxHeight: `${msg.length * 100}px`, maxWidth: `1110px` }}>
         {/* Content of the floating card */}
         {msg.map((_msg, index) => (
           <div key={index}>

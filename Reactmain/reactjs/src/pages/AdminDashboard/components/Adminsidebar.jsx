@@ -64,15 +64,21 @@ const Adminsidebar = ({ children }) => {
   return (
     <div style={{ display: 'flex' }}>
       <div style={sidebarStyle}>
-        {menuItems.map((item, index) => (
-          <Link
-            key={index}
-            to={item.path}
-            style={location.pathname === item.path ? activeItemStyle : itemStyle}
-          >
-            {item.label}
-          </Link>
-        ))}
+        <Link
+          to="/adminorg"
+          style={location.pathname === '/adminorg' ? activeItemStyle : itemStyle}
+        >
+          Organization
+        </Link>
+        <Link
+          to="/adminrep"
+          style={location.pathname === '/adminrep' ? activeItemStyle : itemStyle}
+        >
+          Reported
+        </Link>
+        <div onClick={handleLogout} style={itemStyle}>
+          Logout
+        </div>
       </div>
       <div style={mainContentStyle}>{children}</div>
     </div>

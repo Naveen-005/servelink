@@ -8,14 +8,14 @@ import config from '../../config.json'
 
 const styleName = {
     rec121: (bgColor = '#f2f2f2') => ({
-        width: '90%',
-        height: '150px',
+        width: '190%',
+        height: '200px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: bgColor,
         borderRadius: '8px',
-        padding: '20px',
+        padding: '30px',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
     }),
     eventName: (color = '#333') => ({
@@ -29,8 +29,8 @@ const styleName = {
         color: color,
         border: 'none',
         borderRadius: '4px',
-        position: 'absolute',
-        left: '40%',
+        position: 'relative',
+        left: '10%',
     }),
     eventButton1: (bgColor = '4CAF50', color = '#fff') => ({
         padding: '8px 16px',
@@ -53,31 +53,34 @@ const styleName = {
         position: 'relative',
     }),
     popup: (showPopup) => ({
-        position: 'fixed',
+        position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         backgroundColor: '#fff',
         border: '1px solid #ccc',
-        padding: '20px',
+        padding: '100px',
         display: showPopup ? 'block' : 'none',
         borderRadius: '8px',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-        maxHeight: '80vh',
+        maxHeight: '100vh',
         overflowY: 'auto',
+        zIndex: '9999',
+        //margin:'4px'
     }),
     divider: (color = '#ccc') => ({
         position: 'absolute',
-        left: '50%',
+        left: '60%',
         transform: 'translateX(-50%)',
-        height: '25%',
-        width: '1px',
+        height: '35%',
+        width: '2px',
         backgroundColor: color,
+        
     }),
     reviewContainer: {
         marginBottom: '20px',
         borderBottom: '1px solid black',
-        paddingBottom: '10px',
+        padding: '10px',
     },
     reviewName: {
         fontSize: '14px',
@@ -91,6 +94,7 @@ const styleName = {
 
 const ReviewCard = ({_event}) => {
     const [showPopup, setShowPopup] = useState(false);
+    
 
     const handleReviewClick = () => {
         setShowPopup(true);
@@ -144,7 +148,7 @@ const ReviewCard = ({_event}) => {
                     <img
                         src={`${config.bucket_url}event/${_event._id}.jpg`}
                         alt="Event"
-                        style={{ width: '20%', height: '20%', objectFit: 'cover' }}
+                        style={{ width: '200px', height: '110px', objectFit: 'cover' }}
                     />
                 </div>
                 <div style={styleName.eventButton('red', '#fff')}>Completed</div>

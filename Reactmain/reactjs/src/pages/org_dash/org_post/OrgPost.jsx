@@ -273,7 +273,7 @@ mapRef.current.addControl(searchControl);
       <div id="mediaPreview"></div>
   */}
 
-      <label htmlFor="media">Upload Media:</label>
+      <label htmlFor="media">Upload Media:(.JPG file)</label>
       <input type="file" id="media" name="image" accept="image/*" onChange={handleFileChange} />
 
 

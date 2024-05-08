@@ -83,7 +83,7 @@ function Event_details() {
                 <div className="content" style={contentStyle77}>
                     <div className="column1" style={coloumnStyle77}>
                         <img src={`${config.bucket_url}event/${event._id}.jpg`} alt="Event" style={imageStyle77} />
-                        <a href={`https://www.google.com/maps/dir/?api=1&destination=${event.loc_lat},${event.loc_lng}`} target="_blank">Get Directions</a>
+                        <a href={`https://www.google.com/maps/dir/?api=1&destination=${event.loc_lat},${event.loc_lng}`} target="_blank" style={{color:'black',backgroundColor:'white',padding:'20px',position:'relative',top:'30px',borderRadius:'19px'}}>Get Directions</a>
 
                     </div>
                     <div className="divider" style={dividerStyle}></div>
@@ -102,7 +102,7 @@ function Event_details() {
                             <ul style={listStyle}>
                                 <li>{event.conditions}</li>
                                 <li>Location: {event.location}</li>
-                                <li>Qualifications: Relevant qualifications if required</li>
+                               {/*<li>Qualifications: Relevant qualifications if required</li>*/}
                             </ul>
                             </p>
                         </div>

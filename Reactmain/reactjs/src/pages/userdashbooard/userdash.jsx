@@ -180,6 +180,27 @@ const handleReviewSubmit = (e) => {
   
 };
 
+const [msg,setMsg]=useState(null);
+useEffect(() => {
+
+  axios({
+    method: 'get',
+    url: config.server_api_url + '/message',
+    withCredentials: true,
+    })
+    .then((res) => {
+  
+      setMsg(res.data);
+
+    })
+    .catch((err) => {
+      alert(err.response?.data)
+
+  });
+
+
+}, []);
+
 const [events1, setEvents1] = useState([]);
 	
 	useEffect(() => {
@@ -1308,12 +1329,19 @@ Amid staff shortages in the social care sector, the Government plans to launch a
       {isCardVisible && (
         <div className="floating-card">
         {/* Content of the floating card */}
-        <a href="/message1">
+        {msg.map((_msg, index) => (
+          <div key={index}>
+              <p style={{ color: 'white', fontSize: '16px' }}>{_msg.message}</p>
+          </div>
+        ))}
+        {/*
+        <div>
           <p style={{ color: 'white',fontSize:'16px'}}>You have Message</p>
-        </a>
+        </div>
         <a href="/message2">
           <p style={{ color: 'red',fontSize:'16px' }}>Please be alert</p>
         </a>
+      */}
       </div>
       
       )}

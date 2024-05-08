@@ -360,8 +360,8 @@ a {
     right: 70px;
     background-color: black;
     color: rgb(255, 255, 255);
-    width: 200px;
-    height: 100px;
+    width: 380px;
+    height: 120px;
     border-radius: 25px;
   }
   .floating-card a {
@@ -632,19 +632,24 @@ padding-bottom: 20px;
   background-color: #333; /* Darken button background color on hover */
 }
 #map1316 {
-  width: 630px; /* Set the width to 100% of the parent container */
-  height: 600px; /* Set the height to 400 pixels */
+  width: 930px; /* Set the width to 100% of the parent container */
+  height: 800px; /* Set the height to 400 pixels */
   border: 10px solid #000000; /* Add a border around the map */
   border-radius: 8px; /* Add some border radius for rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow for visual effect */
   background-color: #f9f9f9; /* Set the background color of the map */
+margin-left: 76px;
 
+
+}
+#maploc168{
+  padding-bottom: 40px;
 }
 #maploc163{
   /* /* margin-left: calc((100vw - 400px) / 2);
   margin-right: 10px; */
-  position: absolute;
-  right: 20px;
+ 
+  right: 140px;
 
 }
 .errr117{

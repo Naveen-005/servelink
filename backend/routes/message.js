@@ -15,10 +15,10 @@ router.get('/', async function(req, res, next) {
         res.send(messages); 
       } catch (error) {
         console.error('Error:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).send('Internal Server Error' );
       }
     } else {
-      res.status(400).json({ error: 'No volunteer ID provided' });
+      res.status(400).send('No volunteer ID provided');
     }
 });
 

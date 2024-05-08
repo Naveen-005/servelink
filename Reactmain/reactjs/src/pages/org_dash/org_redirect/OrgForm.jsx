@@ -296,7 +296,7 @@ const renderStep = () => {
           </Helmet>
           <h2>Upload Photos</h2>
           <div>
-            <label htmlFor="profilePhoto">Profile Photo:</label>
+            <label htmlFor="profilePhoto">Profile Photo:(.JPG only)</label>
             <input
               type="file"
               id="profilePhoto"
@@ -313,7 +313,7 @@ const renderStep = () => {
             )}
           </div>
           <div>
-            <label htmlFor="coverPhoto">Cover Photo:</label>
+            <label htmlFor="coverPhoto">Cover Photo:(.JPG only)</label>
             <input
               type="file"
               id="coverPhoto"

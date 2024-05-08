@@ -17,6 +17,9 @@ function Event_details() {
         const { id } = useParams();
         const navigate = useNavigate();
 
+        const [reloadTrigger, setReloadTrigger] = useState(false);
+
+
         const handleEnroll = (skill) => {
             axios({
                 method: 'post',
@@ -33,6 +36,7 @@ function Event_details() {
           
                     setEvent(prevEvent => ({ ...prevEvent, enrolled: prevEvent.enrolled + 1 }));
                     alert("successfully Enrolled")
+                    setReloadTrigger(prevState => !prevState);
           
                 })
                 .catch((err) => {
@@ -68,7 +72,7 @@ function Event_details() {
         
             });
 
-        },[]);
+        },[reloadTrigger]);
 
         
         

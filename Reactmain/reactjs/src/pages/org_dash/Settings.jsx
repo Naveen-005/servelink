@@ -20,12 +20,7 @@ const Settings = () => {
         >
           Profile
         </button>
-        <button
-          className={`option-btn ${selectedOption === 'authentication' ? 'active' : ''}`}
-          onClick={() => handleOptionChange('authentication')}
-        >
-          Authentication
-        </button>
+        
         <button
           className={`option-btn ${selectedOption === 'changePassword' ? 'active' : ''}`}
           onClick={() => handleOptionChange('changePassword')}
@@ -36,7 +31,7 @@ const Settings = () => {
       <hr className="separator" />
       <div className="content-container">
         {selectedOption === 'profile' && <ProfilePage />}
-        {selectedOption === 'authentication' && <AuthenticationPage />}
+       {/* {selectedOption === 'authentication' && <AuthenticationPage />}*/}
         {selectedOption === 'changePassword' && <ChangePasswordPage />}
       </div>
 

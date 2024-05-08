@@ -72,7 +72,7 @@ const styleName = {
         position: 'absolute',
         left: '60%',
         transform: 'translateX(-50%)',
-        height: '35%',
+        height: '34%',
         width: '2px',
         backgroundColor: color,
         

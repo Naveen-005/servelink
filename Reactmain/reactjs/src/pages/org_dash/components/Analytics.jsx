@@ -264,7 +264,7 @@ function Analytics({ evnt }) {
         {volunteerList && volunteerList.map((volunteer) => (
           <li key={volunteer.id} onClick={() => handleVolunteerClick(volunteer)}>
             {volunteer.first_name} {volunteer.last_name}
-            <button style={{backgroundColor:'red',padding:'9px',borderRadius:'14px',color:'white'}} onClick={() => toggleReportPopup(volunteer)}>Report</button>
+            <button style={{backgroundColor:'red',padding:'7px',borderRadius:'29px',color:'white'}} onClick={() => toggleReportPopup(volunteer)}>Report</button>
           </li>
         ))}
       </ul>

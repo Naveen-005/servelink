@@ -50,22 +50,13 @@ const routes = [
         icon: <FaUser />,
       },
       {
-        path: "/authentication",
-        name: "Authentication",
-        icon: <FaLock />,
-      },
-      {
         path: "/changepassword",
         name: "Change password",
         icon: <FaHistory />,
       },
     ],
   },
-  {
-    path: "/saved",
-    name: "Saved",
-    icon: <AiFillHeart />,
-  },
+  
 ];
 
 const SideBar = ({ children }) => {

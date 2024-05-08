@@ -23,13 +23,13 @@
 
     position: absolute;
     top:6%;
-    right:18.5%;
-    font-size: 11px;
+    right:21%;
     background: rgb(152, 203, 200);
     border: none;
     cursor: pointer;
     color: #060606; 
-    width: 3%;
+    width: 1%;
+    font-size: 20px;
     
   
 }

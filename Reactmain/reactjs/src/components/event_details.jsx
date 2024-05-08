@@ -49,6 +49,8 @@ function Event_details() {
             listStyle: 'none', // Remove default list styles
         };
 
+        const [org_name,setOrgName]=useState('');
+
         useEffect(() => {
  
             axios({
@@ -64,6 +66,7 @@ function Event_details() {
                     setEvent(res.data.event);
                     setSkillCount(res.data.skill_enrollment)
                     setConditions(res.data.conditions)
+                    setOrgName(res.data.org_name)
                     console.log(skillCount)
     
                 })
@@ -95,6 +98,13 @@ function Event_details() {
                     <button onClick={() => navigate('/events')} style={closeButtonStyle77}>X</button>
                         <h2 style={{ fontSize: '44px', fontWeight: 'bold', color: 'green' }}>{event.title}</h2>
                         <p>Date  :{new Date(event.date).toDateString()} <br/> Time :{event.time}</p>
+                        <p>Hosted By: {org_name}</p>
+
+                        <div style={descriptionStyle77}>
+                            <p>
+                                {event.short_description}
+                            </p>
+                        </div>
                         
                         <div style={descriptionStyle77}>
                             <p>

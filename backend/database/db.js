@@ -133,6 +133,14 @@ const eventReviewSchema = new Schema({
 });
 const eventReviewModel = mongoose.model('event_review',eventReviewSchema);
 
+const achievmentSchema=new Schema({
+  vol_id:String,
+  event_id:String,
+  title:String,
+  description:String,
+  org_id:String,
+});
+const achievmentModel=mongoose.model('achievments',achievmentSchema)
 
 module.exports = {
   VolunteerModel,
@@ -143,5 +151,6 @@ module.exports = {
   volunteerReportModel,
   volunteerReportActionModel,
   adminModel,
-  eventReviewModel
+  eventReviewModel,
+  achievmentModel,
 };

@@ -31,6 +31,7 @@ var volunteerReportAction= require('./routes/vol_Report_Action');
 var admin= require('./routes/login/admin');
 var volunteerProfile=require('./routes/volunteerProfile');
 var eventReview=require('./routes/register/eventReview');
+var AchievmentsRouter=require('./routes/achievments');
 
 
 var app = express();
@@ -62,6 +63,7 @@ app.use('/changePassword',changepasswordRouter);
 app.use('/otpVerify',otpVerifier);
 app.use('/event/volunteerList',volunteerListRouter);
 app.use('/message',MessageRouter);
+app.use('/achievments',AchievmentsRouter);
 
 app.use('/event/location',locationGetter);
 app.use('/login/voluntername',volnameGetter);

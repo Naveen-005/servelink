@@ -4,6 +4,7 @@ import ViewAnalytics from './ViewAnalytics';
 import axios from 'axios';
 import config from '../../../config.json'
 import PropTypes from 'prop-types';
+import BadgeForm from '../../org_dash/components/BadgeForm'
 
 function Analytics({ evnt }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -113,6 +114,11 @@ function Analytics({ evnt }) {
     console.log(`Navigating to ${volunteer.name}'s profile`);
   };
 
+
+  const [showAchievementsPopup, setShowAchievementsPopup] = useState(false);
+  const toggleAchievementsPopup = () => {
+    setShowAchievementsPopup(!showAchievementsPopup);
+  };
 
   const [skillEnrollment,setSkillEnrollment]=useState(null)
   const [volunteerList,setVolunteerList]=useState(null)
@@ -240,38 +246,51 @@ function Analytics({ evnt }) {
       </div>
 
     
-
-      {showVolunteers && volunteerButtonPosition && (
-        <div className="volunteer-popup" style={ volunteerPopupStyle}>
-          <div style={closeButtonContainer}>
-            <button onClick={() => setShowVolunteers(false)} style={closeButtonStyle}>
-              X
-            </button>
+      {showVolunteers && (
+        <div className="volunteer-popup" style={popupStyles.overlay}>
+          <div style={popupStyles.popup}>
+            <div style={popupStyles.closeButtonContainer}>
+              <button onClick={() => setShowVolunteers(false)} style={popupStyles.closeButton}>
+                X
+              </button>
+            </div>
+            <h3>Volunteers</h3>
+            <div style={popupStyles.volunteerListContainer}>
+              <ul style={popupStyles.volunteerList}>
+                {volunteerList.map((volunteer) => (
+                  <li key={volunteer.id} style={popupStyles.volunteerItem}>
+                    {volunteer.first_name} {volunteer.last_name}
+                    <button
+                      style={popupStyles.reportButton}
+                      onClick={() => toggleReportPopup(volunteer)}
+                    >
+                      Report
+                    </button>
+                    <button
+                      style={popupStyles.awardButton}
+                      onClick={() => toggleAchievementsPopup(volunteer)}
+                    >
+                      Award
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-
-
-          <h3>Volunteers</h3>
-          {/*
-          <ul>
-            {volunteers.map((volunteer) => (
-              <li key={volunteer.id} onClick={() => handleVolunteerClick(volunteer)}>
-                {volunteer.name}
-              </li>
-            ))}
-          </ul>
-          */}
-          <ul>
-        {volunteerList && volunteerList.map((volunteer) => (
-          <li key={volunteer.id} onClick={() => handleVolunteerClick(volunteer)}>
-            {volunteer.first_name} {volunteer.last_name}
-            <button style={{backgroundColor:'red',padding:'7px',color:'white',fontSize:'10px',marginRight:'10px'}} onClick={() => toggleReportPopup(volunteer)}>Report</button>
-            <button style={{backgroundColor:'gold',padding:'7px',color:'black',fontSize:'10px',marginRight:'10px'}} onClick={() => {window.location.href = '/badge'}}>Award</button>
-
-          </li>
-        ))}
-      </ul>
         </div>
       )}
+
+
+          {showAchievementsPopup && (
+               <div style={popupStyles.overlay}>
+               <div style={popupStyles.popup}>
+                    <BadgeForm />
+            <button style={popupStyles.closeButton} onClick={toggleAchievementsPopup}>X</button>
+          </div>
+        </div>
+      )}
+ 
+  
       
 
       {reportPopup && (
@@ -432,7 +451,7 @@ const volunteer1PopupStyle = {
   padding: '20px',
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
   borderRadius: '8px',
-  zIndex: '2',
+  zIndex: '2000',
   width: '300px',
 }
 
@@ -508,6 +527,76 @@ const minimizedMessageStyle = {
   padding: '10px',
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
   zIndex: '2',
+};
+const popupStyles = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+  },
+  popup: {
+    position: 'relative',
+    background: '#A1BE95',
+    padding: '20px',
+    borderRadius: '10px',
+    width: '80%',
+    height: '80%',
+    overflowY: 'auto',
+    
+  },
+  closeButton: {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    background: '#dc3545',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '50%',
+    cursor: 'pointer',
+    fontSize: '16px',
+    width: '30px',
+    height: '30px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  volunteerListContainer: {
+    maxHeight: '70%',
+    overflowY: 'auto',
+  },
+  volunteerList: {
+    listStyleType: 'none',
+    padding: 0,
+  },
+  volunteerItem: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '10px',
+    borderBottom: '1px solid #ccc',
+  },
+  reportButton: {
+    backgroundColor: 'red',
+    padding: '7px',
+    color: 'white',
+    fontSize: '10px',
+    marginRight: '10px',
+  },
+  awardButton: {
+    backgroundColor: 'gold',
+    padding: '7px',
+    color: 'black',
+    fontSize: '10px',
+    marginRight: '10px',
+  },
+
 };
 Analytics.propTypes = {
   evnt: PropTypes.shape({

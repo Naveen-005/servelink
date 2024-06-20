@@ -81,8 +81,8 @@ function Register() {
             })
             .then((res) => {
                 Cookies.set('name', res.data.name, { expires: 7 })
-        		    Cookies.set('uid', res.data.uid, { expires: 7 })
-        		    Cookies.set('token', res.data.token, { expires: 7 })
+                Cookies.set('uid', res.data.uid, { expires: 7 })
+                Cookies.set('token', res.data.token, { expires: 7 })
                 alert("Registered Successfully");
                 navigate("/")
             })
@@ -164,106 +164,106 @@ const handle1Change = (e) => {
               <Helmet>
              <title>Volunteer Register</title>
             </Helmet>
-            <div class="page-wrapper1 container1-login1001 font-poppins" style={{ backgroundImage: "url('assets/images/v3.webp')" }} >
-                <div class="wrapper1 wrapper1--w680">
+            <div className="page-wrapper1 container1-login1001 font-poppins" style={{ backgroundImage: "url('assets/images/v3.webp')" }} >
+                <div className="wrapper1 wrapper1--w680">
 
-                    <div class="card1 card1-5">
-                        <nav class="navbar1">
+                    <div className="card1 card1-5">
+                        <nav className="navbar1">
                             <Link className="txt11 " to="/" style={{ textDecoration: "none", color: "darkgrey", position: "relative", left: "3%" }} >Home <span className="sr-only"></span></Link>
                         </nav>
                         {/*       
-            <div class="card card-4">
-            <nav class="navbar1">
-                <Link to="/index" class="home-btn">Home</Link>
+            <div className="card card-4">
+            <nav className="navbar1">
+                <Link to="/index" className="home-btn">Home</Link>
               </nav>
 
     */}
-                        <div class="card1-body">
+                        <div className="card1-body">
 
-                            <h2 class="title">Registration Form</h2>
+                            <h2 className="title">Registration Form</h2>
                             <form onSubmit={handleSubmit}>
-                                <div class="row row-space">
-                                    <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">first name</label>
-                                            <input class="input--style-4" type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
+                                <div className="row row-space">
+                                    <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">first name</label>
+                                            <input className="input--style-4" type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">last name</label>
-                                            <input class="input--style-4" type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
+                                    <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">last name</label>
+                                            <input className="input--style-4" type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row row-space">
-                                    <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">DOB</label>
+                                <div className="row row-space">
+                                    <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">DOB</label>
                                                <br/>
             
-                                                <input class="input--style-9 js-datepicker" type="date" name="dob" value={formData.dob} onChange={handleChange} />
+                                                <input className="input--style-9 js-datepicker" type="date" name="dob" value={formData.dob} onChange={handleChange} />
                                          
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">Gender</label>
+                                    <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">Gender</label>
 
-                                            <div class="p-t-9">
+                                            <div className="p-t-9">
                                                 <br />
-                                                <label class="radio-container m-r-18 ">Male
+                                                <label className="radio-container m-r-18 ">Male
                                                     <input type="radio" name="gender" value="male" checked={formData.gender === "male"} onChange={handle_radio_change}/>
-                                                    <span class="checkmark"></span>
+                                                    <span className="checkmark"></span>
                                                 </label>
-                                                <label class="radio-container">Female
+                                                <label className="radio-container">Female
                                                     <input type="radio" name="gender" value="female" checked={formData.gender === "female"} onChange={handle_radio_change}/>
-                                                    <span class="checkmark"></span>
+                                                    <span className="checkmark"></span>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row row-space">
-                                    <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">Email</label>
-                                            <input class="input--style-4" type="email" name="email" value={formData.email} onChange={handleChange} />
+                                <div className="row row-space">
+                                    <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">Email</label>
+                                            <input className="input--style-4" type="email" name="email" value={formData.email} onChange={handleChange} />
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">Phone Number</label>
-                                            <input class="input--style-4" type="text" name="phone_no" maxLength="10" value={formData.phone_no} onChange={handleChange} />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row row-space">
-                                    <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">City</label>
-                                            <input class="input--style-4" type="text" name="city" value={formData.city} onChange={handleChange} />
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">District</label>
-                                            <input class="input--style-4" type="text" name="district" value={formData.district} onChange={handleChange} />
+                                    <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">Phone Number</label>
+                                            <input className="input--style-4" type="text" name="phone_no" maxLength="10" value={formData.phone_no} onChange={handleChange} />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row row-space">
+                                <div className="row row-space">
+                                    <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">City</label>
+                                            <input className="input--style-4" type="text" name="city" value={formData.city} onChange={handleChange} />
+                                        </div>
+                                    </div>
+                                    <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">District</label>
+                                            <input className="input--style-4" type="text" name="district" value={formData.district} onChange={handleChange} />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row row-space">
 
-                                <div class="col-6">
-                                    <div class="input-group">
-                                        <label class="label2">Pincode</label>
-                                        <input class="input--style-4" type="text" name="pincode" maxLength="6" value={formData.pincode} onChange={handleChange}/>
+                                <div className="col-6">
+                                    <div className="input-group">
+                                        <label className="label2">Pincode</label>
+                                        <input className="input--style-4" type="text" name="pincode" maxLength="6" value={formData.pincode} onChange={handleChange}/>
                                     </div>
                                 </div>
-                                  <div class="col-6">
-                                        <div class="input-group">
-                                            <label class="label2">Password</label>
-                                            <input class="input--style-4" type="password" name="password" required value={formData.password} onChange={handleChange} />
+                                  <div className="col-6">
+                                        <div className="input-group">
+                                            <label className="label2">Password</label>
+                                            <input className="input--style-4" type="password" name="password" required value={formData.password} onChange={handleChange} />
                                         </div>
                                     </div>
                                  </div>
@@ -347,12 +347,12 @@ const handle1Change = (e) => {
     </div>
   </div>
 </div>
-                                <div class="container1-login1001-form-btn">
-                                    <button class="login1002-form12-btn" type="submit">
+                                <div className="container1-login1001-form-btn">
+                                    <button className="login1002-form12-btn" type="submit">
                                         Submit
                                     </button>
                                     <centre>
-                                        <div class="text-center p-t-90">
+                                        <div className="text-center p-t-90">
                                             <Link className="txt12 " to="/login" style={{ textDecoration: "none", position: "relative", left: "-244%" }} >Login <span className="sr-only"></span></Link>
 
 

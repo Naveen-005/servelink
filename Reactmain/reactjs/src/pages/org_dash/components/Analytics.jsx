@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ViewAnalytics from './ViewAnalytics';
 import axios from 'axios';
 import config from '../../../config.json'
-
+import PropTypes from 'prop-types';
 
 function Analytics({ evnt }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -54,7 +54,7 @@ function Analytics({ evnt }) {
       .catch((err) => {
         alert(err.response?.data)
 
-      });;
+      });
     setReportPopup(false);
   };
 
@@ -104,7 +104,7 @@ function Analytics({ evnt }) {
       .catch((err) => {
         alert(err.response?.data)
 
-      });;
+      });
   };
 
   const handleVolunteerClick = (volunteer) => {
@@ -264,7 +264,9 @@ function Analytics({ evnt }) {
         {volunteerList && volunteerList.map((volunteer) => (
           <li key={volunteer.id} onClick={() => handleVolunteerClick(volunteer)}>
             {volunteer.first_name} {volunteer.last_name}
-            <button style={{backgroundColor:'red',padding:'7px',borderRadius:'29px',color:'white'}} onClick={() => toggleReportPopup(volunteer)}>Report</button>
+            <button style={{backgroundColor:'red',padding:'7px',color:'white',fontSize:'10px',marginRight:'10px'}} onClick={() => toggleReportPopup(volunteer)}>Report</button>
+            <button style={{backgroundColor:'gold',padding:'7px',color:'black',fontSize:'10px',marginRight:'10px'}} onClick={() => {window.location.href = '/badge'}}>Award</button>
+
           </li>
         ))}
       </ul>
@@ -506,6 +508,16 @@ const minimizedMessageStyle = {
   padding: '10px',
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
   zIndex: '2',
+};
+Analytics.propTypes = {
+  evnt: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    short_description: PropTypes.string.isRequired,
+    enrolled: PropTypes.number.isRequired,
+    required: PropTypes.number.isRequired,
+    skills: PropTypes.objectOf(PropTypes.number).isRequired
+  }).isRequired
 };
 
 export default Analytics;

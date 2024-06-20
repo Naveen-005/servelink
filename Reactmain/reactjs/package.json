@@ -22,6 +22,7 @@
     "leaflet-geosearch": "^3.11.1",
     "leaflet.locatecontrol": "^0.79.0",
     "popper.js": "^1.16.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-app-rewired": "^2.2.1",
     "react-bootstrap": "^2.10.1",
@@ -30,7 +31,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^5.0.1",
     "react-leaflet": "^4.2.1",
-    "react-router-dom": "^6.23.0",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "^5.0.1",
     "react-scroll": "^1.9.0",
     "react-slick": "^0.30.2",
@@ -45,8 +46,9 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "react-app"
     ]
   },
   "browserslist": {

@@ -122,7 +122,7 @@ function OrgPost() {
 
   };
 /*
-  // Define CSS styles for the marker
+  // Define CSS styles htmlFor the marker
 const markerStyle = {
   backgroundColor: 'red',
   borderRadius: '50%',
@@ -239,18 +239,18 @@ mapRef.current.addControl(searchControl);
   }, []);
 
   return (
-    <div class="system9">
+    <div className="system9">
       <Helmet>
     <title>Post</title>
    </Helmet>
-    <div class="container9">
+    <div className="container9">
     <h2 className='txt9'>New Post</h2>
     <Link id="crossButton9" to="/odas">&#10006;</Link>
      <form onSubmit={handleSubmit}>
-      <label for="eventName">Event Name:</label>
+      <label htmlFor="eventName">Event Name:</label>
       <input type="text" id="eventName" name="title" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}}  value={formData.title} onChange={handleChange} required />
 
-      <label for="eventLocation">Location:</label>
+      <label htmlFor="eventLocation">Location:</label>
       <input type="text" id="eventLocation" name="location" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.location}
         onChange={handleChange}
         required/>
@@ -261,14 +261,14 @@ mapRef.current.addControl(searchControl);
         <p>Longitude: {formData.loc_lng}</p>
      </div>
 
-      <label for="eventDate">Date:</label>
+      <label htmlFor="eventDate">Date:</label>
       <input type="date" id="eventDate" name="date" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.date} onChange={handleChange} required />
          
-      <label for="eventTime">Time:</label>
+      <label htmlFor="eventTime">Time:</label>
       <input type="time" id="eventTime" name="time" style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.time} onChange={handleChange}/>
      
 {/*
-      <label for="media">Upload Media:</label>
+      <label htmlFor="media">Upload Media:</label>
       <input type="file" id="media" name="image" accept="image/*"  onchange={handleFileChange} />
       <div id="mediaPreview"></div>
   */}
@@ -277,16 +277,16 @@ mapRef.current.addControl(searchControl);
       <input type="file" id="media" name="image" accept="image/*" onChange={handleFileChange} />
 
 
-      <label for="description">Short Description: (max 40 letters)</label>
-      <input type="text" id="description" name="short_description"  maxLength='40' style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.short_description} onChange={handleChange}required/>
+      <label htmlFor="description">Short Description: (max 50 letters)</label>
+      <input type="text" id="description" name="short_description"  maxLength='50' style={{ width:'100%',padding:'10px',margin:'10px 0',border:'1px solid #ccc',borderRadius: '5px',color:'#060606',backgroundColor: '#dbf3f1'}} value={formData.short_description} onChange={handleChange}required/>
 {/*
-      <label for="count">Number of Volunteers required :</label>
+      <label htmlFor="count">Number of Volunteers required :</label>
       <input type="number" id="count" name="count" required/>
 */}
-      <label for="description">Long Description: </label>
+      <label htmlFor="description">Long Description: </label>
       <textarea id="description" name="long_description" placeholder="write full details on here......" value={formData.long_description} onChange={handleChange}></textarea>
       
-      <label for="conditions">Conditions: </label>
+      <label htmlFor="conditions">Conditions: </label>
       <textarea id="conditions" name="conditions" placeholder="" value={formData.conditions} onChange={handleChange}></textarea>
 
       {Object.entries(formData.skills).map(([skillName, skillLevel]) => (
@@ -315,8 +315,8 @@ mapRef.current.addControl(searchControl);
       ))}
       
      
-      {/* Input for new skill name */}
-      <label for="skill">Add skill: </label>
+      {/* Input htmlFor new skill name */}
+      <label htmlFor="skill">Add skill: </label>
       <input
         type="text"
         value={newSkillName}

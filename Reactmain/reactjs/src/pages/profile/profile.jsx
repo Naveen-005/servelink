@@ -4,6 +4,8 @@ import './profile.css';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import config from '../../config.json'
+import badge1 from '../../assets1/badges/001.png';
+import badge2 from '../../assets1/badges/002.png';
 
 
 function Profile() {
@@ -93,12 +95,24 @@ function Profile() {
 
                         </div>
                         <div className="card-body p-4 text-black">
-                            <div className="mb-5">
-                                <p className="lead fw-normal mb-1">Achievments</p>
-                                <div className="p-4" style={{backgroundColor: '#f8f9fa'}}>
-                                 
-                                </div>
+                        <div className="mb-5">
+                            <p className="lead fw-normal mb-1">Achievements</p>
+                            <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                             <div className="badge-container">
+                             <div className="badge-item">
+                             <img src={badge1} alt='Badge1' style={ {width: '50px',height: '50px',marginRight: '8px',} }  />
+                              <p>org name : Orange cooperates</p>
+                               </div>
+                              <div className="badge-item">
+                              <img src={badge2} alt="Badge 2" style={ {width: '50px',height: '50px',marginRight: '8px',} } />
+                              <p>Org name : Pioneer</p>
+                             </div>
+     
+                              </div>
+                              </div>
                             </div>
+
+
                             <div className="d-flex justify-content-between align-items-center mb-4">
                                 <p className="lead fw-normal mb-0">Photos from recent events</p>
                                 <p className="mb-0"><a href="#!" className="text-muted">Show all</a></p>

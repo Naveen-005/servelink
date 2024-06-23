@@ -39,6 +39,7 @@ import AdminVol from './pages/AdminDashboard/AdminVol';
 import AdminReport from './pages/AdminDashboard/AdminReport';
 import AdminFeedback from './pages/AdminDashboard/AdminFeedback';
 import Review from './pages/org_dash/Review';
+import BadgeForm from './pages/org_dash/components/BadgeForm';
 
 function App() {
   return (
@@ -53,7 +54,6 @@ function App() {
         <Route path="/login-organization" element={<Orglog />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register-organization" element={<Orgreg />} />
-        
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/*" element={<Error />} />
@@ -82,7 +82,7 @@ function App() {
         <Route path="/ongoing_event" element={<Ongoingevent />} />
         <Route path="/complete_event" element={<CompletedEvents />} />
         <Route path="/sample" element={<Analytics />} />
-        
+        <Route path="/badge" element={<BadgeForm/>} />
 
         {/*VOLUNTEER PAGES*/}          
         <Route path="/userdash" element={<Userdash />} />
@@ -90,11 +90,12 @@ function App() {
 
         {/*ADMIN PAGES*/} 
         <Route path="/admin" element={<Admin />} />
-       {/*<Route path="/admindash" element={<AdminDash />} />*/}
         <Route path="/adminorg" element={<AdminOrg/>} />
         {/*<Route path="/adminvol" element={<AdminVol/>} />*/}
         <Route path="/adminrep" element={<AdminReport/>} />
         <Route path="/adminfeed" element={<AdminFeedback/>} />
+
+        
 
 
 

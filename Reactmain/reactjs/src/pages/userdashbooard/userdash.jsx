@@ -1336,7 +1336,14 @@ Amid staff shortages in the social care sector, the Government plans to launch a
         {/* Content of the floating card */}
         {msg.map((_msg, index) => (
           <div key={index}>
-              <p style={{ color: 'white', fontSize: '16px' }}>{_msg.message}</p>
+
+              <p style={{ color: 'white', fontSize: '16px' }}>
+                Event: {_msg.event_title}<br/>
+                From: {_msg.organization_name}<br/>
+                {_msg.message}<br/>
+                _________
+              </p>
+              
           </div>
         ))}
         {/*

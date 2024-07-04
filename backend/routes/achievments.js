@@ -31,7 +31,7 @@ router.get('/', async function(req, res, next) {
       description: achievment.description,
       org_name: organizations.find(org => org._id.toString() === achievment.org_id)?.name || "Unknown Organization",
     }));
-    console.log(formattedAchievments)
+    //console.log(formattedAchievments)
     res.send(formattedAchievments);
   } catch (err) {
     console.error("Error fetching achievments:", err);

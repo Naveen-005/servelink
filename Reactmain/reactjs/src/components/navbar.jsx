@@ -83,6 +83,10 @@ function Navbar() {
                 <li><Link className="dropdown-item" to="/login">Login</Link></li>
                 <li className="dropdown-divider"></li>
                 <li><Link className="dropdown-item" to="/register">Register</Link></li>
+                <li className="dropdown-divider"></li>
+                <li><Link className="dropdown-item" to="/userdash">Dashboard</Link></li>
+                <li className="dropdown-divider"></li>
+                <li><Link className="dropdown-item" to={`/profile/${Cookies.get('uid')}`}>Profile</Link></li>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -93,6 +97,8 @@ function Navbar() {
                 <li><Link className="dropdown-item" to="/login-organization">Login</Link></li>
                 <li className="dropdown-divider"></li>
                 <li><Link className="dropdown-item" to="/register-organization">Register</Link></li>
+                <li className="dropdown-divider"></li>
+                <li><Link className="dropdown-item" to="/odas">Dashboard</Link></li>
               </ul>
             </li>
             <li className="nav-item">
@@ -114,8 +120,7 @@ function Navbar() {
              <a className="nav-link dropdown-toggle" onClick={toggleGuestDropdown} >{user_name}
              </a>
              <ul className={`dropdown-menu  ${guestDropdownOpen ? 'show' : '' }` } style={{ position: 'absolute', left: '-80%', top: '100%', zIndex: 1000, width: '150px' }}>
-                <li><Link className="dropdown-item"  to="">Profile</Link></li>
-                <li className="dropdown-divider"></li>
+
                 {isLoggedIn && (
                   <li><Link className="dropdown-item" onClick={handleLogout}>Logout</Link></li>
                 )}

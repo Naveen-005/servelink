@@ -2,18 +2,34 @@ import { color } from 'framer-motion';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import config from '../../../config.json'
+import PropTypes from 'prop-types';
 
-const App = () => {
+const BadgeForm = ({evnt,vol}) => {
   const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState('badges');
   const [selectedBadge, setSelectedBadge] = useState(null);
-  const [badgeName, setBadgeName] = useState('');
+  //const [badgeName, setBadgeName] = useState('');
   const [customBadge, setCustomBadge] = useState(null);
   const [customTitle, setCustomTitle] = useState('');
+  const [badgeFile, setBadgeFile] = useState(null);
+
+  const [badge_Form, setBadge_Form] = useState({
+    title: "",
+    description: "",
+    vol_id:vol._id,
+    event_id:evnt._id,
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setBadge_Form((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
 
   const badges = [ require('../../../assets1/badges/001.png'),
     require('../../../assets1/badges/002.png'),
-     require('../../../assets1/badges/003.png'),
+    require('../../../assets1/badges/003.png'),
     require('../../../assets1/badges/004.png'),
     require('../../../assets1/badges/005.png'),
     require('../../../assets1/badges/006.png'),
@@ -22,21 +38,62 @@ const App = () => {
     require('../../../assets1/badges/009.jpg'),
     require('../../../assets1/badges/010.jpg'),
     require('../../../assets1/badges/011.jpg'),]; 
-
+/*
   const handleBadgeClick = (badge) => {
     setSelectedBadge(badge);
   };
+*/
+
+const handleBadgeClick = async (badge) => {
+  setSelectedBadge(badge);
+  const response = await fetch(badge);
+  const blob = await response.blob();
+  const file = new File([blob], badge.split('/').pop(), { type: blob.type });
+  setBadgeFile(file);
+};
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.onload = (e) => setCustomBadge(e.target.result);
       reader.readAsDataURL(event.target.files[0]);
+      setBadgeFile(event.target.files[0])
     }
   };
 
   const handleClose = () => {
    navigate(-1);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log("evnt:\n",evnt)
+    console.log("vol:\n",vol)
+
+    axios({
+      method: 'post',
+      url: config.server_api_url + '/achievments',
+      withCredentials:true,
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      data: {
+        form:badge_Form,
+        file: badgeFile
+      }
+    })
+      .then((res) => {
+
+        alert("Achievment awarded");
+        navigate("/odas")
+
+      })
+      .catch((err) => {
+        console.log(err)
+        alert(err.response?.data)
+      });
+
   };
 
 
@@ -66,12 +123,21 @@ const App = () => {
                <div style={styles.textBoxContainer}>
                 <input
                   type="text"
-                  value={badgeName}
-                  onChange={(e) => setBadgeName(e.target.value)}
-                  placeholder="Enter badge name"
+                  name="title"
+                  value={badge_Form.title}
+                  onChange={handleChange}
+                  placeholder="Enter badge title"
                   style={styles.textBox}
                 />
-                <button style={styles.grantButton}>Grant</button>
+                <input
+                  type="text"
+                  name="description"
+                  value={badge_Form.description}
+                  onChange={handleChange}
+                  placeholder="Explain why badge is awarded"
+                  style={styles.textBox}
+                />
+                <button style={styles.grantButton} onClick={handleSubmit}>Grant</button>
               </div>
             )}
           </div>
@@ -80,6 +146,7 @@ const App = () => {
           <div>
             <input type="file" onChange={handleImageChange} style={styles.fileInput} />
             {customBadge && <img src={customBadge} alt="Custom Badge" style={styles.customImage} />}
+            {/*
             <input
               type="text"
               value={customTitle}
@@ -87,7 +154,24 @@ const App = () => {
               placeholder="Enter title"
               style={styles.textBox}
             />
-            <button style={styles.grantButton}>Grant</button>
+            */}
+            <input
+                  type="text"
+                  name="title"
+                  value={badge_Form.title}
+                  onChange={handleChange}
+                  placeholder="Enter badge title"
+                  style={styles.textBox}
+                />
+                <input
+                  type="text"
+                  name="description"
+                  value={badge_Form.description}
+                  onChange={handleChange}
+                  placeholder="Explain why badge is awarded"
+                  style={styles.textBox}
+                />
+            <button style={styles.grantButton} onClick={handleSubmit}>Grant</button>
           </div>
         )}
       </div>
@@ -210,4 +294,9 @@ const styles = {
   
 };
 
-export default App;
+BadgeForm.propTypes = {
+  evnt: PropTypes.object.isRequired,
+  vol: PropTypes.object.isRequired,
+};
+
+export default BadgeForm;

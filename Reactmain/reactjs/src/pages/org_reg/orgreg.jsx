@@ -114,14 +114,14 @@ function Orgreg() {
 						{/*<span className="label-input100013">Country</span>*/}
 					</div>
 					
-					
+					{/*
 					<div className="wrap13-input100013 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<label>Email</label>
 						<input className="input100013" type="text" name="email" value={formData.email} onChange={handleChange} required/>
 						<span className="focus-input100013"></span>
-						{/*<span className="label-input100013">Email</span>*/}
+						
 					</div>
-					
+					*/}
 					
 				   
 					<div className="wrap13-input100013 validate-input" data-validate="Password is required">

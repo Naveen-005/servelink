@@ -47,7 +47,6 @@ function Login() {
 				Cookies.set('name', res.data.name, { expires: 7 })
         		Cookies.set('uid', res.data.uid, { expires: 7 })
         		Cookies.set('token', res.data.token, { expires: 7 })
-                alert("Registered Successfully");
 				alert("Successfully logged in")
                 navigate("/userdash")
 

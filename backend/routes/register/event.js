@@ -137,8 +137,8 @@ router.get('/', function (req, res, next) {
     //today.setHours(0, 0, 0, 0);
     eventModel.find({ date: { $gte: today } })
       .then((m_res) => {
-        console.log("today:", today)
-        console.log(m_res)
+        //console.log("today:", today)
+        //console.log(m_res)
         res.send(m_res)
       })
   }

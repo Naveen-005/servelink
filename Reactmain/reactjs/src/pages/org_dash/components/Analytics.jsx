@@ -116,7 +116,8 @@ function Analytics({ evnt }) {
 
 
   const [showAchievementsPopup, setShowAchievementsPopup] = useState(false);
-  const toggleAchievementsPopup = () => {
+  const toggleAchievementsPopup = (vol) => {
+    setSelectedVolunteer(vol)
     setShowAchievementsPopup(!showAchievementsPopup);
   };
 
@@ -284,7 +285,7 @@ function Analytics({ evnt }) {
           {showAchievementsPopup && (
                <div style={popupStyles.overlay}>
                <div style={popupStyles.popup}>
-                    <BadgeForm />
+                    <BadgeForm evnt={evnt} vol={selectedVolunteer}/>
             <button style={popupStyles.closeButton} onClick={toggleAchievementsPopup}>X</button>
           </div>
         </div>

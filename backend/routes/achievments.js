@@ -21,6 +21,24 @@ router.post('/',upload.single('file'), function(req, res, next) {
     
 
   //textOverlay(text);
+  req.body.form.org_id=req.cookies.org_id
+
+  const achievment_instance = new achievmentModel(req.body.form);
+  achievment_instance.save()
+    .then((m_res)=>{
+      minioClient.putObject('servelink', '/achievment/' + m_res._id + '.png', req.file.buffer, {}, function (err, etag) {
+        if (err)
+          console.log(err)
+        else
+          console.log('File uploaded successfully.')
+      })
+    })
+
+  //console.log(req.body.form)
+  //console.log("file:",req.file)
+  //console.log("cookies:",req.cookies)
+
+
   res.send('respond with a resource');
 });
 

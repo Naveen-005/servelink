@@ -42,26 +42,30 @@ function Profile() {
 
             });
 
-        axios({
-            method: 'get',
-            url: config.server_api_url + '/achievments',
-            withCredentials: true,
-            params: {
-                id: id
-            }
+
+
+    }, []);
+
+    useEffect(() => {
+    axios({
+        method: 'get',
+        url: config.server_api_url + '/achievments',
+        withCredentials: true,
+        params: {
+            id: id
+        }
+    })
+        .then((res) => {
+
+            setAchievments(res.data)
+            //setEventCount(res.data.eventCount)
+            //console.log(res.data)
+
         })
-            .then((res) => {
+        .catch((err) => {
+            alert(err.response?.data)
 
-                setAchievments(res.data)
-                //setEventCount(res.data.eventCount)
-                //console.log(res.data)
-
-            })
-            .catch((err) => {
-                alert(err.response?.data)
-
-            });
-
+        });
     }, []);
 
     return (

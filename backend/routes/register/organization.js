@@ -12,12 +12,6 @@ router.post('/', function (req, res, next) {
 
     const organization_instance = new organizationModel(req.body);
 
-
-    organizationModel.findOne({ 'email': req.body.email })
-        .then((q_res) => {
-
-            if (!q_res) {
-
                 organization_instance.token = crypto.randomBytes(64).toString('hex');
                 organization_instance.password = passwordHash.generate(req.body.password);
 
@@ -30,13 +24,6 @@ router.post('/', function (req, res, next) {
                         })
                     }
                 );
-
-            }
-            else {
-                res.status(409)
-                res.send('Email or phone number already registered');
-            }
-        });
 
 });
 

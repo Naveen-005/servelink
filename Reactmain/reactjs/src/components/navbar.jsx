@@ -44,7 +44,7 @@ function Navbar() {
 
   const handleLogout = () => {
     setLoginStatus(false)
-    setUserName('Guest')
+    setUserName('Guest');
     Cookies.remove('name');
     Cookies.remove('uid');
     Cookies.remove('token');

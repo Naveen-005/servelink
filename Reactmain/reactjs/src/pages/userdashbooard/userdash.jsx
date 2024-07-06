@@ -552,6 +552,16 @@ function logout() {
   window.location.href = '/login'; 
 }
 
+const [isVisible, setIsVisible] = useState(false); // State to control visibility
+
+const toggleVisibility = () => {
+  setIsVisible(!isVisible);
+};
+
+
+
+
+
 
 
   return (
@@ -673,6 +683,12 @@ function logout() {
           </a>
         </nav117>
       </div>
+      <div className={`rtyuioghjk67 ${isVisible ? '' : 'hidden'}`}>
+        <h2 id="badge123er">Badges</h2>
+        <img src={`${config.bucket_url}profile/volunteer/badges/${additionalname?._id}.jpg`} alt="Profile Image" className="profile-image"  />
+        <img src={"assets/images/healthand.jpg"} alt="Badge" className="badge-image14" />
+      </div>
+      
       <div className="components117">
   <h1 className="nev117">Welcome,{additionalname?.first_name}</h1>
   </div>
@@ -682,6 +698,8 @@ function logout() {
 <a href="events" class="button-64" role="button"><span class="text pulse-grow-btn171">Explore Events</span></a>
  {/*<button class="button-64" role="button" onClick={scrollToContent}><span class="text pulse-grow-btn171">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read news&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>*/}
 <button class="button-64" role="button" onClick={scrollToCard}><span class="text pulse-grow-btn171">&nbsp;&nbsp;Event History&nbsp;&nbsp;</span></button>
+<button class="button-64" onClick={toggleVisibility} role="button">
+  <span class="text pulse-grow-btn171">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Badges&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
 </div> 
 {/* //////// */}
 
@@ -721,14 +739,14 @@ function logout() {
 
 {/* 
 1111 */}
+
 {additionalHistory?.map((event, index) => (
   <div className={'card-photo1786'} key={index}>
     <div className="image-container"> 
       <img src={`${config.bucket_url}event/${event._id}.jpg`} alt={`Photo ${index + 1}`} style={{ width: '200px', height: '350px' }} />
       <div className="overlay-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
         <p style={{ margin: 0 }}>
-          {/* {event.title && <div>{event.title}</div>} 
-          {event.location && <div>{event.location}</div>} */}
+   
         </p>
       </div>
     </div>
@@ -736,8 +754,7 @@ function logout() {
       <span className={`white-text1736`}>
         
       </span>
-
-      {/* <button className={`centered-button1317 ${photoStates1[index] ? 'toggled-photo' : ''}`} onClick={() => handleClick2(index)} style={{ position: 'relative' }}>Details</button> */}
+ 
       <div className='wert1236'>
       {event.title && <div>{event.title.charAt(0).toUpperCase() + event.title.slice(1)}</div>}
 

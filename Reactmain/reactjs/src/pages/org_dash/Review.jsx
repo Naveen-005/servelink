@@ -6,6 +6,7 @@ import UserDropdown from './components/userdropdown';
 import ReviewCard from './ReviewCard';
 import axios from 'axios';
 import config from '../../config.json'
+import PropTypes from 'prop-types';
 
 const styleName = {
   rec121: (bgColor = '#f2f2f2') => ({
@@ -142,6 +143,11 @@ const Review = () => {
       });
 
   }, []);
+  
+  Meter.propTypes = {
+    total: PropTypes.number.isRequired,
+    enrolled: PropTypes.number.isRequired,
+  };
 
 
   return (
@@ -226,5 +232,7 @@ const Review = () => {
     </div>
   );
 };
+
+
 
 export default Review;

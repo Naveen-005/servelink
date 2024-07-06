@@ -104,7 +104,7 @@ function Profile() {
                                             <p className="small text-muted mb-0">Events</p>
                                         </div>
                                         <div className="px-3">
-                                            <p className="mb-1 h5">{achievements.length}</p>
+                                            <p className="mb-1 h5">{achievements?.length}</p>
                                             <p className="small text-muted mb-0">Achievments</p>
                                         </div>
                                         {/*
@@ -136,7 +136,7 @@ function Profile() {
                                                         <img
                                                             src={`${config.bucket_url}achievment/${achvmnt?._id}.png`}
                                                             alt='Badge1'
-                                                            style={{ width: '80px', height: '80px', marginRight: '8px' }}
+                                                            style={{ width: '80px', height: '80px', marginRight: '8px',cursor:'pointer' }}
                                                             onClick={() => {
                                                                 setSelectedBadge(achvmnt); 
                                                                 setIsOpen(true);
@@ -148,23 +148,58 @@ function Profile() {
                                                     </div>
                                                 ))}
 
-                                                <div className="popup-container">
-                                                    {isOpen && selectedBadge && (
-                                                        <div className="popup">
-                                                            <div className="popup-inner">
-                                                                
-                                                            <p>
-                                                                {selectedBadge.title}<br />
-                                                                {selectedBadge.description}<br/>
-                                                                Event:{selectedBadge.event_title}<br />
-                                                                Awarded by:{selectedBadge.org_name}
-                                                            </p>
-                                                            </div>
-                                                            {/*<button onClick={setIsOpen(false)}>Close</button>*/}
-                                                            <button onClick={() => setIsOpen(false)}>Close</button>
-                                                        </div>
-                                                    )}
-                                                </div>
+<div className="popup-container">
+  {isOpen && selectedBadge && (
+    <div className="popup" style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: 1000
+    }}>
+      <div className="popup-inner" style={{
+        backgroundColor: 'black',
+        color: 'white',
+        padding: '20px',
+        borderRadius: '5px',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        overflow: 'auto',
+        width:'30%'
+      }}>
+        <p>
+        <span style={{ marginRight: '11px' }}>BADGE  NAME:</span>{selectedBadge.title}<br />
+          <span style={{ marginRight: '11px' }}>REASON :</span>{selectedBadge.description}<br/>
+          <span style={{ marginRight: '11px' }}>EVENT NAME :</span>{selectedBadge.event_title}<br />
+         <span style={{ marginRight: '11px' }}>AWARDED BY   :</span>{selectedBadge.org_name}
+         </p>
+        <button 
+          onClick={() => setIsOpen(false)}
+          style={{
+            position:'relative',
+            left:'38%',
+            backgroundColor: 'red',
+            color: 'white',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            marginTop: '10px',
+            alignItems:'center',
+            
+          }}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  )}
+</div>
 
 
 

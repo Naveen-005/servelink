@@ -78,14 +78,15 @@ function Orglog() {
 
                 <form onSubmit={handleSubmit}>
                   <div className="form14-group14 first mb-3">
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input type="text" className="form14-control14" id="email" name="email" value={formData.email} onChange={handleChange} required/>
                   </div>
                   <div className="form14-group14 last mb-3">
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input type="password" className="form14-control14" id="password" name="password" value={formData.password} onChange={handleChange} required/>
                   </div>
 
+                  {/*
                   <div className="d-flex mb-5 align-items-center">
                     <label className="control14 control14--checkbox mb-0"><span className="caption">Remember me</span>
 
@@ -97,6 +98,7 @@ function Orglog() {
 
 
                   </div>
+                  */}
 
                   <input type="submit" value="Log In" className="btn btn-block btn-primary" style={{ background: '#6675df', border: '#6675df' }} />
                   <center>

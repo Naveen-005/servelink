@@ -1,5 +1,8 @@
+import { color } from 'framer-motion';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 function Sidebarprofile({org}) {
   const [activeTab, setActiveTab] = useState('about');
@@ -50,20 +53,20 @@ function Sidebarprofile({org}) {
           {activeTab === 'about' && (
             <div style={styles.sidebarprofilePane}>
               <h2>About</h2>
-              <p>{org?.about}</p>
+              <p style={{color:'#31473A'}}> {org?.about}</p>
             </div>
           )}
           {activeTab === 'address' && (
             <div style={styles.sidebarprofilePane}>
               <h2>Address</h2>
-              <p>{org?.address}</p>
+              <p style={{color:'#31473A'}}>{org?.address}</p>
             </div>
           )}
           {activeTab === 'contact' && (
             <div style={styles.sidebarprofilePane}>
               <h2>Contact</h2>
-              <p>Email: {org?.email}</p>
-              <p>Phone no: {org?.phone_no}</p>
+              <p style={{color:'#31473A'}}>Email: {org?.email}</p>
+              <p style={{color:'#31473A'}}>Phone no: {org?.phone_no}</p>
             </div>
           )}
         </div>
@@ -71,6 +74,14 @@ function Sidebarprofile({org}) {
     </div>
   );
 }
+Sidebarprofile.propTypes = {
+  org: PropTypes.shape({
+    about: PropTypes.string,
+    address: PropTypes.string,
+    email: PropTypes.string,
+    phone_no: PropTypes.string,
+  }).isRequired,
+};
 
 export default Sidebarprofile;
 
@@ -103,6 +114,7 @@ const styles = {
   },
   sidebarprofileTabActive: {
     fontWeight: 'bold',
+    color:'black'
   },
   sidebarprofileTabSpace: {
     flex: '1',
@@ -124,3 +136,4 @@ const styles = {
     display: 'block',
   },
 };
+

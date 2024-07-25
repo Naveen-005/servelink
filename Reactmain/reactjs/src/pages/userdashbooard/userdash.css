@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
 .by1{
-    --header117-height: 2rem;
+   /* --header117-height: 1rem;*/
     --nav117-width: 68px;
-    --first-color: #1b1236;
+    --first-color: #07202e;
     --first-color-light: #AFA5D9;
     --first-color-dark: white;
     --white-color: rgb(210, 178, 178);
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
-    --z-fixed: 100
+    --z-fixed: 100;
    
 }
 
@@ -42,17 +42,19 @@ a {
 .header117 {
     width: 100%;
     height: var(--header117-height);
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
+    left:0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background: rgb(131, 131, 131);
+    background-color: transparent;
     /* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,125,232,1) 39%, rgba(202,179,214,1) 100%); */
     z-index: var(--z-fixed);
-    transition: .5s
+    transition: .5s;
+   
+   
 }
 
 .header117_toggle {
@@ -150,6 +152,7 @@ a {
 
 .body-pd {
     padding-left: calc(var(--nav117-width) + 1rem)
+    
 }
 
 .active {
@@ -307,13 +310,13 @@ a {
   }
   .profile-photo-overlay {
     position: absolute;
-    top: 320px; 
-    left: 50%;
+    top: 290px; 
+    left: 51%;
     transform: translate(-50%, -50%); 
     border-radius: 50%; 
     border: 2px solid #ffffff; 
-    width: 160px; 
-    height: 160px; 
+    width: 200px; 
+    height: 200px; 
   }
   .nev117 {
     padding-left: 78px;
@@ -341,7 +344,7 @@ a {
   .messages-floating-card {
    
     width: 40px;
-    height: 40px;
+    height: 400px;
     transition: width 0.3s, height 0.3s;
   }
   
@@ -353,16 +356,17 @@ a {
   .floating-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-left: 30px;
     position: fixed;
     bottom: 20px;
     right: 70px;
-    background-color: black;
-    color: rgb(255, 255, 255);
+    background-color: rgb(15, 14, 14);
+    color: rgb(159, 156, 156);
     width: 380px;
-    height: 120px;
+    height: 100%;
     border-radius: 25px;
+    overflow-y: none;
+    overflow-x: auto;
   }
   .floating-card a {
     color: rgb(0, 0, 0);
@@ -720,12 +724,14 @@ margin-left: 76px;
   margin-left: 75px; 
   margin-right: 40px; 
   margin-bottom: 65px; 
+ 
 }
 
 .card-photo1786 img {
   height: 300px;
-  width: auto;
- border-radius: 8px;
+  width: 100px;
+  border-radius: 8px;
+  
 }
 
 .black-box {
@@ -851,22 +857,23 @@ margin-left: 76px;
   height: 350px; /* Increase the width of the image when toggled */
 }
 .wert1236{
-  color: #670000;
+  color: #e6fffe;
   font: larger;
   font-weight: 700;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .wert1276{
   width: 200px;
-  color: #410000;
   font-size: small;
-  font-weight: 400;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .review-section1201{
 margin-left: 80px;
+padding: 40px;
+
 }
 .y567891{
 height: 30px;
+
 }

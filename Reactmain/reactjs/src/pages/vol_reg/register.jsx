@@ -186,13 +186,13 @@ const handle1Change = (e) => {
                                     <div className="col-6">
                                         <div className="input-group">
                                             <label className="label2">first name</label>
-                                            <input className="input--style-4" type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
+                                            <input className="input--style-4" type="text" name="first_name" value={formData.first_name} onChange={handleChange} required/>
                                         </div>
                                     </div>
                                     <div className="col-6">
                                         <div className="input-group">
                                             <label className="label2">last name</label>
-                                            <input className="input--style-4" type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
+                                            <input className="input--style-4" type="text" name="last_name" value={formData.last_name} onChange={handleChange} required/>
                                         </div>
                                     </div>
                                 </div>
@@ -202,7 +202,7 @@ const handle1Change = (e) => {
                                             <label className="label2">DOB</label>
                                                <br/>
             
-                                                <input className="input--style-9 js-datepicker" type="date" name="dob" value={formData.dob} onChange={handleChange} />
+                                                <input className="input--style-9 js-datepicker" type="date" name="dob" value={formData.dob} onChange={handleChange} required/>
                                          
                                         </div>
                                     </div>
@@ -228,13 +228,13 @@ const handle1Change = (e) => {
                                     <div className="col-6">
                                         <div className="input-group">
                                             <label className="label2">Email</label>
-                                            <input className="input--style-4" type="email" name="email" value={formData.email} onChange={handleChange} />
+                                            <input className="input--style-4" type="email" name="email" value={formData.email} onChange={handleChange} required />
                                         </div>
                                     </div>
                                     <div className="col-6">
                                         <div className="input-group">
                                             <label className="label2">Phone Number</label>
-                                            <input className="input--style-4" type="text" name="phone_no" maxLength="10" value={formData.phone_no} onChange={handleChange} />
+                                            <input className="input--style-4" type="text" name="phone_no" maxLength="10" value={formData.phone_no} onChange={handleChange} required/>
                                         </div>
                                     </div>
                                 </div>
@@ -242,13 +242,13 @@ const handle1Change = (e) => {
                                     <div className="col-6">
                                         <div className="input-group">
                                             <label className="label2">City</label>
-                                            <input className="input--style-4" type="text" name="city" value={formData.city} onChange={handleChange} />
+                                            <input className="input--style-4" type="text" name="city" value={formData.city} onChange={handleChange} required />
                                         </div>
                                     </div>
                                     <div className="col-6">
                                         <div className="input-group">
                                             <label className="label2">District</label>
-                                            <input className="input--style-4" type="text" name="district" value={formData.district} onChange={handleChange} />
+                                            <input className="input--style-4" type="text" name="district" value={formData.district} onChange={handleChange} required/>
                                         </div>
                                     </div>
                                 </div>
@@ -257,7 +257,7 @@ const handle1Change = (e) => {
                                 <div className="col-6">
                                     <div className="input-group">
                                         <label className="label2">Pincode</label>
-                                        <input className="input--style-4" type="text" name="pincode" maxLength="6" value={formData.pincode} onChange={handleChange}/>
+                                        <input className="input--style-4" type="text" name="pincode" maxLength="6" value={formData.pincode} onChange={handleChange} required/>
                                     </div>
                                 </div>
                                   <div className="col-6">
@@ -277,6 +277,7 @@ const handle1Change = (e) => {
         name="profilePhoto"
         accept="image/*"
         onChange={handleFileChange}
+        required
       />
       
     </div>

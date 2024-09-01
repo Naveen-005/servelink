@@ -1,5 +1,5 @@
 # ServeLink
-<p>"ServeLink-Empowering Communities through Volunteering" is a digital platform that connects volunteers with organizations, fostering a collaborative environment for positive social impact. It uses user-friendly interfaces, robust database management, and advanced algorithms to match volunteers with suitable projects. Emphasizing security and privacy, it aims to bridge the gap between volunteers and organizations, facilitating a powerful exchange of support and service.
+<p>ServeLink-Empowering Communities through Volunteering" is a digital platform that connects volunteers with organizations, fostering a collaborative environment for positive social impact. It uses user-friendly interfaces, robust database management, and advanced algorithms to match volunteers with suitable projects. Emphasizing security and privacy, it aims to bridge the gap between volunteers and organizations, facilitating a powerful exchange of support and service.
 </p>
 <h1>Website images : </h1>
 <h2>Home pages</h2>
